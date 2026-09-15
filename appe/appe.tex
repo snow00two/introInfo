@@ -1,0 +1,653 @@
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%%\usepackage{emath}
+%\usepackage{listings}
+%\usepackage{ccicons}
+%\usepackage{mflogo}
+%%\usepackage{fancybox}%enclose by box
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{verbatim}
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%   bookmarksnumbered=true,%
+%   bookmarksopen=true,%
+%   colorlinks=true,%
+%   linkcolor=red,
+%   citecolor=blue
+%} 
+%
+%\newtheorem*{Thm}{定理}
+%\newtheorem*{Prop}{命題}
+%\newtheorem*{exQ}{レポート}
+%
+%\theoremstyle{remark}
+%\newtheorem*{ex}{例}
+%\newtheorem*{Q}{演習}
+%\newtheorem*{Quiz}{問題}
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%\renewcommand{\tablename}{表}
+%
+%\def\emptyline{\vspace{11pt}}
+%\def\smallemptyline{\vspace{6pt}}
+%
+%\begin{document}
+%\begin{flushright}
+%   2026/08/01
+%      
+%   snow00two
+%\end{flushright}
+%
+%\begin{center}
+%   {\Large Git と GitHub}
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%\end{center}
+
+\chapter{Git と GitHub}
+
+\section{バージョン管理の必要性}
+\textcolor{red}{バージョン管理}とはあるプロジェクトのファイルやディレクトリーを
+いつでも元の状態に戻れるように状態を保ちながら
+編集し続けることをいう．
+例えば事務的なExcel書類 hoge.xlsmを
+
+\begin{verbatim}
+   hoge7_4.xlsm
+\end{verbatim}
+
+\noindent
+のような形で最終変更日を付けて保存したりしたことがあると思う．
+しかし，複数の人が同じファイルを扱う場合（自分一人の場合でも），
+2つのファイル
+\begin{verbatim}
+   hoge7_6.xlsm
+   hoge7_7.xlsm
+\end{verbatim}
+が\verb/hoge2026_7_4.xlsm/から
+どの順番に生成されたか分からなくなったような経験のある人も多いだろう．
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/appe/images/figure.1}
+   \caption{どっち？}\label{}
+\end{figure}
+   
+誰が何時手を入れて，
+それがどのように統合されたのか履歴と責任を明らかにし，
+そのサポートを行うのがバージョン管理ソフトの仕事である．
+もちろん，使う側にもその使い方の理解が欠かせない．
+\textcolor{red}{Git }はそのようなバージョン管理をするためのツールであり，
+最近ではバージョン管理のデファクトスタンダードである．
+
+Git ではブランチという枝の様な構造を使ってバージョン管理を
+行っている．
+新しいことを付け加えるときはまず幹に当たるmain ブランチから
+新しいブランチを切ってそこで作業し，
+一段落付いたらmain ブランチに統合する，あるいは他の人間にレビューしてもらってその後統合する
+という方針で作業を行う．
+
+\textcolor{red}{GitHub}というクラウドサーバーに
+適宜ファイルを保存し，
+ネット上の仲間と共同でバージョン管理をするのが
+今の開発の主流である．
+
+\section{バージョン管理ツールの歴史}
+%\begin{table}[h]
+%	\begin{tabular}{llll} 
+%  		\noalign{\hrule height 1pt}
+%		 	名前&  &  &  \\ \hline \hline
+%		 	CSSV&  &  &  \\ \hline
+%			CVS& &  &   \\ \hline
+%			Subversion& &  &  \\ \hline
+%			Git & &  &  \\ \hline
+%  		\noalign{\hrule height 1pt}
+%	\end{tabular}
+%	\caption{バージョン管理ツールの歴史}
+%\end{table}
+
+\begin{itemize}
+   \item
+      SCCS 1972年IBM/System 370向けに開発された．ローカル型．
+   \item
+      RCS 1982年，ローカル型．
+   \item
+      CVS 1986年，クライアントサーバー型．
+   \item
+      Subversion  2000年，クライアントサーバー型．
+   \item
+      Bitkeeper  2000年，分散型．商用ソフトでLinux の開発でフリーで使われていた．
+   \item
+      Git 2005年，分散型．突然 Bitkeeper が使えなくなったリーナス・トーバルズが開発を始めた．
+\end{itemize}
+
+
+\section{Gitのインストール}
+Mac やLinux だと既にgit がインストールされてるので，ターミナルで
+\begin{verbatim}
+   % git --version
+   git version 2.54.0
+\end{verbatim}
+のようにすれば確認出来る．
+ただし\verb/% /はプロンプトで入力する必要は無い．
+必要に応じて次の行に出力も書いておく．
+Windows だとインストールが必要．
+
+Git の初期化：まずGitに自分のことを教える必要がある．
+\begin{verbatim}
+   % git config --global user.name "hoge"
+   % git config --global user.mail "hoge@example.com"
+\end{verbatim}
+後のGitHubの登録後に本人確認のメールとか届くので，
+本物のメールアドレスを登録すること．
+細かい設定も似た感じで出来る．例えば先程言った幹に当たるブランチの名前を
+main にするには
+\begin{verbatim}
+   % git config --global init.defaultBranch main
+\end{verbatim}
+とすれば良い（以前はmaster という名前だったが奴隷制を思い出させるということで
+main のような名前で呼ばれることが多くなった）．なお
+\begin{verbatim}
+   % git config --list
+\end{verbatim}
+でちゃんと設定できたか確認出来る．
+
+\section{Git の最低限の基本操作}
+Gitではまずはコマンドラインを使って操作し，
+使いながらGitにおけるバージョン管理の概念・使用法の
+理解を深めていくことをお奨めする．
+分かってきたらグラフィカルな方法に移って構わない．
+
+\begin{itemize}
+   \item
+      Git はディレクトリ単位でバージョン管理するので，
+      まずディレクトリを初期化する必要がある
+\begin{verbatim}
+   % mkdir hogehoge
+   % cd hogehoge   
+   % git init 
+\end{verbatim}
+      新しいファイルを作って最初のコミットを行う．
+      最初は説明を省くが後で説明を加える．
+\begin{verbatim}
+   % echo "Hello Git!" > textA.txt
+\end{verbatim}
+\begin{verbatim}
+   % git add textA.txt
+\end{verbatim}
+\begin{verbatim}
+   % git commit -m "first commit"
+\end{verbatim}
+
+   \item
+      git の状態を表示
+\begin{verbatim}
+   % git status 
+   On branch main
+   nothing to commit, working tree clean 
+\end{verbatim}
+
+   \item
+      新しいことをするには，main ブランチでは作業を行わず，
+      例えばbranchAというブランチを作り，そこに移って作業する．
+\begin{verbatim}
+   % git branch branchA
+   % git switch branchA
+\end{verbatim}
+      この段階で書類をVSCodeなどで編集すると，
+      このブランチ branchAの上で編集されるだけで，
+      main ブランチの内容はもとのままに止まっているが，
+      現在の編集内容も保存されていない．
+
+      例えば適当にファイルを変更して
+\begin{verbatim}
+   % echo "add a comment" >>  textA.txt 
+\end{verbatim}
+
+   \item
+      編集内容を保存するため，ファイル textA.txtをステージング
+\begin{verbatim}
+   % git add textA.txt 
+\end{verbatim}
+
+\noindent
+      し，問題なければコミットして作業中の内容を保存．
+\begin{verbatim}
+   % git commit -m "edit textA"
+\end{verbatim}
+      \verb/"edit textA"/ がそのコミットのコメントで，
+      後で確認出来るように必ず付け加えることになっている．
+      もし git commitのみだとエディターが自動的に立ち上がって，
+      入力を要求される．
+      
+      以後同じことを繰り返す．
+
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/appe/images/figure.2}
+   \caption{作業 branchとmain branch}\label{}
+\end{figure}
+
+   \item
+      幾つものファイルを同時に編集しても構わないし，
+      何度かブランチ branchA上でコミットを続けることも出来るので
+      適宜部分的に保存しながら作業できる．
+   
+   \item
+      branchAブランチの変更した内容をmainブランチに付け加えることを
+      マージというが，
+      特に一人で開発しているときはブランチ一個で作業し
+      \textcolor{red}{ストレートフォワードマージ}といい，
+      何も手を入れずそのままmain にマージすることが多いだろう．
+      
+      やり方を説明すると，一回メインブランチに移動して
+\begin{verbatim}
+   % git switch main
+   % git merge branchA
+\end{verbatim}
+%これは次と同値
+%\begin{verbatim}
+   % git merge origin/main 
+%\end{verbatim}
+
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/appe/images/figure.3}
+   \caption{ branchAと Main branch とコミット状況}\label{}
+\end{figure}
+      
+      大事なことなので強調しておくと，
+      Git ではmain で編集作業をすることは推奨されていない．
+      新たな編集作業は新たなブランチで行い，
+      切りの良いときmainに統合することを繰り返すことが
+      奨励されている．
+
+\end{itemize}
+\begin{Q}
+   以上のことをターミナルで行なってください．
+\end{Q}
+
+
+\section{Git のやや詳しい操作}
+以下もう少し詳しいやり方を説明する：
+\begin{itemize}
+%\begin{verbatim}
+%   % git switch -d
+%\end{verbatim}
+   
+   \item
+      ブランチの関係を見る
+\begin{verbatim}
+   % git log
+\end{verbatim}
+
+      \noindent
+      情報が多すぎるので各項目を一行で表す
+\begin{verbatim}
+   % git log --oneline
+   011784d (HEAD -> main, origin/main, testSite) add site data
+   c2b3d4f first commit
+\end{verbatim}
+      の方が見やすいかもしれない．
+      最初の数字がコミットハッシュ(の一部)で，この数字でコミットを制御している．
+      関係をグラフで表すことも出来る
+\begin{verbatim}
+   % git log --graph --oneline
+\end{verbatim}
+
+   \item
+      リポジトリーの全てのブランチ名の表示
+\begin{verbatim}
+   % git branch
+\end{verbatim}
+
+   \item
+      コッミットハッシュc1f4522のブランチに移動
+\begin{verbatim}
+   % git switch --detach c1f4522
+\end{verbatim}
+
+   \item
+      ブランチ\verb/<branchName>/の削除
+\begin{verbatim}
+   % git switch -d <branchName>
+\end{verbatim}
+      適宜不必要なブランチを消して整理することをお奨めする．
+
+   \item
+      ステージングの取消し
+\begin{verbatim}
+   % git rm --cached <fileName>   
+\end{verbatim}
+
+   \item
+       全ての変更ファイルをステージング：
+\begin{verbatim}
+   % git add -A
+\end{verbatim}
+
+   \item
+       カレントディレクトリの全ての変更ファイルをステージング：
+\begin{verbatim}
+   % git add .
+\end{verbatim}
+
+   \item
+      コミットしたコメントを間違えたときの変更の仕方：
+\begin{verbatim}
+   % git commit --amend -m “amend text”
+\end{verbatim}
+
+   \item
+      最後のマージとの変更点表示
+\begin{verbatim}
+   % git diff  
+\end{verbatim}
+      
+   \item
+      \verb/<fileName>/の変更点表示
+\begin{verbatim}
+   % git diff -- <fileName> 
+\end{verbatim}
+      %他にも色々な使い方があるのでマニュアル等で調べてください．
+
+   \item
+      途中を消すには
+\begin{verbatim}
+   % git merge --squash <branchName>
+\end{verbatim}
+
+   \item
+      merge で衝突が起こった場合の解消
+\begin{verbatim}
+   % git merge --abort
+\end{verbatim}
+      で一回中止し，編集して衝突を除く．
+
+   \item
+      マージの他にrebaseというのもある 
+\begin{verbatim}
+   % git rebase
+\end{verbatim}
+
+   \item
+      mainで間違えて作業したときの対応：
+      まず変更点を保存して
+\begin{verbatim}
+   % git stash
+\end{verbatim}
+      ブランチを切って
+\begin{verbatim}
+   % git switch -c branch
+\end{verbatim}
+      そのbranch に変更点をアップ
+ \begin{verbatim}
+   % git stash pop
+\end{verbatim}
+\end{itemize}
+まだ他にも沢山のコマンドがあるので，参考文献などで調べてください．
+
+
+\section{GitHub}\label{GitHub}
+ファイルサーバーGitHubを使うとGitの有用性が広がる．
+ファイルのクラウドへの保存と
+ネット上でのファイルの共有とかが重要である．
+個人ではフリーで使用できる．
+
+\begin{itemize}
+   \item
+      \href{https://github.co.jp/}{GitHub} を訪れアカウントを作成
+   \item
+      GitHub の自分のページにサインイン
+
+   \item 
+      GitHub の自分のアカウントにssh で公開鍵を保存：
+      まず自分のパソコンのログインディレクトリーで
+      以下のように公開鍵を作成する．
+\begin{verbatim}
+   % cd  # ホームディレクトリに移動
+   % ssh-keygen # RSA で秘密鍵と公開鍵の作成
+\end{verbatim}
+      途中でパスフレーズを2回聞かれるので（空白でも作れるが）
+      絶対入力するように．
+      上手くいくと
+\begin{verbatim}
+   % ls -a
+   ...
+   .ssh 
+   ...
+\end{verbatim}
+      上のように鍵が作られている．
+      その後, .sshのなかの公開鍵をGitHubの自分のホームに
+      登録．
+
+\begin{enumerate}
+   \item
+      GitHub のHome の一番右上のアイコンのボタンをクリック(図~\ref{GitHubHome}だと矢印の部分，ファビコンと言うらしい)．
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appe/images/GitHub.pdf}
+   \caption{GitHubのHome}\label{GitHubHome}
+\end{figure}
+
+   \item
+      左の Setting のボタンをクリック
+   
+   \item
+      SSH and GPG Key のボタンをクリック
+   
+   \item
+      SSH の New Key のボタンをクリック
+   
+   \item
+      Title と Key を入力
+   \end{enumerate}
+   
+   \item
+      GitHubで Repositoryの New ボタンをクリック
+      Repository Name に(適当な名前)fugaを記入．
+      他は省略してCreate Repository のボタンをクリック
+      するとリポジトリー が作成され，そこには以下のような指示がある：
+
+\begin{verbatim}
+   …or create a new repository on the command line
+
+   echo "# fuga" >> README.md
+   git init
+   git add README.md
+   git commit -m "first commit"
+   git branch -M main
+   git remote add origin git@github.com:snow00two/fuga.git
+   git push -u origin main
+\end{verbatim}
+
+      \noindent
+      これに従ってコマンドを実行する．以下やや詳しく解説：
+     
+      ローカルでディレクトリfugaを作成し，そこに移動し
+      最低限必要なREADME.mdを作成
+\begin{verbatim}
+   % mkdir fuga
+   % cd fuga
+   % echo "# fuga" >> README.md
+\end{verbatim}
+
+      そのディレクトリの初期化：
+\begin{verbatim}
+   % git init
+\end{verbatim}
+
+      README.mdをステージングしてコミット
+\begin{verbatim}
+   % git add README.md
+\end{verbatim}
+\begin{verbatim}
+   % git commit -m "first commit"
+\end{verbatim}
+      Main ブランチを切り設定
+\begin{verbatim}
+   % git branch -M main
+   % git remote add origin git@github.com:snow00two/fuga.git
+\end{verbatim}
+      最初のプッシュ：
+\begin{verbatim}
+   % git push -u origin main
+\end{verbatim}
+      ここでパスフレーズを聞かれて，正しければGitHubにデータが送られる．
+ 
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/appe/images/figure.4}
+   \caption{GitHub, push, pull}\label{}
+\end{figure}
+
+   \item
+      以後 main ブランチの新しいデータをGitHub のにアップするのは
+\begin{verbatim}
+   % git push 
+\end{verbatim}
+      で良い．
+
+   \item
+      GitHub からデータを取ってくるには
+\begin{verbatim}
+   % git pull 
+\end{verbatim}
+      これは以下と同じ
+\begin{verbatim}
+   % git fetch 
+   % git merge 
+\end{verbatim}
+      一つづつ確認して作業を行いたい場合はこちらをお奨めする．
+      
+      なお最初にGitHub からデータを取ってくるには，例えば
+ \begin{verbatim}
+   % mkdir fractalApp
+   % cd fractalApp
+   % git clone https://github.com/snow00two/fractalApp.git
+\end{verbatim}
+      のようにすれば良い．    
+      
+\end{itemize}
+
+\begin{Q}
+   以上のことをGitHubとターミナルで行なってください．
+\end{Q}
+
+\section{VSCode と Git/GitHub}
+Git/GitHub と VSCodeは相性が良いので，
+VSCode で Git/GitHub を使うことをお奨めする．
+\begin{itemize}
+   \item
+      VSCode で Git で管理されているディレクトリーを開くと
+      自動でGit の管理を感知して
+      ターミナルはそのディレクトリーをカレントディレクトリーとして
+      開いてくれる．また．以前使ったコマンドのHistory の復元を行ってくれ，
+      コマンドラインから Git やGitHubを管理し易い環境になっている．
+      ファイルの編集自体はVSCodeの編集画面を使えば良い．
+      
+   \item
+      VSCode の設定を GitHubで同期するように設定できる．
+      
+   \item
+      GitHub のStudent Developer Pack\footnote{2026/4 から新規受付を停止していた．
+      いろいろ変わるので詳しいことはネットで確かめてください．} に入っていると，
+      VScode の拡張機能タブで「GitHub Copilot」を検索してインストールすると，
+      使用料無しでVScodeから生成AI の GitHub Copilot が使えるようになり，
+      生成AI にコーディングの補助を受けながら
+      コーディングすることが出来て便利である．
+\end{itemize}
+
+
+\section{GitHub Pages}
+GitHubではPagesというサービスを使って
+自分のホームページを世界中に公開できる．
+
+\begin{itemize}
+   \item
+      \S~\ref{GitHub} で作ったローカルのRepository  fuga に
+      docsというディレクトリを作り，
+      その中にホームページとして実現したい
+      html, css, js のファイルを準備する．markdown でも十分で
+\begin{verbatim}
+   % git branch pages
+   % git switch pages
+   % mkdir src docs
+   % cd src 
+   % echo "# This is my test site." > index.md
+   % pandoc -f markdown -t html -s -o ../docs/index.html index.md
+   % git add -A
+   % git commit -m "add site data"
+   % git switch main
+   % git merge pages
+   % git push
+\end{verbatim}
+   \item
+      GitHubのホームページのRepository fuga の上の段の
+      Setting(見えないときはMoreの下に隠れている)を選び，
+      左のコラムのPages を選択し，
+      セレクターからDeploy from a branch を選び
+      その下のBranchでセレクターから main と /docs 選ぶ．
+   
+   \item
+      暫くするとSetting でPages の上の部分に
+
+Your site is live at https://snow00two.github.io/fuga/
+      
+      \noindent
+      のようなアドレスが現れると思う．
+      そこをクリックするとあなたのホームページが表示される(図~\ref{pagesTest})．markdownについては
+      \href{https://snow00two.github.io/docs/introductionTex.pdf}{latex と markdown}を参照．
+ \begin{figure}[htb]
+   \centering
+   \includegraphics[width=11cm]{~/Documents/GitHub/introInfo/appe/images/pagesTest.pdf}
+   \caption{作られたホームページ}\label{pagesTest}
+\end{figure}     
+      
+      ただもう少し凝ったホームページを作りたい場合これでは不十分なので，
+      \cite{M}や動画などを参考にしてHTMLやCSSやデザインの基礎を学んで欲しい．
+
+
+\end{itemize}
+\begin{Q}
+   以上のことをGitHubで行なってください．
+\end{Q}
+\begin{exQ}
+   皆さんの作ったアプリや動画や論文を世界に向けて発信
+   するウェブサイトを作って公開し，
+   そのアドレスを私の所に送って下さい．
+\end{exQ}
+
+
+\section{この先に}
+多人数での開発のためにはPull request と Issueが必要になるが，
+これについては参考文献などを調べてほしい．
+また，マージするときに衝突が起こる場合があるので
+その場合は手動でマージする必要がある．
+そのやり方も参考文献などを調べてほしい．
+
+また，Actions というGitHubの自動化のサービスもあるので調べて活用してほしい．
+
+
+%\begin{thebibliography}{99}
+%   \bibitem{S}  \href{https://backlog.com/ja/git-tutorial/}{サル先生のGit入門}
+%
+%   \bibitem{T}  高橋 あおい, つくって、壊して、直して学ぶ Git＆GitHub 入門, 翔泳社, 2025.
+%   
+%   \bibitem{W}  渡辺宙志, ゼロから学ぶGit/GitHub, 講談社, 2024.
+%
+%   \bibitem{G} 
+%   ポンストール, ロリガー, 実用 Git 第3版, オライリー, 2024.
+%   
+%   \bibitem{M}
+%   Mana, 1冊ですべて身につくHTML \verb/&/ CSSとWebデザイン入門講座［第2版］, SBクリエイティブ, 2024.
+%\end{thebibliography}
+%
+%\end{document}

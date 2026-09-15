@@ -1,0 +1,1007 @@
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%%\usepackage{emath}
+%\usepackage{listings}
+%\usepackage{ccicons}
+%\usepackage{mflogo}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{otf} 
+%%\usepackage{fancybox}%enclose by box
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{verbatim}
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%   bookmarksnumbered=true,%
+%   bookmarksopen=true,%
+%   colorlinks=true,%
+%   linkcolor=red,
+%   citecolor=blue
+%} 
+%\renewcommand{\figurename}{図}
+%\renewcommand{\tablename}{表}
+%\renewcommand{\proofname}{証明}
+%
+%\newtheorem*{exQ}{レポート}
+%\theoremstyle{remark}
+%\newtheorem*{Q}{演習}
+%\def\emptyline{\vspace{12pt}}
+%\def\smallemptyline{\vspace{6pt}}
+%\begin{document}
+%\begin{flushright}
+%   2026/04/28
+%   %2026/04/21
+%   %2026/04/03
+%   %2026/03/11
+%   %2026/02/24
+%   %2025/12/22
+%   
+%   九大・数理 大津幸男
+%\end{flushright}
+%
+%\begin{center}
+%   {\Large 情報科指導法II---02}
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%   \par{デジタルデータ 1}
+%\end{center}
+
+\chapter{デジタルデータ}
+\section{二進法}
+\begin{itemize}
+   \item
+   辞書を引くと「digit とは指, あるいはアラビア数字の0〜9 のこと」とあり，
+   その形容詞，あるいは(鍵盤楽器の)キー が digital で 対立語が analog とある．
+   このことからdigitalは$10$進法と関係しているように見える．しかし，
+   
+   \item
+   $0$, $1$を中心に置いた
+   \term[]{$2$進法}(binary system)がデジタルの最小単位である． 
+   ブール代数では$x^2=x$をみたす$x$が大事で，
+   どの体でもこのような数は$0$, $1$しかないことから$2$進法が表れる
+   という説明を受けたことがある\footnote{Bool\cite{Bo}のコメントによる}．
+%  \href{https://www.youtube.com/watch?v=He_usBp673w}
+   {電源ボタン}も
+   $0$と$1$を並べてデザインされたもの（図~\ref{power}）
+   である\footnote{$\, |$は電線が繋がった様子を模式化したものという説明もある．}．
+   \begin{figure}[htb]
+      \centering
+      \includegraphics[width=7cm, trim=0 500 1000 0, clip]{~/Documents/GitHub/introInfo/ch2/images/ScannedDocuments.pdf}
+      \caption{私の研究室のプリンタの電源ボタン}\label{power}
+   \end{figure}
+      
+   $2$進法では
+    \[
+       1011=2^3+0\cdot 2^2+2^1+2^0=11
+    \]
+      のよう数字が表される．
+   $0$, $1$を\term[]{ビット}{bit}(小片,  または，binary digit の略語) という．
+   $N$ビットで表せる数は$2^N$個である． 
+   代数的には剰余環$\mathbf Z/2^N\mathbf Z$と見なすことが自然だが，
+   これについては暗号の回に解説する．
+   
+   また，負の整数(補数)や小数も$2$進法で表され，
+   コンピューター上では特殊な方法で処理される．
+   入試などではよく出されるようだが今回は省略する．
+
+   \item
+   \term[]{$16$進法}{hexadecimal system}では$0$〜$15$を
+    \[
+       0,  1,  2,  3,  4,  5,  6,   7,  8,  9,  \text{A},    \text{B},    \text{C},    \text{D},   \text{E},    \text{F}
+    \]
+   で表す．
+   $16$進法を使っていることを明記するため 0x1D (0x1d のように小文字を使う場合もある)のように書くことがある．
+   
+   \item
+   $8$ビットを$1$\term[]{バイト}{Byte}という．$2^8=256=16\times 16$なので
+   $16$進法の二つの数で表される．
+   例えば
+   \[ 
+     \text{0x3A}= 3\times 16 + 10 =58
+   \]
+   のようになる．ただし，歴史的にはByteが$8$ビットに決まるまでは紆余曲折があったそうである：
+   \href{https://www.itmedia.co.jp/news/articles/2202/03/news151.html}
+   {なぜByteは$8$ビットに決まったのか？}
+    
+ \end{itemize}
+ 
+ 上のようなコンピューターの特性からコンピューター上でデータを表すにはそのデータを二進法で表す（近似する）必要がある．
+ これを\term[]{符号化}という．以下データ毎にどのように符号化されているかを解説したい． 大きく二つに分けて，
+文字のならびからなるデータを\term[]{テキスト}{text}といい，
+その他のデータをまとめて\term[]{バイナリー}{binary}という．
+もちろん，
+数自体も大事なデータであるが，ここではテキストの一部と見なす．
+ 
+\section{テキストデータ}
+ \begin{itemize}
+   \item
+   %Colume table
+   \begin{table}[h]
+      \centering
+      \begin{tabular}{l|llllllll} 
+      \noalign{\hrule height 1pt}
+      &0&1&2&3&4&5&6&7\\ \hline \hline
+      0&\textcolor{green}{NUL}&DLE&SP&0&@&P&`& p\\ \hline
+      1&SOH&DC1& ! &1&A&Q&a& q\\ \hline
+      2&STX&DC2& '' &2&B&R& b& r\\ \hline
+      3&ETX&DC3&\# &3&C&S& c& s\\ \hline
+      4&EOT&DC4&\$&4&D&T& d& t\\ \hline
+      5&ENQ&NAK& \%&5&E&U& e& u\\ \hline
+      6&ACK&SYN&\&  &6&F&V& f& v\\ \hline
+      7&\textcolor{green}{BEL}&ETB&' &7&G&W& g& w\\ \hline
+      8&\textcolor{green}{BS}&CAN&(&8&H&X& h& x\\ \hline
+      9&\textcolor{green}{HT}&EM&)&9&I&Y& i& y\\ \hline
+      A&\textcolor{green}{LF}&SUB&*&:&J&Z& j& z\\ \hline
+      B&VT&\textcolor{green}{ESC}&+&;&K&[& k&\{\\ \hline
+      C&FF&FS&, &$<$&L&\textbackslash & l& $|$ \\ \hline
+      D&\textcolor{green}{CR}&GS&- &=&M& ] & m& \} \\ \hline
+      E&SO&RS&. &$>$&N&\textasciicircum & n& 〜 \\ \hline
+      F&SI&US&/&? &O & \_ & o & \textcolor{green}{DEL}\\ \hline
+        \noalign{\hrule height 1pt}
+      \end{tabular}
+      \smallemptyline
+      \caption{ASCII---上の行の数字＋列の$16$進数}
+   \end{table}
+%Width table
+%\begin{table}[h]
+%  \begin{tabular}{l|llllllllllllllll} 
+%  \noalign{\hrule height 1pt}
+%  &0&1&2&3&4&5&6&7&8&9&A&B&C&D&E&F\\ \hline \hline
+%  0&NUL&SOH&STX&ETX&EOT&ENQ&ACK&BEL&BS&HT&LF&VT&FF&CR&SO&SI
+%  \\ \hline
+%  1&DLE&DC1&DC2&DC3&DC4&NAK&SYN&ETB&CAN&EM&SUB&ESC&FS&GS&
+%  RS&US\\ \hline
+%  2&SPA& ! & '' &\# &\$ &\% & \& &' &(&)&*&+&, &- &. &/\\ \hline
+%  3&0&1&2&3&4&5&6&7&8&9&:&;&$<$&=&$>$&? \\ \hline
+%  4&@&A&B&C&D&E&F&G&H&I&J&K&L&M&N&O \\ \hline
+%  5&P&Q&R&S&T&U&V&W&X&Y&Z&[&\textbackslash & ] &\textasciicircum & \_ \\ \hline
+%  6&`&a& b& c& d& e& f& g& h& i& j& k& l& m& n& o \\ \hline
+%  7& p& q& r& s& t& u& v& w& x& y& z&\{& $|$ & \} & \textasciitilde & DEL\\
+%    \noalign{\hrule height 1pt}
+%  \end{tabular}
+%\end{table}
+ASCII (American national Standard-Code for Information Interchange) 
+   米国情報交換用標準コード, 33個の制御文字とスペースを含むキーボードの
+   特殊文字・数字・アルファベットの大文字小文字の文字を0から127
+   までの$2^7$個の整数で表したもの．1963年に標準化された．
+   例えば 0x7A は z を表す．
+   二進数では$01111010$となり一番左の桁は常に$0$に成っていることも後で重要になる．
+   また，制御文字の中で黒のものは現在では使われていない．
+   
+  
+   ASCII の文字が写真のキーボーボードにすべて表れている
+   (ただし，Tab, Control, Shift, Opt(Alt), Cmd, Fn などの修飾キーと Return は除く)
+   ことに注意．
+   
+   \begin{figure}[htb]
+      \centering
+      \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch2/images/keyboard.pdf}
+      \caption{keyboard(HHKB)--QWERTY配列}\label{HHKB}
+   \end{figure}
+
+%  \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch2/images/keyboardSet.pdf}
+%     \caption{keyboard--QWERTY配列}\label{HHKB}
+%  \end{figure}
+   
+   \TeX でお馴染みかも知れないが\verb/ \/ とASCII に含まれない ￥
+   が文字化けする問題がある．
+   Mac でもこれが困った問題を引き起こすことがあるので注意が必要．
+
+   ここに載せたキーボードは
+   左上のアルファベットの並びがQWERTY であることから
+   QWERTY 配列と呼ばれている．
+
+   tab （インデント）ついて：tab には機械タブ\verb/   /
+   (これではよく分からないので\verb/\t/と書くことがある )と
+   空白何個かで作るタブ\verb/   /の二種類がある．
+   プログラミンではコードのツリー構造を人間に分かり易くし可読性を高めるため
+   タブを入れることが勧められるが，
+   機械タブと空白何個かで作るタブを区別するもの（コンパイラー）があるので
+   注意が必要．美的にも二つのタブが混ざると綺麗でない．
+   
+   \emptyline 
+     キーボードが出てきたのでついでに：     
+     一生ものの外付けキーボード（特殊文字の位置固定）を手に入れて（図~\ref{HHKB}のキーボードだとテンキーは別途購入する必要がある）：
+   \begin{enumerate}
+      \item
+         touch-type\footnote{以前はブラインドタッチと呼ばれていたが差別的な響きがあったことからこう呼ばれることが増えた．}をマスターし，
+         コマンドラインインターフェースに慣れる．
+         \begin{enumerate}
+            \item
+               F と J のキーの上には突起があり，
+               人差し指の触覚だけで位置が確認できるようになっている．
+            \item
+               ラップトップパソコンだとついキーが見えてしまうので，
+               タッチタイピングの練習のためにも
+               外付けキーボードが必要である(私はやったことが無いが，
+               見えないように手の上に布を置くという方法もある)．
+            \item
+               ラップトップのキーが外付けキーボードと異なるときは，
+               調整する機能拡張(私はKarabineを使っている)が必要になる．
+         \end{enumerate}
+
+      \item
+         よく使うアプリのよく使うメニューアイテムのショートカットを覚え，
+         スピードを落とすマウスの使用量を減らす．
+      
+      \item
+         キーキャップリムーバーを手に入れ，キーボードの洗浄を定期的に行う．     
+   \begin{figure}[htb]
+      \centering
+      \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/ch2/images/keyremover.pdf}
+      \caption{Keycap Remover}\label{}
+   \end{figure}
+
+   \end{enumerate}
+   ことをお奨めする．
+
+\begin{Q}
+   \, 
+   
+\begin{verbatim}
+   % echo ABCDEFGHIJK > test     
+   % od -c -t x1 test
+   0000000    A   B   C   D   E   F   G   H   I   J   K  \n    
+     41  42  43  44  45  46  47  48  49  4a  4b  0a    
+   0000014
+\end{verbatim}
+   
+   最初の行の最初の\verb/% /はprompt,  次の\verb/ >/ は redirect, 
+   \verb/ >>/ にするとファイルがあるときはそれに追加される．
+   \verb/od/ は octal dump の略で\verb/ - /以下はoption 
+   
+   \emptyline
+   経験者からのアドバイス：
+   演習で解答し（他でもコンピューターの知識，あるいは，コンピューターに限らず何でも調べ）たら，
+   メモ帳などに説明を含む簡単なメモを残すようにして下さい．
+   結局は時間の節約になります．
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=12cm, trim=10 50 10 0, clip]{~/Documents/GitHub/introInfo/ch2/images/memo.pdf}
+      \caption{私のMacのメモ(Notes)}\label{memo}
+   \end{figure}
+\end{Q}
+
+\begin{exQ}
+   タッチタイピングを練習し，出来るようになったら
+   その様子が確認出来るような動画をつくり，
+   私が確認出来るようにそのURLを送って下さい．
+\end{exQ}
+
+
+
+   \item
+   日本語の文字コードについてはひらがな・カタカナ・漢字などの文字の種類が多いことから
+   2Byte($=2^{16}\approx  64,000$) の数字を使う二バイト文字を使う必要があった．
+   しかもその方法にJIS, SJIS, EUC など異なったものがあり文字化けが問題であった．
+   更に，ネットの発達などにより世界中の文字への対応が必要となり， 
+   \href{https://home.unicode.org/}{Unicode}
+   \footnote{このサイトを訪れるとその壮大さに圧倒される．}が制定された．
+   \begin{itemize}
+      \item
+      Unicode は数字に過ぎない．最近では約11万字以上を表すことができる．
+      U+ の後に16進数で表し，U+000000〜U+10FFFFだけ有るが冗長性が大きいので，
+      表現の体系が幾つかある．最近のスタンダードはUTF-8である，
+      他にもUTF-16, UTF-32などがある．ただし，U+は入力しなくていい．
+      
+      \item
+      例えばU+0041 はAを表し，
+      ASCII を含んだ拡張になっていることが分かる．
+      更にUTF-8では
+      例えばU+0041を0x41の1byte で表すような，
+      1byteの最初の2進数が0の文字をASCIIと判定するアルゴリズムを
+      用いている．つまり，
+      ASCII はASCII のままで使用できるようになっており
+      既存のコンピューター資源をそのまま使うことが出来る．
+      これがUTF-8が普及した理由である\cite{Y}．
+       
+      \item
+      改行の示し方もUNIX, Mac ではLF (line feed character, line finder 改行文字)で，
+      Windows ではCR+LFである．
+      そこで改行の違うUTF-8が存在するので注意が必要である．
+   \end{itemize}
+
+   \begin{Q}
+   CLIで文字化け対応 
+\begin{verbatim}
+   % brew install nkf  
+   # nkf がインストールされていないとき
+   # WSLでも多分 % sudo apt install nkf でOK
+   % nkf -s letter.tex > test.tex
+   % nkf -w test.tex > test2.tex
+\end{verbatim}   %apt=Advanced Package Tool
+   これらを普通のエディターで文字化けしないように開いて下さい．
+   \end{Q}
+   \begin{Q}
+   Unicode のローカル（自分のPC）での入力法について検索して（あるいは生成AIに聞いて），
+   ファイルに直接UTF-8で文字入力出来るようになってください．
+   
+   例えば事務から送られてくるメールでよく文字化けしている
+   %\UTF{2460}と\UTF{3230}%
+   %\ajMaru{1}と\ajKakkoYobi{1}
+   のUnicode を調べて
+   文字化けなく出力出来るようになって下さい．
+   \end{Q}
+   \begin{Q}
+      Windowsなどで未だにSJISを使っている人は早めにUTF-8に移行することを
+      お奨めします．やり方を調べて実行してください．
+   \end{Q}
+
+
+%  \item
+%  日・時間データ
+   
+   \item
+   文字のならびからなる文を\term[]{文字列}といい，
+   プログラミングの中では変数や数や関数と区別するため  
+   \verb/'/ や   \verb/"/ で囲んで表すことが多い．
+   例えば \verb/"This is a statement."/ のように表す．
+   \begin{Q}
+   文字の数字の真の数字への変換：例えば shell で1+2を計算すると
+   
+   \begin{verbatim}
+   % 1+2
+   zsh: command not found: 1+2 #当たり前か？
+   % echo 1+2 >text.txt 
+   \end{verbatim}
+   \begin{verbatim}
+
+   % od -c -t x1 text.txt 
+   0000000    1   +   2  \n                                                
+            31  2b  32  0a   #少し考えると1+2 は文字列
+   0000004
+   % echo $((1+2)) #調べるとこうすれば良いことが分かる
+   3
+   % python #もっとも今だとこのあたりが普通か？
+   >>> 1+2
+   3
+   >>> # control Dで終了
+\end{verbatim}
+   自分の使っている(興味のある)言語で文字の数字の数字への変換，
+   逆の変換のやり方を調べてください．
+\end{Q}
+
+\end{itemize}
+\section{画像データ}
+ バイナリーデータは画像データや音声データ，プログラムの実行ファイルなどの区別がある．まずは画像データ：
+
+\begin{itemize}     
+   \item
+   \begin{figure}[htb]
+      \centering
+      \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch2/images/figure.1}
+     \caption{加法混色}\label{addColor}
+      \end{minipage} 
+      \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch2/images/figure.2}
+     \caption{減法混色}\label{subColor}
+      \end{minipage} 
+   \end{figure}
+   
+   まず画像の物理的特性．
+   テレビやパソコンのディスプレーで画像を作る単位をpixel(画素)という(図~\ref{Liquid Crystal}\footnote{
+      \href{https://commons.wikimedia.org/w/index.php?curid=710606}
+         {WikiPediaより By Ravedavel}
+         \href{https://creativecommons.org/licenses/by/1.0/?ref=openverse}{\ccbysa}
+   })．
+   例えば私のモニターが$1200\times 1920$pixelの表示のときは
+   $2,304,000\approx 2.3\cdot 10^6$個のpixelを使っていることになる．
+   各pixelの色は \term[]{RGB}, つまり，Red Green Blueの略で
+   加法混色(図~\ref{addColor}) することで
+   色々な色を表現できることが分かっている．
+   これらは$[0,1]$の中の実数の三つ組みで表せるが，実際は
+   離散化（量子化とも言う）し，
+   それぞれの色を1バイト($2^8=256$)に分けて近似する．
+   全体で3バイトで
+   \[
+      2^8\cdot 2^8\cdot 2^8=2^{24}\approx 16\cdot 10^6
+   \]
+   種類の色を表すことができる（この仕様をフルカラーという）．それらがpixelの数だけあるので
+   コンピュータの一画面を表すのに必要なデータは
+   \[
+      16\cdot 10^6\times2.3\cdot 10^6
+      \approx 36.8\cdot 10^{12}
+      \approx 40 \text{兆個}
+   \]
+   あることになる．
+      \begin{figure}[htb]
+      \centering   
+      \begin{minipage}{0.5\columnwidth}
+         \centering
+         \includegraphics[width=4cm]{~/Documents/GitHub/introInfo/ch2/images/1024px-Liquid_Crystal_Display_Macro_Example_zoom.jpg}
+         \caption{ pixel
+         }
+         \label{Liquid Crystal}
+      \end{minipage} 
+      \begin{minipage}{0.4\columnwidth}
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch2/images/figure.8}
+        \caption{色相環}\label{cycColor}
+      \end{minipage} 
+   \end{figure}
+
+   色を表すのには直接 $0$〜$255$ を三つ並べてRGBを
+   \[ 
+      [125,45,255]\quad\text{or}\quad
+      (125,45,255)\quad\text{or}\quad 
+      \text{color}(125,45,255)
+   \]
+   のように書いたり，
+   \term[]{カラーコード}といって\verb/#/の後に16進法の数字
+   を6つ(省略形で3つ)並べて
+   \[
+      \verb/#/\text{a43aff}
+   \]
+   のように表すことがある．また，red, blue, mazentaなどように
+   既に定義された名前をつかえることがある
+   （どのように表すかは使っている言語による）．
+   \begin{Q}
+      VSCode ではカラーコードを入力するとサンプルが表示される機能がある(図~\ref{colorCode})ので実際に確かめてください．
+      \begin{figure}[h]
+      \centering
+      \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch2/images/color.jpg}
+      \caption{VSCodeでカラーコード表示}\label{colorCode}
+   \end{figure}
+   \end{Q}
+
+   
+   印刷用にはCMYK(Cyan Magenta Yellow blacK)という減法混色が用いられる(図~\ref{subColor})．
+   
+    \item        
+      色については美術や心理学の観点から，
+      \begin{itemize}
+         \item 
+         色相(hue)：赤や青などの色の違い(色相環 図~\ref{cycColor} 参)．
+         \item 
+          彩度(saturation)：色の鮮やかさ
+         \item
+         明度(luminosity, brightness)：色の明るさ
+      \end{itemize}
+      により説明される．更に
+      \begin{itemize}
+         \item 
+            補色（図~\ref{cycColor}の反対側にある色）
+         \item
+            暖色・寒色
+         \item
+            有彩色・無彩色
+         \item
+            トーン
+         \item
+            ベースカラー，メインカラー，アクセントカラーの比率
+      \end{itemize}
+      などの概念を知って，
+      それを使いこなす練習をすれば
+      実際のデザイン・プログラミングにも役立つだろう
+      (例えば \cite{R}, \cite{TK}, \cite{Uti}, \cite{W},  参照)．
+
+   \item
+      画像を動かすことで動画が得られる．個々の画像をframeという．
+      テレビ放送では30fps (=frames per second)つまり，
+      1秒間に30 frame 表示することになっている．
+      したがって1秒間に$1200$兆個のデータを使っていることになる．
+   
+   \item
+      画像データをコンピュータで表すには
+      点と直線や曲線の組で表すベクタ表現，
+      図形を画素の集合として表すラスタ表現
+      の二種類の方法がある．
+     ベクタ表現は拡大縮小が自由であるが
+      ラスタ表現は拡大すると見づらくなる．
+      \begin{figure}[htb]
+         \centering
+         \begin{minipage}{0.4\columnwidth}
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch2/images/figure.3}
+         \caption{ベクタ表現}\label{vector}
+         \end{minipage} 
+         \begin{minipage}{0.4\columnwidth}
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch2/images/figure.4}
+         \caption{ラスタ表現}\label{rast}
+         \end{minipage} 
+      \end{figure}
+      
+   \item
+      文字符号を具体的に画像データとして表示した物が
+      フォントである．
+      フォントにはベクタ表示のアウトラインフォントと
+      ラスタ表示のビットマップフォントがある．
+      近年ではアウトラインフォントが主流となっている．
+      現代では様々な書体のフォントが使用可能である．
+      
+      ただし，□（豆腐）という形で，
+      フォントがない文字が表されることがある
+      （いたずら好きの友達がヒエログリフで送ってきた可能性もないわけではないが，
+     pdfで文字の埋め込みに失敗した可能性の方が高い）．
+      これを起こさないためにGoogle による
+      NoTo (=No Tofu)いうもプロジェクトが進んでいる．
+
+\end{itemize}
+
+%\begin{thebibliography}{9}
+%   \bibitem{B}
+%      Bool, {\em Laws of thought}, 1848
+%   
+%
+%    \bibitem{R}   
+%       ガー・レイノルズ, プレゼンテーションZen 第3版, 丸善出版, 2021.
+%    \bibitem{TK}
+%    高橋 佑磨, 片山 なつ, 
+%    伝わるデザインの基本 増補改訂3版 
+%    よい資料を作るためのレイアウトのルール, 技術評論社, 2021.
+%
+%    \bibitem{U}
+%       内田 広由紀, 7日間でマスターする 配色基礎講座 
+%       (デザイン ビギナー シリーズ), 2000
+%    \bibitem{W}
+%       Robin Williams,  ノンデザイナーズ・デザインブック [第4版], 
+%       マイナビ出版, 2016
+%   \bibitem{Y}
+%      矢野 啓介, 
+%      [改訂新版］プログラマのための文字コード技術入門, 技術評論社, 2018.    
+%\end{thebibliography}
+%
+%\end{document}
+
+
+\section{音声データ}
+   音は物理的には空気中の圧力の差が秒速$340$mぐらいで伝播していく縦波であり，
+   それを静止あるいは比較的低速で移動する動物が耳で捉えたものである．
+   よって，
+   音楽データは時間$t$についての圧力の変化$f(t)$によって表せる．
+   まず$f(t)$は単なる連続関数で(場合によっては不連続点のあるものも扱うので)
+   そのままではコンピュータでは扱えないことを注意する．
+   
+   ヒトの聴覚は 20Hz(ヘルツ)から2万Hzまでといわれているので
+   ある程度高い音は聞こえないと考え，
+   フィルターで除外する．
+   その周波数を$W$とし，そのため生じる最小周期を$T=\frac{2\pi}{W}$と置く．
+   得られた関数をもう一度$f(t)$と置き，
+%   つまり，
+%   この$f(t)$のフーリエ変換$\hat f(\omega)$と置くとき
+%$\omega\ge W$で$\hat f(\omega)=0$と仮定する．すると$\hat f(\omega)$は
+%$[-W,W]$上の関数となり，$\mathbf R$上に周期的に拡張することで
+%$S^1$上の関数と見なせる．%      のでその逆変換で
+%      $f(t)$が復元できるが，それはFourier級数と解釈出来る．
+$n$を整数として 
+     \[
+        a_n=f(n T)
+     \]
+   を作る
+   (図~\ref{sampling})．$W$を\term[]{サンプリング周波数}，
+   $\{a_n\}$を作ることを \term[]{サンプリング}という．
+   \[
+      f_n(t)=\frac{\sin\pi(n-\frac t{T})}{\pi(n-\frac t{T})}
+   \]
+   を使って
+   \[
+      \bar f(t) := \sum_{n=-\infty}^{\infty}a_nf_n(t)
+   \]
+   を作ると，$f$が$\bar f$と一致するというのが
+   シャノン-染矢の\term[]{サンプリング定理}である．
+       
+   現実には$a_n$の値は二進数に量子化され，
+      そのビットを\term[]{量子化ビット数}という．
+   音は高周波数成分を含むことと量子化により
+   ある程度の誤差は避けられない．
+    
+   \begin{figure}[htb]
+   \centering
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch2/images/figure.5}
+      \caption{音波と標本化}\label{sampling}
+   \end{minipage} 
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch2/images/figure.6}
+      \caption{$f_0$(t)}\label{}
+   \end{minipage} 
+   \end{figure}
+
+%   \emptyline
+   
+   具体的にCDの場合の規格を見てみると，
+   サンプリング周波数は$44.1$kHzで
+   量子化ビット数は$16$bit である．
+   したがって，$1$秒間で必要なデータ量は
+   \[
+      64000 \times 44100\approx 2.8 \times 10^{11}
+   \]
+   ステレオだとこの$2$倍である．
+   \emptyline
+   
+   DTM(=Desk Top Music)のためには音楽の理論や心理学についても
+   必要になると思うがここでは取り上げない．
+   このセクションの名前は音声データであるが，
+   人の声は意味を伝える特別な音であるので後にもう一度取り上げる．
+  
+\section{実行ファイル}
+コンピュータのバイナリーの中で重要なものの一つはプログラム(の実行ファイル)そのもののである．C言語のファイル
+\begin{verbatim}
+   #include <stdio.h>
+   
+   int main(){
+   	printf("Hello, World!\n");
+   }
+\end{verbatim}
+をhello.c という名前で保存．
+冒頭の\verb/<stdio.h>/は標準入出力を使うために必要なライブラリーであり，それを最初に読み込んでいる．
+そのディレクトリで
+\begin{verbatim}
+   % ls
+   hello.c         README.md
+   % gcc hello.c 
+   % ls
+   a.out           hello.c         README.md
+   % ./a.out
+   Hello, World!
+   % od -c -t x1 a.out | more
+\end{verbatim}
+最後の more ではスペースキーでページが更新され，Bで前のページに移り，Qで終了する．
+gcc は gnu\footnote{GNUはGUN's Not Unix の頭文字でグニューと読む．R.~Stallman が始めた．} c compilerの略である．
+
+\begin{Q}
+上の作業を自分で行い，Hello, World! が何処にあるかを探してください．
+\end{Q}
+現在では(システム開発者以外は)C言語を知らなくてもそれほど困らないと思うが，
+参考文献としてはやはり\cite{KR}を挙げておく．
+また，これからは Rust や Go などを学んだ方が役に立つかもしれない\footnote{プログラミング言語の将来予測は極めて難しいことが知られている．}．
+\emptyline 
+
+Shell Script について：
+\begin{verbatim}
+   #!/bin/sh
+   
+   echo "Hello World!"
+\end{verbatim}
+を hello という名前で保存．
+\verb/#!//bin/sh はShell Script の書き出しの決まり文句である\footnote{私が昔読んだ\cite{KP}ではここが必要とは書れていないが，\cite{Ya} では書くのは当然と書いてある．}．
+そのディレクトリで
+\begin{verbatim}
+   %ls -l
+   total 8
+   -rw-r--r--  1 snow00two  staff  33 Apr 30 13:28 hello
+   # このままだと実行可能でない
+   % chmod +x hello   # 実行可能に変換
+   % ./hello
+   Hello World!
+\end{verbatim}
+helloはテキストファイルであるが，実行ファイルでもあるので，これもバイナリーと呼ばれることがある．
+
+\begin{Q}
+上の作業を自分で行ってください．
+\end{Q}
+
+
+\section{データの取扱い}
+次にデータの取り扱いについて述べる：
+ \begin{itemize}
+   \item
+      データの授受の時よく使われるテキストの形式のことを
+      \term[]{構造化データ}という．
+      いずれも基本ASCIIファイルであり，
+      (文明が崩壊しない限り)未来永劫どのようなエディタでも開き
+      編集することが出来るものである．
+      \begin{enumerate}
+         \item
+            CSV =Comma Separated Values： 
+            Excel のデータを文字列で書き出し
+            $,$(Comma)で区切ったテキスト (図~\ref{csv})．
+            $,$をtabに代えた(TSV =Tab Separated Values) もあるが，
+            .csv の拡張子なのに実はtabで区切られたものも多い．
+            
+            また，Windows のcsvファイルにはファイルの先頭には，
+            BOM (=Byte Order Mark, ぼむ)という
+            3バイトのデータが着いていることがあり，
+            Mac・UNIX環境では悪さをすることがある．
+            BOMの取り除き方については検索して探してほしい．
+
+         \begin{figure}[htb]
+         \centering
+         \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch2/images/ScreenCapture1.pdf}
+         \caption{CSV:\href{https://www.nstac.go.jp/use/literacy/ssdse/past/}{SSDSE-F-2023}}\label{csv}
+         \end{figure}
+         %TSV= Tab Separated Values は$,$の代わりにTab( HT=0x09)で区切ったもの．
+              \begin{figure}[htb]
+            \centering
+            \begin{minipage}{0.45\columnwidth}
+               \centering
+               \includegraphics[width=6cm]{~/Documents/GitHub/introInfo/ch2/images/ScreenCapture2.pdf}
+               \caption{JSON}\label{JSON}
+            \end{minipage} 
+            \begin{minipage}{0.45\columnwidth}
+               \centering
+               \includegraphics[width=6cm]{~/Documents/GitHub/introInfo/ch2/images/ScreenCapture3.pdf}
+               \caption{YAML}\label{YAML}
+            \end{minipage} 
+         \end{figure}
+
+      \item
+         JSON = JavaScript Object Notation：元々はJavaScriptの連想配列から
+         作ったもの\footnote{JSONは2001年クロックフォードによりJavaScript
+         の中から「発見」されたといわれている．}だが最近色々な所で使われる(図~\ref{JSON})．
+         npm では package.json という
+         ソフトウェアの依存性を記述したファイルがよく使われている．
+         
+      \item   
+         YAML = YAML Ain’t Markup Language：Pythonに似た構造化データ．
+         JSONよりコンパクトに記述できる(図~\ref{YAML})．
+         ソフトの設定などに使われる．
+     \item 
+        XML  = eXtendable Markup Language： 
+        HTML に似たデータ記述言語で一時期はやったが，
+        最近はあまり使われない．しかし，
+        パソコンの内部では今でもよく使われている．
+              
+   \end{enumerate}
+   \emptyline
+
+これらのアルゴリズムはコマンドラインのコマンドの形や，
+   プログラミング言語のライブラリーの形で提供されている．
+   
+   \begin{Q}
+      yaml, json, xml 間の変換：yq\, を使う
+      
+\begin{verbatim}
+   % cat math.json 
+[
+   {
+      "lastname": "円", 
+      "firstname": "周率"
+   },
+   {
+      "lastname": "黄金", 
+      "firstname": "率"
+   },
+   {
+      "lastname": "虚数", 
+      "firstname": "単位"
+   }     
+]
+   % brew install yq #yqがインストールされていないとき
+   % yq -P -oy math.json > math.yml 
+   % cat math.yml
+- lastname: 円
+  firstname: 周率
+- lastname: 黄金
+  firstname: 率
+- lastname: 虚数
+  firstname: 単位
+   % yq -o json math.yml  > math2.json
+\end{verbatim}
+
+
+   \end{Q}
+
+   \item
+      Base64：メールやHttpのヘッダなどでバイナリーをテキストに変換して送る方式．
+      バイナリーを$6$ビットずつに分け，それを0〜63 の数字で表すとき
+      0から25にA〜Z, 26から51にa〜z, 52から61に0〜9, 
+      62, 63に\verb/-/  \verb/_ / を当てはめることで
+      （最後の二つは異なるやり方もある）
+      文字列に変換するやりかたである．
+      \emptyline
+      
+      このアルゴリズムもコマンドラインのコマンドの形や
+      プログラミング言語のライブラリーの形で提供されている．
+\begin{Q}\, 
+
+\begin{verbatim}
+   % echo "abc" > test
+   % tar -czf test.tar.gz test #適当なバイナリーを作成
+   % base64 -i test.tar.gz
+   H4sIAIj+uGkAA+3PMQ6AIAwFUGZP0SO0WOA8aGQ1Ebi/IMaRDY1J3/
+   LTtMNv2mJSgyGiZYaazporUbf5xkCGjHGacbaApImcAhxdrMox+aNU2
+   VPMvbtyFkJn3x6BJ3/CL+v0dQchhBDvOwEZLljpAAgAAA==
+\end{verbatim}
+\verb/#/ 画面に入らないので適当に改行
+\end{Q}
+
+  
+ 
+   \item
+     任意の長さのデータから固定長のデータを取り出す関数を
+     ハッシュ関数(hash funcition)といい，その値を
+     ハッシュ値(hash value)という．
+    特に\term[]{一方向ハッシュ関数}が重要である．
+ 
+      ただこのままでは何を言っているのかさっぱり分からないと思うので，
+      一方向ハッシュ関数に期待されてる性質をまとめておく．
+     \begin{itemize}
+         \item
+            どのような長さのデータでも出力は同じ長さ
+         \item
+            計算は易しく，大して時間が掛からない．
+         \item
+            耐衝突性：異なる入力には異なる出力を出す．
+            もっともディリクレの原理から出力のビット数を超える個数の
+            入力の中では必ず衝突が起こるので，
+            少ない個数の異なる入力には異なる出力を返すという意味である．
+            
+         \item
+            一方向性：ハッシュ値から入力の逆算が難しい．
+      \end{itemize}
+      \emptyline
+
+      ハッシュ値は暗号とは異なることに注意する．
+      また，そのアルゴリズムの設計も難しそうであることも分かる．
+      \emptyline
+      
+      
+      ハッシュ値の使い方について：
+      ハッシュ値はコンピュータ・セキュリティの分野で広く日常的に使われている．幾つか例を挙げるが，これから先も関係した話題が出てくるだろう：
+       \begin{itemize}
+         \item 
+            パスワードの保存：パスワード自体をそのままで保存するのは危険なので，
+            パスワードのハッシュ値を保存して，パスワードを打つ毎にそのハッシュ値を
+            比較してパスワードが正しいことを毎回確認することが行われている．
+            \emptyline
+
+            ただし，ありそうなパスワードのハッシュ値を事前に計算していおいて，
+            そのパスワードのハッシュ値のリスト(\term[]{レインボーテーブル}という)
+            と比較してパスワードを推測する\term[]{辞書攻撃}があるので，
+             ユーザー毎に疑似乱数(ソルトという)を決めておき，
+            パスワードにソルトを加えたデータのハッシュ値を使う方法も行われている．
+         
+         \item 
+            ソフトウエアを配布するとき，
+            配布元のサイトのミラーサイトを使うことはよく行われているが，
+            それが本物であることを保証するため，そのソフトウエアのハッシュ値を計算して
+            配布元のサイトに置いておき，ミラーサイトからソフトウエア手に入れた入手者が
+            そのハッシュ値を計算し，配布元のサイトのハッシュ値と比較して
+            それが本物であることを確認することが行われている．
+       \item
+          疑似乱数：先程もでてきたが一方向ハッシュ関数をつかうことで
+          (ランダムに近く見える)疑似乱数の生成が行われる．
+
+      \end{itemize}
+      \emptyline
+
+  \begin{table}[h]
+      \centering
+      \begin{tabular}{llll} 
+           \noalign{\hrule height 1pt}
+             一方向ハッシュ関数& 長さ & 発表年& コメント \\ \hline \hline
+            MD5& 128bit& 1992  &危殆化 \\ \hline
+            SHA-1& 160bit&  1995&危殆化\\ \hline
+            SHA-256&256bit &  2001&\\ \hline
+            SHA-512& 512bit&  2001&\\ \hline
+            SHA-3& 可変&   2015&\cite{Y}に詳しい説明\\ \hline
+           \noalign{\hrule height 1pt}
+      \end{tabular}
+    \smallemptyline     
+      \caption{使われている(た)一方向ハッシュ関数}
+   \end{table}
+
+       現在使われている(た)一方向ハッシュ関数を挙げておく．
+       ただし，コメントに書かれた\term[]{危殆化}とは
+       既に 不十分であることが分かっていることを意味していて，
+       互換性のために未だサポートされているが，
+       これからの積極的な使用は推薦されていないことを意味している．
+       \emptyline
+
+         これらのアルゴリズムもコマンドラインのコマンドの形や
+         プログラミング言語のライブラリーの形で提供されている．
+
+\begin{Q}
+\,
+
+\begin{verbatim}
+   % echo "abc" > test
+   % sha256 test
+\end{verbatim}
+{\small SHA256 (test) = edeaaff3f1774ad2888673770c6d64097e391bc362d7d6fb34982ddf0efd18cb}
+
+\noindent
+\verb/#/ 画面に入らないので小さくした．
+\end{Q}
+
+    \item
+        圧縮：データを保存したり送ったりするとき
+        内容を変えないように圧縮して送れると
+        保存量・通信量を減らせて都合が良い．
+        元のデータ量と圧縮したデータ量の比を\term[]{圧縮率}という．
+        \[
+           \text{圧縮率}
+           =\frac{\text{圧縮した後のデータ量}}
+              {\text{圧縮する前のデータ量}}\times 100 \, \, \verb/%/
+        \]
+        
+        圧縮をといたとき元のデータが完全に復元できるのが\term[]{可逆的圧縮}，
+        データが完全に復元できず欠損が起こるのを\term[]{不可逆圧縮}という．
+        とくに音声・映像データは不可逆圧縮で十分(で遅れがない方が大事)なことが多い．
+        いくつか圧縮法の例を挙げる：
+       
+       \begin{itemize}
+         \item
+            ランレングス法：
+              この紙（あるいはモニター画面）のような
+              白と黒などの繰り返しの多いデータの時，
+              連続する同じデータの数を数えて示すのが
+               \term[]{ランレングス法}である．
+              例えば
+              \[
+                 AAAAABBAAAAAAAABBBBBBBAAAAA
+              \]
+              のようなデータを$A5B2A8B7A5$と圧縮する．
+              
+         \item
+           ホフマン法：例えば
+\begin{gather*}
+\text{おきゃがれこぼし　おきゃがれこぼし}\\
+\text{ゆんべもこぼして　またこぼした}
+\end{gather*}
+という文(歌舞伎\href{https://www.youtube.com/watch?v=Fif6tRWZZVQ}{「外郎売り」}より, \cite{Kabuki}には先代の市川團十郎の舞台の動画もある．)を（空白を除いて）適切なかたまりに分割すると次のような頻度になる．
+         \begin{table}[h]
+            \centering
+            \begin{tabular}{l|llllll} 
+                 \noalign{\hrule height 1pt}
+                     部分& こぼし & おきゃがれ& ゆんべも& て& また&た \\ \hline 
+                     頻度 & 4 & 2& 1& 1&1&1\\ \hline
+                     コード & 00 & 01& 100& 101&110&111\\ \hline
+                 \noalign{\hrule height 1pt}
+            \end{tabular}
+            \smallemptyline     
+            \caption{ホフマン法の例}
+         \end{table}
+         
+         \noindent
+          $6$個の部分があるので$3$bit 必要だが，
+          頻度が多い$2$つの部分に$0$から始まる短い$2$進数$00$, $01$を与え，
+          残りの$4$つに$1$ではじまる$3$bitの$2$進数を表のように与えると
+           \[   
+              010001001010010111000111
+           \]  
+           と置き換えることが出来る．
+           文字の区切りがちゃんと判定できることを確かめてほしい．
+           このように頻度に応じて短い数を当てるのが
+           \term[]{ホフマン法}である．
+
+
+      \end{itemize}
+       %JPEG, ZIP で使われている．
+      データの特徴を上手く使った方法を選ぶ必要がある．
+      \begin{exQ}
+         発声練習：「外郎売り」を練習し，発声出来るようになったら
+         その様子が確認出来るような動画をつくり，
+         私が確認出来るようにそのURLを送って下さい．
+      \end{exQ}
+
+\end{itemize}
+
+
+%\section{補足：Fourier 変換}
+
+%\begin{thebibliography}{9}
+%%   \bibitem{B}Bool, {\em Laws of thought}, 1848
+%%    \bibitem{Ko} Koblitz, A course in Number theory and Cryptography, GTM,  \href{https://link.springer.com/search?package=11649&facet-content-type=%22Book%22}{ダウンロード}
+%   \bibitem{K}
+%      木村秀紀, Fourier-Laplace 解析, 岩波書店, 1993.
+%   \bibitem{KP}
+%      Kernighan, Pike, 
+%      Unix programming environment, Pearson, 1984
+%      (訳 UNIX プログラミング環境, KADOKAWA, 2017).
+%   \bibitem{KR}
+%      Kernighan, Ritchie, 
+%      The C programming  Language--2nd edition, 
+%      Prentice Hall,1989. 
+%      (訳プログラミング言語C 第2版 ANSI規格準拠, 共立出版, 1989.)
+%   \bibitem{Ya}
+%   山森丈範，[改訂第4版]シェルスクリプト 基本レファレンス, 技術評論社, 2024.
+%   \bibitem{Y}
+%      結城浩, 暗号技術入門 第３版, SBクリエイティブ, 2015.
+%   \bibitem{U}
+%      小学館DVDBook, 歌舞伎のいき, 第2巻「時代物・荒事編」, 2008.
+%
+%\end{thebibliography}

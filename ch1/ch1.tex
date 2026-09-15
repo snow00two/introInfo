@@ -1,0 +1,692 @@
+%%\documentclass[a4paper,11pt]{jlreq}
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%\usepackage{qrcode}
+%%\usepackage{emath}
+%\usepackage{listings}
+%\usepackage{ccicons}
+%\usepackage{mflogo}
+%%\usepackage{fancybox}%enclose by box
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{verbatim}
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%   bookmarksnumbered=true,%
+%   bookmarksopen=true,%
+%   colorlinks=true,%
+%   linkcolor=magenta,
+%   citecolor=blue
+%} 
+%\newtheorem*{exQ}{レポート}
+%\theoremstyle{remark}
+%\newtheorem*{Q}{演習}
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%\renewcommand{\tablename}{表}
+%
+%\def\emptyline{\vspace{11pt}}
+%\def\smallemptyline{\vspace{6pt}}
+%\begin{document}
+%\begin{flushright}
+%   2026/04/14
+%   %2026/04/04
+%   %2026/03/29
+%   %2026/03/11
+%   %2026/02/21
+%   %2026/02/10
+%   %2025/12/22
+%   
+%   九大・数理 大津幸男
+%\end{flushright}
+%
+%\begin{center}
+%   {\Large 情報科指導法II---01}
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%   \par{Command Line Interface}
+%\end{center}
+%
+%\section{授業目標と計画}
+%この授業は毎回の講義と演習から成る．
+%学期前半の授業では
+%各授業を2つに分け，その前半では情報科で知っておくべき基礎的なトピックを講義形式で解説する．
+%後半ではそれに関する環境構築に関する技術的なことやプログラミングやプロンプトエンジニアリングを演習形式で体験してもらう．
+%%参考文献として \cite{Mo1}, \cite{Mo2}, \cite{K}, \cite{F}, \cite{KP} などを挙げておく．
+%
+%学期後半の残りの授業でも
+%各授業を2つに分け，
+%前半では生成AI の原理・プログラミングとプロンプトエンジニアリングとの関係について講義し，
+%後半ではデジタルや生成AIと個人及び社会との関係に付いて，
+%様々なCLツールと生成AIを使用しながら検討し，
+%それを元にディベート形式で議論を深める演習を行う．
+%
+%この講義の重要な部分は演習なので出席をとります．
+%出席して演習を行ってください．
+%
+%\section{情報科の参考資料}
+%以下の文科省の発表した情報科の参考資料をこの授業でも参考にするので，
+%ダウンロードして時間があるとき目を通しておいてください
+%(このpdf ではマゼンタの文字の部分がHyperLink)．
+%
+%\begin{itemize}
+%   \item
+%      \href{https://www.mext.go.jp/a_menu/shotou/new-cs/1407074.htm}
+%      {高校学習指導要領}
+%   
+%   \item
+%      情報科編（上のリンクから辿れる）
+%   
+%   \item
+%      \href{https://www.mext.go.jp/a_menu/shotou/zyouhou/detail/mext_00017.html}
+%      {「情報I」教員研修用教材}
+%   
+%   \item
+%      \href{https://www.mext.go.jp/a_menu/shotou/zyouhou/detail/mext_00018.html}
+%      {「情報II」教員研修用教材}
+%   
+%   \item 
+%      \href{https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo3/118/mext_00002.html}{次期指導要領についての最近の文科省の動向}
+%\end{itemize}
+%
+%この講義の準備のために
+%\cite{F}, \cite{Fu}, \cite{K}, \cite{OM},  \cite{Sa}, \cite{Yag}, \cite{IT}\footnote{ITパスポートは情報処理推進機構IPAが実施する試験, 他にも基本情報技術者試験, 応用情報技術者試験がある．}
+%などを参考にさせてもらった．
+%日米の高校生・大学生・社会人に求められる情報リテラシーを知るのに有用だと思うので，
+%手に入れる必要は無いが，いくつか手に取って眺めてみることをお奨めしたい．
+%
+%
+\chapter{CLI入門}
+\section{コンピューターの歴史}
+コンピューターの歴史を簡単に振り反ってみる：
+\begin{itemize}
+   \item
+       19世紀半ばにバベッジ(Babbage)による階差機関・解析機関の構想があった．
+       計画は現代のコンピューターに近かったが，
+       開発には成功しなかった．
+       \href{https://www.youtube.com/watch?v=0anIyVGeWOI}
+       {近年実現された階差機関}
+ 
+   \item
+       19世紀後半にはアナログコンピューターが登場した．
+       例へば1930年頃のバネバー・ブッシュ(Vannevar Bush) の微分解析機がある．
+   \item
+      19世紀末にホレリス\footnote{のちのIBM( International Business Machines )の創業者の一人}(Hollerith)
+      により開発されたパンチカードを使った集計で
+      合衆国の国勢調査が行われた．
+   \item
+      1936年チューリング(A.~Turing)がチューリングマシンの概念を発表し，
+      計算可能性について考察を行った(\cite{Turing})．
+
+   \item
+      最初の電子計算機ENIACがモークリー(J.Mauchly)とエッカート(J.P.Eckert)により1943〜1946に開発された．
+      
+   \item
+      1951年フォン・ノイマン(von Neumann)による史上初の
+      ストアドプログラム(stored program)方式の
+      コンピューターEDVACが開発された．
+      現在のコンピューターは全てこのノイマン型の子孫である．
+      そのころの入力法は
+      \href{https://www.youtube.com/shorts/DveA0EuI5qc}{紙テープ}や
+      \href{https://www.youtube.com/watch?v=0065zKzeCWI}{パンチカード}だった．
+   
+   \item
+      最初は機械語でプログラムされていたが．
+      \href{https://www.youtube.com/watch?v=xdFfUmUJZ-w} 
+      %\href{https://www.youtube.com/watch?v=e2LiY4ou3VI&t=200s}
+       {グレース・ホッパー}(Grace Hopper)によりコンパイラーが開発され，
+      アセンブラでコーディングされるようになり，
+      更にFORTRANやCOBOLなどの高級言語が生まれた
+      \footnote{FORTRAN(formula translator)は
+      IBM, John Warner Backus により1957,
+       COBOL(Common Business Oriented Language)は 
+       G.~Hopper, CODASYL(データシステムズ言語協議会)により
+       1959に開発された(\cite{W}). 共に現役で使われている言語である．}．
+   
+   \item 
+      Operating systemの発達：
+      最初は
+      オペレーターと呼ばれる人が
+      順番にまとめてプログラムを読み込んで実行する
+      バッチ処理(batch processing)の形で行われていた．
+      その後1964年に
+      オペレーターの代わりをプログラム自身で行う
+      Time sharing system の
+      \href{https://www.youtube.com/watch?v=Q07PhW5sCEk&list=PLT8Ms9NT2xpb6yBvtVpBXzUoIMAhDu0G9}
+      {CTSS}(Compatible Time Sharing System) が生まれ，
+      テレタイプやキーボードからモニターを見ながら
+      コンピューターに命令するというインタープリターを使った
+      使用が盛んになり，そこからそのプログラムは
+      OS (Operating System)と呼ばれるようになった．
+      数々の商用OS(例
+      \href{https://www.youtube.com/watch?v=npgvV_-Nh60}{IBM System360})
+      が発売され
+      Multics の失敗ののち，
+      特に
+      
+      UNIX\footnote{UNIXはX/Open Company Ltd.~の登録商標. ただし，カーニハンは Unix と綴ることを勧めている(\cite{K}).}とC言語と shell の誕生：
+      \begin{itemize}
+         \item
+            1969\footnote{この年インターネットの最初の実験と
+            アポロ11号による最初の月着陸が行われた．} %\href{https://www.youtube.com/watch?v=CknIJHtxxsw}
+            AT\&TのBell 研究所の\href{https://www.youtube.com/watch?v=HADp3emVABg&t=302s}{ケン・トンプソン}(Ken Thompson)
+             によりPDP-7上でアセンブラでUNIXの開発が始まった
+         \item
+            1970 PDP-11 に移植(図~\ref{PDP11})
+         \item
+            1973 \href{https://www.youtube.com/watch?v=RaotHMNZPaI}
+            {デニス・リッチー}(Dennis Ritchie)は
+            ケン・トンプソンの開発したB言語をもとにC言語を開発し，
+            ケン・トンプソンと共にC言語でUnixを書き直した．
+            始めての高級言語によるOSの開発だった．これにより
+            OSの移植性が格段に高まった．
+            
+          \item
+            1991 リーナス・トーバルズ(Linus B.~Torvalds) が Linux を公開し，
+            今でも開発が続いている．
+            皆さんが使っているアンドロイド携帯や
+            クラウドのコンピューターの多くはLinuxベースである\footnote{Linuxの重要な判断の最終決定はトーバルズが行っている．そのためトーバルズに何かがあったとき，コンクラーベが行われることになっている}．
+            
+
+      \end{itemize}
+      
+       \begin{figure}[htb]
+         \centering
+         \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/ch1/images/Screen_Shot_2020-09-19_at_7.16.21_AM_big.png}
+         \caption{Ken Thompson (sitting) and Dennis Ritchie working together at a PDP-11, タイプライターのようなものが\href{https://www.youtube.com/watch?v=I_O-KlHhkII}{テレタイプ}(Wikipedia より)}\label{PDP11}
+      \end{figure}
+ 
+   
+   \item 1970年代GUI(Graphical User Interface)が開発された(\S \ref{GUI})．
+   
+   
+   \item
+      個人的には嫌だが，BCI(ブレイン・コンピューター・インタフェース）
+      の時代が来るかも知れない．
+
+\end{itemize}
+
+
+\section{GUIの歴史}\label{GUI}
+\begin{itemize}
+   \item 
+   第二次大戦後の1945年バネバー・ブッシュは``As we may think'' でMEMEX の構想を述べた．
+   
+   \item 
+      1963年サザーランドがスケッチパッドを開発
+   \item 
+      1960年代中期にエンゲルバートがマウスを開発
+   \item 
+      1974 年Xerox のPARC (Plo Alto Research Center) でALTOが作られ，
+      アラン・ケイ(Alan Kay)が1977年に
+      \href{https://www.youtube.com/watch?v=BNmPQQwE50U}{ダイナブック}
+      の構想を発表した．
+     最初の \href{https://www.youtube.com/watch?v=H1GJMoZqLdo}
+     {オブジェクト指向言語}の一つのSmallTalkやMulti-Windowシステムも開発された．
+   
+   \item
+      \href{https://www.youtube.com/watch?v=pQocN_c2uLI}{PARC の訪問}に刺激をうけたスティーブ・ジョブス(Steven Jobs)による
+      Lisa 開発と1983年発売，失敗
+   
+   \item 
+      Lisa 開発から外れたスティーブ・ジョブスによる
+      Macintoshが
+      \href{https://www.youtube.com/watch?v=ErwS24cBZPc}{1984年}\footnote{「1984年」は現代社会を予言したジョージ・オーウェルのディストピア小説\cite{Orwell}．
+         このリンク先はリドリー・スコット監督が1983年に発表したマッキントシュのコマーシャルである\cite{Jobs}. 
+      }
+      発売され
+      商業的に成功し現在に繋がる．
+   
+\end{itemize}
+コンピューターの発展の詳しい歴史については \cite{Jobs}, \cite{interface}, \cite{history}, \cite{UNIX}, \cite{Kay}, \cite{tools} などを参照してほしい．YouTube などで検索すると興味深い動画も多数見つかる．
+インターネットの発達と生成AIの発達については後日解説する．
+
+\section{CLI}
+現在ではGUI で色々なことができるようになり，
+実際ほとんどの人がGUI を使っていると思うが，
+Command Line Interface(CLI, CUI =Character User Interface と呼ばれることもある) でないと出来ないことも多い．
+何が出来て何が出来ないかはCLIを使ってみたことがないと分からない
+と思うが，\textcolor{red}{生成AIもCLIを使いこなしている}ので
+生成AIが何をしているのか分かるぐらいまではCLIを使いこなしてほしい．
+
+ここでは CLI のOSの例としてUnixを取り上げ
+(MacOSはUnixの兄弟FreeBSDを基に作られていて，
+Linux もUnixの親戚に当たる), 
+まずUnixのファイルシステムについて紹介する． 
+shell の使い方については次のセクションで説明する．
+\begin{itemize}
+   \item
+      ディレクトリー：% DOM
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch1/images/figure.1}
+         \caption{ファイルシステムのツーリー構造}\label{tree}
+      \end{figure}
+   \begin{figure}[htb]
+         \centering
+         \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch1/images/column.pdf}
+         \caption{Column 表示でのツーリー構造の確認}\label{column}
+      \end{figure}
+            
+         ディレクトリーやファイルは図~\ref{tree}のようなツリー構造に配置されている．
+         特にパソコンのハードディスクの一番上の部分をルートといい \verb/// と表す．
+         全てのディレクトリーやファイルはルートから一意的にたどっていく
+         ことが出来る．
+         ファイルやディレクトリが\verb/// から見てどこにあるかを示すのを
+         \term[]{絶対path}という．
+         例えば
+         図~\ref{tree}のprogramming.texは
+         
+         /Users/sonw00two/Documents/classRoom/General/
+         
+         Programming/src/programming.tex
+         
+         \noindent
+         のように表される．
+         後で出てくる .. は一つ上のディレクトリーをあらわす\term[]{相対 path}の例
+
+      \item
+      不可視ファイル：
+         ディレクトリ /usr  は
+         普通には見えない設定になっているので
+         知らないとアクセスできない．
+         Finder のメニューバーの Go のメニューから Go to Folder を選ぶと
+         四角いウィンドウが開くので /usr と入力し，goをクリックで移動できる．
+         Finderで cmd shift G とタイプしてもよい．
+         
+   \item
+         拡張子：%とpermission 
+         ファイル名には hoge.tex の .tex のような
+         \term[]{拡張子}(extension)があるが，
+         多くの場合アイコンのみ表示され見えないようになっている．
+         開発のときは様々なファイルを扱うので，
+         拡張子を表示しないと効率的なファイルの管理が難しい．
+         また，メールの添付ファイルのアイコンは偽造できるが
+         拡張子により直ぐに峻別できるので，
+         セキュリティーの観点からも表示するのが望ましい．
+   
+   \item        
+         関係したファイルは一つのディレクトリーに，
+         関連していないファイルは異なるディレクトリーにいれ，
+         関連のある，あるいは類似のディレクトリーは纏めて一つの大きなデレクトリー
+         に入れるなど入れ子構造にして（それがツリー構造の定義である）
+         管理するのが基本である．
+         また，簡単にそのディレクトリーを説明するテキストファイル ReadMe.txt, 
+         README.mdをそのディレクトリーに置くことも良い習慣である．
+         
+
+%   \item
+%
+%
+%shell 
+%
+%root 
+%
+%ログインディレクトリー
+%作業ディレクトリ
+%
+%ファイル管理
+%原則
+%Login
+
+\end{itemize}
+
+\section{CLI 実践演習}
+\begin{center}
+   \href{https://www.youtube.com/watch?v=6XvmhE1J9PY}{オバマ元大統領からのメッセージ}
+\end{center}
+
+以下のアプリのインストール・色々なサービスへ登録してもらい，コマンドラインの使い方を説明する．
+ただし，CLI では破滅的なことも出来るので，
+バックアップは自分でこまめに取っておくようにして下さい．
+\textcolor{red}{
+   プログラミングの演習で生じた被害への補償は一切行えません．
+   この免責事項を認めた人だけがこの本を読み続けることが出来ます．
+}
+
+  \begin{figure}[htb]
+         \centering
+         \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch1/images/vscode.pdf}
+         \caption{VSCode, 下が terminal}\label{vscodeTerm}
+   \end{figure}
+
+\begin{Q}
+\begin{enumerate}
+   \item
+      VSCodeのインストール：
+       
+                   フリーのエディタというより統合開発環境
+            (IDE = Integrated Development Environment)Visual Studio Code
+            （略称VSCode, \href{https://code.visualstudio.com}{ここからダウンロード}
+            可能，図 \ref{vscodeTerm}参)．
+            様々なコンピューター言語のための（自動補完，構文解析のための）
+            インテリセンス，リンター，スニペット，ユニットテスト
+            \footnote{詳しい説明はネット等で調べてください.}等の機能拡張がある．
+            マイクロソフトのVisual Studio  シリーズのエディタのみをフリーで公開した
+            もので，他にも似たものが色々あったが，最近はデファクトスタンダード．
+            JavaScriptで作られたアプリの一つで
+            Chromium+JavaScript+Node.js+Electron 
+            により作られている(図 \ref{vscode})．
+     
+      \begin{figure}[htb]
+               \centering
+               \includegraphics[width=6cm]{~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf}
+               \caption{VSCodeのクレジット}\label{vscode}
+   \end{figure}
+   
+   \item
+         terminal /shell:
+       
+       Macや Linux 等では既にインストールされている．
+       Windows ではPowershell あるいは
+       WSL(Windows Subsystem for Linux)をインストロールする必要があるだろう．
+       
+      これから必要になるtool等もCLIと上でも述べたtoolなどを使って
+       インストールする必要のあるものが多い．
+       Mac の標準の terminal は
+      
+       /Applications/Utilities/Terminal.app
+   
+       \noindent
+       にある．
+      Mac なら (Home)brew もインストールしておくと都合が良い．
+      \href{https://brew.sh/ja/}{ここからダウンロード}
+       
+       不可視なディレクトリやファイルも沢山あるので
+       適宜コマンドで確認する必要がある．
+      VSCode の下の部分にもterminal が付いている（図 \ref{vscodeTerm}）．
+
+%     \item
+%      Web 技術：JavaScript ( TypeScript )
+%      
+%      \begin{enumerate}
+%         \item  http とコマンドラインによるbrowserもどきの作成
+%         
+%         \item 
+%              Chrome のDeveloper tool, Chromeには最初からDeveloper menu がある.
+%             Developer ニューから JavaScript Console を開くと
+%             Console が開き，デバッグが可能．
+%         
+%         \item  
+%            JXA : JavaScriptが Mac のスクリプト言語として採用された：
+%         
+%            Script Editor・ターミナルから osascript・automator で使える．
+%         
+%         \item 
+%            Single page application: JavaScript+Node.js+Electron etc.+Chromium でmacOS, 
+%            Windows, スマートホンのいずれにも対応したデスクトップアプリケーションが
+%            一度に作れる． 例VSCode 
+%         
+         
+%         \item
+%            p5.js ：
+%            JavaScript で記述し，2D, 3Dの映像・動画の作成可能．
+%            Processing というJavaのライブラリーをJavaScript に移植したもの
+%            (\cite{P5})．
+%      \end{enumerate}
+   \item
+      version 管理の基本ソフト git とネットサーバー GitHub. 
+      多人数で開発を行うにはこれを使いこなさないといけないが，
+      個人開発でも有用．
+      GitHubで VSCode の設定ファイルの同期も出来る．
+      大学等でMicrosoft365に契約していると，そのアドレスでGitHubに
+       \href{ https://github.com/}{登録}し
+      Student Developer Pack を使うように設定できるかもしれない．
+
+   \item
+      大学等でMicrosoft365に契約していると，
+      ログインすると Copilot（chatGPTを office suite 向きにアレンジしたもの）が
+      使用料無しで使えるようになっているかもしれない．
+      GitHub のStudent Developer Pack に入っていると，
+      VScode の拡張機能タブで「GitHub Copilot」を検索してインストールすると，
+       使用料無しでVScodeからGitHub Copilot pro が使えるようになるかもしれない．
+%   chatGPT etc
+%      \begin{enumerate}
+%      \item
+%         機械学習
+%      \item
+%         プロンプトエンジニアリング(\cite{OT})．
+%      \end{enumerate}
+
+   \item
+      JavaScript は  Chrome などのBrowser で既に使えるようになっているが，
+      セキュリティのためディスクへのアクセスなどは制限されているので，
+      強力な実行環境となる node.js とその管理ツール npm も必要になる．
+      \href{https://nodejs.org/ja/download}{ここからダウンロード}.
+      これからは
+      \href{https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/}
+      {TypeScript}にも慣れる必要があるだろう．
+            
+   \item
+      Python3 とその管理ツール pip や  (Ana)conda  も必要
+      \href{https://www.python.org}{ここからダウンロード}
+   
+\end{enumerate}
+\end{Q}
+
+
+\begin{Q}
+   拡張子を表示するようにパソコンを設定して下さい．
+   \begin{figure}[h]
+         \centering
+         \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/ch1/images/ScreenCapture1.pdf}
+         \caption{Macでのエクステンションの表示}\label{extension}
+      \end{figure}
+\end{Q}
+
+\begin{Q}
+   VSCode の設定を，必要なら検索かCopilotに聞いて，
+   GitHubで同期するように設定して下さい．
+\end{Q}
+
+\begin{Q}
+   VSCode でGitHub Copilot を立ち上げ，
+   （もし答えを既によく理解していれば簡単だが，
+   その分野の知識がないと難しい）
+   以下のような質問をいくつか行って下さい．
+   \begin{enumerate}
+      \item
+         大学の代数の数学者として以下の質問に
+        数学科の学生に分かるように答えて下さい．
+         標数$p$の有限体が素体$\mathbf Z/(p)$のガロア拡大であることを示し，
+         そのガロア群がどうなるか教えて下さい．
+         
+      \item
+         大学の幾何の数学者として以下の質問に
+         数学科の学生に分かるように答えて下さい．
+         実射影平面$\mathbf R\mathbf P^2$($2$次元の実射影空間)の定義を述べ，
+         それが閉多様体であることを示し，
+         その$\mathbf Z$係数ホモロジーがどうなるか教えて下さい．
+   \item
+         大学の情報の専門家としてcommand line interface に不慣れな学生に，
+         git, GitHub のcommand line interfaceによる管理の仕方を
+         説明して下さい．
+         
+   \item
+         最近 LLMや生成AIを勉強していて，
+         それ自体はよく出来ていると思いますが，
+         この方向でAGIがあと数年で出来るとも思えません．
+         しかし生成AIを開発している会社のCEO達は「あと数年で
+         AGI が出来そうだ」などと言っています．
+         人工知能と経営学のそれぞれの専門家の立場から，
+         なぜそのような言動を繰り返すのか答えてください．
+         
+      \item
+         大学の経済学の専門家としてトランプ大統領にも分かるように，
+         輸入した物に関税をかけると物価が上がることを説明して下さい．
+         
+   \end{enumerate}
+   その生成AI の回答を読んで，
+   （自分の知識の無い分野のその答の）内容が理解できたか確認して下さい．
+\end{Q}
+
+
+      コマンドラインインターフェースを使いこなさないとプログラミングは難しい．
+        以下に簡単なコマンドの使用例をあげる．terminal(端末) を立ち上げるとプロンプト
+        が表示される(図~\ref{terminal})．
+        私の端末では$\cdots$\verb/% /となっているのがプロンプトで，
+        そのままキーボードからコマンド（文字）を打ち，リターンキーを押すと
+        そのコマンドが実行され，次の行に結果が表示される．
+        \begin{figure}[htb]
+         \centering
+         \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch1/images/terminal.pdf}
+         \caption{Terminal}\label{terminal}
+      \end{figure}
+       これがコマンドラインインタープリター shellである．
+       以下では \verb/% / でプロンプトを表す．
+        
+        以下\# 以降はコメント
+        %以下，表示がインデントされすぎるのでインデントを減らす．
+   \begin{lstlisting}
+   % cd #  ホームディレクトリへ移動
+   \end{lstlisting}
+   \begin{lstlisting}
+   % cd .. #  一つ上のディレクトリへ移動 
+   \end{lstlisting}
+   \begin{lstlisting}
+   % pwd  #  現在のディレクトリの名前の表示
+   \end{lstlisting}
+   /Users
+   \begin{lstlisting}
+   % ls   #  現在のディレクトリにあるディレクトリやファイル表示
+   \end{lstlisting}
+   Shared   sonw00two
+   \begin{lstlisting}
+   % ls -a  #  不可視なものも含めたディレクトリやファイル表示
+      localized   Shared   sonw00two
+   % cd sonw00two  # このディレクトリのディレクトリ sonw00two へ移動
+   \end{lstlisting}\begin{lstlisting}
+   % mkdir tmp  # ディレクトリ tmp の作成
+   \end{lstlisting}
+   \begin{lstlisting}
+   % cd tmp  # ディレクトリ tmp へ移動
+   \end{lstlisting}
+   \begin{lstlisting}
+   % ps aux >ps.txt  # 全てのプロセスを ps.txt に書く
+   \end{lstlisting}
+   \begin{lstlisting}
+   % more ps.txt  # ps.txt  を表示．q で表示を閉じる
+   \end{lstlisting}
+   \begin{lstlisting}
+   % mv ps.txt ps1.txt  #  ps.txt の名前をps1.txt へ
+   \end{lstlisting}
+   \begin{lstlisting}
+   % cp ps1.txt ps2.txt  # ps1.txt  をps2.txt にコピー
+   \end{lstlisting}
+   \begin{lstlisting}
+   % rm *  # このディレクトリの任意のファイルを削除．*   はこのディレクトリの任意のファイル名を表すいわゆるワイルドカード．また，ファイルを全部消さないとディレクトリは削除できない．
+   \end{lstlisting}
+   \begin{lstlisting}z
+   % cd ..  
+   \end{lstlisting}
+   \begin{lstlisting}
+   % rmdir tmp  # ディレクトリ tmp の削除 % rm -R tmp で中のファイルを消さなくても削除可能ではあるが慣れるまでは確認してから削除を勧める．
+
+   \end{lstlisting}
+\emptyline
+
+shellには全てをキーインしなくても，ファイル名などをある程度打ってタブキーを打つとあとの部分を補完してくれる機能がある．他の開発環境でも異なるキーかもしれないが大抵補間機能がついている．
+
+   
+%   \item
+%      正規表現：パターンマッチングの表現．
+%      どれでも良いのでよく使う言語の正規表現をマスターすることをお奨めする．
+%      すると少しの変更で他の言語でも使えるようになる．
+\begin{Q}
+   コマンドラインを使い，ディレクトリーを移動したり，
+   ディレクトリーやファイルの作成や削除を行って下さい．
+\end{Q}
+
+授業の中で出すレポートの幾つかを解いて
+提出してください．最終成績はその出来で判断します．
+例えば
+\begin{exQ}
+   自分のポートフォリオサイトを作って自分の
+   （プログラムや動画や論文などの）作品を公開して下さい．
+   そのURLを送って貰えるとその出来で成績を付けます．
+   ちなみにこの講義のために作った
+   \href{https://snow00two.github.io/mySite/}{私のポートフォリオ}です．
+\end{exQ}
+
+\begin{exQ}
+   この講義を準備していて，
+   講義の準備をするのが知識を深めるのに一番良いことに改めて気づきました．
+   そこで情報I の担当になったとして適当な回数の講義案を\LaTeX で準備してください．
+   その講義案を提出して貰えればそれをレポートとして受け付けます．
+\end{exQ}
+
+
+%\begin{flushright}
+%   \qrset{link, height=1.5cm}
+%  \qrcode{https://snow00two.github.io/mySite/}
+%\end{flushright}
+
+%
+%\begin{thebibliography}{99}
+%   \bibitem{Jobs}
+%      アイザックソン, スティーブ・ジョブスI, II, 講談社, 2011.
+%      
+%   \bibitem{interface}
+%      Apple Computer, 
+%      Apple Human Interface Guidelines: 
+%      The Apple Desktop Interface, Addison-Wesley, 1987,
+%      日本語版, 1989.
+%
+%   \bibitem{F}
+%      Feynman, Lectures on computation, Perseus, 1996, 
+%      日本語版：ファインマン計算機科学, 岩波書店, 1999.
+%
+%   \bibitem{Fu}
+%      藤原進之介, 
+%      学校で習っていなくても読んで理解できる藤原進之介のゼロから始める情報 I, 
+%      KADOKAWA, 2023. 
+%  \bibitem{history}
+%      ゴールドスタイン, 復刊計算機の歴史, 共立, 2016.
+%
+%   \bibitem{K}  
+%      カーニハン, 
+%      教養としてのコンピューターサイエンス講義 第二版, 日経BP, 2020.
+%  
+%     \bibitem{UNIX}
+%      カーニハン,
+%      カーニハンのUNIX回顧録, 丸善, 2025.
+% 
+%    \bibitem{Kay}
+%      アラン・ケイ, アラン・ケイ, ASCII, 1992.
+%      
+%    \bibitem{W}クジラ飛行机, 
+%         プログラミング言語大全, 技術評論社, 2025.
+%
+%   \bibitem{Orwell}
+%      H.G.~Orwell, Nineteen Eighty-Four, 1949.
+%
+%    \bibitem{OM}
+%       奥村 晴彦, 森本 尚之,
+%       ［改訂第5版］基礎からわかる情報リテラシー, 技術評論社, 2023. 
+%       
+%   \bibitem{tools}
+%      ラインゴールド, 思考のための道具, パーソナルメディア, 1987.
+%         
+%   \bibitem{Sa}
+%      坂村健, 高等学校 情報 I , 数研出版, 2021.   
+%   
+%   \bibitem{T}
+%      山口泰, 東京大学教養学部テキスト情報 第三版, 
+%      東京大学出版会, 2025.
+%   
+%      
+%    \bibitem{Turing}
+%       A.~Turing, On Computable Numbers, with an Application to the Entscheidungsproblem, Proceedings of the London Mathematical Society 42, 1936.
+%       
+%  \bibitem{IT}
+%      渡辺さき［令和8年度］ITパスポート 超効率の教科書＋よく出る問題集, インプレス, 2026.
+%
+%  
+%\end{thebibliography}
+%
+%
+%\end{document}

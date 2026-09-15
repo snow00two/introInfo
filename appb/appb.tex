@@ -1,0 +1,734 @@
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%\usepackage{ccicons}
+%\usepackage{mflogo}
+%%\usepackage{emath}
+%\usepackage{MePoTeX}
+%\usepackage[dvipdfmx]{hyperref}
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%   bookmarksnumbered=true,%
+%   bookmarksopen=true,%
+%   colorlinks=true,%
+%   linkcolor=red,
+%   citecolor=blue,
+%} 
+%\input xy
+%\xyoption{all}
+%
+%\newtheorem*{exQ}{レポート}
+%\theoremstyle{remark}
+%\newtheorem*{Q}{演習}
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%\DeclareMathOperator{\const}{const}
+%\def\emptyline{\vspace{12pt}}
+%
+%\begin{document}
+%
+%\begin{flushright}
+%   %2024/04/24
+%   %2024/09/30
+%   %2025/01/05
+%   %2025/02/13
+%   %2025/02/19
+%   %2025/03/29
+%   %2025/05/19
+%   %2025/05/22
+%   %2025/08/06
+%   %2025/10/23
+%   %2025/11/19
+%   %2025/11/29
+%   %2026/04/29
+%   %2026/07/25
+%   2026/08/26
+%   
+%   snow00two
+%\end{flushright}
+%\begin{center}
+%   \large{\TeX\footnote{\TeX  は American Mathematical Society の登録商標だが，
+%   このように明記する必要は無いらしい．} の導入}
+%   \small{
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}}
+%\end{center}
+
+\chapter{TeXとMarkdown}
+
+\section{\TeX}
+\subsection{\TeX のインストール}
+\TeX とは:  
+\begin{itemize}
+   \item 
+   \TeX:  フリーで使える数式を含む文書作成言語(compiler). 
+   
+   D.~Knuth により開発された．
+   
+   \item
+   \LaTeX:   L.~Lamport が\TeX を使いやすくしたマクロパッケージ．   
+      数式・相互参照・表・作図・プレゼン・hyperlink などが使える
+   
+   \item
+       高校の先生・高校生でも使ってる人がいるらしい．
+\end{itemize}
+
+
+\emptyline
+英語表示のMacの場合のインストールパッケージ:  
+
+\begin{itemize}
+   \item 
+      MacTeX:  mac 用 installing package （以下を全て含んでいる）
+   
+   \item 
+      TeXLive:   \TeX の本体,  mac だと /usr/local/texlive にインストールされる．
+   
+   \item
+      TeXShop:   \TeX の mac 用の editor （開発環境で, VSCodeなどでも使用可能）
+   
+   \item
+      beamer:   プレゼンのための \LaTeX の documentclass
+   
+   \item
+      \MP:   \TeX の描画ソフト  (font 作成ソフト \MF(\cite{K}) から派生した描画言語)
+\end{itemize}
+
+\begin{Q}
+   \LaTeX のインストール（Mac の英語表示のみ）:  
+   \begin{enumerate}
+   \item
+      google で MacTeX を検索
+   
+   \item
+      MacTeXをダウンロード
+   
+   \item
+      MacTeX.pkg をダブルクリックし，インストーラーの指示に従いインストール．
+   
+   \item
+      texshop で 設定が必要かも知れない．
+   \begin{figure}[htb]
+      \centering
+      \includegraphics[width=7cm]{~/Documents/GitHub/introInfo/appb/images/preferences}
+      \caption{texshopの設定}\label{preferences}
+   \end{figure}
+   詳細は
+   \href{https://texwiki.texjp.org}{texwiki}を参照
+   
+   
+    \end{enumerate}
+\end{Q}
+      texlive のファイル群は/usr/local/texlive という不可視フォルダーに
+      インストールされている．コマンドラインユーザーインターフェイスでは
+      簡単にアクセスできるが，
+    （Macの）グラフィカルユーザーインターフェースでは 
+       Finder のメニューバーのgo のメニューの Go to Folder を選ぶと
+       フォルダーの選択窓が開くので
+      /usr/local/texlive  と打ち込むと移動できる．
+
+      Windows などの場合には\cite{OK}などを参考にして
+      インストールして下さい．
+
+\subsection{\TeX のタイプセット}
+次のソースファイル   
+\begin{verbatim}
+   \documentclass[11pt]{article}
+   \usepackage{graphicx, xcolor}
+   \usepackage{latexsym}
+   \usepackage{amsmath}
+   \usepackage{amssymb}
+   \usepackage{amsthm}
+   \renewcommand{\figurename}{図}
+   \renewcommand{\proofname}{証明}
+   \renewcommand{\tablename}{表}
+   \DeclareMathOperator{\const}{const}
+   \title{Hello world \TeX !}
+   \begin{document}
+   \maketitle
+   
+   因数分解 $x^3-1=(x-1)(x^2+x+1)$. 
+   不定積分
+   \[
+      \int \sin x\, dx =-\cos x,\quad 
+      \int \frac1xdx=\log |x|
+   \]
+   行列
+   \begin{equation}\label{eqMat}
+      B
+      =
+      \begin{pmatrix}
+         1&0&0\\
+         1&1&0\\
+         1&1&1
+      \end{pmatrix}
+   \end{equation}
+   \eqref{eqMat}のように引用できる．標準でない記号例えば$\const$
+   も使うことが出来る(\verb/$const$/ とすると$const$になる)．
+   \textcolor{red}{色も付けられる}．表も作れる:  
+   \begin{table}[thb]
+      \centering
+      \begin{tabular}{l|llll}\noalign{\hrule height 1pt}
+         &$\varepsilon$&$\alpha$&$\beta$&$\gamma$ \\ 
+         \hline
+         $\varepsilon$&$\varepsilon$&$\alpha$&$\beta$&$\gamma$ \\
+         $\alpha$& $\alpha$&$\varepsilon$ &$\gamma$&$\beta$ \\
+         $\beta$& $\beta$&$\gamma$&$\varepsilon$&$\alpha$ \\ 
+         $\gamma$& $\gamma$ &$\beta$&  $\alpha$&$\varepsilon$\\
+        \noalign{\hrule height 1pt}
+      \end{tabular}\caption{Kline group}
+   \end{table}
+   
+   \noindent
+   以下のように文献表も付けられる(\cite{K})．
+   \begin{thebibliography}{9}
+   \bibitem{K} Donald E. Knuth, \textit{ The \TeX\, book}, 
+      Addison-Wesley, 1984.
+   \end{thebibliography}
+   \end{document}
+ \end{verbatim}
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[trim=0 30  0 40, clip, width=12cm]{~/Documents/GitHub/introInfo/appb/images/ScreenCapture1.pdf}
+   \caption{Hello world \TeX !}\label{compile}
+\end{figure}
+
+\noindent
+を helloWorld.tex\footnote{どんなコンピュータ言語でも最初に書くプログラムの名前を helloWorld のようなものにするのがプログラマーの伝統である．また，どうでも良い名前の場合 hoge とか fuga のような名前を使うのも伝統である．} として保存し（読み込みたい画像とかのファイルがあればそのディレクトリに置き），
+helloWorld.tex を TeXShop.app で開き， typeset をクリックするか， cmd T とタイプするとコンパイルできる(図 \ref{compile})．
+
+\begin{Q}
+   上のソースファイルをコンパイルしてpdf を表示してください．
+\end{Q}
+\clearpage
+
+\begin{verbatim}
+　\begin{document}
+\end{verbatim}
+の前を preamble (序文)という．
+取りあえず preamble はコピーして使い，簡単な数式を \cite{TeXShop} などを調べながら書いてみることをお奨めする．ひとことコメントすると
+\begin{verbatim}
+　\DeclareMathOperator{\const}{const}
+\end{verbatim}
+が標準にない記号$\const$を定義しているところである．
+あと，\TeX の機能と云うよりTeXShop ( Editor ) の機能だが，
+\begin{itemize}
+\item
+cmd キーを押しながらクリックすると対応するpdf の場所とソースファイルの場所を行き来することができる．
+
+\item 
+コンパイルしてエラーが出て止まったとき，console の上部の Goto Error をクリックすると，ソースファイルの該当部分に飛ぶことができる．
+
+\item
+ソースファイルでEsc を押すと補間機能を使うことが出来る．
+例えば\verb/\begin{eq/まで打ってEsc を押すと
+\begin{verbatim}
+　\begin{equation}
+　・
+　\end{equation}・
+\end{verbatim}
+と補完される．
+
+\end{itemize}
+
+また，
+\emptyline
+ emath という大熊一弘氏の開発した日本の小中高数学のプリント作成用のlataxの style file があり，教科書の数式に近い出力を得ることが出来る．
+\href{http://emath.s40.xrea.com/ }{ここから} 
+ファイルを取り寄せ，
+
+\noindent
+/usr/local/texlive/texmf-local/tex/latex/local/にコピーし, 
+terminal から 
+
+\verb/  % /sudo texhash
+
+\noindent
+としてpathを通す． ただし\verb/%/ はプロンプトで，タイプしていけない．
+preamble に
+\begin{verbatim}
+   \usepackage{emath}
+\end{verbatim}
+を追加すると使えるようになる．詳しくはemath のマニュアルを参照．
+
+\subsection{\TeX の図式作成ソフト}  
+\[
+   \xymatrix{
+   S^2(1) \ar[d]_{\mu'} \ar[r]
+    & \mathbf R^3\setminus \{\mathbf 0\} \ar[d]^{\mu} \\
+   S^2(1)/ \sim  \ar[r]_{\pi} & \mathbf P^2 
+   }
+\]
+のような図式を描く, texlive に含まれるソフトの一つが XY-pic である．まず，
+\begin{verbatim}
+   \input xy
+   \xyoption{all}
+\end{verbatim}
+をpreamble に付け加え，本文中に
+\begin{verbatim}
+   \[
+      \xymatrix{
+         S^2(1) \ar[d]_{\mu'} \ar[r]
+          & \mathbf R^3\setminus \{\mathbf 0\} \ar[d]^{\mu} \\
+        S^2(1)/ \sim  \ar[r]_{\pi} & \mathbf P^2 
+      }
+   \]
+\end{verbatim}
+を入れると，上の図式を描くことができる．
+\verb/\xymatrix{...}/ の中でマトリックスを描く要領で成分の数式の記号を並べている．\verb/&/は列の分割を表し，\verb/\\/は改行である．
+\verb/ \ar[d]/は下への矢印，
+\verb/ \ar[r]/ は右への矢印を描く指令で，それに続く\verb/ _{\mu'}/
+は下付き，\verb/^{\mu}/は上付きの矢印の修飾を描く命令である．
+   
+   
+%もう少し複雑な可換図式
+%\[
+%   \xymatrix{
+%    0\ar[r]
+%    &H^0(X,\mathfrak S') \ar[r] \ar[d]
+%    &H^0(X,\mathfrak S) \ar[r] \ar[d]
+%    &H^0(X,\mathfrak S'') \ar[r]^{\delta^{*}} \ar[d]
+%    &H^1(X,\mathfrak S')\ar[r] \ar[d]
+%    &\\
+%    0\ar[r]
+%    &H^0(X,\mathfrak T') \ar[r]
+%    &H^0(X,\mathfrak T) \ar[r]
+%    &H^0(X,\mathfrak T'') \ar[r]^{\delta^{*}} 
+%    &H^1(X,\mathfrak T')\ar[r] 
+%    &\\
+%    }
+%\]
+%も
+%\begin{verbatim}
+%   \[
+%   \xymatrix{
+%       0\ar[r]
+%       &H^0(X,\mathfrak S') \ar[r] \ar[d]
+%       &H^0(X,\mathfrak S) \ar[r] \ar[d]
+%       &H^0(X,\mathfrak S'') \ar[r]^{\delta^{*}} \ar[d]
+%       &H^1(X,\mathfrak S')\ar[r] \ar[d]
+%       &\\
+%       0\ar[r]
+%       &H^0(X,\mathfrak T') \ar[r]
+%       &H^0(X,\mathfrak T) \ar[r]
+%       &H^0(X,\mathfrak T'') \ar[r]^{\delta^{*}} 
+%       &H^1(X,\mathfrak T')\ar[r] 
+%       &\\
+%    }
+%   \]
+%\end{verbatim}
+%で描くことができる(詳しいことは\cite{texlive}参照)．
+
+
+\subsection{\TeX の描画ソフト}   
+\MP のコンパイルは，ソースファイル figure.mp をtexshopで開き，ファイルのウインドウの上部にある
+ファイルタイプのセレクターをLaTeX からMetaPost に変更し，タイプセットする(図 \ref{texhopMetapost})と，figure.1, figure.2のようなpostscript ファイルが生成される．あるいは，ファイルのあるディレクトリで terminal から
+
+   \verb/% /mpost figure.mp
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appb/images/texhopMetapost.pdf}
+   \caption{\MP のコンパイル}\label{texhopMetapost}
+\end{figure}
+
+\noindent
+でコンパイル出来る．
+\newpage
+
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics{~/Documents/GitHub/introInfo/appb/images/figure.1}
+%   \caption{\MP の描画例}\label{~/Documents/GitHub/introInfo/appb/images/figure.1}
+%\end{figure}
+\begin{figure}[htb]
+　\centering
+　\begin{minipage}{0.4\columnwidth}
+　　\centering
+　　\includegraphics{~/Documents/GitHub/introInfo/appb/images/figure.1}
+   \caption{\MP の描画例}\label{figure.1}
+　\end{minipage} 
+　\begin{minipage}{0.4\columnwidth}
+　　\centering
+　　\includegraphics[trim=90 10  130 30, clip]{~/Documents/GitHub/introInfo/appb/images/figure.2}
+   \caption{\MP の描画例}\label{figure.2}
+　\end{minipage} 
+\end{figure}
+\noindent
+のような絵を描く\MP のソースファイルの例を次にあげる:  
+
+\begin{verbatim}
+   prologues := 3;
+   verbatimtex
+   %&latex
+   \documentclass{article}
+   \usepackage{verbatim}
+   \usepackage{latexsym}
+   \usepackage{amssymb}
+   \usepackage{amsmath}
+   \begin{document}
+   etex;
+   
+   numeric a, b;
+   a=10pt;
+   b=6pt;
+   
+   beginfig(1);
+      z0=(5a,3a);
+      z1=z0-(3a,0);
+      z2=z0+(7a,0);
+      draw z1--z2; %line \ell
+      label.top(btex $\ell$ etex,z2); 
+      z5=z0+(7a*cosd(60), 7a*sind(60));
+      z6=z0-(3a*cosd(60), 3a*sind(60));
+      draw z5--z6;%line m
+      label.top(btex $m$ etex,z5); 
+   
+      for j=-2 upto 10:             
+         z[100+j]=z0+6a*(cosd(10j),sind(10j));
+      endfor;
+   
+      draw 
+         for i=-2 upto  9:
+            z[100+i]..
+         endfor
+         z110 dashed evenly;
+   
+      z150=whatever[z0,z2]=whatever[z98,z102];
+      z160=whatever[z0,z5]=whatever[z102,z110];
+      z151=z150-(b,0);
+      z152=z151-(0,b);
+      z153=z152+(b,0);
+      z161=z160-(b*cosd(60),b*sind(60));
+      z162=z161+(b*cosd(150),b*sind(150));
+      z163=z162+(b*cosd(60),b*sind(60));
+      
+      draw z98--z102--z110;
+      draw z151--z152--z153;
+      draw z161--z162--z163;
+      
+      label.bot(btex $\mathbf 0$ etex,z0);
+      label.bot(btex $\mathbf x$ etex,z98);
+   
+      pickup pencircle scaled 1pt;
+      drawarrow z0--z98;
+      drawarrow z0--z102;
+      drawarrow z0--z110;
+   endfig;
+   
+   beginfig(2);
+      def voro(expr p, q, r) = 
+         begingroup
+             save a, b, c, u, v, w, e, f, g, h; 
+             pair a, b, c, u, v, w;
+             numeric e, f, g, h;
+             a = 0.5[q,r];
+             b = 0.5[r,p];
+             c = 0.5[p,q];
+             (e,f)= r-q ;
+             (g,h) = p- r;
+             u = (f, -e);
+             v = (h, -g);
+             w = whatever[a + u, a - u] = whatever[b + v, b - v] ;
+             draw a--w--b;
+             draw w--c;
+         endgroup
+      enddef;
+   
+      z0=(-5a,-5a);
+      for i=1 upto 6:
+         for j=1 upto 6:
+         	z[10i +j]= z0 + (5i*a, 0) +5j*(a/2, sqrt(3)*a/2) 
+            	+(a*cosd(30(i+j)+i*j/2), a*sind(30(i+j) + i*j/2) );
+         endfor;
+      endfor;
+      
+      z100 = z32+ (a,1.4a);
+      dotlabel(btex etex, z100);
+      draw z100--z32;
+      draw z100--z33 dashed evenly;
+      draw z100--z23 dashed evenly;
+      draw z100--z42 dashed evenly;
+   
+      for i=1 upto 6:
+         for j=1 upto 4:
+         	dotlabel(btex etex, z[10i +j]);
+         endfor;
+      endfor;
+      for i=1 upto 5:
+         for j=1 upto 3:
+         	voro(z[10i +j], z[10(i+1)+j], z[10i +j+1]);
+         	voro(z[10i +j+1], z[10(i+1) +j+1], z[10(i+1)+j]);
+         endfor;
+      endfor; 
+   endfig;
+   
+   verbatimtex
+   \end{document}
+   etex;
+   end
+\end{verbatim}
+をfigure.mp と言う名前で保存し，コンパイルすると
+figure.1, figure.2 というファイルが作られる．
+\MP のプログラミング言語としての仕様
+(詳しくは\cite{texlive}):  
+
+\begin{itemize}
+   \item
+   beginfig(1); からendfig; までが figure.1の描画内容である． 
+   figure.2も同様．
+   これ以外の最初の部分と最初の部分はコピペすることをお奨めする．
+   
+   \item
+   文末には ; が必要．\verb/%/ の後がコメント文
+   
+   \item
+   点を表すのに, \verb/z10/ のような \verb/z/に数字を並べた表記を使う．
+   インデックスを変数として扱うときは\verb/z[i]/のような記法を使う．
+   
+   \item
+   点\verb/z1/から\verb/z2/への直線を書くのは
+   \begin{verbatim}
+   draw z1--z2;
+   \end{verbatim}
+   点\verb/z1/から\verb/z2/への矢印を書くのは
+   \begin{verbatim}
+   drawarrow z1--z2;
+   \end{verbatim}
+   \verb/z1/, \verb/z2/, \verb/z3/ を補間するベジェ曲線は
+   \begin{verbatim}
+   draw z1..z2..z3;
+   \end{verbatim}
+   
+   \item
+   \MP 特有の機能として
+   \begin{verbatim}
+   z150=whatever[z0,z2]=whatever[z98,z102];
+   \end{verbatim}
+   のように直線と直線の交点を求めることが出来る．
+   様々な初等関数も用意されている．
+   関数は \verb/sind(10)/ のように呼び出される．
+   
+   \item
+   for 文で点を定義したり，曲線を描くことも出来る．
+   
+   \item
+   図への数式や文字のラベルでは \LaTeX と同じものを使える．
+   例えば
+   \begin{verbatim}
+   label.bot(btex $\mathbf 0$ etex,z0);
+   \end{verbatim}
+   は点\verb/z0/の真下の部分に$\mathbf 0$ ( \verb/$\mathbf 0$/ ) を書くことを
+   命令するコマンドである．%(この文や関連した文のソースファイルをMoodleのホームページに置いておくので参考にせよ．)
+   \item
+   beginfig(2)に関数の使い方の例をあげたのでぜひ読み解いてほしい．
+   この例ではdef からenddef の中身voloが三つの入力変数をもつ関数である．
+   $=$の後がその定義である．定義の中で使う変数をまず保存して，
+   その後変数の宣言を書く．
+   次に二点の中点をもとめ，二点の作る辺に直行するベクトルをもとめ
+   その中点に直交する線分を求めるている．
+   もう一つ二点についても同様に中点に直交する線分を求め
+   それらの交点として三点に外接する円の中心をもとめている．
+   そこから各中点まで線分を3っつ書いている．
+   
+   あとは正6角形格子の点を少し振動させ，
+   それらの点についてのボロノイ分割をvolo()を使って書いている．
+   \item
+      ここではこれ以上述べないがもちろん if 文も使える．
+\end{itemize}
+
+\begin{Q}
+   上の\MP のソースファイルをfigure.mp と言う名前で保存し，コンパイルし，
+   上で作ったtex のファイルに取込み pdf に表示してください．
+\end{Q}
+
+
+Ti\textit{k}Z と言う style file もあり，それを使うと直接 \LaTeX の中で\MP に似たコマンドで描画できる．また metafun という\MP を現代風に拡張したstyle file もある．
+
+MePoTeXという（
+\href{http://minamo.my.coocan.jp/metapost/mepotex.html}{ここから入手可能} ）
+\MP を拡張する style file もあり，(emath と同じようにインストールし path を通せば） \LaTeX の中で使える． preamble に
+\begin{verbatim}
+   \usepackage{MePoTeX}
+\end{verbatim}
+を追加し，本文に
+
+\begin{verbatim}
+   \begin{MPpic}<5mm>(7|2,4|2)
+   \mptXaxis[l]<1mm,0mm>{$x$}
+   \mptYaxis[b]<0mm,1mm>{$y$}
+   \sendMP{
+      xdraw() kansu(sin(t))
+      (-1,6.5,20);
+      xdraw(red) kansu(t)
+      (-1,3.5,20);
+   }
+   \mptLabel{origin}[tr]
+   <0mm,4mm>{O}
+   \end{MPpic}
+\end{verbatim}
+を挿入すると
+
+\begin{center}
+   \begin{MPpic}<5mm>(7|2,4|2)
+   \mptXaxis[l]<1mm,0mm>{$x$}
+   \mptYaxis[b]<0mm,1mm>{$y$}
+   \sendMP{
+      xdraw() kansu(sin(t))
+      (-1,6.5,20);
+      xdraw(red) kansu(t)
+      (-1,3.5,20);
+   }
+   \mptLabel{origin}[tr]
+      <0mm,4mm>{O}
+   \end{MPpic}
+\end{center}
+のような図が描ける． 
+\emptyline
+\begin{exQ}
+   自分のセミナーの内容を説明する\LaTeX のファイルを作成し，コンパイルせよ
+   （目標は下の作業を含めてpdfで5〜10ページほど）．
+   それに表・図式・参考文献を付け加えよ．
+   \MP で図を描き，それをその説明の \LaTeX のpdfの中に表示せよ．
+   
+\end{exQ}
+
+%Moodle で講義ノートの\TeX のソースファイルを公開するので参考にして下さい．また，
+%以下の参考文献も参照%してください．
+%
+%\begin{thebibliography}{9}
+%   \bibitem{TeXShop}
+%   TeXShop のメニューバーの Helpメニューにある説明文書と動画
+%   
+%   \bibitem{texlive}
+%   /usr/local/texlive/2024/texmf-dist/doc/latex の中のドキュメントファイル:  
+%    User's guide for amsmath package, Using the amsthm package, 
+%    XY-pic User's Guide, XY-pic Reference Manual,
+%    The \MP\, system, A users manual for \MP など
+%   
+%   \bibitem{OK}
+%   奥村晴彦, 黒木裕介, 
+%   ［改訂第9版］\LaTeX  美文書作成入門, 技術評論社, 2023.
+%   
+%   \bibitem{LCs}
+%   {\em The  \LaTeX \, Companions Third Revised Boxed Set}, Addison-Wesley, 2007.
+%   
+%   \bibitem{K} 
+%   Donald E.~Knuth, {\em The \MF book},  Addison-Wesley,1986.
+%\end{thebibliography}
+
+\section{Markdown}
+\TeX とは直接関係はないが，最近よく使われるMarkdown言語についても紹介したい．
+これはWeb page を編集するための言語 html (=hyper text markup language) 
+を簡易的に表すために，つまり，markdown を目指して，
+2004年ジョン・グルーバー(J.~Gruber)によって開発された言語である．
+VSCodeで IntroToMarkdown.md というファイルを作り，
+以下のソースをコピーし，cmd+shift+Vとタイプすると（
+またはウインドウの右上にあるノートに虫眼鏡のアイコンをクリックすると）
+図~\ref{preview}, \ref{preview1}のような html のプレビュー画面が現れる．
+%\newpage
+
+%remove tab 
+\begin{verbatim}
+   <!-- Introduction to markdown created by snow00two -->
+   
+   # Introduction to Markdown
+   
+   ## Markdown
+   
+   - list1
+   - list2
+     - sublist1
+     - sublist2
+   - list3
+   
+    1. list1
+    2. list2
+    3. list3
+   
+   Separator:
+   
+   ---
+   
+   *italic* ,  **bold** , ***italic bold***
+   
+   > quotation
+    >> second quotation
+   
+   Programming Language `JavaScript` list:
+   
+   ```javascript
+   function hoge () {
+     console.log("problem");
+   }
+   ```
+   
+   Table:
+   
+   | Data | A | B |
+   | ---: |: ---: |: ---: |
+   | 0 | 1 | 2 |
+   
+   Mathematics:
+   $\sqrt2$, $\pi$, $\frac1{x + 1}$
+   
+   Hyperlink to: [amazon](https://www.amazon.co.jp/amazonprime)
+   
+   Image file: ![image file](dodecahedron.jpg)
+     
+\end{verbatim}
+
+文法についてはこのファイルを見れば直ぐに分かるだろう．
+最近の技術系ホームページ (例えば GitHub) は
+Markdownで作られていることが多い．
+また，生成AIのファインチューニングという訓練でMarkdownが使われていることはよく知られていて，ChatGPTへのプロンプトの入力もMarkdownを使うことが推薦されている(\cite{LLM}, \cite{Hi}). 
+最後にmarkdown から\LaTeX を作ることも出来る（とは言っても数式等は\LaTeX で作る必要がある）．
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width =12cm, trim=0 80  0 0, clip]{~/Documents/GitHub/introInfo/appb/images/IntroToMarkdown.pdf}
+   \caption{VSCode での IntroToMarkdown.md のプレビュー1}
+   \label{preview}
+\end{figure}
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width =12cm, trim=0  0 0 125, clip]{~/Documents/GitHub/introInfo/appb/images/IntroToMarkdown1.pdf}
+   \caption{VSCode での IntroToMarkdown.md のプレビュー2}
+   \label{preview1}
+\end{figure}
+
+\begin{Q}
+\begin{enumerate}
+   \item
+   VSCode で上のソースファイルを参考にして，1〜2ページ程度で
+   markdown を説明する markdown の文書を作って
+   プレビューして下さい．
+   \item
+   そのソースファイルを，生成AIを使ってlatex のソースファイルに変換してください(その中でコマンドの実行を頼まれるかも知れません)．
+   
+   \item
+   その過程で生成AIが何をしたのか分析してください．
+   
+   \item
+   その分析に基づき，自分一人でもう一度そのlatexの書類をmarkdownに変換して下さい．
+\end{enumerate}
+\end{Q}
+
+%\begin{thebibliography}{9}
+%   \bibitem{LLM}
+%   Berryman, Zigler, LLMのプロンプトエンジニアリング, オライリージャパン, 2025.
+%
+%   \bibitem{H}
+%      平田 賀一, 
+%      ITエンジニアのためのMarkdown実践入門 ── 生成AI時代の"伝わる"書き方, 
+%      技術評論社, 2026.
+%
+%\end{thebibliography}
+%
+%\end{document}

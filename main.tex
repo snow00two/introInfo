@@ -1,0 +1,451 @@
+\documentclass[book, paper=a4paper, 11pt]{jlreq}
+\usepackage[dvipdfmx]{graphicx,xcolor,hyperref}%graphics
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{dynkin-diagrams}
+\usepackage{ccicons}
+\usepackage{listings}
+\usepackage[basic, box,gate,oldgate, ic, optics,physics]{circ}
+\usepackage{ulem}
+\hypersetup{% hyperrefオプションリスト
+   setpagesize=false,
+   bookmarksnumbered=true,
+   bookmarksopen=true,
+   colorlinks=true,
+   linkcolor=blue,
+   citecolor=purple,
+} 
+\usepackage{mflogo}
+%\usepackage{emath}
+\usepackage{MePoTeX}
+
+\input xy
+\xyoption{all}
+
+\def\emptyline{\vspace{12pt}}
+\newcommand*{\term}[2][]{\textcolor{red}{#2}%
+	\ifx\relax#1\relax\index{#2}\else\index{#1@#2}\fi}
+
+\usepackage{makeidx}
+\makeindex
+
+\newtheorem{PP}{授業の目標}
+\newtheorem{Thm}{定理}
+\newtheorem{Prop}{命題}
+\newtheorem{Q}{演習}
+\newtheorem{Quiz}{問題}
+\theoremstyle{definition}
+\newtheorem{Def}{定義}
+
+\theoremstyle{remark}
+\newtheorem{ex}{例}
+\newtheorem{exQ}{例題}
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Is}{Is}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\const}{const}
+%\DeclareMathOperator{\GL}{GL}
+%\DeclareMathOperator{\SL}{SL}
+%\DeclareMathOperator{\PSL}{PSL}
+%\DeclareMathOperator{\Ot}{O}
+%\DeclareMathOperator{\SO}{SO}
+%\DeclareMathOperator{\U}{U}
+%\DeclareMathOperator{\SU}{SU}
+%\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\IM}{Im}
+\DeclareMathOperator{\RE}{Re}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\arcSin}{Sin^{-1}}
+\DeclareMathOperator{\noT}{NOT}
+\DeclareMathOperator{\anD}{AND}
+\DeclareMathOperator{\oR}{OR}
+\DeclareMathOperator{\nand}{NAND}
+\DeclareMathOperator{\nor}{NOR}
+\DeclareMathOperator{\xor}{XOR}
+\DeclareMathOperator{\idm}{ID}
+
+\def\emptyline{\vspace{12pt}}
+\def\smallemptyline{\vspace{6pt}}
+\setlength{\belowcaptionskip}{0mm}
+
+\title{情報とプログラミング\par \normalsize{---歴史と数学からの入門---}}
+%\title{Introduction to Information and Programming\par \normalsize{---An Introduction from History and Mathematics---}}
+\author{snow00two}
+
+\begin{document}
+\maketitle
+
+\frontmatter
+
+\include{intro/intro}
+\tableofcontents
+
+\mainmatter
+
+\include{ch1/ch1}
+
+\include{ch2/ch2}
+
+\include{ch3/ch3}
+
+\include{ch4/ch4}
+
+\include{ch5/ch5}
+
+\include{ch6/ch6}
+
+\appendix
+
+\include{appa/appa}
+
+\include{appb/appb}
+
+\include{appc/appc}
+
+\include{appd/appd}
+
+\include{appe/appe}
+
+\backmatter
+
+
+\begin{thebibliography}{99}
+    \bibitem{Bo}
+      Bool, {\em Laws of thought}, 1848
+    \bibitem{BF} 
+      ボズウェル, フィッチャー, リーダブルコード
+   \bibitem{Ba} 
+         ジェイミー・バートレット, 
+         操られる民主主義: デジタル・テクノロジーはいかにして社会を破壊するか, 
+         草思社, 2018
+
+   \bibitem{Br} 
+      ブレーザー, 失われてゆく我々の内なる細菌, みすず書店, 2015.
+
+   \bibitem{C}    
+      チャルディーニ：影響力の武器
+   \bibitem{EV}
+   国本 温子, 緑川 吉行, できる大事典 Excel VBA 2019/2016/2013\& Microsoft 365, インプレス, 2021.
+
+   \bibitem{E}
+   尾崎裕子, 日花弘子, できる大事典 Excel 2016, インプレス, 2021.
+   
+   \bibitem{EF}
+   羽山博, 吉川明広, できる大事典 Excel 関数 2016/2013/2010, インプレス, 2017.
+
+   \bibitem{F}
+      Feynman, Lectures on computation, Perseus, 1996, 
+      日本語版：ファインマン計算機科学, 岩波書店, 1999.
+
+
+   \bibitem{Fu}
+      藤原進之介, 
+      学校で習っていなくても読んで理解できる藤原進之介のゼロから始める情報 I, 
+      KADOKAWA, 2023. 
+
+   \bibitem{GM}
+       Joe Gray, Jin Maeda,
+      人を動かすハッカーの技術：ソーシャルエンジニアリングの実践と防御 
+
+   \bibitem{history}
+      ゴールドスタイン, 復刊計算機の歴史, 共立, 2016.
+
+   \bibitem{Ho} 
+      堀田 良之, 加群十話: 代数学入門 (すうがくぶっくす 3), 朝倉書店, 1988.
+ 
+   \bibitem{Han} 
+      アンデシュ・ハンセン, スマホ脳, 新潮新書, 2020.
+   \bibitem{H} 
+      ユバル・ノラ・ハラリ, サピエンス全史
+      
+    \bibitem{HB}
+      NISC,
+      \href{https://security-portal.cyber.go.jp/guidance/handbook.html}
+      {インターネット安全・安心ハンドブック} 
+   
+   \bibitem{Ha} 
+      林 裕之, 「隠れ油」という大問題, 三五館, 2017.
+      
+   \bibitem{Hi}
+      平田 賀一, 
+      ITエンジニアのためのMarkdown実践入門 ── 生成AI時代の"伝わる"書き方, 
+      技術評論社, 2026.
+
+   \bibitem{I} 
+      石井光太, ルポ スマホ育児が子どもを壊す, 新潮社, 2024.
+   
+   \bibitem{interface}
+      Apple Computer, 
+      Apple Human Interface Guidelines: 
+      The Apple Desktop Interface, Addison-Wesley, 1987,
+      日本語版, 1989.
+
+
+  \bibitem{IT}
+      渡辺さき［令和8年度］ITパスポート 超効率の教科書＋よく出る問題集, インプレス, 2026.
+    \bibitem{IPA}
+       情報処理推進機構, 
+       \href{https://www.ipa.go.jp/security/vuln/websecurity/about.html}{安全なウェブサイトの作り方}
+
+    \bibitem{IPA2}
+       情報処理推進機構, 
+      \href{https://www.meti.go.jp/policy/netsecurity/downloadfiles/guide_v3.0.pdf}{サイバーセキュリティ経営ガイドライン}
+
+    \bibitem{IPA3}
+       情報処理推進機構, 
+     \href{https://www.ipa.go.jp/security/guide/sme/ug65p90000019cbk-att/sme_guideline_v4.0.pdf}{中小企業の情報セキュリティガイドライン}
+    \bibitem{JPCERT} 
+       一 般社団法人 JPCERT コーディネーションセンター, 
+       \href{https://www.jpcert.or.jp/csirt_material/files/manual_ver1.0_20211130.pdf}{インシデントハンドリングマニュアル}
+
+  \bibitem{Jobs}
+      アイザックソン, スティーブ・ジョブスI, II, 講談社, 2011.
+
+   \bibitem{K}  
+      カーニハン, 
+      教養としてのコンピューターサイエンス講義 第二版, 日経BP, 2020.
+   \bibitem{Ka}
+      木村秀紀, Fourier-Laplace 解析, 岩波書店, 1993.
+ \bibitem{Kabuki}
+      小学館DVDBook, 歌舞伎のいき, 第2巻「時代物・荒事編」, 2008. 
+     \bibitem{UNIX}
+      カーニハン,
+      カーニハンのUNIX回顧録, 丸善, 2025.
+    \bibitem{KP}
+      Kernighan, Pike, 
+      Unix programming environment, Pearson, 1984
+      (訳 UNIX プログラミング環境, KADOKAWA, 2017).
+   \bibitem{KR}
+      Kernighan, Ritchie, 
+      The C programming  Language--2nd edition, 
+      Prentice Hall,1989. 
+      (訳プログラミング言語C 第2版 ANSI規格準拠, 共立出版, 1989.)
+
+    \bibitem{Kay}
+      アラン・ケイ, アラン・ケイ, ASCII, 1992.
+   \bibitem{Ko} Koblitz, A course in Number theory and Cryptography, GTM,  
+   \href{https://link.springer.com/search?package=11649&facet-content-type=%22Book%22}{ダウンロード}
+
+   \bibitem{Ko}
+      小森 裕介,［ 改訂新版］プロになるためのWeb技術入門, 
+      技術評論社, 2024.      
+ \bibitem{K} 
+      川本 晃司, スマホ失明, かんき出版, 2022.
+   \bibitem{KS}
+       川島 隆太, 榊 浩平, スマホはどこまで脳を壊すか, 朝日新書,  2023.
+ 
+    \bibitem{Kum}
+   熊野 整, 外資系投資銀行のExcel仕事術, ダイヤモンド社, 2015.
+ 
+    \bibitem{Kud}
+   工藤 喜美枝, 入門!Excel VBAクイックリファレンス 改訂版, ムイスリ出版, 2018.  
+ 
+   \bibitem{KL} 
+      ヴァイバー・クリガン=リード, 
+      サピエンス異変──新たな時代「人新世」の衝撃, 
+      飛鳥新社, 2018.
+  \bibitem{PK} 
+      カール・ポッパー, 科学的発見の論理 上下, 恒星社厚生閣, 1971.
+   
+   
+   \bibitem{L} 
+      ダニエル・リーバーマン, 人体六〇〇万年史 
+      上・下──科学が明かす進化・健康・疾病, 早川書房, 2015.
+   
+   \bibitem{LL} 
+      ダニエル・リーバーマン, マイケル・ロング , 
+      もっと! : 愛と創造，支配と進歩をもたらすドーパミンの最新脳科学, 
+   インターシフト (合同出版), 2020.
+
+   \bibitem{LT} 
+      ティム・バーナーズ=リー, Webの創成 — 
+      World Wide Webはいかにして生まれどこに向かうのか, 
+      毎日コミュニケーションズ, 2001.
+
+   \bibitem{LLM}
+   Berryman, Zigler, LLMのプロンプトエンジニアリング, オライリージャパン, 2025.
+
+
+   \bibitem{Mn} Minsky, Computation: Finite and Infinite Machines, 1967.
+   
+   \bibitem{Mu}三浦伸夫, 数学の歴史, 放送大学教育振興会, 2019.
+
+   \bibitem{M} 
+   マロット, 行動分析学入門, 産業図書, 1998.
+
+   
+   \bibitem{M1} 
+      物江 潤, デマ・陰謀論・カルト (新潮新書) , 新潮社, 2022.
+   
+   \bibitem{M2} 
+      物江 潤, デジタル教育という幻想 GIGAスクール構想の過ち, 
+      平凡社, 2023.
+
+   \bibitem{P5}
+      松田晃一, p5.jsプログラミングガイド  改訂版, 2021, カットシステム
+ 
+     \bibitem{N} 
+    一般社団法人 日本シーサート協議会シーサート人材ワーキンググループ, 
+    改訂新版 セキュリティエンジニアの教科書 一般社団法人 日本シーサート協議会シーサート人材ワーキンググループ  
+  
+   \bibitem{NKO} 
+      長迫, 小谷, 大澤, SNS時代の戦略兵器 陰謀論 民主主義をむしばむ認知戦の脅威,
+    ウェッジ, 2025.
+ 
+      
+    \bibitem{N}
+      NISC, インターネット安全・安心ハンドブック
+   \href{https://security-portal.cyber.go.jp/guidance/handbook.html}{ダウンロード}
+    \bibitem{O} 
+       小川和久, 総理、国防も安全も穴だらけ！国民を守れない国・ニッポン
+
+
+   \bibitem{Orwell}
+      H.G.~Orwell, Nineteen Eighty-Four, 1949.
+
+    \bibitem{OM}
+       奥村 晴彦, 森本 尚之,
+       ［改訂第5版］基礎からわかる情報リテラシー, 技術評論社, 2023. 
+    \bibitem{P} 
+      イーライ・パリサー, 閉じこもるインターネット——
+      グーグル・パーソナライズ・民主主義 , 早川書房, 2012.
+      改題：フィルターバブル──インターネットが隠していること
+      (ハヤカワ文庫NF), 早川書房, 2016.
+
+   \bibitem{PC}
+      キャサリン・プライス,  
+      スマホ断ち 30日でスマホ依存から抜け出す方法, 
+      角川新書, 2024.
+      
+   \bibitem{tools}
+      ラインゴールド, 思考のための道具, パーソナルメディア, 1987.
+         
+    \bibitem{R}   
+       ガー・レイノルズ, プレゼンテーションZen 第3版, 丸善出版, 2021.
+   \bibitem{Sa}
+      坂村健, 高等学校 情報 I , 数研出版, 2021.   
+
+   \bibitem{ST} Silverman, Tate,
+   Rational Points on Elliptic Curves, Springer, 2015 
+%   \href{https://link.springer.com/search?package=11649&facet-content-type=%22Book%22}{ダウンロード}
+    \bibitem{SS}
+    瀬戸, 斎藤, 徹底攻略情報セキュリティマネージメント, インプレス   
+    \bibitem{Ta} 
+      高木貞治, 初等整数論講義, 共立出版, 1971.
+    \bibitem{TH} 
+      達人プログラマー
+
+    \bibitem{TK}
+    高橋 佑磨, 片山 なつ, 
+    伝わるデザインの基本 増補改訂3版 
+    よい資料を作るためのレイアウトのルール, 技術評論社, 2021.
+   
+   
+    \bibitem{T}
+    田中靖浩, 会計の世界史, 日本経済新聞出版, 2018.
+
+   \bibitem{TM}  
+     井上 直也, 村山 公保, 
+     マスタリングTCP/IP—入門編—(第6版), オーム社, 2019.
+  
+
+    \bibitem{TuringM}
+      アンドルー・ホッジス, エニグマ アラン・チューリング伝 上下,
+      勁草書房, 2015.
+      映画化：イミテーション・ゲーム エニグマと天才数学者の秘密,
+      モルテン・ティルドゥム監督, 2014.
+
+      
+    \bibitem{Turing}
+       A.~Turing, On Computable Numbers, with an Application to the Entscheidungsproblem, Proceedings of the London Mathematical Society 42, 1936.
+       
+
+   \bibitem{Uts} 
+   宇津木龍一, シャンプーをやめると髪が増える, KADOKAWA, 2013.
+   
+    \bibitem{Uti}
+       内田 広由紀, 7日間でマスターする 配色基礎講座 
+       (デザイン ビギナー シリーズ), 2000
+ \bibitem{W}
+     クジラ飛行机, プログラミング言語大全, 技術評論社, 2025.
+
+    \bibitem{Wi}
+       Robin Williams,  ノンデザイナーズ・デザインブック [第4版], 
+       マイナビ出版, 2016
+   \bibitem{Y}
+      矢野 啓介, 
+      [改訂新版］プログラマのための文字コード技術入門, 技術評論社, 2018.    
+  \bibitem{Ya}
+   山森丈範，[改訂第4版]シェルスクリプト 基本レファレンス, 技術評論社, 2024.
+
+   \bibitem{Yamakawa}
+      英文詳説世界史, 山川出版, 2019. 
+    \bibitem{Yag}
+      山口泰, 東京大学教養学部テキスト情報 第三版, 
+      東京大学出版会, 2025.
+     \bibitem{Yo}
+      吉田 拳, たった1日で即戦力になるExcelの教科書, 技術評論社, 2014.
+      
+    \bibitem{YM}
+    シェルスクリプト基本レファレンス
+
+   \bibitem{Yuki}
+      結城浩, 暗号技術入門 第３版, SBクリエイティブ, 2015.
+   \bibitem{YY}
+      山田祥寛, 
+      改訂3版JavaScript本格入門, 2023, 技術評論社
+
+%   \bibitem{B}Bool, {\em Laws of thought}, 1848
+%    \bibitem{Ko} Koblitz, A course in Number theory and Cryptography, GTM,  \href{https://link.springer.com/search?package=11649&facet-content-type=%22Book%22}{ダウンロード}
+  
+   \bibitem{TeXShop}
+   TeXShop のメニューバーの Helpメニューにある説明文書と動画
+   
+   \bibitem{texlive}
+   /usr/local/texlive/2024/texmf-dist/doc/latex の中のドキュメントファイル:  
+    User's guide for amsmath package, Using the amsthm package, 
+    XY-pic User's Guide, XY-pic Reference Manual,
+    The \MP\, system, A users manual for \MP など
+   
+   \bibitem{OK}
+   奥村晴彦, 黒木裕介, 
+   ［改訂第9版］\LaTeX  美文書作成入門, 技術評論社, 2023.
+   
+   \bibitem{LCs}
+   {\em The  \LaTeX \, Companions Third Revised Boxed Set}, Addison-Wesley, 2007.
+   
+   \bibitem{Knuth} 
+   Donald E.~Knuth, {\em The \MF book},  Addison-Wesley,1986.
+   
+   \bibitem{Saru}  \href{https://backlog.com/ja/git-tutorial/}{サル先生のGit入門}
+
+   \bibitem{Takahashi}  
+   高橋 あおい, つくって、壊して、直して学ぶ Git＆GitHub 入門, 翔泳社, 2025.
+   
+   \bibitem{Wa}  渡辺宙志, ゼロから学ぶGit/GitHub, 講談社, 2024.
+
+   \bibitem{PL} 
+   ポンストール, ロリガー, 実用 Git 第3版, オライリー, 2024.
+   
+   \bibitem{M}
+   Mana, 1冊ですべて身につくHTML \verb/&/ CSSとWebデザイン入門講座［第2版］, SBクリエイティブ, 2024.
+
+
+   
+
+\end{thebibliography}
+
+\printindex
+
+\end{document}
+

@@ -1,0 +1,573 @@
+%%\documentclass[a4paper,11pt]{jlreq}
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%\usepackage{qrcode}
+%%\usepackage{emath}
+%\usepackage{listings}
+%\usepackage{ccicons}
+%\usepackage{mflogo}
+%%\usepackage{fancybox}%enclose by box
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{verbatim}
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%   bookmarksnumbered=true,%
+%   bookmarksopen=true,%
+%   colorlinks=true,%
+%   linkcolor=magenta,
+%   citecolor=blue
+%} 
+%\newtheorem*{exQ}{レポート}
+%\theoremstyle{remark}
+%\newtheorem*{Q}{演習}
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%\renewcommand{\tablename}{表}
+%
+%\def\emptyline{\vspace{11pt}}
+%\def\smallemptyline{\vspace{6pt}}
+%\begin{document}
+%\begin{flushright}
+%   2026/08/02
+%   %2026/06/15
+%   %2026/04/14
+%   %2026/04/04
+%   %2026/03/29
+%   %2026/03/11
+%   %2026/02/21
+%   %2026/02/10
+%   %2025/12/22
+%   
+%   snow00two
+%\end{flushright}
+%
+%\begin{center}
+%   {\Large コマンドラインとShell Script 入門}
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%%   \par{Command Line Interface}
+%\end{center}
+
+\chapter{ShellとShell Script 入門}
+
+%\section{ファイルシステム}
+%現在ではGUI (Graphical User Interface)で色々なことができるようになり，
+%実際ほとんどの人がGUI を使ってると思うが，
+%Command Line Interface(CLI, CUI =Character User Interface と呼ばれることもある) でないと出来ないことも多い．
+%何が出来て何が出来ないかはCLIを使ってみたことがないと分からない
+%と思うが，\textcolor{red}{生成AIもCLIを使いこなしている．}
+%ここでは CLI のOSの例としてUnixを取り上げ
+%(MacOSはUnixの兄弟FreeBSDを基に作られていて，
+%Linux もUnixの親戚に当たる), 
+%まずUnixのファイルシステムについて紹介する． 
+%shell の使い方については後のセクションで説明する．
+%\begin{itemize}
+%   \item
+%      ディレクトリー：% DOM
+%      \begin{figure}[htb]
+%         \centering
+%         \includegraphics{../fig/figure.1}
+%         \caption{ファイルシステムのツーリー構造}\label{tree}
+%      \end{figure}
+%   \begin{figure}[htb]
+%         \centering
+%         \includegraphics[width=14cm]{../fig/column.pdf}
+%         \caption{Column 表示でのツーリー構造の確認}\label{column}
+%      \end{figure}
+%            
+%         ディレクトリーやファイルは図~\ref{tree}のようなツリー構造に配置されている．
+%         特にパソコンのハードディスクの一番上の部分をルートといい \verb/// と表す．
+%         全てのディレクトリーやファイルはルートから一意的にたどっていく
+%         ことが出来る．
+%         ファイルやディレクトリが\verb/// から見てどこにあるかを示すのを
+%         \textcolor{red}{（絶対） path}という．
+%         例えば
+%         図~\ref{tree}のprogramming.texは
+%         
+%         /Users/sonw00two/Documents/classRoom/General/
+%         
+%         Programming/src/programming.tex
+%         
+%         \noindent
+%         のように表される．
+%         後で出てくる .. は一つ上のディレクトリーをあらわす\textcolor{red}{相対 path}の例
+%
+%      \item
+%      不可視ファイル：
+%      ディレクトリ /usr  は
+%         普通には見えない設定になっているので
+%         知らないとアクセスできない．
+%         Finder のメニューバーの Go のメニューから Go to Folder を選ぶと
+%         四角いウィンドウが開くので /usr と入力し，goをクリックで移動できる．
+%         Finderで cmd shift G とタイプしてもよい．
+%         
+%   \item
+%         拡張子：%とpermission 
+%         ファイル名には hoge.tex の .tex のような
+%         \textcolor{red}{拡張子(extension)}があるが，
+%         多くの場合アイコンのみ表示され見えないようになっている．
+%         開発のときは様々なファイルを扱うので，
+%         拡張子を表示しないと効率的なファイルの管理が難しい．
+%         また，メールの添付ファイルのアイコンは偽造できるが
+%         拡張子により直ぐに峻別できるので，
+%         セキュリティーの観点からも表示するのが望ましい．
+%   
+%   \item        
+%         関係したファイルは一つのディレクトリーに，
+%         関連していないファイルは異なるディレクトリーにいれ，
+%         関連のある，あるいは類似のディレクトリーは纏めて一つの大きなデレクトリー
+%         に入れるなど入れ子構造にして（それがツリー構造の定義である）
+%         管理するのが基本である．
+%         また，簡単にそのディレクトリーを説明するテキストファイル ReadMe.txt, 
+%         README.mdをそのディレクトリーに置くことも良い習慣である．
+%
+%
+%\begin{Q}
+%   \begin{figure}[h]
+%         \centering
+%         \includegraphics[width=8cm]{../fig/ScreenCapture1.pdf}
+%         \caption{Macでのエクステンションの表示}\label{extension}
+%      \end{figure}
+%   拡張子を表示するようにパソコンを設定して下さい．
+%\end{Q}
+%         
+%
+%\section{環境構築}
+%以下のアプリのインストール・色々なサービスへの登録をしてもらいたい．
+%ただし，CLI では破滅的なことも出来るので，
+%バックアップは自分でこまめに取っておくようにして下さい．
+%この過程で生じた被害への補償は一切行えません
+%%\textcolor{red}{
+%%   プログラミング実践演習で生じた被害への補償は一切行えません．
+%%   この免責事項を認めた人だけがこの授業を受講することが出来ます．
+%%}
+%
+%
+%
+%  \begin{figure}[htb]
+%         \centering
+%         \includegraphics[width=14cm]{../fig/vscode.pdf}
+%         \caption{VSCode, 下が terminal}\label{vscodeTerm}
+%   \end{figure}
+%
+%\begin{Q}
+%\begin{enumerate}
+%   \item
+%      VSCodeのインストール：
+%       
+%                   フリーのエディタというより統合開発環境
+%            (IDE = Integrated Development Environment)Visual Studio Code
+%            （略称VSCode, \href{https://code.visualstudio.com}{ここからダウンロード}
+%            可能，図 \ref{vscodeTerm}参)．
+%            様々なコンピューター言語のための（自動補完，構文解析のための）
+%            インテリセンス，リンター，スニペット，ユニットテスト
+%            \footnote{詳しい説明はネット等で調べてください.}等の機能拡張がある．
+%            マイクロソフトのVisual Studio  シリーズのエディタのみをフリーで公開した
+%            もので，他にも似たものが色々あったが，最近はデファクトスタンダード．
+%            JavaScriptで作られたアプリの一つで
+%            Chromium+JavaScript +Node.js+Electron 
+%            により作られている(図 \ref{vscode})．
+%     
+%      \begin{figure}[htb]
+%               \centering
+%               \includegraphics[width=6cm]{../fig/ScreenCapture2.pdf}
+%               \caption{VSCodeのクレジット}\label{vscode}
+%   \end{figure}
+%   
+%   \item
+%         terminal と shell:
+%       
+%       Macや Linux 等では既にインストールされている．
+%       Windows ではPowershell あるいは
+%       WSL(Windows Subsystem for Linux)をインストロールする必要があるだろう．
+%       
+%      これから必要になるtool等もCLIと上でも述べたtoolなどを使って
+%       インストールする必要のあるものが多い．
+%       Mac の標準の terminal は
+%      
+%       /Applications/Utilities/Terminal.app
+%   
+%       \noindent
+%       にある．
+%      Mac なら (Home)brew もインストールしておくと都合が良い．
+%      \href{https://brew.sh/ja/}{ここからダウンロード}．
+%      pathを通す必要もある．
+%       
+%       不可視なディレクトリやファイルも沢山あるので
+%       適宜コマンドで確認する必要がある．
+%      VSCode の下の部分にもterminal が付いている（図 \ref{vscodeTerm}）．
+%
+%%     \item
+%%      Web 技術：JavaScript ( TypeScript )
+%%      
+%%      \begin{enumerate}
+%%         \item  http とコマンドラインによるbrowserもどきの作成
+%%         
+%%         \item 
+%%              Chrome のDeveloper tool, Chromeには最初からDeveloper menu がある.
+%%             Developer ニューから JavaScript Console を開くと
+%%             Console が開き，デバッグが可能．
+%%         
+%%         \item  
+%%            JXA : JavaScriptが Mac のスクリプト言語として採用された：
+%%         
+%%            Script Editor・ターミナルから osascript・automator で使える．
+%%         
+%%         \item 
+%%            Single page application: JavaScript+Node.js+Electron etc.+Chromium でmacOS, 
+%%            Windows, スマートホンのいずれにも対応したデスクトップアプリケーションが
+%%            一度に作れる． 例VSCode 
+%%         
+%         
+%%         \item
+%%            p5.js ：
+%%            JavaScript で記述し，2D, 3Dの映像・動画の作成可能．
+%%            Processing というJavaのライブラリーをJavaScript に移植したもの
+%%            (\cite{P5})．
+%%      \end{enumerate}
+%   \item
+%      version 管理の基本ソフト Git とネットサーバー GitHub:
+%      多人数で開発を行うにはこれを使いこなさないといけないが，
+%      個人開発でも有用．
+%      GitHubで VSCode の設定ファイルの同期も出来る．
+%      あなたが所属する組織がMicrosoft365に加入していればそ
+%      のアドレスでGitHubに
+%       \href{ https://github.com/}{登録}し
+%      Student Developer Pack を使うように設定できる可能性がある．
+%
+%   \item
+%      Microsoft365 にログインすると Copilot
+%      （chatGPTを office suite 向きにアレンジしたもの）が
+%      使用料無しで使えるようになっている．
+%      GitHub のStudent Developer Pack に入っていると，
+%      VScode の拡張機能タブで「GitHub Copilot」を検索してインストールすると，
+%       使用料無しでVScodeからGitHub Copilot が使える可能性がある．
+%%   chatGPT etc
+%%      \begin{enumerate}
+%%      \item
+%%         機械学習
+%%      \item
+%%         プロンプトエンジニアリング(\cite{OT})．
+%%      \end{enumerate}
+%
+%   \item
+%      JavaScript は  Chrome などのBrowser で既に使えるようになっているが，
+%      セキュリティのためディスクへのアクセスなどは制限されているので，
+%      強力な実行環境となる node.js とその管理ツール npm も必要になる．
+%      \href{https://nodejs.org/ja/download}{ここからダウンロード}.
+%      これからは
+%      \href{https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/}
+%      {TypeScript}にも慣れる必要があるだろう．
+%            
+%   \item
+%      Python3 とその管理ツール pip や  (Ana)conda  も必要
+%      \href{https://www.python.org}{ここからダウンロード}
+%   
+%\end{enumerate}
+%\end{Q}
+%
+%
+%
+%
+%%   \item
+%%
+%%
+%%shell 
+%%
+%%root 
+%%
+%%ログインディレクトリー
+%%作業ディレクトリ
+%%
+%%ファイル管理
+%%原則
+%%Login
+%
+%\end{itemize}
+%
+%
+%\begin{Q}
+%   VSCode の設定を，必要なら検索かCopilotに聞いて，
+%   GitHubで同期するように設定して下さい．
+%\end{Q}
+%
+%
+%\section{CLI}
+%      コマンドラインインターフェースを使いこなさないとプログラミングは難しい．
+%        以下に簡単なコマンドの使用例をあげる．terminal を立ち上げるとプロンプト
+%        が表示される(図~\ref{terminal})．
+%        私の端末では$\cdots$\verb/% /となっているのがプロンプトで，
+%        そのままキーボードからコマンド（文字）を打ち，リターンキーを押すと
+%        そのコマンドが実行され，次の行に結果が表示される．
+%        これを標準出力という．標準入力と標準エラー出力もある．
+%        \begin{figure}[htb]
+%         \centering
+%         \includegraphics[width=14cm]{../fig/terminal.pdf}
+%         \caption{Terminal}\label{terminal}
+%      \end{figure}
+%       これがコマンドラインインタープリター shellである．
+%       
+%       以下では \verb/% /でプロンプトを表し，     
+%       \# 以降はコメントを表す．
+%        %以下，表示がインデントされすぎるのでインデントを減らす．
+%   \begin{lstlisting}
+%   % cd #  ホームディレクトリへ移動
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % cd .. #  一つ上のディレクトリへ移動 
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % pwd  #  現在のディレクトリの名前の表示
+%   \end{lstlisting}
+%   /Users
+%   \begin{lstlisting}
+%   % ls   #  現在のディレクトリにあるディレクトリやファイル表示
+%   \end{lstlisting}
+%   Shared   sonw00two
+%   \begin{lstlisting}
+%   % ls -a  #  不可視なものも含めたディレクトリやファイル表示
+%      localized   Shared   sonw00two
+%   % cd sonw00two  # このディレクトリのディレクトリ sonw00two へ移動
+%   \end{lstlisting}\begin{lstlisting}
+%   % mkdir tmp  # ディレクトリ tmp の作成
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % cd tmp  # ディレクトリ tmp へ移動
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % ps aux >ps.txt  # 全てのプロセスを ps.txt に書く
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % more ps.txt  # ps.txt  を表示．q で表示を閉じる
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % mv ps.txt ps1.txt  #  ps.txt の名前をps1.txt へ
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % cp ps1.txt ps2.txt  # ps1.txt  をps2.txt にコピー
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % rm *  # このディレクトリの任意のファイルを削除．*   はこのディレクトリの任意のファイル名を表すいわゆるワイルドカード．また，ファイルを全部消さないとディレクトリは削除できない．
+%   \end{lstlisting}
+%   \begin{lstlisting}z
+%   % cd ..  
+%   \end{lstlisting}
+%   \begin{lstlisting}
+%   % rmdir tmp  # ディレクトリ tmp の削除 > rm -R tmp で中のファイルを消さなくても削除可能ではあるが慣れるまでは確認してからの削除を勧める．
+%
+%   \end{lstlisting}
+%\emptyline
+%
+%shellには全てをキーインしなくても，ファイル名などをある程度打ってタブキーを打つとあとの部分を補完してくれる機能がある．他の開発環境でも異なるキーかもしれないが大抵補間機能がついている．このファイルの最後の部分によく使うコマンドのリストを上げたので参考にしてほしい．
+
+\section{標準入出力とパイプ}
+最初難しく感じるのが標準入力・標準出力・標準エラー出力と
+ファイルディスクリプタであると思うので解説する．
+\begin{verbatim}
+   % echo "example text"
+   example text
+\end{verbatim}
+この例では"example text"標準入力で次の行が標準出力である．
+\begin{verbatim}
+   % echo "example text" > text
+   %
+\end{verbatim}
+この例では標準出力がファイルtext に出力され，そのせいでターミナルには出力されない．\verb/>/をリダイレクトという．確かめてみると
+\begin{verbatim}
+   % cat text
+   example text
+\end{verbatim}
+となり，ファイルtextの内容が標準入力となり，次の行が標準出力である．
+\begin{verbatim}
+   % cat test
+   cat: test: No such file or directory
+\end{verbatim}
+この例では間違えた名前を打ったので，そのようなファイルはないと
+標準エラー出力に表示された．つまり，標準エラー出力と標準出力は
+ファオルトではターミナルの次の行である．
+
+次にパイプについて説明する．
+\begin{verbatim}
+   % cat text | wc
+       1       2      13
+\end{verbatim}
+この\verb/|/がパイプである．前半のコマンドcat textの標準出力が直接
+wcの標準入力に送られその標準出力が次の行に出力されている．
+
+入出力の管理はファイルディスクリプターによって制御されている．
+これは比較的小さな非負整数で，標準入力は$0$,
+標準出力は$1$, 標準エラー出力$2$となっていいる．
+新しいデバイスを開いたりすると追加の非負整数が割り振られる．
+これを使ってShell は細かな入出力の管理をしている．
+
+\section{制御構文}
+・for Loop : 
+
+例：
+for i in 1 2 3 4; do echo ch\$i ;done
+
+for i in {1..9}; do echo ch\$i ;done
+ 
+ >for i in {34..47}
+
+comand line:
+\begin{verbatim}
+for> do echo 
+'' > sample05\$i.py  
+for> done
+\end{verbatim}
+
+・If 文:
+
+If []
+then
+
+else
+
+fi
+
+
+\section{Shell Script}
+Shell の操作をまとめてScriptを作ることが出来る．
+これをShell Scriptという．まず
+\begin{verbatim}
+   #!/bin/sh
+   
+   echo "Hello World!"
+\end{verbatim}
+という内容を hello という名前で保存する．
+そのディレクトリで
+\begin{verbatim}
+   % ls -l
+   total 8
+   -rw-r--r--  1 snow00two  staff  33 Apr 30 13:28 hello
+   # このままだと実行可能でない
+   %  chmod +x hello   # 実行可能に変換
+   %  ./hello
+   Hello World!
+\end{verbatim}
+
+\begin{Q}
+   コマンドラインを使い，ディレクトリーを移動したり，
+   ディレクトリーやファイルの作成や削除を行って下さい．
+\end{Q}
+
+% \newpage
+%   \item
+%      正規表現：パターンマッチングの表現．
+%      どれでも良いのでよく使う言語の正規表現をマスターすることをお奨めする．
+%      すると少しの変更で他の言語でも使えるようになる．
+
+\begin{table}[h]
+   \centering
+   \begin{tabular}{ll}\noalign{\hrule height 1pt} 
+   pwd&  現在のディレクトリー表示\\ \hline 
+   ls&  現在のディレクトリーの中のファイル表示\\ \hline 
+   cd dir1&  ディレクトリー dir1 へ移動\\ \hline 
+   cd & Home ディレクトリーへ移動\\ \hline 
+   cp file1 file2& file1 をfile2 にコピー\\ \hline 
+   mv file1 file2&  file1 の名前をfile2 に変更\\ \hline 
+   rm file1& file1 の削除 \\ \hline 
+   touch file1 & file1 の変更時刻の更新，file1 が無ければ file1 を作成\\ \hline 
+   mkdir dir1&  ディレクトリー dir1 を作る\\ \hline 
+   rmdir dir1&  ディレクトリー dir1を削除\\ \hline 
+   ps&  現在のプロセスを表示\\ \hline 
+   kill pid &  プロセスid (自然数)pid のプロセスの終了\\ \hline 
+   which cmd&  cmd が使えればそのコマンドの pathを表示\\ \hline 
+   who&  誰が今ログインしてるかを表示\\ \hline 
+   who am i&  自分がどのusername でログインしているか表示\\ \hline 
+   date&  現在の日時を表示\\ \hline 
+   cal &  現在の月のカレンダーを表示\\ \hline 
+   chmod +x file1&   file1をコマンドとして実行可能にする\\ \hline 
+   ./file1&   現在のディレクトリの file1をコマンドとして実行\\ \hline 
+   chmod -x file1&   file1をコマンドとして実行不可能にする\\ \hline 
+   echo "text" &  文字列 text を表示\\ \hline 
+   cat file1 file2 &  file1, file2の内容を連結(concatenate)して表示\\ \hline 
+   pr file1 &   file1 の内容をフォーマットして表示\\ \hline 
+   tail -n  file1&  file1の最後の$n$行を表示\\ \hline 
+   head -n file1 & file1の最初の$n$行を表示 \\ \hline 
+   more file1&   file1 の内容を確認しながら表示\\       \noalign{\hrule height 1pt}
+   \end{tabular}
+   \smallemptyline
+   \caption{コマンドの基本}
+\end{table}
+
+\begin{table}[htb]
+   \centering
+   \begin{tabular}{ll}\noalign{\hrule height 1pt} 
+   ed file1&  ed でfile1を編集\\ \hline 
+   vim file1&  vim でfile1を編集\\ \hline 
+   code file1&  VSCode でfile1を編集\\ \hline 
+   open -a apli file1& アプリ apli で file1を編集\\ \hline 
+   sh&  subshell を開く\\ \hline 
+   wc file1&  file1 の行数，語数，文字数を表示\\ \hline 
+   cmp file1 file2&  file1 と file2 が違えば最初の違う行を表示\\ \hline 
+   diff file1 file2&  file1 と file2 がどのように違うかを表示\\ \hline 
+   grep hoge file1&  file1のhogeを含む行を表示\\ \hline 
+   sort file1&   file1の行毎にソートする\\ \hline
+   man cmd1& cmd1 のマニュアル表示\\ \hline
+      brew install hoge & brew で tool hoge をインストール\\ \hline
+      history & これまで使ったコマンドのリスト\\ \hline
+      printenv  &全ての環境変数の表示\\ \hline
+      echo \verb/$/ENV  &環境変数ENV(が定義されていれば)表示\\ \hline
+      su hoge&  hoge というusernameのユーザに変わる\\ \hline
+      su &  root に変わる．Macでは廃止\\ \hline
+      sudo cmd1 & スーパーユーザー権限でcmd1 を実行\\
+      \noalign{\hrule height 1pt}
+   \end{tabular}
+   \smallemptyline
+   \caption{コマンドの基本2}
+\end{table}
+
+
+\begin{table}[htb]
+   \centering
+   \begin{tabular}{ll}\noalign{\hrule height 1pt} 
+      control  D & end of file \\ \hline
+      control  S & log out\\  \hline
+      tab & filename 補間 \\ \hline
+      \verb/*/ & 任意filename \\ \hline
+      \verb/*/hoge & 最後がhoge の任意filename \\ \hline
+      \verb/!!/ &直前のコマンドをもう一度 \\ \hline
+       \verb/!/cmd1 & cmd1で始まる一番新しいコマンドをもう一度 \\ \hline
+     cmd1\verb/;/ cmd2& コマンド cmd1と cmd2の並列 \\ \hline
+      cmd1\verb/|/ cmd2& pipe:コマンドcmd1の標準出力を
+      cmd2の標準入力へ \\ \hline
+      \verb/>/ file1& file1へredirect \\ \hline 
+      \verb/>>/ file1 & file1へ追加 \\ \hline 
+     \verb/</ file1& file1からredirect \\ \hline
+    \verb/./ & current directory \\ \hline
+     \verb/../ & parent directory \\
+     \noalign{\hrule height 1pt} 
+   \end{tabular}
+   \smallemptyline
+   \caption{terminalとshellのメタキャラクター}
+\end{table}
+
+\begin{table}[htb]
+   \centering
+   \begin{tabular}{ll}\noalign{\hrule height 1pt} 
+      control A& 行の先頭へ\\ \hline
+      control B & 一文字前へ\\ \hline
+      control E & 行の最後へ\\ \hline
+      control F& 一文字後ろへ\\ \hline
+      control N& 次の行へ\\ \hline
+      control P & 前の行へ\\ \hline
+      control D & 右を消去\\ \hline
+      control K & カーソルの後を消去\\ \hline
+      control H & 左を消去\\ \hline
+      control V & 一画面移動\\ \hline
+      control Y & 再入力\\ \noalign{\hrule height 1pt}
+   \end{tabular}
+   \smallemptyline
+   \caption{Emacs由来}
+\end{table}
+
+
+
+%\end{document}

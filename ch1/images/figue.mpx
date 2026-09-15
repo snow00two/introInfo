@@ -1,0 +1,15 @@
+% Written by metapost version 2.02
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n0="cmmi10";
+_s("=",_n0,1.00000,0.0000,0.0000,);
+_n1="cmr10";
+_s("(Macin",_n1,1.00000,8.3022,0.0000,);
+_s("tosh",_n1,1.00000,38.7437,0.0000,);
+_s("HD)",_n1,1.00000,60.3848,0.0000,);
+setbounds _p to (0,-2.4907)--(79.3415,-2.4907)--
+ (79.3415,7.4720)--(0,7.4720)--cycle;
+_p endgroup
+mpxbreak

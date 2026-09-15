@@ -1,0 +1,74 @@
+% Written by upmpost version 2.11-0.04-u1.35
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n0="cmr10";
+_s("Data(",_n0,1.00000,0.0000,0.0000,);
+_n2="uprml-h";
+_s("データ",_n2,0.92468,25.3218,0.0000,);
+_s(")",_n0,1.00000,52.9586,0.0000,);
+setbounds _p to (0,-2.4907)--(56.8330,-2.4907)--
+ (56.8330,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n0="cmr10";
+_s("Information(",_n0,1.00000,0.0000,0.0000,);
+_n2="uprml-h";
+_s("情報",_n2,0.92468,55.3758,0.0000,);
+_s(")",_n0,1.00000,73.8004,0.0000,);
+setbounds _p to (0,-2.4907)--(77.6748,-2.4907)--
+ (77.6748,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n0="cmr10";
+_s("Kno",_n0,1.00000,0.0000,0.0000,);
+_s("wledge(",_n0,1.00000,17.9881,0.0000,);
+_n2="uprml-h";
+_s("知識",_n2,0.92468,51.1970,0.0000,);
+_s(")",_n0,1.00000,69.6216,0.0000,);
+setbounds _p to (0,-2.4907)--(73.4959,-2.4907)--
+ (73.4959,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n0="cmr10";
+_s("Wisdom",_n0,1.00000,0.0000,0.0000,);
+setbounds _p to (0,0.0000)--(35.7549,0.0000)--
+ (35.7549,6.9185)--(0,6.9185)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n0="cmr10";
+_s("(",_n0,1.00000,0.0000,0.0000,);
+_n2="uprml-h";
+_s("知恵",_n2,0.92468,3.8744,0.0000,);
+_s(")",_n0,1.00000,22.2989,0.0000,);
+setbounds _p to (0,-2.4907)--(26.1733,-2.4907)--
+ (26.1733,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak

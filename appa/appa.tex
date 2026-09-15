@@ -1,0 +1,359 @@
+%\documentclass[a4paper,11pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%%\usepackage{emath}
+%\usepackage{listings}
+%\usepackage{ccicons}
+%%\usepackage{fancybox}%enclose by box
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{verbatim}
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%    bookmarksnumbered=true,%
+%    bookmarksopen=true,%
+%    colorlinks=true,%
+%   linkcolor=red,
+%   citecolor=blue,
+%} 
+%
+%\renewcommand{\labelenumi}{\textbf{\theenumi.}}
+%\renewcommand{\theenumii}{\arabic{enumii}}
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%
+%\newtheorem*{PP}{今日の目標}
+%\newtheorem*{Thm}{定理}
+%\newtheorem*{Prop}{命題}
+%\newtheorem*{exQ}{レポート}
+%
+%\theoremstyle{remark}
+%\newtheorem*{ex}{例}
+%\newtheorem*{Q}{問題}
+%\newtheorem*{Quiz}{小テスト}
+%
+%\def\emptyline{\vspace{11pt}}
+%
+%
+%\begin{document}
+%
+%\begin{flushright}
+%   2026/08/20
+%   %2026/08/01
+%   %2026/04/21
+%   %2025/12/02
+%   %2025/11/22
+%   %2025/03/05
+%   %2024/04/06
+%   
+%   %大津幸男(九大・数理) 
+%   snow00two
+%\end{flushright}
+%\begin{center}
+%	\Large{Excelの関数とVBAによるプログラミング}
+%	\small{
+%      	\href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%	}
+%\end{center}
+%\emptyline
+
+\chapter{Excelの関数とVBA}
+\section{Excelの関数とVBA}
+\subsection{Excel の関数でのプログラミング}
+Excel の関数によるプログラミングではそれなりに色々なことが出来るし，
+仕事ではデファクトスタンダードなので使わざるをえない．
+幾つかの方法で階乗の計算をしてみる
+%(\href{ftp://github.com/snow00two/docs/excelVba/factorial.xlsm.zip}{ここからダウンロード}．ただし最初はmacroを無効にして開き確認の後macroを有効にして開いてください)
+．
+
+\begin{figure}[htb]
+       \centering
+      \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/appa/images/ScreenCapture5.pdf}
+      \caption{階乗計算}\label{fun}
+\end{figure}
+\begin{figure}[htb]
+      \centering
+      \includegraphics[width=7cm]{~/Documents/GitHub/introInfo/appa/images/factTrace.pdf}
+      \caption{Trace Precident の(何度かの)実行}\label{fun2}
+\end{figure}
+
+
+%\begin{figure}[htb]
+%   \centering
+%   \begin{minipage}{0.45\columnwidth}
+%      \centering
+%      \includegraphics[width=6cm]{~/Documents/GitHub/introInfo/appa/images/ScreenCapture5.pdf}
+%      \caption{}\label{fun}
+%   \end{minipage}
+%   \begin{minipage}{0.45\columnwidth}
+%      \centering
+%      \includegraphics[width=6cm]{Screen_Capture5.pdf}
+%      \caption{}\label{fun2}
+%   \end{minipage}
+%\end{figure}
+
+図 \ref{fun} の2行目はセルの間の掛け算を使った関数計算である．セルあるいは数式バーに数字を普通に入力し，リターンキーを押すと通常の設定だとセルの右寄りに表示される．
+数式バーでは文字列は 'の後に続け，リターンキーを押すと通常の設定だと左寄りに表示されるが，ここでは右寄りになるように表示している．
+数式バーでの数式を入力するには$=$で始める．セルの値はB4のように参照される，上の場合セルC6 には =C5*B6 が入力されていてリターンキーを押すと計算した値がセルに現れる．
+
+一個づつ入力するのは大変で間違いが起こりやすいので以下のようにする：C5に正しい式を書いて，ここを選択し，選択の部分を少し動かすと十字の記号があらわれるので，そのまま，下までドラッグすると正しい式がコピーされる．これは相対参照という機能であるが参照先を動かしたくないときは=\$C\$5*B6 のような絶対参照を使う必要がある．
+ここはよく間違えて微妙に狙ったものと異なる結果になり，慣れない人は途方に暮れるところでなので注意してほしい．Formula のタブに Trace Precident のボタンがあるのであるセルがどこを参照しているかを矢印で確認できる(図 \ref{fun2})．我々の例は小さすぎてあまり役立たないが，複雑な参照では視覚的に確認が出来て便利である．
+
+ 3行目では繰り込み関数Fact(n)を使って計算している．
+ 計算的にはどの方法でやっても同じであるが，
+ やりたいことが既に繰り込み関数で実現されていることも多いので
+ 必要に応じて Help やインターネットの検索等で探してほしい．
+
+\subsection{VBAでのプログラミング}
+次に4行目で行っている
+VBA を使った計算を説明する．
+VBAとは Visual Basic for Applicationsの略でExcel・Word のスクリプト言語で，Basicから派生したもの\footnote{言語の歴史については\cite{W}参照}である．
+Officeに標準搭載されているので，自分で開発環境を導入する必要が無いのは
+初学者にとっては魅力的である．
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=7cm]{~/Documents/GitHub/introInfo/appa/images/ScreenCapture1.pdf}
+	\caption{Excel の設定画面}\label{}
+\end{figure}
+
+ExcelのメニューバーのExcel メニューからPreferencesを選び，
+Preferencesのパネルで
+Ribbon＆Toolbar＞Ribbon＞Main Tabs で Developer をチェック．
+閉じてファイルを見るとDeveloper タブが見えるようになる：
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appa/images/ScreenCapture2.pdf}
+	\caption{Developer のタブを押した後}
+\end{figure}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appa/images/ScreenCapture8.pdf}
+	\caption{Visual Basic のボタンを押した後}\label{withoutCodeWindow}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appa/images/ScreenCapture3.pdf}
+	\caption{Moduleの追加後}\label{withCodeWindow}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appa/images/ScreenCapture6.pdf}
+	\caption{factorial()のコード}\label{factorial}
+\end{figure}
+
+
+
+Developer タブを選び左側のVisual Basic のボタンをクリックする
+とVBA の開発環境が開く．
+左側の上の窓がプロジエクトエクスプローラー，
+その下がプロパティウインドウ，
+左側の上の窓がコードウインドウだが最初は表示されていない(図~\ref{withoutCodeWindow})．
+その下がミデエットウインドウであり，
+ここに出力することでプログラムの確認が出来る．
+
+メニューバーのinsertのModule を選ぶと，
+プロジエクトエクスプローラーにModule1が追加され，
+コードウインドウが使えるようになる(図~\ref{withCodeWindow})．
+
+次に開くとき VBA を有効にするためには fuge.xlsm という拡張子で保存する必要ある．
+また，
+そのファイルを開くときはVBAを使用して良いかの確認アラートがでるので，自分で作ったファイルの場合 Enable Macro のボタンを押してほしい．
+ただし，他人の作った.xlsmファイルのときは十分注意が必要である．
+
+先程の例で VBA のコードをあげる (図 \ref{factorial}).
+
+
+まず，変数の宣言を強制する設定にすることが推奨されているので，メニューバーのExcel のメニュー Preferences  を開き，editer のoption の二つ目の部分にチェックを入れておく．この設定が有効になっていると Option Explicit と示されている．
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=8cm]{~/Documents/GitHub/introInfo/appa/images/ScreenCapture7.pdf}
+	\caption{VBAの設定画面}\label{}
+\end{figure}
+
+
+プログラムに戻る．' がコメントの記号で，この部分はプログラムに何の影響も与えないが，
+将来の自分・他人が理解し易いようにコメントを書くように努めてほしい．
+
+文の後に ; は書かない．
+
+Sub のあとに関数の名前を書く，この場合は factorial() で
+必ず() が必要で，(var1, var2) のようにして変数を入れることで関数への変数の受け渡しが出来る．
+次の行からEnd Subの間に定義を書く．
+これらは自動補完されるので正しい入力をすれば改行で自動に現れる．
+Dim が変数の宣言で
+As の後に型の宣言を行っている．ここでは long は長い整数を表す．
+maxNは定数のつもりで a, nが計算に使う補助的な変数である．
+\begin{verbatim}
+   For n = 1 To maxN
+        a = a * n
+        Cells(n + S, E).Value = a 'ex C(1+S,E) = E4 cell
+   Next n
+\end{verbatim}
+がVBAの for 文でn = 1 から maxN まで a に n を掛けた
+  a * n を a に書き換えそれをCells(n + S, E)に書いている．
+ただし，\verb/S = 3, E = 5 /である．
+この表現Cells(n + S, E)は行列と同じで(n + S, E)成分，つまり，
+n+3行5列の成分を表す．
+.Value はこのセルのプロパティValue , つまり，値を表している．
+様々なmethod （Obj.hoge()のようなもの）も用意されているが
+オブジェクト指向のプログラミングをしているというより，
+Excel のbookがオブジェクトの塊となっているので，
+VBA からそれを操作しているという方がもっともらしい．
+
+\emptyline
+プログラムを実行するにはメニューバーの Run のメニュー Run Sub/UseForm を選択すると実行され，シートのE行に結果を書き出しているはずである．
+あと最低必要な文は if 文で，例えば
+\begin{verbatim}
+Sub myfun()
+    If Cells(1, 1).Value < 60 Then
+            Cells(1, 2).Value = "F"
+    ElseIf Cells(1, 1).Value < 70 Then
+        Cells(1, 2).Value = "C"
+    ElseIf Cells(1, 1).Value < 80 Then
+        Cells(1, 2).Value = "B"
+    ElseIf Cells(1, 1).Value < 90 Then
+        Cells(1, 2).Value = "A"
+    Else
+        Cells(1, 2).Value = "S"
+    End If
+End Sub
+\end{verbatim}
+のようにするとCells(1, 1)の値に応じてCells(1, 2)に成績を記入することが出来る．
+
+他にも色々な機能があるが，取りあえず今説明したことでVBAを動かすことが出来るであろう．
+外部ファイルとの入出力も可能なので，Excel の関数では実現できないようなプログラムも作ることが出来る．
+上でも注意したがウイルスのような破壊的なプログラムを書くことも可能であるので注意が必要である．色々調べてほしい．
+
+
+
+\begin{Q}
+Excelの参照機能を使って
+Fibonacci 数列を書き出せ(図~\ref{Fibonacci})．
+また，同じことをVBAを使って書き出せ．
+余裕のある人はExcelのシートから幾つ出力するか制御出来るようにシステムを変更せよ．
+\end{Q}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=5cm]{~/Documents/GitHub/introInfo/appa/images/Fibonacci.pdf}
+	\caption{Fibonacci 数列}\label{Fibonacci}
+\end{figure}
+
+\begin{Q}
+   Excelの参照機能を使って
+   Pascalの三角形を書き出せ(図~\ref{Pascal})．
+   また，同じことをVBAを使って書き出せ．
+   余裕のある人はExcelのシートから幾つ出力するか制御出来るようにシステムを変更せよ．
+\end{Q}
+
+\begin{exQ}
+   ここまで作ってきたプログラムを生成AIに
+   Python やJapaScript (+node.js )のプログラムに書き換えてもらい，
+   必要に応じて訂正しそれを実行せよ．
+\end{exQ}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appa/images/Pascal2.pdf}
+	\caption{参照機能を使ったPascal's triangle}\label{Pascal}
+\end{figure}
+%\clearpage
+
+
+\subsection{関数によるデータ分析}
+Excel関数のもう少し詳しい使い方とデータ分析，グラフなどによる可視化について解説する．先程も説明したが，
+まずセルを選ぶと数式バーに入力出来るようになる．
+\verb/=/を入力すると数式を入力出来るようになる．
+ここで他のセルをクリックするとそのセルの内容を参照できることになるし，
+関数を書くとその関数が使えるようになる．
+
+図~\ref{histogram}の成績集計用のExcelシート%(\href{ftp://github.com/snow00two/docs/excelVba/template.xlsm.zip}{ここからダウンロード})．
+を用いて
+簡単なデータ分析について解説する：
+連続したセルの指定はC2:C10や C列を表すC:Cで行う．
+例えばC4からC15までの平均を求めるにはC16に
+\begin{verbatim} 
+   =AVERAGE(C4:C15)
+\end{verbatim}
+と書けばいい．あるいは関数を書いてC4からC15までのセルをシフトキーを押しながら選ぶと自動で挿入される．
+
+ヒストグラムを書くためにH4に
+\begin{verbatim} 
+   =FREQUENCY(C4:C15,F4:F15)
+\end{verbatim}
+と入力してリターンキーを押すとH4からH15に頻度が計算される．
+この内容からグラフを作るとヒストグラムが出来る．
+ただし，これにはそれなりの設定が必要である
+(図~\ref{data}, \cite{DE}12章参照)．
+H4からH15までの総和をもとめるにはH16に
+\begin{verbatim}
+   =SUM(H4:H15)
+\end{verbatim}
+と書く．これは集計が確実に行われているかのチェックにも成る．
+ 
+条件分岐はD4の内容のように
+\begin{verbatim} 
+   =IF(C4>=$K$4,$J$4,IF(C4>=$K$5,$J$5,
+   IF(C4>=$K$6,$J$6,IF(C4>=$K$7,$J$7,$J$8))))
+\end{verbatim}
+とすれば良い．その後十字の記号を下までドラッグすると
+正しい式がコピーされる．
+絶対参照と相対参照の使い方に注意してほしい．
+
+L4のように
+\begin{verbatim} 
+   =COUNTIF($D$4:$D$15,J4)
+\end{verbatim}
+とすると集計がされる．これも十字の記号を下までドラッグ．
+集計はヒストグラムにまとめてある(図~\ref{histogram}参)．
+
+あと，スタイルの問題だが手入力部分の数字のフォントは青で，
+いつもの固定の部分と自動計算のところは黒になるように
+字の色が設定してある．
+ここでは個別の成績部分と最終成績の閾値の部分がそれに当たる．
+
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appa/images/excelAnalysis.pdf}
+	\caption{データとヒストグラム}\label{histogram}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=7cm]{~/Documents/GitHub/introInfo/appa/images/graphD.pdf}
+	\caption{Graph のデータ}\label{data}
+\end{figure}
+
+\subsection{歴史と参考文献}
+IBM PC市場ではLotus 1-2-3が覇権を握っていたが，
+1984年のMacintoshの発売に合わせて
+MicrosoftはMacintosh 版Excel を開発し1985年に発売を開始した．
+その後1985年MicrosoftはWindows 1.0を開発し，
+Macintosh 版Excel をWindows 版に移植し1987に発売を開始した
+(\cite{Jobs} の16章にはこれらのこととJobs とGateの関係についての記述がある)．
+VBAの起源はもともとは1964年に発表されたBASIC =Beginner's  All-purpose Symbolic Instruction Codeであるが，
+1991年にMicrosoftがオブジェクト指向の考えを取り入れた
+Visual Basic 1.0 を発表し，
+1994年にVBA =Visual Basic for Application を開発し 
+Excel 5.0に搭載されたのが始まりである(\cite{W})．
+
+参考文献について：
+\cite{Yo}はExcelの関数でどのようなことが出来るかを分かり易く解説したもの．
+\cite{Kum}はこの資料であげた図~\ref{fun}, \ref{Fibonacci}, \ref{Pascal} のような見栄えのExcelを作るにはどうすればいいかを解説したもの．
+\cite{Kud}はVBAについて非常に短いが分かり易く解説したもの．
+\cite{Ta}はVBAについて非常に詳しく解説したものである.
+Excelの機能は膨大なので，
+辞書として\cite{E}, \cite{EF}, \cite{EV} も必要となるだろう.
+
+
+%\end{document}
+

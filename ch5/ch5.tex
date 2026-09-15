@@ -1,0 +1,1305 @@
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%%\usepackage{emath}
+%\usepackage{listings}
+%\usepackage{ccicons}
+%\usepackage{mflogo}
+%%\usepackage{fancybox}%enclose by box
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{verbatim}
+%\usepackage{ulem}
+%
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%   bookmarksnumbered=true,%
+%   bookmarksopen=true,%
+%   colorlinks=true,%
+%   linkcolor=red,
+%   citecolor=blue
+%} 
+%
+%\newtheorem*{Thm}{定理}
+%\newtheorem*{Prop}{命題}
+%
+%\newtheorem*{exQ}{レポート}
+%
+%\theoremstyle{remark}
+%\newtheorem*{ex}{例}
+%\newtheorem*{Q}{演習}
+%\newtheorem*{Quiz}{問題}
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%\renewcommand{\tablename}{表}
+%\setlength{\belowcaptionskip}{0mm}
+%
+%\DeclareMathOperator{\Ker}{Ker}
+%\DeclareMathOperator{\Image}{Im}
+%
+%\def\emptyline{\vspace{11pt}}
+%\def\smallemptyline{\vspace{6pt}}
+%\begin{document}
+%\begin{flushright}
+%   2026/08/20
+%   %2026/06/30
+%   %2026/03/11   
+%   
+%   九大・数理 大津幸男
+%\end{flushright}
+%
+%
+%\begin{center}
+%   {\Large 情報科指導法II---09}
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%   \par{セキュリティー1}
+%\end{center}
+
+\chapter{セキュリティー}
+セキュリティーには数学的・技術的側面と人間・社会・経営的側面があるが，
+まず数学的・技術的側面をとりあげ，その後人間・社会・経営的側面を取り上げる．
+
+\section{暗号の数理}
+\subsection{$\mathbf Z$の剰余類}
+まず，暗号や認証で使われる初等整数論の復習を行う．
+どうしても代数でよく使われる言葉が出てきてしまうので
+\cite{Ho}, \cite{Ta}, \cite{Ko} などを参考にしながら
+読み解いもらいたい．
+この解説が代数へのイントロとなれば望外の喜びである．
+
+$\mathbf N$ を（$1$以上の）自然数全体のなす集合, $\mathbf Z$を整数全体のなす集合とする．$\mathbf Z$は加法$+$
+に関して群\footnote{集合$G$が\term[]{群}であるとは任意の$a$, $b\in G$に対して積$ab\in G$が定まり，次の三条件を満たすことである：
+\[
+   (ab)c = a(bc)\quad \forall a, b, c\in G
+\]
+\term[]{単位元}$e\in G$が存在し，
+\[
+   ea=ae=a\quad \forall a\in G
+\]
+任意の$a\in G$に対して\term[]{逆元}$a^{-1}$が存在して
+\[
+   aa^{-1}= a^{-1}a = e
+\]
+$ab=ba$をみたすとき\term[]{可換群}といい，$+$で表すことが多い．}
+になっている．
+$\mathbf Z$には掛け算$\cdot$ ( $\times$と書くこともある)もあるが$0$を除いた$\mathbf Z\setminus\{0\}$では割り算ができない(任意の$n\neq\pm1$は$\mathbf Z$内で逆元が無い)ので群ではない．
+$\mathbf Z$は$+$と$\cdot$ に関して環\footnote{集合$R$が\term[]{環}であるとは演算$+$と$\cdot$ をもち$+$に関しては可換群で，$\cdot$ については結合律をみたし可換であり，$\cdot$と$+$については分配則をみたすこと．$\mathbf Z$や多項式環$\mathbf Z[X]$が典型例}であるが，体\footnote{環$K$が体とは$K$の$0$以外の元が$\cdot$についての逆元を持つこと．$\mathbf R$や$\mathbf C$が例．}ではない．
+$m+n=n+m$なので可換である，%加法$+$に関して加群ということがある．
+$m\in \mathbf N$を固定し，$x, x'\in \mathbf Z $
+\[
+   x\equiv x' \mod m \Leftrightarrow 
+   \exists q \in  \mathbf Z \text{ such that }x-x'=qm
+\]
+と置くとこれは同値関係である．
+$x\in \mathbf Z $を代表元とする同値類を$\bar x$と置く．
+%$\mathbf Z $を加法$+$に関する可換群と見なすと
+\[
+\begin{split}
+   &x\equiv x' \mod m  \text{ and } y\equiv y' \mod m\\
+   \Rightarrow \quad
+   & x + y \equiv x' + y' \mod m,\quad
+   xy\equiv x'y' \mod m
+\end{split}
+\]
+なので
+\[
+   \bar x + \bar y = \overline{x+y},\quad
+   \bar x\cdot \bar y = \overline{xy}
+\]
+と定め暫く$G$と置く．
+$(G, +)$ は$\bar 0$を単位元とする可換群である．
+\[
+   f:\mathbf Z \ni x \mapsto \bar x \in G
+\]
+とすると$f(x+y)=f(x)+f(y)$\footnote{このようなものを$+$についての群の準同形という．}であり，
+\[
+   \{x\in \mathbf Z\mid  f(x)=\bar 0\}= m\mathbf Z
+\]
+見なせるので
+%$ m\mathbf Z$は$\mathbf Z$の正規部分群（$\forall a\in \mathbf Z$について$ a+m\mathbf Z-a=m\mathbf Z$）であるので，群の準同形定理より
+\[
+   G \sim \mathbf Z/m\mathbf Z
+\]
+となる．
+\term[]{巡回群}とは一つの元から生成される群のことであり，
+$\mathbf Z/m\mathbf Z$は$+$については$\bar 1$で生成されているので
+有限巡回群である．これを$C_m$と表すことがある．
+%(また，無限集合になる巡回群を無限巡回群といい，$\mathbf Z$と同形になる．)
+\emptyline
+
+$\mathbf Z/m\mathbf Z$は$+$ と$\cdot$について$\mathbf Z$の計算と同じルールで計算していい．例えば
+\[
+  \bar x (\bar y+\bar z)
+  = \overline{xy+xz}
+  = \bar x \bar y+\bar x \bar z
+\]
+になる\footnote{$f(x+y)=f(x)+f(y)$, $f(xy)=f(x)f(y)$をみたすものを環の準同形という．}．以下，
+$\mathbf Z/m\mathbf Z$の積$\cdot$について詳しい構造を調べる．
+最初にいくつか計算してみる．
+\begin{ex}
+   $\mathbf Z/4\mathbf Z$の足し算と掛け算の演算表を作ってみる．
+   足し算については巡回群$C_4$なのでそのままであるが，
+   積に関しては$\bar 2$が零因子\footnote{$a\neq 0$, $b\neq 0$ が$ab=0$となるとき零因子という．}となっているので群ではない．
+%   従って$\mathbf Z/4\mathbf Z$は体でない．
+   \begin{table}[htb]
+      \centering
+      \begin{minipage}{0.4\columnwidth}
+         \centering
+         \begin{tabular}{l|llll}\noalign{\hrule height 1pt} 
+             $+$&$\bar 0$&$\bar1$&$\bar2$&$\bar3$ \\ \hline
+            $\bar 0$&$\bar 0$&$\bar1$&$\bar2$&$\bar3$ \\
+            $\bar1$& $\bar1$&$\bar2$ &$\bar3$&$\bar0$ \\
+            $\bar2$ &$\bar2$&$\bar3$&$\bar 0$&$\bar1$ \\ 
+            $\bar3$& $\bar3$ &$\bar0$& $\bar1$&$\bar2$\\ \noalign{\hrule height 1pt} 
+         \end{tabular}
+         \smallemptyline
+         \caption{$+$ $\mod 4$}\label{mod4plus}
+      \end{minipage} 
+      \begin{minipage}{0.4\columnwidth}
+         \centering
+         \begin{tabular}{l|llll}\noalign{\hrule height 1pt} 
+             $\cdot$&$\bar 0$&$\bar1$&$\bar2$&$\bar3$ \\ \hline
+            $\bar 0$&$\bar 0$&$\bar0$&$\bar0$&$\bar0$ \\
+            $\bar1$& $\bar0$&$\bar1$ &$\bar2$&$\bar3$ \\
+            $\bar2$ &$\bar0$&$\bar2$&$\bar 0$&$\bar2$ \\ 
+            $\bar3$& $\bar0$ &$\bar3$& $\bar2$&$\bar1$\\ \noalign{\hrule height 1pt} 
+         \end{tabular}
+         \smallemptyline
+         \caption{$\cdot$ $\mod 4$}\label{mod4times}
+      \end{minipage} 
+   \end{table}
+\end{ex}
+
+\begin{ex}
+   $\mathbf Z/5\mathbf Z$の足し算と掛け算の演算表を作ってみる．
+   掛け算では零因子がないので$\bar0$を除く$(\mathbf Z/5\mathbf Z)^{\times}=(\mathbf Z/5\mathbf Z)\setminus \{\bar 0\}$は群となる．
+   これは巡回群$C_4$と同型である(表~\ref{mod4plus}
+   と異なって見えるかもしれないが，$\bar 1_4$, $\bar 2_5$のように表し区別し，$f:(\mathbf Z/5\mathbf Z)^{\times}\to \mathbf Z/4\mathbf Z$を
+   \[
+      f(\bar 1_5)=\bar 0_4,\quad
+      f(\bar 2_5)=\bar 1_4,\quad
+      f(\bar 3_5)=\bar 3_4,\quad
+      f(\bar 4_5)=\bar 2_4
+   \]
+   とすると$(\mathbf Z/5\mathbf Z)^{\times}$は掛け算，$\mathbf Z/4\mathbf Z$は足し算として同型\footnote{$f$が(この場合は群の)準同形で，更に全単射になること}になることが分かる)．
+%   このことから$\mathbf Z/5\mathbf Z$は体でもある．
+   
+   \begin{table}[htb]
+      \centering
+      \begin{minipage}{0.4\columnwidth}
+         \centering
+         \begin{tabular}{l|lllll} \noalign{\hrule height 1pt} 
+             $+$&$\bar 0$&$\bar1$&$\bar2$&$\bar3$ &$\bar4$\\ \hline
+            $\bar 0$&$\bar 0$&$\bar1$&$\bar2$&$\bar3$&$\bar4$ \\
+            $\bar1$& $\bar1$&$\bar2$ &$\bar3$&$\bar4$& $\bar0$\\
+            $\bar2$ &$\bar2$&$\bar3$&$\bar 4$&$\bar0$&$\bar1$ \\ 
+            $\bar3$& $\bar3$ &$\bar4$& $\bar0$&$\bar1$&$\bar2$\\ 
+            $\bar4$& $\bar4$& $\bar0$&$\bar1$&$\bar2$&$\bar2$ \\\noalign{\hrule height 1pt} 
+         \end{tabular}
+   \smallemptyline
+         \caption{$+$ $\mod 5$}
+      \end{minipage} 
+      \begin{minipage}{0.4\columnwidth}
+         \centering
+         \begin{tabular}{l|lllll} \noalign{\hrule height 1pt} 
+             $\cdot$&$\bar 0$&$\bar1$&$\bar2$&$\bar3$ &$\bar4$\\ 
+            \hline
+            $\bar 0$&$\bar 0$&$\bar0$&$\bar0$&$\bar0$&$\bar0$ \\
+            $\bar1$& $\bar0$&$\bar1$ &$\bar2$&$\bar3$ &$\bar4$\\
+            $\bar2$ &$\bar0$&$\bar2$&$\bar 4$&$\bar1$ &$\bar3$\\ 
+            $\bar3$& $\bar0$ &$\bar3$& $\bar1$&$\bar4$&$\bar2$\\ 
+            $\bar4$& $\bar0$& $\bar4$&$\bar3$&$\bar2$&$\bar1$ \\\noalign{\hrule height 1pt} 
+         \end{tabular}
+   \smallemptyline
+         \caption{$\cdot$ $\mod 5$}
+      \end{minipage} 
+   \end{table}
+\end{ex}
+
+%上で指摘したように$\mathbf Z/m\mathbf Z$には$\cdot$という積があり環となっている．しかし，$\bar 0$を除いても$\cdot$に関して一般には群ではない．
+
+
+$m, n\in \mathbf Z$に対して$(m,n)$で$m$ と $n$の最大公約数を表す．
+\[
+   (m,n)=1
+   \quad \Leftrightarrow\quad
+   \exists a, b\in \mathbf Z \text{ such that } am + bn =1
+\]
+がユークリッドの互除法から分かる．このことから
+\[
+   (m,n)=1\quad 
+   \Leftrightarrow\quad
+   \exists  \bar b\in \mathbf Z/m\mathbf Z \text{ such that } 
+         \bar b\bar n= \bar 1
+\]
+$(m,n)=1$のとき$m$と$n$は互いに素という．
+$m\in \mathbf N$を固定し$(m,n)=1$なる
+$\bar n\in\mathbf Z/m\mathbf Z$を\term[]{既約剰余類}という．
+
+既約剰余類$\bar a\in \mathbf Z/m\mathbf Z$ を固定すると$\bar b\bar a = \bar 1$なる$\bar b\in \mathbf Z/m\mathbf Z$が見つかるので
+\[
+   f:\mathbf Z/m\mathbf Z\ni \bar n 
+    \mapsto \bar{a}\cdot\bar{n}\in  \mathbf Z/m\mathbf Z
+\]
+を考えると$f$は$+$に関して準同形写像で，$\bar b$を掛けることで同形写像であることが分かる．
+\[
+   \varphi(m)= |\{n\mid n=1,\dots, m-1 \text{ such that } (m,n)=1\}|
+\]
+と置くと$\mathbf Z/m\mathbf Z$には$\varphi(m)$個の既約剰余類が存在することが分かる．
+$\varphi$は\term[]{オイラー関数}と呼ばれる．
+$\mathbf Z/m\mathbf Z$には$\varphi(m)$個の生成元が存在し，
+$\mathbf Z/m\mathbf Z$はどの生成元をとっても加群としては
+同型な巡回群となる．
+
+\begin{ex}
+   $\varphi(4)=2$, $\varphi(5)=4$.
+\end{ex}
+
+\begin{Q}
+   $p$を素数とするとき
+   \[
+      \varphi(p^n)=p^n-p^{n-1}
+   \]
+   を示せ．
+\end{Q}
+
+
+
+$(m,n)=1$なる$n$を固定する．
+$\bar x_1, \cdots, \bar x_{\varphi(m)}$を$\mathbf Z/m\mathbf Z$の既約剰余類全体とする．$\bar n \bar x_1, \cdots , \bar n\bar x_{\varphi(m)}$も既約剰余類全体なので，集合としては一致している．したがって
+\[
+   \bar x_1\cdots \bar x_{\varphi(m)}=\bar n\bar  x_1 \cdots \bar n \bar x_{\varphi(m)}
+   =\bar n^{\varphi(m)}\bar x_1\cdots \bar x_{\varphi(m)}
+\]
+$\bar x_1\cdots \bar x_{\varphi(m)}$は逆元をもつので
+$
+   \bar n^{\varphi(m)}=\bar 1\in\mathbf Z/m\mathbf Z
+$,  つまり$(m,n)=1$なる任意の$n$に対して
+\begin{equation}\label{varphi}
+   n^{\varphi(m)}\equiv 1 \mod m
+\end{equation}
+$p$を素数とすると，$\varphi(p)=p-1$なので任意の$x\not\equiv 0 \mod p$に対して
+\[
+   x^{p-1}\equiv 1 \mod p
+\]
+となり，\term[]{フェルマーの小定理}が得られる．これから任意の$x\in \mathbf Z$に対して
+\begin{equation}\label{funPoly}
+   x^{p}\equiv x \mod p
+\end{equation}
+も分かる．
+
+\begin{Prop}[中国の剰余定理]
+   互いに素な$m$, $m'\in \mathbf N$を取る．任意の$a$, $a'\in\mathbf Z$に対して
+   \[
+      x\equiv a \mod m,\quad x\equiv a' \mod m'
+   \]
+   を満たす$x$が存在して$\mod mm'$で一意．
+\end{Prop}
+\begin{proof}
+   $m$, $m'\in \mathbf N$は互いに素なので
+   \[
+      nm+n'm'=1
+   \]
+   なる$n$, $n'\in\mathbf Z$が存在する．つまり
+   \[
+      n'm'\equiv 1 \mod m,\quad nm\equiv 1 \mod m'
+   \]
+   なので，$x= an'm'+a'nm\in\mathbf Z$の$\mod mm'$の代表が求めるものである．
+   
+   $x$, $x'$が方程式を満たすと
+   $x-x'$は$\mod m$でも$\mod m'$でも$0$
+   よって$x-x'$は$\mod mm'$でも０になり，一意性が分かる．
+\end{proof}
+\begin{Prop}
+   互いに素な$m$, $m'\in \mathbf N$に対して
+   \begin{equation}\label{eq3}
+      \varphi(mm')=\varphi(m)\varphi(m')
+   \end{equation}
+\end{Prop}
+\begin{proof}
+$k$ を$1, \cdots, mm'-1$の間にある自然数で$mm'$と互いに素なものとする．
+すると
+\[
+   k\equiv  j\mod m, \quad k\equiv  j'\mod m'
+\]
+なる$j\in \{1, \dots m-1\}$, $j'\in \{1, \dots m'-1\}$が見つかる．
+逆に中国の剰余定理は$j$, $j'$から$k$が$\mod mm'$で
+一意的に定まることを意味する．
+$k$は$mm'$と互いに素なので，
+ある$a$, $b\in\mathbf Z$が存在して
+\[
+   ak+b m m'=1
+\]
+よって$k = j + c m$($c\in\mathbf Z$)と置くと
+\[
+   1 = a(j+c m)+b mm'=aj +(ac+bm')m
+\]
+となり $j$は$m$と互いに素になる．
+同様に$j'$は$m'$と互いに素で，
+これから示したい等式が分かる．
+\end{proof}
+
+\begin{ex}
+$m=3$, $m'=5$のとき$\varphi(15)=\varphi(3)\varphi(5)=2\cdot 4=8$
+
+ \begin{table}[htb]
+      \centering
+         \centering
+         \begin{tabular}{l|lllllllllllllll}\noalign{\hrule height 1pt} 
+            $\mod 15$&\sout{$0$}&$1$&$2$&\sout{$3$}&$4$&\sout{$5$}&\sout{$6$}
+            &$7$&$8$&\sout{$9$}&\sout{$10$}&$11$ &\sout{$12$}&$13$&$14$\\ \hline
+            $\mod 3$&$0$&$1$&$2$&$0$ &$1$&$2$&$0$&$1$&$2$&$0$&$1$&$2$ &$0$&$1$&$2$ \\
+            $\mod 5$& $0$&$1$ &$2$&$3$&$4$&$0$&$1$&$2$&$3$&$4$ &$0$&$1$&$2$&$3$&$4$ \\
+\noalign{\hrule height 1pt} 
+         \end{tabular}
+         \smallemptyline
+         \caption{$\times$ $\mod 15$,  $\mod 3$,  $\mod 5$}\label{}
+\end{table}
+\end{ex}
+
+
+ここではこれ以上必要ないが，将来的には楕円曲線暗号などで必要になるであろう有限体について簡単にまとめておく．
+フェルマーの小定理は$(\mathbf Z/p\mathbf Z)^{\times}=(\mathbf Z/p\mathbf Z)\setminus \{\bar 0\}$が積$\cdot$について巡回群であることを意味している．
+特に$\mathbf Z/p\mathbf Z$が体であることも意味していている．
+このとき$\mathbf F_p$と表すことが多い．これは標数$p$の有限体である．
+一般に$F$を体とする．環の準同形
+$f:\mathbf Z\ni n\mapsto n\times 1\in F$が単射で無いとき，$\mathbf Z$ は単項イデアル整域なので$\Ker f=(p)$なる素数$p$がある．
+これを標数という．
+$f$が単射のときは\term[]{標数}は$0$と言う．
+有限個の元からなる体が有限体で，定義からその標数はある素数$p$となる．
+このとき$f$より$\bar f:\mathbf F_p\to F$は体の埋め込みである．
+つまり，$F$は$\mathbf F_p$の拡大体となる．
+このとき$\mathbf F_p$を\term[]{素体}という．
+体の定義より$F$ は$\mathbf F_p$上のベクトル空間と見なせるが，
+仮定から有限次元ベクトル空間であり，
+この次元を$n$と置くと$F$は$q=p^n$の元からなることが分かる．
+$\mathbf F_p$上のベクトル空間$F$ の$\mathbf F_p$上の同型群が
+この代数拡大（は$\mathbf F_p$の正規分離拡大なので$F/\mathbf F_p$）のガロワ群となる．
+
+\begin{Q}
+   $n$を$2$以上の自然数とすると
+   $\mathbf Z/p^n\mathbf Z$は$p^n$個の元からなる集合だが，
+   体でないこと（したがって，これは
+   上の有限体$F$とはなり得ないこと）を示せ．
+\end{Q}
+
+
+\begin{exQ}
+   標数$p$の有限体は$\mathbf F_p$のガロワ拡大であることを示し，
+   そのガロワ群を決定せよ（ヒント$:$
+    \eqref{funPoly}の$p$を$q=p^n$に代えた多項式でこの拡大を特徴付けよ．またそのガロワ群はフロベニウス写像で生成されることを示せ）．
+\end{exQ}
+
+
+\subsection{公開鍵暗号---RSA}
+アリス(Alice, 後でAと略す)とボブ(Bob, 後でBと略す)が共通の秘密の鍵を共有していて
+その鍵を使ってアリスが文章(平文)を暗号化した暗号文を，
+インターネット等を通じてボブに送り
+ボブがその鍵を使って復号するような暗号を
+\term[]{秘密鍵暗号}（共有鍵方式と呼ばれることの方が多い）という．
+シーザー式暗号はその例である．送りたい文のA〜Z \footnote{この話を初めて聞いたとき小文字のa〜zや句読点や空白がないのに違和感を感じたが，この時代は実際そうであったようで小文字や句読法が発明されたのは中世後期であったそうである．もし今でも英語の文が全て大文字で語の間に空白や句読点がないものであったら英語を読むのはいかに困難であったであろうか．}
+を順に0から25に変換し，$\mod 26$で$+3$した結果の0〜25をA〜Zに変換した文を送り，相手は逆算して暗号を特く．$3$が共有鍵（秘密鍵）になる．詳しい説明は控えるが秘密鍵暗号には以下のような方式がある：
+
+  \begin{table}[h]
+      \centering
+      \begin{tabular}{llll} 
+           \noalign{\hrule height 1pt}
+               暗号& 鍵の長さ & 発表年& コメント \\ \hline \hline
+               DES &54bit& 1977&危殆化 \\ \hline
+               トリプルDES&$3\times 54$bit &&危殆化\\ \hline
+               AES & 128/192/256bit&   2000&\cite{Y}に詳しい説明\\ \hline
+           \noalign{\hrule height 1pt}
+      \end{tabular}
+    \smallemptyline     
+      \caption{秘密鍵暗号}
+   \end{table}
+
+
+二人が知り合いで二人で合って秘密の鍵を共有することは簡単なように思えるが，
+インターネットでこれまで会ったことのない二人，
+例えばamazon とその新しい顧客が秘密の鍵を共有するには
+どのようにすれば良いだろうか？
+このような問題を解決するために生まれたのが\term[]{公開鍵暗号}である．
+
+1976年デフィーとホフマンは公開鍵暗号のアイデアを発表したが，
+1978年にリベスト・シャミール・アドルマンが発表した\term[]{RSA}アルゴリズムを解説したい：
+Bob にAliceが秘密情報を送りたいとする．Bob は
+同じぐらいの大きさのランダムな素数$p$, $q$を選び$m=pq$を計算する．\eqref{eq3}より
+\[
+   \varphi(m)=\varphi(p)\varphi(q)=(p-1)(q-1)=pq -p -q +1
+\]
+である．$pq -p -q +1$と互いに素な$0<e<pq -p -q +1$をランダムに選び，$\mod \varphi(m)$で$e$の逆元$0<f<\varphi(m)$ を互除法で計算する．つまり，
+\begin{equation}\label{eq4}
+   ef \equiv 1 \mod \varphi(m)
+\end{equation}
+Bob は$[m, e]$を公開鍵として公開し，
+$[m, f]$を秘匿鍵として自分の所に秘密に保存しておく．
+Alice はBob の公開鍵$[m, e]$を使って，
+自然数の秘密情報$0\le C <m$から
+\[
+   C^e \equiv  D \mod m \quad 0\le D<m
+\]
+を計算しBobに$D$を送る．Bobは秘匿鍵$f$を使って
+\[
+   D^f \equiv C\mod m \quad 0\le C <m
+\]
+を得ることができる．実際，ある$k\in \mathbf Z$が存在して
+\eqref{eq4}より
+\[
+\begin{split}
+   D^f &= C^{fe} \\
+   &= C^{k \varphi(m)+1}  \\
+   &\equiv C  \mod m \quad 0\le C <m
+\end{split}
+\]
+となるからである．攻撃者 Eve が公開鍵$[m, e]$を知りAliceの$D$を傍受したとしても，
+$m$の因数分解を知らなければ$\varphi(m)$が分からず，
+$\mod\varphi(m)$での$e$の逆$f$を求めることが出来ないので
+$C$を復号出来ないわけである．
+この方法でAlice はBobに例えば共通の秘密鍵を送り，
+共有することができる．
+公開暗号方式は計算が複雑で時間も掛かるので，
+その後は効率よく秘密鍵を使った暗号を使うことが可能になる．
+
+\begin{Q}
+   $p=3$, $q=5$のとき$ef\equiv 1\mod \varphi(15)$となる
+   $e$, $f$を探し，適当な$D\in \{1,2,\dots,15\}$を
+   公開鍵で暗号化しそれを解読して下さい．
+\end{Q}
+
+\begin{Q}
+github の自分のアカウントにssh で公開鍵を登録：
+\begin{verbatim}
+   % cd  # ホームディレクトリに移動
+   % ssh-keygen # RSA で秘密鍵と公開鍵の作成
+\end{verbatim}
+%\begin{verbatim}
+%   % cd myGithub # 適当な場所にディレクトリを作成し移動
+%   % ssh-keygen # RSA で秘密鍵と公開鍵の作成
+%\end{verbatim}
+その後公開鍵をGitHubの自分のホームに登録して下さい．
+\end{Q}
+
+
+\begin{exQ}
+   $p=11$, $q=13$で$ef\equiv 1\mod \varphi(pq)$となる
+   $e$, $f$を探し，適当な$D$を公開鍵で暗号化し
+   それを解読するプログラムを作成して下さい．
+   出来るならもっと大きな素数$p$, $q$にプログラムを拡張して下さい．
+\end{exQ}
+
+\subsection{デジタル署名}
+物理的書類の真実性を担保するのにサインが有効であった．
+これを電子的な文書に実現するのが \term[]{デジタル署名}であり，RSAを使い以下のようにデジタル署名を作ることができる．
+Alice が公開鍵$[m_A, e_A]$ と秘匿鍵$[m_A,f_A]$を作り
+公開鍵を公開しているとする．
+
+
+Alice がデジタル署名したい平文を$M$とし，
+Bobがそれを送りたい人間で
+Bob以外の人間Victorがそれを検証するとする．
+Alice はまず一方向ハッシュ関数で$M$のハッシュ値を求め，
+それを秘匿鍵$[m_A,f_A]$で暗号化したものを$D$とする．
+$(D,M$)をBobに送る．
+Bob及びVictorは公開鍵$[m_A, e_A]$で$D$を復号化し，
+$M$のハッシュ値を求め同じかどうかを調べ，
+同じならばデジタル署名は正しいと判断できる．
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch5/images/figure8.1}
+   \caption{デジタル署名}\label{}
+\end{figure}
+
+さらに，Alice が公開鍵$[m_A, e_A]$ と秘匿鍵$[m_A,f_A]$を作り
+公開鍵を公開していて，Bobも公開鍵$[m_B, e_B]$ と秘匿鍵$[m_B,f_B]$を作り
+公開鍵を公開しているとする．AliceがBobに短いメッセージ$M<\min(m_A,m_B)$を送りたいとする．
+\[
+   M^{f_A} \equiv C\mod m_A \quad 0\le C <m_A
+\]
+\[
+   C^{e_B} \equiv D\mod m_B \quad 0\le D <m_B
+\]
+として$D$をBob に送る．Bob は
+\[
+   D^{f_B} \equiv C\mod m_B \quad 0\le C <m_B
+\]
+となるので
+\[
+   C^{e_A} \equiv M\mod m_A \quad 0\le M <m_A
+\]
+となり，$M$を復元できる．
+この方式もデジタル署名と呼ばれることがある．
+
+%https, ssh ではこのようなアルゴリズムを実装している．
+
+\subsection{認証局}
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch5/images/figure8.2}
+   \caption{中間者攻撃}\label{}
+\end{figure}
+一つだけ問題なのは，公開暗号でもデジタル署名でも
+Aliceが本当にAliceかAliceを騙った別人ではないか，
+Bobは本当にBobなのかBobを騙った別人ではないかを
+別の方法で確認しておく必要があることである．
+例えば，Eveが最初Bobを騙ってAliceと公開キーを共有し，
+EveがAliceを騙ってBobと公開キーを共有すると
+AliceとBobの間の通信がEveを通して行われるようになり，
+二人の通信が筒抜けになるという 
+\term[]{中間者攻撃}(man-in-the-midle Attack)が知られている．
+
+
+そのために使われるのが\term[]{認証局}(Certificate Authority)である．
+まず，Alice とBobは既にある認証局に信頼を確立しているとする．
+BobからAlice への公開キーを送るとき，
+Bobから公開キーとそのBobによるデジタルサインを認証局へ送り，
+認証局でBobから送られてきたことを確認する．
+その公開キーと認証局によるデジタルサインをAlice に送り，
+認証局から送られてきたことを認証し，
+Bobが本当にBobであることをAlice に認証する(図~\ref{CA})．
+秘密鍵はどこでもインターネットを通っていないことに注意する．
+Alice がBobへの公開キーを送るときも同様である．
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch5/images/figure8.3}
+   \caption{Bob がAlice へ認証局を通して公開キーを送付}\label{CA}
+\end{figure}
+
+ただし，Alice とBobは既にある認証局に信頼を確立しているとは限らない．
+そこで，まずブラウザーが信頼できる認証局を幾つか
+初期設定で知っているようになっている．
+幾つかの認証局同士はお互いに公開キーと基本情報を認証した
+デジタル署名を共有していて，
+それをたどって認証できる認証局のみを信頼し，
+その認証する相手を認証するという
+信用の輪を広げる仕組みになっている．
+
+\subsection{暗号を実装するプロトコル}
+暗号や電子署名は色々な方法で実装化されている：
+\begin{itemize}  
+   \item 
+       IPsec：IPパケット単位でのデータの改竄防止を行うプロトコル
+  \item
+     SSL =secure socket layer, TLS =transport layer security：
+     暗号通信を行うためのプロトコル
+  \item
+     HTTPS, SMTPS, FTPS：
+     元々のプロトコルのセキュリティーを強化したプロトコル
+     (図~\ref{digitalSign}).
+     
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=9cm]{~/Documents/GitHub/introInfo/ch5/images/certificate.png}
+   \caption{ブラウザーでの認証証明}\label{digitalSign}
+\end{figure}
+   \item  
+      SSH =secure shell：公開鍵暗号を使って，ネット上でログインしたり，ファイルを転送するプロトコル
+\end{itemize}
+
+また，それらの実装は日々問題点が表れ，それに対応する拡張が行われているので，CRYPTRECなどで確認する必要がある．
+
+
+%\begin{thebibliography}{9}
+%   \bibitem{H} 
+%      堀田 良之, 加群十話: 代数学入門 (すうがくぶっくす 3), 朝倉書店, 1988.
+%   
+%   \bibitem{Ko} Koblitz, A course in Number theory and Cryptography, GTM,  
+%   \href{https://link.springer.com/search?package=11649&facet-content-type=%22Book%22}{ダウンロード}
+% 
+%    \bibitem{N}
+%      NISC, インターネット安全・安心ハンドブック
+%   \href{https://security-portal.cyber.go.jp/guidance/handbook.html}{ダウンロード}
+%
+%   \bibitem{ST} Silverman, Tate,
+%   Rational Points on Elliptic Curves, Springer, 2015 
+%   \href{https://link.springer.com/search?package=11649&facet-content-type=%22Book%22}{ダウンロード}
+%   \bibitem{T} 
+%      高木貞治, 初等整数論講義, 共立出版, 1971.
+%   \bibitem{Y}
+%      結城浩, 暗号技術入門 第３版, 2015.
+%\end{thebibliography}
+
+\section{セキュリティーマネージメント}
+\subsection{セキュリティーの基本概念}
+コンピュータやネットを使った活動が安全かつ正確に出来るようにすることを\term[]{情報セキュリティ}(Information Security)といい，それへの対応を
+\term[]{情報セキュリティマネージメント}(Information Security Management)
+という．
+
+情報セキュリティについての基本的な概念として以下のものがある：
+\begin{itemize}
+   \item 
+      情報セキュリティーのCIA：基本の3つの柱
+      \begin{itemize}
+         \item \term[]{機密性}(Confidentiality)：権限を持った人やデバイスのみが情報にアクセスできること
+         \item \term[]{統一性}(Integrity)：情報の改竄や破壊や消去が出来ない，起こらないこと
+         \item \term[]{有用性}(Availability)：情報にアクセスしたい時にその情報にアクセスできること
+      \end{itemize}
+
+   \item 
+      次の4つも合わせて情報セキュリティの7要素という：
+      \begin{itemize}
+         \item 真正性(Authenticity)：個人，組織，情報システム，情報
+            が正当でなりすましがない状態．
+         \item 責任追従性(Accountability)：情報を閲覧変更した個人，組織を
+            特定，追跡できる状態．
+         \item 否認防止(Nonrepudiation)：情報を閲覧変更したことを
+            後から否認できないこと．
+         \item 信頼性(Reliability)：情報システムが意図した通りに動くこと．
+      \end{itemize}
+
+   \item 
+      組織や個人に必要な価値のあるものを資産というが，
+      特に情報システムや情報自体を\term[]{情報資産}という．
+
+   \item   
+    
+      攻撃側と守備側の関係：
+      \begin{itemize}
+         \item 
+            \term[]{脅威}(Threat)：情報システムや情報に危害を与えうる状況や事実
+         \item 
+            \term[]{脆弱性}(Vulnerability)：情報システムや情報に脅威が影響を与える
+            部分があること．
+         \item 
+            \term[]{リスク}(Risk)：脅威が脆弱性のある情報システムや情報に
+            影響を与える確率の度合い．
+      \end{itemize}
+      リスクは大雑把に以下のように評価できる：
+      \[
+      \begin{split}
+      	&\text{リスク}\\
+      	&=\text{情報資産の価値}\times\text{脅威の大きさ}
+         	\times\text{脆弱性の度合い}
+      \end{split}
+      \]
+   \item 
+   \[
+      \text{セキュリティーシステムの強度}
+      \le
+      \text{構成要因のもっとも弱い部分の強度}
+   \]
+   \item 
+      脅威には三つの側面がある：
+      \begin{itemize}
+         \item 物理的脅威 
+         \item 人的脅威
+         \item 技術的脅威  
+      \end{itemize}
+      
+      情報セキュリティーのことを(ネットワークの)技術的脅威のことに
+      だけに限定するのは危険である．
+      
+   \item 
+      攻撃の目的：
+      \begin{itemize}
+         \item 愉快犯
+         \item スクリプトキディ
+         \item お金 RaaS 
+         \item ハクティビズム：ハッカーの主義主張を広げるため
+         \item 貴重な個人や組織の情報の収集やダークウェブでの売買
+         \item 内部関係者の組織や個人への恨みへの復讐
+         \item サイバーテロリズム・サイバー戦争：
+         
+            ロシアのウクライナ侵攻や米軍・イスラエル軍のイラン戦争の始まる少し前，
+            全土で例を見ないサイバー攻撃が起こり，
+            社会の通信網を混乱させたり重要インフラを使用できなくした
+            後に現実の戦争が起こった．
+         
+         \item 敵国による世論操作・選挙介入：
+         
+            民主国の選挙で陰謀論を広めて社会に混乱を起こしたり，
+            選挙妨害などの選挙介入が行われ
+            敵国に有利な指導者を生み出す工作，認知戦が行われている
+            (\cite{Ba}, \cite{NKO})．
+      \end{itemize}
+\end{itemize}
+
+
+\subsection{技術的脅威 }
+技術的脅威，特にネットワーク技術に関連した脅威であるサイバー攻撃について纏める．
+\begin{itemize}      
+      \item 
+      \term[]{サイバーキルチェーン} (Cyber Kill Chain)：
+      キルチェーンは軍事用語で戦闘の進行段階を示すものだが，
+      それをサイバー攻撃の分析に使ったのがサイバーキルチェーンである．
+      次の様な攻撃の段階がある：
+      \begin{enumerate}
+         \item
+            偵察(Reconnaissance) ：標的やその脆弱性を探すこと．
+            
+            OSINT(Open Source Intelligence)によるデータ収集を含む．
+         \item
+            武器化(Weponization)：攻撃ツールを準備する段階
+         \item
+            配達(Delivery)：攻撃ツールを標的に届けること
+         \item
+            エクスプロイト(Exploit)：攻撃ツールを情報システムで実行すること
+         \item
+            インストール(Install)：永続的なアクセスを確保するために
+            マルウエアなどをインストールすること
+         \item
+            Command and controll(C\verb/&/C)：
+            C\verb/&/Cサーバーとの通信の確立
+         \item
+            目的の実行：データの収集・破壊など
+            脅威の目的を達成すること
+      \end{enumerate}
+      逆に言うと，
+      もし途中の段階で阻止できれば被害を食い止めることが出来る．
+   \end{itemize}
+   具体的な攻撃方法を紹介する(がもちろん完全ではない．
+   常に新しい攻撃法が開発されているので，まめに確認するようにしてほしい)：
+   \begin{itemize}   
+    \item
+      一般的攻撃手法
+         \begin{itemize}  
+             \item       
+               不正アクセス
+            \item    
+               クレデンシャルスタッフィング
+            \item    
+               脆弱性の攻撃
+            \item    
+               ゼロデイ攻撃
+            \item    
+               マルウエア攻撃
+            \item    
+               ドライブバイダウンロード：
+               ウェブなどでユーザーに意識させずにソフトウエアをダウンロードさせる攻撃
+            \item
+                標的型攻撃：攻撃相手を決めて徹底的に攻撃するやり方．
+        \end{itemize}
+     \item
+         パスワード攻撃：
+         \begin{itemize}
+            \item
+               ブルートフォース攻撃
+            \item
+               リバースブルートフォース攻撃：
+               パスワードを固定して利用者id を変化させる攻撃
+            \item
+              パスワードリスト攻撃：
+              何処かで入手したパスワードのリストを使う攻撃
+            \item
+              レインボーテーブル攻撃
+            \item
+             スニッフィング：盗聴でパスワードを盗む攻撃
+         \end{itemize}
+      \item 
+         マルウエア・不正プログラム：
+         \begin{itemize}   
+            \item   
+               ルートキット
+            \item   
+                バックドア
+            \item   
+               スパイウエア
+            \item   
+                ウイルス
+            \item 
+               ランサムウエア
+            \item 
+               ボット
+            \item
+               トロイの木馬
+            \item
+              ワーム
+            \item 
+              偽セキュリティ警告
+         \end{itemize}
+
+   \item 
+      Webを使ったサイバー攻撃の具体例：
+      \begin{itemize}   
+         \item    
+            SQL インジェクション：
+            Web ではログインのためのデータベースとしてSQLを使う
+            ことが多く，適切な対策が取られていないと，
+            そこに直接SQL文を書き込むことでログインしたり，
+            利用者の情報を詐取されることがある．sqlmap
+         \item    
+            OS コマンド・インジェクション：言語によりShellが呼び出せる
+            関数を持つものがあり，そこのコマンドを直接入れて実行可能である．
+         \item    
+            ディレクトリ・トラバーサル：相対パスなどを使って公開されていない
+            ディレクトリに外部からアクセスし，情報を詐取すること．
+         \item
+            バッファオバーフロー
+         \item    
+            セッション・ハイジャック：ウェブサービスでセッションid を発行する
+            ものがある．その管理がずさんだとセッションid を推測され，
+            それを使って セッションの乗っ取りを行う
+          \item    
+           クロスサイトスクリプティング(XSS)：
+           不正なスクリプトをクライアント側で行わせる攻撃
+         \item    
+            クロスサイトリクエストフォージェリ(CSRF)：
+            不正なスクリプトをサーバ側で行わせる攻撃
+         \item    
+            HTTPヘッダインジェクション：  
+            HTTPヘッダの中に 不正なスクリプトを埋め込むなどの攻撃
+         \item    
+            フィッシング, Click Fix：
+            信頼できる機関を装い偽のWebサイトに誘い出し
+            個人情報などを集める中間者攻撃
+         \item    
+            CAPTCHAを使った攻撃
+      \end{itemize}
+      
+   \item 
+      Networkを使ったサイバー攻撃の具体例：
+      \begin{itemize}   
+         \item    
+            サービス拒否攻撃
+            (DoS, DDoS =Distributed Denial of Service, ディードス)：
+            多量のネットアクセスを起こさせサービスを麻痺させる攻撃
+          \item     
+           メールヘッダインジェクション
+         \item
+            プロンプトインジェクション
+         \item    
+            FreeWiFi の使用に付け入る攻撃
+         \item    
+            リモートディスクトップ
+         \item    
+            VPNを使った攻撃
+      \end{itemize}
+
+
+\end{itemize}
+
+
+\subsection{技術的脅威への対応}
+技術的脅威における攻撃のそれぞれに対応の仕方があり
+(もちろん，新しい脅威には対応の方法が分からない場合もあり，その場合は脆弱性のあるサービスを無効化する必要がある)，
+それぞれに高度な専門性が必要になるが，
+ここでは一般的な最低限の対応について纏める．
+
+\emptyline
+\begin{itemize}
+   \item
+      \term[]{認証}(authentification)：ある人が本人であることを確かめること
+   \item
+      \term[]{認可}(authorization)：
+      どこまでアクセスを許可するかの決めること，その決まり
+
+\end{itemize}
+
+\begin{ex}
+   ホテルに予約した後，
+   チェックインするとき予約した人間あることを確認することが認証であり，
+   自分の泊まる部屋の鍵をうけとり，部屋の使用権を確保するのが認可に当たる．
+   このとき鍵は自分の泊まる部屋のみにしか使えないので
+   使用範囲を最小限に抑えていることがわかる．
+\end{ex}
+
+認証の手段として
+%所持認証，知識認証，生体認証の三つに分けられる．
+\begin{itemize}
+   \item
+      所持認証：持っているもので認証すること．例は自分の家の鍵   
+   \item
+      知識認証：知っている知識で認証すること．例はパスワードや暗唱番号
+   \item
+      生体認証：体の情報を元に認証すること．例は指紋認証や顔認証
+\end{itemize}
+
+% 一個だけでは破られる可能性があるので，幾つかを組み合わせた認証方式が考えられている．
+
+%\emptyline
+
+%セキュリティに関して認可も大切で，
+
+%\subsection{ }
+
+\emptyline
+技術的脅威への対応
+\begin{itemize}
+   \item
+      万が一その人の権限が攻撃者に奪われた場合も最小の被害で済むように
+      アクセス権は必要最小限に限る(\term[]{最小アクセス権の原理})のが
+      基本の方針
+   \item 
+      パスワード管理：ただし後で指摘するように，以下を実現するのは
+      普通の人間には極めて難しことである．
+      \begin{itemize}
+         \item 
+            予想が難しいパスワード
+         \item 
+            定期的に変更
+         \item 
+            使い回しはダメ
+      \end{itemize}
+   \item
+      特に二つの認証方式を組み合わせたものを\term[]{二要素認証}という．
+      キャッシュカードはその所持と
+      暗証番号PIN(Personal Identification Number)の知識
+      を組み合わせた二要素認証の例である．
+      最近ではホームページのサービスの登録の本人確認で，
+      自分のアドレスを登録するとそのアドレスに数字をメールしてきて，
+      それをhttpsのホームページに貼り付けると本人確認が済む
+      という二要素認証がよく使われている．
+      三つ以上の認証方法を組み合わせた
+      \term[]{多要素認証}が使われる場合もある．
+
+   \item
+      \term[]{パスキー}{Passkey}：
+      各サーバーごとに最初にローカルで生成した
+      公開鍵をサーバーに登録し，
+      秘密鍵はログイン名とサーバーのアドレスと共に大切に
+      ローカルの端末に保存しておく．
+      以降保存されたサーバーのアドレスを訪れると，
+      サーバー側で毎回ランダムに生成される数字を
+      公開鍵で暗号化した \term[]{チャレンジ}というものを
+      送り返してくるので，
+      ローカルの秘密鍵で解読し，
+      サーバーと照合し合致すればログイン出来る．
+      秘密鍵を使うための本人確認は
+      ローカルの認証器(所有認証)の生体認証や
+      パスフレーズ(パスワードに近いが秘密鍵の解除のみに使われる，
+      知識認証)などで行う．
+      秘密鍵・生体認証・パスフレーズはログインするとき
+      インターネット上に一切送られていないこと，
+      チャレンジは毎回廃棄されるので第三者に見られて構わないこと
+      に注意してもらいたい．
+      また，フィッシングサイトを自分から訪れることもないし，
+      フィッシングサイトにはアルゴリズムからもログイン出来ない
+      ことに注意してほしい．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch5/images/figure9.1}
+   \caption{パスキー}\label{}
+\end{figure}
+
+   \item
+      ファイヤーウォール(FireWall)：
+      内部ネットワーク とWANの間おいて
+      通過できるパケットのIPアドレスとサービスの種類を制限する
+      装置やアプリケーション．
+      外部に公開したいメールサーバーやWebサーバが置かれる
+      DMZ=DeMilitarized Zone が設置されることが多くなった(図~\ref{FireWall})．
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch5/images/figure9.2}
+   \caption{ファイヤーウォール}\label{FireWall}
+\end{figure}
+
+   \item
+      OSやアプリを常に最新のものに保つ．
+      
+   \item
+      ウイルス対策ソフトの導入．
+
+   \item
+      VPN(Virtual Private Network)：通信を秘匿化して送る方法．
+      LANの外からLANの中へアクセス出来るようになるが，
+      最近ではそれが脆弱性の元になることが分かり，
+      使うことを規制する動きがある．
+      
+\end{itemize}
+
+
+
+\subsection{人間的・物理的脅威と対応}
+セキュリティーでは技術的側面だけでなく，人間的・物理的側面も重要になる．
+例えばシステム管理者に「難しいパスワードを定期的に変更し，パスワードの使い回しはするな」と言われていても
+面倒くさくてその指導に従っていない人の方が多いと推測される（皆さんの中にはこんな
+\href{https://nordpass.com/most-common-passwords-list/}{酷いパスワード}を使っている人はいないと思うが$\cdots$)．
+しかし，一般にセキュリティーを強くすると使い勝手が不便になることも多い．
+%また，倫理・組織の防御方針・法律・一部企業の利益主義・他国による攻撃など政治・経済に関連した側面も大事である．
+
+
+\emptyline
+
+
+
+本気で攻撃を仕掛けてくる相手(国)は
+物理的・人間的なセキュリティーの脅威も突いてくる．
+特に色々な組織の中枢に近いものは
+そこに近づく前からセキュリティー全般に注意を払う訓練が必要である．
+また，フィッシングはネットワークセキュリティーと
+人間的なセキュリティーの二つの側面を持っているように，
+この三つは独立している訳では無いが，便宜上三つに分けて解説する．
+\emptyline
+
+物理的なセキュリティー ：
+\begin{itemize}
+   \item 
+      自分の部屋を出るときには必ず施錠する．
+
+   \item      
+      自分の部屋の外では鍵やカードや認証器は肌身離さず持っている．
+         
+   \item 
+      他人がいる可能性のある場所でデジタル器機を離れるときは
+      画面をロックしてパスワード，生体認証がなければ使えないようにする．
+
+   \item 
+      機密情報の入ったUSBメモリーは極力持ち歩かない．
+      保管場所には施錠する．
+      
+      その組織のロゴなどの付いたUSBメモリーを駐車場などにわざと落として，
+      それを拾わせて内部のパソコンにウイルスを感染させる攻撃もある．
+
+   \item 
+      次のような古典的な攻撃にも気を付ける：
+      \begin{itemize}
+         \item ショルダーハッキング：肩越しに暗証番号を盗み見
+         \item トラッシング：ゴミ箱あさり
+         \item スキミング：クレジットカード等の情報の電子的な盗み取り
+         \item
+            ピギーバック(piggyback), 共連れ：
+               鍵のない人が鍵を持った人と鍵が無いと入れないところに一緒に入ること
+            
+            ただし，目の前に鍵がなくて困っている人がいたら
+            邪険にすることも出来ないので，
+            声を掛けて顔を確認して入ってもらうことにしても良いだろう．
+	\end{itemize}
+  
+   \item      
+      自分や知人の写真・PID・マイナンバー・暗証番号・生体認証情報をみだりに公表しない．
+      
+   \item 
+      写真の日付・GPS情報などは不用意に公表しない．
+      また映り込みから場所を特定されることがあるので，
+      それにも十分に気を付ける．
+      ネットで「特定屋」と検索すると数多く見つかる．
+   \item
+      SNSの個人情報はダダ漏れなので個人情報はあげない．
+      
+      \noindent
+      例えば
+      旅行中の写真をその時点でインターネットにアップすると
+      その時で家にいないことを泥棒に知らせてしまう危険がある．
+   \item 
+      紛失防止タグを使った家の特定：ストーカーなども使っている．
+
+   \item
+      スマホをオンにしての盗聴が可能になっている．
+      秘密の会議の時はスマホを預けるなどの
+      セキュリティー対策が必要になっている．
+      会議室の最大限のセキュリティーを保つには
+      電磁シールドの敷設も必要だろう．
+
+   \item 
+      ランサムウエア攻撃でバックアップも同時に暗号化されてしまい
+      データを復元できないことが頻繁に起こっている．
+      ネットに繋がっていないデバイスへの定期的なバックアップを
+      お奨めする．
+      
+   \item
+      政治家や企業経営者は
+      パワハラ・セクハラ・不倫・週刊誌の取材・税務調査・スパイに気を付ける．
+      
+   \item
+       \begin{itemize}
+         \item 
+            某国は闇バイトによる使い捨て工作を行っていると聞く．
+         \item 
+            Google アースやストリートビューの情報から
+            具体的な攻撃を考える攻撃者もいる．
+            例えば，駐車場に止まった業者のトラックの情報を使って
+            その施設への侵入を試みるという攻撃が知られている．
+            
+       \end{itemize}
+      
+      セキュリティ責任者はそのような観点にも注意が必要．
+
+\end{itemize}
+
+\begin{Q}　
+   \begin{itemize}
+      \item 
+         スマホの写真の位置情報・時間情報を確認・削除する方法を調べてください．
+         他人と写真を共有するときはこのようなメタ情報を消すことをお奨めします．
+   
+      \item 
+         また，スマホやパソコンは貴方の個人的な情報を常に収集しています．
+         (私のiPhone だと)
+         Setting/Privacy and Security の\href{https://www.youtube.com/watch?v=XtOD7Cqd_H0}{アプリとアップルのアクセス権}を必要最小限に設定してください．
+   
+      \item    
+         Google などはCookieを使って皆さんの検索履歴などから情報を分析し，
+         インターネットでオークションに掛け，巨万の富を得ています．
+         自分が使っているBrowser 毎にCookie を消す方法を調べてください．
+         定期的に消すことをお奨めします．
+      \item    
+         Google ストリートビューで自分の家・実家がどう写っているか
+         確かめてください．危険性が確認できた場合対策を取って下さい．
+   \end{itemize}
+\end{Q}
+
+\term[]{ソーシャルエンジニアリング}：人間の心理的弱点を突く攻撃
+
+\begin{itemize}   
+   \item 
+      不審な直接のコンタクト・電話・メールに気を付ける．
+   
+   \item 
+      不審でないと思われる直接のコンタクト・電話・メールにも
+      ソーシャルエンジニアリングでないかと気を付ける．
+   
+   \item 
+      Web ページのハイパーリンクの下線やQR コードは
+      見た目だけからは何処へのリンクか分からないので，
+      軽率にそのリンクに飛ばず，リンク先を確認してから訪問する．
+      
+%    \item 
+%    
+%      \begin{itemize}
+%         \item 
+%             インターネットのアルゴリズムの引き起こすフィルターバブル\footnote{「インターネットの検索サイトが提供するアルゴリズムが，
+%各ユーザーが見たくないような情報を遮断する機能」（フィルター）のせいで，
+%まるで「泡」（バブル）の中に包まれたように，自分が見たい情報しか見えなく
+%なること．(Wikipedia 2024/04/07, 18:34)} (\cite{P})・
+%エコーチェンバー\footnote{自分と似た意見や思想を持った人々の集まる空間
+%（電子掲示板やSNSなど）内でコミュニケーションが繰り返され，
+%自分の意見や思想が肯定されることによって，それらが世の中一般においても
+%正しく，間違いないものであると信じ込んでしまう現象．
+%(Wikipedia 2024/04/07, 18:35)}，
+%アテンションエコノミー\footnote{情報の優劣よりも「人々の関心・注目」という希少性こそが
+%経済的価値を持つようになり、それ自体が重要視・目的化・資源化・交換財化
+%されるようになるという実態を指摘した概念．(Wikipedia 2025/03/21, 8:12)}
+%         \item 
+%          AIやbot によるフェイク動画・音声の拡散
+%             
+%       \item 
+%         敵国の情報戦・認知戦(\cite{NKO})
+%      \end{itemize}
+%により
+%       現在の情報空間・インターネットは
+%       誤情報・フェークニュース・プロバガンダであふれている．
+%       
+%    \item 
+%      そのために世界認知が歪み，陰謀論に堕ちる人も多い．
+%      
+%      ネットや知り合い，各国の指導者からの情報も鵜呑みにしてはいけない．
+      \item 
+         AIによるソーシャルエンジニアリングの高速化
+
+      \item 次のような情報収集が行われている：
+      \begin{itemize}
+         \item 
+            フィッシングなどネットを使った違法な情報収集
+            
+         \item 
+            個人情報を調べるための景品付きアンケートなどの
+            合法な情報収集(\cite{Ba})
+                        
+         \item
+            格安のスマートテレビ(Android TV)に搭載されたACR (=Automated Content Recognition 自動コンテンツ認識)による情報漏洩
+         \item
+            イランへの攻撃では，モサド・アマン(8200部隊)が
+            監視カメラをハッキングしたり，
+            攻撃先に秘密カメラを仕込んだりしていたことが明らかになった．
+            
+         \item
+            一部の国は国家情報法を持ち，
+            海外の自国民を監視するため外国に秘密警察を持っている．
+            他国民を監視していない保証もない．
+           
+      \end{itemize}
+ 
+      
+      
+   \item 
+      エプスタイン事件からも分かるように
+      ハニートラップも現実に行われている．
+      裏に他国の諜報機関がいたとも言われている．
+      某大統領はその国に弱みを握られているという噂もある．
+      
+      そのような罠に気を付ける．
+
+   \item 
+      最近の事例：
+      \begin{itemize}
+         \item 
+            個人の生成AIへの機密情報の提示，漏洩
+         \item
+            BeReal などからの機密情報の提示，漏洩
+         \item
+            認知戦
+      \end{itemize}
+\end{itemize}
+
+\begin{Q}
+   Web ページのハイパーリンクの下線やQR コードで
+   文字でリンクを表示する方法を調べてください．
+   これからは毎回クリックする前にチェックすることをお奨めします．
+\end{Q}
+
+\cite{GM}にはKali Linuxや
+ネットを使ったソーシャルエンジニアリングの具体的手法の解説があるので
+是非参考にしてほしい．
+ただし，これは攻撃のマニュアルともなるのでそこには十分注してください．
+
+\begin{Q}
+   \href{https://haveibeenpwned.com/}{Have I Been Pwned}
+   を使って
+   メールアドレスに付随した
+   password が Dark Web に漏洩していないかチェックして下さい．
+   もし漏洩が確認できた場合対策をお願いします．
+   まめにチェックすることをお奨めします．
+\end{Q}
+
+%\begin{thebibliography}{99}
+%   \bibitem{Ba} 
+%         ジェイミー・バートレット, 
+%         操られる民主主義: デジタル・テクノロジーはいかにして社会を破壊するか, 
+%         草思社, 2018
+%
+%      \bibitem{GM}
+%       Joe Gray, Jin Maeda,
+%      人を動かすハッカーの技術：ソーシャルエンジニアリングの実践と防御 
+%
+%    \bibitem{IPA}
+%       情報処理推進機構, 
+%       \href{https://www.ipa.go.jp/security/vuln/websecurity/about.html}{安全なウェブサイトの作り方}
+%
+%    \bibitem{IPA2}
+%       情報処理推進機構, 
+%      \href{https://www.meti.go.jp/policy/netsecurity/downloadfiles/guide_v3.0.pdf}{サイバーセキュリティ経営ガイドライン}
+%
+%    \bibitem{IPA3}
+%       情報処理推進機構, 
+%     \href{https://www.ipa.go.jp/security/guide/sme/ug65p90000019cbk-att/sme_guideline_v4.0.pdf}{中小企業の情報セキュリティガイドライン}
+%    \bibitem{JPCERT} 
+%       一 般社団法人 JPCERT コーディネーションセンター, 
+%       \href{https://www.jpcert.or.jp/csirt_material/files/manual_ver1.0_20211130.pdf}{インシデントハンドリングマニュアル}
+%    \bibitem{HB}
+%      NISC,
+%      \href{https://security-portal.cyber.go.jp/guidance/handbook.html}
+%      {インターネット安全・安心ハンドブック} 
+%    \bibitem{N} 
+%    一般社団法人 日本シーサート協議会シーサート人材ワーキンググループ, 
+%    改訂新版 セキュリティエンジニアの教科書 一般社団法人 日本シーサート協議会シーサート人材ワーキンググループ  
+%    
+%
+%   \bibitem{NKO} 
+%      長迫, 小谷, 大澤, SNS時代の戦略兵器 陰謀論 民主主義をむしばむ認知戦の脅威,
+%       ウェッジ, 2025.
+% 
+%     \bibitem{O} 
+%       小川和久, 総理、国防も安全も穴だらけ！国民を守れない国・ニッポン
+%
+%  
+%   \bibitem{P} 
+%      イーライ・パリサー, 閉じこもるインターネット——
+%      グーグル・パーソナライズ・民主主義 , 早川書房, 2012.
+%      改題：フィルターバブル──インターネットが隠していること
+%      (ハヤカワ文庫NF), 早川書房, 2016.
+%
+%   \bibitem{SS}
+%    瀬戸, 斎藤, 徹底攻略情報セキュリティマネージメント, インプレス   
+%      
+%    
+%\end{thebibliography}
+%
+%\end{document}

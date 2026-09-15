@@ -1,0 +1,1019 @@
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%\usepackage{tabularray}
+%%\usepackage{emath}
+%%\usepackage{listings}
+%\usepackage{ccicons}
+%\usepackage{mflogo}
+%\usepackage{wrapfig}
+%\usepackage[basic, box,gate,oldgate, ic, optics,physics]{circ}
+%
+%%\usepackage{fancybox}%enclose by box
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{verbatim}
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%   bookmarksnumbered=true,%
+%   bookmarksopen=true,%
+%   colorlinks=true,%
+%   linkcolor=red,
+%   citecolor=blue
+%} 
+%
+%\newtheorem*{exQ}{レポート}
+%\theoremstyle{remark}
+%\newtheorem*{Q}{演習}
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%\renewcommand{\tablename}{表}
+%
+%\DeclareMathOperator{\noT}{NOT}
+%\DeclareMathOperator{\anD}{AND}
+%\DeclareMathOperator{\oR}{OR}
+%\DeclareMathOperator{\nand}{NAND}
+%\DeclareMathOperator{\nor}{NOR}
+%\DeclareMathOperator{\xor}{XOR}
+%\DeclareMathOperator{\idm}{ID}
+%\def\emptyline{\vspace{12pt}}
+%\def\smallemptyline{\vspace{6pt}}
+%\setlength{\belowcaptionskip}{0mm}
+%
+%\begin{document}
+%\begin{flushright}
+%   2026/05/19
+%   %2026/03/11
+%   %2026/01/12
+%   
+%   九大・数理 大津幸男
+%\end{flushright}
+%
+%\begin{center}
+%   {\Large 情報科指導法II---04}
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%   \par{コンピュータの原理 1}
+%\end{center}
+
+\chapter{コンピュータの原理}
+\term[]{アルゴリズム}{algorithm}の語源はアラビアの数学者フワーリズミであるといわれる．
+彼の数学書「インド人たちの数」が12世紀にラテン語に翻訳されたとき
+「アル・フワーリズミは言った」
+から文が始まっていたが，その後名前であることは忘れられ
+インド・アラビア式の計算の方法\footnote{
+インド・アラビア式の計算の歴史的な位置づけ：
+古代インドに起源を持つ$0$を含む数字と位取り記法が，
+アラビア数字に変わりながら
+イベリア半島を通じてヨーロッパに入ってきたのも10世紀頃であった．
+また，紙の生産は古代中国で始まったが，その製造法も
+12世紀頃にアラビアを通じてヨーロッパに入ってきた．
+それらは簿記などに使われ商業・金融の発展に繋がった\cite{T}．
+その後
+活版印刷が発明され，科学や工学や文化の発達，宗教の対立と戦争の拡大を招いた.}をアルゴリズムと呼ぶようになった 
+(\cite{Mu})．
+
+現在ではアルゴリズムは算法という意味で使われるが，
+1930年代に数理論理学において論理の限界と計算可能性と関連して論じられるようになった．
+フォン・ノイマンはこれらの研究のただ中にいたが，
+それらをもとに1951年に世界初のノイマン型コンピュータ EDVAC を開発を成し遂げた．
+
+ここでは論理学と電子回路から分かるコンピュータの仕組み，
+更に時計付き回路とメモリーについて解説する．参考文献として\cite{F}, \cite{Mn}をあげておく. 
+
+\section{論理回路}
+\begin{itemize}
+\item
+$1$を真$0$を偽として表す．
+コンピュータの内部では
+ある一定の正の電圧$V$がかかった状態が$1$
+電圧がかかっていない状態が$0$である．
+
+\item
+$A$, $B$ を$0$, $1$を取る変数とするとき, 
+$A$の否定を  $\noT A$，
+$A$かつ$B$を $A\text{ AND }B$,
+$A$あるいは$B$を $A\text{ OR }B$と表す．
+真理表で表すと
+\begin{table}[htb]
+   \centering
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \begin{tabular}{c|c}\noalign{\hrule height 1pt} 
+        $ A$ &$\noT A$\\  \hline
+         0&1\\
+         1&0\\ \noalign{\hrule height 1pt} 
+      \end{tabular}  
+      \smallemptyline    
+      \caption{$\noT$}   
+   \end{minipage} 
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \begin{tabular}{cc|c}\noalign{\hrule height 1pt} 
+         $A$ &$B$&$ A \anD B$\\  \hline
+         0&0& 0\\
+         0&1& 0\\
+         1&0& 0\\
+         1&1&1\\ \noalign{\hrule height 1pt} 
+      \end{tabular}
+     \smallemptyline     
+      \caption{$\anD$}
+   \end{minipage} 
+\end{table}
+
+\item
+コンピュータの回路としては
+$\anD$の否定の$\nand$,  
+$\oR$の否定の$\nor$,
+$\oR$で2つが共に$1$のときを$0$に代えた$\xor$(排他的$\oR$)
+を考えると都合が良い．それらの真理表を書くと
+\begin{table}[htb]
+   \centering
+       \begin{minipage}{0.4\columnwidth}
+      \centering
+      \begin{tabular}{cc|c}\noalign{\hrule height 1pt} 
+         $A $&$B$& $A \oR B$\\  \hline
+         0&0& 0\\
+         0&1& 1\\
+         1&0& 1\\
+         1&1&1\\\noalign{\hrule height 1pt} 
+      \end{tabular} 
+      \smallemptyline 
+      \caption{$\oR$}
+   \end{minipage} 
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \begin{tabular}{cc|c}\noalign{\hrule height 1pt} 
+         $A$ &$B$& $A\nand B$\\  \hline
+         0&0& 1\\
+         0&1& 1\\
+         1&0& 1\\
+         1&1&0\\ \noalign{\hrule height 1pt} 
+      \end{tabular} 
+      \smallemptyline   
+      \caption{$\nand$}
+   \end{minipage} 
+\end{table}
+%\newpage
+
+\begin{table}[htb]
+   \centering
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \begin{tabular}{cc|c}\noalign{\hrule height 1pt} 
+         $A $&$B$& $A\nor B$\\  \hline
+         0&0& 1\\
+         0&1& 0\\
+         1&0& 0\\
+         1&1& 0\\ \noalign{\hrule height 1pt} 
+      \end{tabular} 
+      \smallemptyline 
+      \caption{$\nor$}
+   \end{minipage} 
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \begin{tabular}{cc|c}\noalign{\hrule height 1pt} 
+         $A$ &$B$& $A\xor B$\\  \hline
+         0&0& 0\\
+         0&1& 1\\
+         1&0& 1\\
+         1&1&0\\ \noalign{\hrule height 1pt} 
+      \end{tabular}   
+      \smallemptyline  
+      \caption{$\xor$}
+   \end{minipage} 
+\end{table}
+
+\item
+図式で考えた方が分かり易い場合があるので記号を準備する：
+\begin{figure}[h]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.1}
+   \caption{論理の図式}\label{}
+\end{figure}
+
+\item
+数の$0$, 群での単位元，カテゴリー論での恒等射のように
+%数学的な完全性のためには
+何もしない論理素子$\idm$も考えると都合が良い．
+それを以下のように表す．
+
+\begin{table}[htb]
+   \centering
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \begin{tabular}{c|c}\noalign{\hrule height 1pt} 
+             \hline
+         $A$ &$\idm A$ \\  \hline
+         0&0\\
+         1&1\\ \noalign{\hrule height 1pt} 
+      \end{tabular}
+      \smallemptyline 
+      \caption{$\idm$}
+   \end{minipage} 
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \begin{tabular}{cc|cc}\noalign{\hrule height 1pt} 
+         $A$&$B$ &$S$&$C$ \\  \hline
+         0&0&0&0\\
+         0&1&1&0\\
+         1&0&1&0\\
+         1&1&0&1\\
+        \noalign{\hrule height 1pt} 
+      \end{tabular}
+      \smallemptyline 
+      \caption{二進数の和}\label{sum}
+   \end{minipage} 
+\end{table}
+
+\item
+一桁の二進数($0$, $1$のみからなる数)の和を計算し，
+二進数で表す論理回路を設計してみる．
+$A$, $B$が与えられた一桁の二進数とし，
+和の一桁目を$S$と表し，位上がりを$C$と表すと
+真理表は表~\ref{sum}のようになる．これから
+$S$は$\xor$で$C$は$\anD$になることがわかる．
+よって図~\ref{sumPic}
+ようにすれば良い：
+\begin{figure}[htb]
+   \centering
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.2}
+      \caption{}
+   \end{minipage} 
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.3}
+      \caption{一桁の二進数の和}\label{sumPic}
+   \end{minipage} 
+\end{figure}
+\begin{Q}
+   $\nand$ のみで$\noT$, $\anD$, $\oR$, $\nor$, $\xor$を表せ．
+\end{Q}
+\begin{exQ}
+   二桁の二進数の二桁目の計算をして（一桁目の位上がりがあることに注意）二桁目と三桁目を二進数で表す論理回路を設計せよ．
+  それを使って$n$桁の二進数の和を計算する論理回路を設計せよ．
+\end{exQ}
+
+\end{itemize}
+
+
+
+
+\begin{itemize}
+\item
+論理回路のFET(Field Effect Transistor)などを使った物理的実現（論理ゲート）の例を挙げる：
+\begin{figure}[htb]
+   \centering
+   \begin{minipage}{0.3\columnwidth}
+      \centering
+      \begin{circuit}0
+      %NOT
+         \nfet1 {?} G l % transistor
+         \frompin nfet1S
+         \- 1 d
+         \gnd1
+         \frompin nfet1D
+         \- 1 u
+         \.1
+         \frompin .1
+         \- 1 u
+         \nl\R1 {$R$} u
+         \- 1 u
+         \cc\connection1  {$V$} c u
+         \frompin nfet1G
+         \- 1 l
+         \cc\connection2  {$A$} c l
+         \frompin .1 
+         \- 3 r
+         \cc\connection3  {OUT} c r
+      \end{circuit}
+      \caption{$\noT$}\label{NOT}
+   \end{minipage} 
+   \begin{minipage}{0.3\columnwidth}
+         \centering
+         \begin{circuit}0 
+         %NAND
+            \nfet1 {?} G l
+            \frompin nfet1S
+            \- 1 d
+            \nfet2 {?} D l
+            \frompin nfet2S
+            \- 1 d
+            \gnd1
+            \frompin nfet1D
+            \- 1 u
+            \.1
+            \frompin .1
+            \- 1 u
+            \nl\R1 {$R$} u
+            \- 1 u
+            \cc\connection1  {$V$} c u
+            \frompin nfet1G
+            \- 1 l
+            \cc\connection2  {$A$} c l
+            \frompin nfet2G
+            \- 1 l
+            \cc\connection3  {$B$} c l
+            \frompin .1
+            \- 3 r
+            \cc\connection4  {OUT } c r
+         \end{circuit}
+      \caption{$\nand$}
+   \end{minipage} 
+   \begin{minipage}{0.3\columnwidth}
+      \begin{circuit}0
+         %NOR
+         \nfet1 {?} G l % transistor
+         \frompin nfet1S
+         \- 1 d
+         \gnd1
+         \frompin nfet1D
+         \- 1 u
+         \- 2 r
+         \.1
+         \frompin .1
+         \- 1 u
+         \.2
+         \frompin .2
+         \- 1 u
+         \nl\R1 {$R$} u
+         \- 1 u
+         \cc\connection1  {$V$} c u
+         \frompin .1
+         \- 2 r
+         \- 1 d
+         \nfet2 {} D r
+         \frompin nfet2S 
+         \- 1 d
+         \gnd2
+         \frompin nfet1G
+         \- 1 l
+         \cc\connection2  {$A$} c l
+         \frompin nfet2G
+         \- 1 r
+         \cc\connection3  {$B$} c r
+         \frompin .2 
+         \- 3 r
+         \cc\connection4  {OUT} c r
+      \end{circuit}
+      \caption{$\nor$}
+   \end{minipage} 
+\end{figure}
+
+\noindent
+ただし，細い四角は抵抗，$\Pi$みたいなものが FETである．
+
+\item
+例えば$\anD$ゲートは$\nand$ゲートと$\noT$ゲートの結合で実現される．$\nand$ゲートから$\noT$ゲートを作るのも簡単である．演習で見たように他の論理演算も$\nand$のみで表されるので集積回路は$\nand$ゲートのみから構成することが出来る．
+
+\item
+デコーダ：真理変数の組（これは二進数と同一視される）のデータから情報を取り出すには図~\ref{decode} (a) ような回路を使えば良い．
+ただし，図の黒丸は(b)のような$\anD$を使った回路とする．
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.4}
+   \caption{二進数デコーダ}\label{decode}
+\end{figure}
+
+例として(c)のように$101$のデータを入力すると
+赤の縦線に電圧がかかる．元々 横線には電圧がかかっているので$6$番目の線にのみ電圧がかかる．
+
+\item
+エンコーダ：逆に選ばれたワイヤーのデータを真理変数の組（二進数）
+に変換するには，図~\ref{encode}のような一本のワイヤーを選ぶ装置を使えば良い．ただし，白抜きの四角は(b) のように$\oR$を使った回路とする．
+例として(c)のように$7$番目の線に電圧をかけると$110$を取り出すことが出来る．
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.5}
+   \caption{二進数エンコーダ}\label{encode}
+\end{figure}
+
+\item
+一般の論理回路：
+一般の論理回路は, $0, 1$をとる$m$個の変数$X_i$ $(i=1,\dots, m)$
+に$0, 1$をとる$n$個の変数$Y_j$ $(j=1, \dots, n$)を返す関数の組と考えられるので
+\[
+   Y_j = F_j(X_1, \cdots,X_i,\cdots,X_m)\quad j=1, \dots, n
+\]
+と表すことが出来る．
+$\mathbf X=(X_1, \cdots,X_m)$, $\mathbf Y=(Y_1, \cdots,
+Y_n)$, $\mathbf F=(F_1, \cdots,F_m)$と置く．
+$ V^m=\{0,1\}^m$ とすると，
+$\mathbf X\in V^m$, $\mathbf Y\in V^n$なので，$\mathbf F$は写像
+ \[
+    \mathbf F:V^m\to V^n
+ \]
+ とみなせる．
+これは$m$バイトの二進数の集合とも見なせる（し，
+$m$次元超立方体$[0,1]\times\dots\times[0,1]$の頂点の集合とも見なせる
+(図~\ref{mathbf F} )）．
+ つまり，$\mathbf F$は$m$バイトの二進数を$n$バイトの二進数に対応させる任意の写像とみなせる．
+ 
+  \begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.6}
+   \caption{$\mathbf F:V^m\to V^n$}\label{mathbf F}
+\end{figure}
+
+この視点に立つと，二進数デコーダと二進数エンコーダを使ってこの写像$\mathbf F$を図 \ref{anyLogic} のように構成できることがわかる．
+特に$\anD$と$\oR$, $\noT$だけで構成されることがわかる．
+ただし，これは$\mathbf F$を実現する論理回路の存在を示したに過ぎず，
+実際の回路の設計ではいかに効率よく資源を配分するかが大切になる．
+
+ 
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.7}
+   \caption{任意の論理回路の実現}\label{anyLogic}
+\end{figure}
+\end{itemize}
+
+
+\section{フリップフロップ回路とメモリ}
+\begin{itemize}
+\item
+\term[]{フリップフロップ回路}（双安定バイブレーターとも言う）とは図~\ref{flipflop}のような回路である．
+$\bar Q$は$Q$の否定，$S$はセット，$R$はリセットで同時に真になることはない変数とする．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.8}
+   \caption{フリップフロップ}\label{flipflop}
+ \end{figure}
+ \begin{table}[htb]
+        \centering
+         \begin{tabular}{cc|cc}\noalign{\hrule height 1pt} 
+            $S$&$R$ &$Q$&$\bar Q$ \\  \hline
+            0&0&1&0\\
+            0&0&0&1\\
+            1&0&1&0\\
+            0&1&0&1\\
+            \noalign{\hrule height 1pt} 
+         \end{tabular}
+         \smallemptyline 
+         \caption{フリップフロップ}
+\end{table}
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.9}
+   \caption{$S=0,R=0$の安定性}\label{stab}
+\end{figure}
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.10}
+   \caption{$S=1\Rightarrow Q=1$%, $R=1\Rightarrow \bar Q=1$
+   }\label{setReset}
+\end{figure}
+
+\item
+この回路の応答を調べる．図~\ref{stab}から分かるように$R=S=0$のとき$Q$, $\bar Q$の状態を保つ，ここでは左右二つの図を描いたが上下を入れ換えれば同じ図なので以後一方のみ書くことにする．
+図~\ref{setReset}から分かるように, 
+右の図では回路は安定だが，
+$S=1$ のときは左の図の状態は不安定で
+安定な右の図の$Q=1$に遷移することが分かる．
+
+\item
+状態が移るとき時間がかかるので，それを考慮して
+図~\ref{pulseWave}のような時計パルス波$\phi$で同期することを考える，
+ただし$t$は時間である．$\phi$に$\noT$したものを$\bar\phi$と呼ぶ．
+このパルス波を生成するには図~\ref{pulseCircuit} のような回路を考えれば良いことが知られている．抵抗$R$キャパシティ$C$のとき$0.7CR$秒間の周期でパルス波を生成する．
+この回路も双(非安定)バイブレーターと呼ばれている．
+
+\begin{figure}[htb]
+   \centering
+   \begin{minipage}{0.5\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.11}
+      \caption{時計パルス}\label{pulseWave}
+   \end{minipage} 
+   \begin{minipage}{0.4\columnwidth}
+      \begin{circuit}0
+         \npn1 {?} B r
+         \frompin npn1E
+         \- 1 d
+         \gnd1
+         \frompin npn1B
+         \- 1 r
+         \- 4 u
+         \.1
+         \- 1 u
+         \nl\R1 {$R$} u
+         \- 1 u
+         \.2
+         \frompin npn1C
+         \- 1 u
+         \.3
+         \- 2 u
+         \nl\R2 {$R$} u
+         \frompin R2t
+         \vtopin .2
+         \htopin .2
+         \frompin .2
+         \- 2 r
+         \.4
+         \- 2 r
+         \.5
+         \- 1 d
+         \nl\R3 {$R$} d
+         \- 2 d
+         \.6
+         \- 3 d
+         \- 1 r
+         \npn2 {?} B l
+         \frompin npn2E
+         \- 1 d
+         \gnd2
+         \frompin npn2C
+         \- 2 u
+         \.7
+         \- 1 u
+         \nl\R4 {$R$} u
+         \frompin R4t
+         \vtopin .5
+         \htopin .5
+         \frompin .3
+         \- 1 r
+         \nl\C1  {$C$}  r
+         \frompin C1r
+%         \vtopin .6
+         \htopin .6
+         \frompin .7
+         \- 1 l
+         \nl\C2  {$C$}  l
+         \htopin .1
+         \frompin .7
+         \- 1 r
+         \cc\connection1  {$\phi$} c r
+         \frompin .4
+         \- 1 u
+         \cc\connection1  {V} c u
+         \frompin .3
+         \- 1 l
+         \cc\connection1  {$\bar\phi$} c l
+      \end{circuit}
+      \caption{パルス波生成回路}\label{pulseCircuit}
+   \end{minipage} 
+\end{figure}
+
+
+%以上の性質からフリップフロップ回路をメモリーとして使うことができる．そのためまず
+\item
+図~\ref{clockedFF}のように$\anD$回路を使ってフリップフロップ回路にパルス波を加えると時計付きフリップフロップ回路が得られる．以下右の略記号で表す．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.12}
+   \caption{時計付きフリップフロップ回路}\label{clockedFF}
+\end{figure}
+\newpage
+
+\item
+この回路の応答を図~\ref{clockedFF2}で調べる．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.13}
+   \caption{時計と回路の動き}\label{clockedFF2}
+\end{figure}
+
+\item
+時計付きフリップフロップ回路を二つ並べてパルス波で同期を取ると
+Dフリップフロップ（DFF）が得られる．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.14}
+   \caption{Dフリップフロップ}
+\end{figure}
+
+\newpage
+\item
+この動作を調べて見るとDの意味もわかる 
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.15}
+   \caption{DFFの動き}
+\end{figure}
+
+\item
+次にDFFを幾つか並べるとメモリを構成できる．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.16}
+   \caption{DFFによるメモリ}
+\end{figure}
+
+\item
+このDFFメモリにデータを格納することをシュミレートしてみる．
+まず，全てが$0$になるように初期化する．
+次に入力する二進数を$101$とする．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.17}
+   \caption{D-FFによるメモリ格納}
+\end{figure}
+
+\begin{Q}
+以下の回路でもフリップフロップ回路が実現できることを真偽表を書いて示せ．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure4.18}
+   \caption{フリップフロップ回路}
+\end{figure}
+\end{Q}
+\end{itemize}
+
+%\begin{thebibliography}{9}
+%   \bibitem{F}
+%      Feynman, Lectures on computation, Perseus, 1996, 
+%      日本語版：ファインマン計算機科学, 岩波書店, 1999.
+%
+%  
+%   \bibitem{Mn} Minsky, Computation: Finite and Infinite Machines, 1967.
+%   
+%   \bibitem{Mu}三浦伸夫, 数学の歴史, 放送大学教育振興会, 2019.
+%   
+%    \bibitem{T}
+%    田中靖浩, 会計の世界史, 日本経済新聞出版, 2018.
+%\end{thebibliography}
+%
+%\end{document}
+%
+%\section{有限オートマトン}
+%オートマトン
+%
+%\section{チューリングマシン}
+%チューリングマシン，
+%ユニバーサルチューリングマシン
+
+%\begin{circuit}0
+%\nfet1 {?} B l % transistor
+%\frompin nfet1C % draw from collector
+%\- 1 u % some wire
+%\nl\A1 {$I_C$} u % amperemeter for current of collector
+%\atpin nfet1B % continue drawing from base
+%\- 1 l % some wire
+%\R1 {510} l % resistor
+%\- 1 l % some wire to the edge
+%\centerto A1 % draw centered to amperemeter 1
+%\nl\A2 {$I_B$} u % amperemeter 2
+%\frompin A2b % link amperemeter 2 with resistor
+%\vtopin R1l
+%\frompin A1t
+%\- 1 u
+%\.1 % junction
+%\frompin A2t % wire to amperemeter 2
+%\vtopin .1
+%\htopin .1
+%\- 1 u
+%\cc\connection1 {$U_b$} c u % driving voltage
+%\frompin nfet1E
+%\- 1 d
+%\GND1 % ground
+%\end{circuit}
+
+
+\section{有限オートマトン}
+前回説明した論理回路を抽象化したのが
+\term[]{オートマトン}である(歴史的には多分オートマトンが先で論理回路が後であろう)．
+\begin{itemize}
+   \item
+      まず例：
+      $0$, $1$の列からなる入力の総和が偶数か奇数かを判定し
+      順次そこまでが偶数か奇数を書き出すオートマトンは
+      以下のように表される：
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.1}
+         \caption{偶奇判定機械}
+      \end{figure}
+      
+      〇で囲まれているのを状態という．
+      この場合$0$と$1$が状態で，
+      それぞれその時点での偶数と奇数の状態を表している．
+      start は入力を受け付ける前の状態で
+      この場合は$0$から始まることを表してる．
+      矢印は入力が根元の数字のとき状態がどう移るかを表し，
+      矢印の真ん中の部分の数字を出力するとする．
+      この場合は$011010$のような入力を順次受け付けると，
+      $0$ならば状態を変えず元の状態を書き出し，
+      $1$ならば状態を替え異なる状態を書き出すことを表している．
+      
+   \item
+      次の例：二進法の入力にその$2$個前の入力を出力する
+      オートマトンを設計してみる．
+      前$2$個の入力を
+      $00$, $01$, $10$, $11$とする状態を考える．
+      最初は入力が無いので$00$であると見なす．$0$と$1$が入力される度に左にそれが付け加わり，右側の$0$か$1$を出力すれば良い．
+      従って，以下のようなものを考えれば良い．
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.3}
+         \caption{$2$遅延機械}
+      \end{figure}
+      
+      \begin{Q}
+         二進法の入力にその$1$個前の入力を出力するオートマトンを設計せよ．
+      \end{Q}
+      
+   \item
+      オートマトンを数式で表してみる．
+      $t=t_i=i\in \mathbf N$を時間のパラメータとし，
+      $Q=\{q_1,\dots,q_L\}$を状態の集合, 
+      $S=\{s_1,\dots,s_M\}$を入力の集合
+      $U=\{u_1,\dots,u_N\}$を出力の集合とする．すると入力は
+      \[
+      	s:\mathbf N\to S
+      \]
+      と言う任意の関数で, 状態と出力の時間による変化は
+      \[
+      	q:\mathbf N\to Q, \quad u:\mathbf N\to U
+      \]
+      という関数で表される．
+      \[
+%      \begin{split}
+%         F:Q\times S\to U\quad&\text{：出力の規則を示す関数}\\
+%         G:Q\times S\to Q\quad&\text{：状態の遷移の規則を表す関数}\\
+%         q(1)\in Q \quad&\text{：初期条件}
+%      \end{split}
+    \begin{split}
+         F:Q\times S\to Q\quad&\text{：状態の遷移の規則を表す関数}\\
+         G:Q\times S\to U\quad&\text{：出力の規則を示す関数}\\
+         q(1)\in Q \quad&\text{：初期条件}
+      \end{split}
+     \]
+      がオートマトンであり，時系列
+      \[
+         q(t_{i+1})=F(q(t_i),s(t_i)),\quad
+         u(t_{i+1})=G(q(t_i),s(t_i))
+      \]
+      が出力と状態遷移であることが分かる．
+
+   \item   
+      このように定式化すると，
+      この$F$, $G$を持つオートマトンが，前回紹介したクロック周波数で同期したメモリ（これは上の演習の$1$遅延機械でもよい）と
+      論理回路により表現できることが分かる：
+      まず，$S$, $U$, $Q$を二進法で表現しておき，$k$-ビット, $l$-ビット, $m$-ビットとし，その数のワイヤーでその値を表わしているとする．
+      以下のようなクロック周波数$\phi$と$\bar\phi$ で同期された$2$つのメモリと$F$, $G$を実現する論理回路を組み合わせることでオートマトンが実現される．
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.4}
+         \caption{一般のオートマトンを実現する論理回路}
+      \end{figure}
+   
+\end{itemize}
+
+\section{チューリングマシン}
+\begin{itemize}
+   \item
+   \term[]{チューリングマシン}とは，
+   箱状のセルを一列に刻んだテープのある一個のセルに
+   オートマトンが付いたもの(図~\ref{TuringM})である．
+   このオートマトンを\term[]{ヘッド}と言ったりする．
+   テープの各セル上には最初に有限個の記号が書かれていて，
+   空白を$0$と表すとある所から右，
+   ある所から左はすべて$0$になっているものである．
+   時間は離散的な時計に従ってすすみ，
+   最初に指し示すセルとヘッドの状態は予め定まっている．
+   ある時刻のオートマトンの状態と
+   それの指しているセルに書かれている記号によって
+   オートマトンは次の状態に移り，
+   その箱に何かの記号を書き込み，
+   右か左に一つだけ動き時間が進む．
+   ある決まった状態に移ると機械は停止する．
+   \begin{figure}[htb]
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.5}
+      \caption{チューリングマシン}\label{TuringM}
+   \end{figure}
+   
+   \item   
+   チューリングマシンの例：単なるオートマトンとは異なることを
+   先程と同様に例をもって示したい．
+   問題は次のような$($ と$)$の有限個の列が与えられたとき，
+   それが$($ と$)$の対応として整合性があるかないかを判定することである．
+   もちろん整合性があれば$($ と$)$の数は等しくなるので，
+   $($ と$)$の数が等しくなければ整合性はないことがわかるが
+   それでは十分ではない．また，任意個数の$($と$)$が表れるので
+   有限状態のみでは判定できない．
+   
+   \begin{figure}[htb]
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.6}
+      \caption{初期状態}\label{}
+   \end{figure}
+   まず，テープの初期状態は調べたい$($ と$)$の組み合わせを一個一個
+   セルに入れて両端を$E$ではさんでいるとする．
+   そしてヘッドは左側の$E$を指しているとする．
+   図に書いた$R$は右に，
+   $L$は左にヘッドが動くことを表する．
+  左から ペアの最も近い$($ と$)$を見つけまず$)$を
+  関係ない記号$X$に書き換え左に動き$($を$X$に書き換え右に動く
+  ことを実現するオートマトンは図~\ref{consist}のようになる．
+  この入力だとまず一つ右に動き$($は無視してもう一つ右に動くと
+  $)$があるのでそれを$X$に書き換え
+   左に動き$($があるのでこれを$X$に書き換え右に動く．
+    \begin{figure}[htb]
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.7}
+      \caption{括弧整合性判定機械のヘッド}\label{consist}
+   \end{figure}
+  
+   終了の仕方について：
+   まず$)$を$X$に書き換えた後左にすすんで何も見つからず
+   $E$に到達した場合，整合性がないので$0$を出力して停止する．
+   そうでなければ，
+   対になる$($が全て見つかり，
+   これを続けると右の$E$に到達することになる．
+   そのあと左に移動して
+   $($が残ってれば整合性がないので$0$を出力して停止する．
+    $($が残っていなければ$E$に到達し整合性が確認され
+    $1$を出力して停止する．
+   
+   \item
+      オートマトンとリューリングマシンの違いは
+      オートマトンの所で述べた$F:Q\times S\to Q$, 
+   $G:Q\times S\to U$の他にテープの移動方向を与える関数
+      \[ 
+             D:Q\times S\to \{0,1\}
+      \]
+      を指定することである．$0$を左，$1$を右と決めておく．
+    \item
+        インデックスの付いたファイルを検索して，
+      その内容を適当な場所にコピーする
+      チューリングマシンを作成する．
+      
+      まず，テープのデータの格納状況を説明する．簡単のため
+      インデックスとファイルの内容は共に$3$ビットの$2$進数で
+      $X$と$X$(または$Y$)の間の前半$3$ビットがインデックスで，
+      後半$3$ビットがファイルの内容である(図~\ref{initial})．
+      左の$Y$がファイルの先頭で右の$Y$がファイルの終を表す．
+      左側の端の$Y$と最も左の$X$との間の$3$ビットが探したい
+      ファイルのインデックスであり，オートマトンは最初に
+      最も左の$X$を指した状態にあるとする．
+   \begin{figure}[htb]
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.8}
+      \caption{初期状態}\label{initial}
+   \end{figure}
+   
+   オートマトンは次の図~\ref{file} のように設計される：
+   \begin{figure}[htb]
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.9}
+      \caption{ファイル探索機械}\label{file}
+   \end{figure}
+   \begin{figure}[htb]
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.10}
+      \caption{探索中のテープの変遷}\label{tape1}
+   \end{figure}
+
+   \noindent 
+   まずヘッドは左に進みながら数字の$0$を$A$へ$1$を$B$へ書き換え，
+   $Y$に到達すると右に進み始める．
+   まず最初の$A$を$0$へ$B$を$1$へ書き換え，
+   次の$A$, $B$や$X$を無視して最初の数字まで右に進む．
+   元の数字が$0$のときその数字が$1$，元の数字が$1$のときその数字が$0$ならば
+   インデクスは一致していないので，次の右の$X$まで進み，
+   そこから左に進みながら$0$を$A$へ$1$を$B$へ書き換え$Y$まで進み，
+   次のインデックスの比較に移る．
+   元の数字が$0$のとき最初の数字が$0$，元の数字が$1$のときその数字が$1$ならば，
+   そこまではインデクスが一致しているので，その$0$を$A$へ$1$を$B$へ書き換え
+   もう一度$Y$まで左に戻って，つぎの桁の数字の比較を行う．
+   これを続け，完全に一致したとき，ヘッドは最も左の$X$まで動く．
+   もし途中で一致しない場合は次の右の$X$まで進み，
+   そこから左に進みながら$0$を$A$へ$1$を$B$へ書き換え
+   $Y$まで進み，次の(上の$X$の左の)インデックスとの比較に移る．
+  
+  次にそのインデックスのデータを$Y$と最も左の$X$の間の部分にコピーする
+  以下のようなオートマトンを考える：
+  \begin{figure}[htb]
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.11}
+      \caption{コピー機械}\label{}
+   \end{figure}
+ 
+    \begin{figure}[htb]
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.12}
+      \caption{コピー中のテープの変遷}\label{tape2}
+   \end{figure}
+
+   検索が終わった後最も左の$X$とデータの間は全て$A$, $B$に置き換わっているので，
+   右側の最初の数がデータの数字である．そこで$X$から右側に進み
+   最初の数が$0$のとき$A$へ$1$のとき$B$へ書き換え
+   左へ進み$Y$に戻る．
+   $Y$から右に進み上の最初の数を元の数が$0$のとき$A$へ$1$のとき$B$へ書き換え，
+   最も左の$X$まで右に進み，
+   次の桁の数まで右に進み，
+   次の桁の数をコピーしてそれを繰り返し終るまで続ける．
+   ただし，このチューリングマシンでは
+   最後は意味の無い次のファイルの最初の数をコピーして，
+   $Y$と$X$の間にもうコピーする場所が無いので
+   最も左の$X$で停止することになる．
+ \end{itemize}
+
+ 
+\section{ユニバーサルチューリングマシン}
+全てのチューリングマシンの動作を完全にシミュレートできる
+チューリングマシンを
+\term[]{ユニバーサルチューリングマシン}という．
+$T$がシミュレートされるチューリングマシンとし，
+$U$をユニバーサルチューリングマシンとする．
+   
+簡単のため$T$の状態は$2$ビットとし，
+$T$のテープが$Y$の左に再現されている．
+そこのセルには$0$, $1$のみが書かれてるとするが
+現在作業中のセルに$M$という記号が書かれているとする．
+
+最も左の$X$の後にあるのは遷移状態のリストである：
+状態とセルの値との組で$3$ビット，
+次の状態の$2$ビットと書き込む値が$1$ビット，
+ヘッドの移動向きを示す$1$ビットの組であり，
+それら全てを最も左の$X$から左に$7$ビットずつ$X$で分けて
+書いておき，最後に右の$Y$で終わるようにする．
+左側の端の$Y$と最も左の$X$との間の$3$ビットが
+$T$の状態とテープに書き込む数字を表している．
+
+ \begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.13}
+   \caption{$T$のセルへの値の書き込みと移動と読み込み}\label{tape3}
+\end{figure}
+
+図~\ref{UT}にこのユニバーサルチューリングマシンの
+ヘッドの構造を示す(\cite{Mn})．上の部分はファイル探索機械と同じであるが，
+これはインデクスを$T$の状態とテープから読み込まれた数の組として，
+次の遷移状態，つまり，
+$T$の次の状態とテープへ書き込む数とヘッドの動く方向を探している
+ことになる．
+次の右の中部の部分はコピー機械と同じである．ただし
+最後にコピーした数字はヘッドの動く方向を示すビットで
+この場合は右を表している．
+
+右の中部の下の部分では$X$から$M$まで左に進み，
+まずヘッドの移動方向をそこに書き込む．
+この場合は$B$である．
+次に右に進み$A$を$0$, $B$を$1$に置き換えながら
+最も左の$X$まで進む．
+
+その$X$の左の$A$と$B$をもう一度$0$, $1$に戻すために，
+最も右の数まで進み$A$を$0$に$B$を$1$に書き換えながら
+最も左の$X$まで左に進む．
+もう一つ左にすすみ最初の数字を読み込み, 記号$V$に置き換え，
+$T$のテープの$M$の有ったところまで左に進む．
+もし，そこに$A$があれば，そこに先程読み込んだ数字を書き込み
+左に動く．
+$B$があれば，そこに先程読み込んだ数字を書き込み右に動く．
+そしてヘッドの動いた先の数字を読み込み，最も左の$X$まで進み
+一つ左に進み$V$の書かれたセルに読み込んだ数字を書き込み，
+最後に右に一つ$X$まで戻る．
+
+これで一サイクルが終わり次のサイクルが始まる．
+$T$が停止するまで続いていく．
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/ch3/images/figure5.14}
+   \caption{Minskyのユニバーサルチューリングマシン}\label{UT}
+\end{figure}
+
+このオートマトンは記号$8$個，状態$24$個からなっている．
+\begin{Q}
+   このユニバーサルチューリングマシンがちゃんと動くか
+   確認して下さい．おかしい部分を見つけたら指摘してください．
+   直します\verb/_(._.)_/
+\end{Q}
+
+
+最後にチューリングについては伝記とその映画化(\cite{TuringM})がある．
+数学も凄いが人生も凄い人なので興味のある人には鑑賞してもらいたい．
+
+%\section{計算可能性}
+
+%
+%\begin{thebibliography}{9}
+%   \bibitem{F}
+%      Feynman, Lectures on computation, Perseus, 1996, 
+%      日本語版：ファインマン計算機科学, 岩波書店, 1999.
+%  
+%   \bibitem{Mn} Minsky, Computation: Finite and Infinite Machines, 1967.
+%   
+%   \bibitem{Turing}
+%       A.~Turing, On Computable Numbers, 
+%       with an Application to the Entscheidungsproblem, 
+%       Proceedings of the London Mathematical Society 42, 1936.
+%
+%
+%   \bibitem{TuringM}
+%      アンドルー・ホッジス, エニグマ アラン・チューリング伝 上下,
+%      勁草書房, 2015.
+%      映画化：イミテーション・ゲーム エニグマと天才数学者の秘密,
+%      モルテン・ティルドゥム監督, 2014.
+%\end{thebibliography}

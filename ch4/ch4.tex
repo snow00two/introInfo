@@ -1,0 +1,827 @@
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%%\usepackage{emath}
+%\usepackage{listings}
+%\usepackage{ccicons}
+%\usepackage{mflogo}
+%%\usepackage{fancybox}%enclose by box
+%\usepackage[dvipdfmx]{hyperref}
+%\usepackage{verbatim}
+%\hypersetup{% hyperrefオプションリスト
+%   setpagesize=false,
+%   bookmarksnumbered=true,%
+%   bookmarksopen=true,%
+%   colorlinks=true,%
+%   linkcolor=red,
+%   citecolor=blue
+%} 
+%\newtheorem*{exQ}{レポート}
+%\theoremstyle{remark}
+%\newtheorem*{Q}{演習}
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%\renewcommand{\tablename}{表}
+%
+%\def\emptyline{\vspace{11pt}}
+%\def\smallemptyline{\vspace{6pt}}\begin{document}
+%\begin{flushright}
+%   2026/08/27
+%   %2026/06/02
+%   %2026/04/16
+%   %2026/03/30
+%   %2026/01/12
+%   
+%   九大・数理 大津幸男
+%\end{flushright}
+%
+%\begin{center}
+%   {\Large 情報科指導法II---06}
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%   \par{インターネット1}
+%\end{center}
+%
+
+\chapter{インターネット}
+ネット net とは網(あみ)のことであり，network とは網全体，例えば，駅と線路と列車の全体，
+テレビ局の全国放送網のことをさすが，
+インターネット The Internet はコンピュータの全世界的な network のことである．
+
+\section{インターネットの仕組み}
+\subsection{コミュニケーションとメディアの歴史}
+昔から狼煙・太鼓を使ったり，手紙によるコミュニケーションや
+徒歩や馬による移動などが行われていた．
+しかし，近代になって重要になった人の移動や人口の変化，
+貨幣の循環を含むコミュニケーションやメディアの進展には
+以下のようなものがある(\cite{Yamakawa})：
+
+\begin{itemize}
+   \item 
+      13〜15世紀のモンゴル帝国がユーラシア大陸に広がりと交易が発展した．
+   \item 
+     それがきっかけとなり14世紀に黒死病(ペスト)がヨーロッパに広がり，
+     ヨーロッパでは3人に1人が死んだと言われている．
+   \item 
+      東ローマ帝国が1453年にオスマン帝国に滅ぼされ多くの文化人が西洋に亡命し，
+      その人達の活動とイスラムとの接触を通して
+      ギリシャ・ローマの文化が復活し
+      ルネッサンスが始まるきっかけになった．
+   \item 
+      1450年代グーテンベルグによる活版印刷の開始．
+  \item
+     モンゴル帝国などから伝わった航海術が十字軍などを通して発展し，
+     それを使った1492年\footnote{この年がスペインによるレコンキスタの完成の年であるのは偶然では無い．}
+     のコロンブスによる新大陸の（ヨーロッパ人から見た）発見．
+     それに続くヨーロッパからの南北アメリカ大陸への移民の流入．
+     
+  \item
+     これ以降ヨーロッパから持ち込まれた伝染病で新大陸の多くの現地人\footnote{一説には10人中9人}が死亡した．
+     それによるプランテーションでの労働力不足のために，
+     17〜19世紀に奴隷貿易が行われ，
+     アフリカの多くの黒人が奴隷としてアメリカ大陸に移住させられた．
+
+  \item
+      1545年の南米のポトシ銀山の発見のあと
+      ヨーロッパへ銀が大量に流入し貨幣供給量が大幅に増加した．
+      これが価格革命・商業革命をもたらした．
+   \item 
+      会社組織・簿記・銀行の発展．
+      株式・債券・外国為替など様々な市場を含めた資本主義の発展．
+   \item 
+      新聞・雑誌等の発行によるマスコミの発達．
+   \item 
+      石炭を使った(第一次)産業革命．
+   \item 
+      蒸気機関車・自動車・道路・飛行機などの交通の発展．
+   \item 
+      写真・レコードの発明．
+   \item 
+      石油やガスの使用の増加\footnote{今回のイラン戦争で
+      化学肥料も石油に依存していることが明らかになった．}．
+      電(磁)気が発見され，十九世紀末には送電網が整備された(第二次産業革命)．
+      以下の発明も電気があってのものである．
+ 
+    \item 
+      モールス S.~Morse による電信の発明．    
+
+   \item 
+      ベル G.~Bell による電話の発明．
+      
+   \item 
+      マルコーニ G.~Marconi による無線の発明．
+   
+   \item 
+      映画・ラジオ・テレビ放送の発展．
+   
+   \item 
+      コンピュータの発明と普及．
+ 
+    \item
+      パソコンの普及．
+        
+   \item
+      携帯電話(スマートホン)の発展．
+
+   \item
+      インターネットの発展．
+\end{itemize}
+
+\subsection{インターネットの歴史}
+
+1960年代に米国国防総省の
+ARPA(=Advanced Reseach Projects Agency, 国防高等研究計画局) で
+ARPANET の計画が始まったが，次の二つの見方がある．
+
+\begin{enumerate}
+  \item 1960年代後半に，米国が核攻撃を受けてもグラフ状のネットの壊れた部分をパケット が自動的に迂回して繋がるような仕組みのARPANET の計画が始まった．
+  \item 色々な種類のネット技術が分散している現実の世界でも，お互いに問題なく繋げられるネットワークを作りたいという理想に燃えた当時の技術者が internet の技術を開発した．
+\end{enumerate}
+ここではこれについての明言は避け\footnote{ \href{https://snow00two.github.io/mySite/}{私のポートフォリオ}にAIの見解や資料があります．}，
+1969年にBerkley大学のコンピュータからStanford  大学のコンピュータへ
+送信されたのがその最初の実験であったことのみ言及しておく．
+その後1990年代に商用に広がり\term[]{インターネット}(the Internet)と呼ばれるようになった．
+
+ただし，インターネットというネットが一つあるわけではなく，
+家や会社や大学などのLAN =Local Area Network と大きな領域を繋ぐ
+WAN=Wide Area Network の緩やかな塊がインターネットである．
+物理的なネットの仕組みは色々バラエティーがあるが，
+共通の決まりでパケットを送合い受けとるようになっている．
+
+1秒間に何れだけの情報が送れるかというのがbps =bit per second 
+という単位で計られる．通信容量ともいいい
+通信の性能を測るため後で出てくる．
+
+\subsection{LANや携帯電話}
+\begin{itemize}
+   \item  
+         \begin{figure}[htb]
+         \centering
+         \includegraphics[width=10cm]{~/Documents/GitHub/introInfo/ch4/images/macaddress.pdf}
+         \caption{MACアドレス}\label{macAdress}
+      \end{figure}
+      
+      \begin{figure}[htb]
+         \centering
+         \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/ch4/images/hub.pdf}
+         \caption{ハブ}\label{}
+      \end{figure}
+
+      LANの具体的なものとして Ethernet\footnote{Etherとは相対性理論で否定されたエーテルのことである．もっとも否定されたのは古典論に従うEtherであって相対性理論的Etherは存在していても問題は無い．これも\href{https://snow00two.github.io/mySite/}{私のポートフォリオ}にAIの見解や資料があります．}
+      がある．
+      まず，全てのEthernetボードにMACアドレス(Media Access Control address)という一意的な12ケタの16進数が与えられている．私のmac の外付けEtherボードだと(図~\ref{macAdress})
+      \[
+         \text{24:1b:7a:f8:fb:43}
+      \]
+      になっている．
+      
+      あるエリアのパソコンやデバイスはイーサーケーブルとハブで結びついていて，
+      エリア内のパソコンたちはそれを使って通信する．
+      そのエリア内からルーターを通して外のWANに繋がっている．
+      基本的な通信の基本はパケット通信で
+      模式で表すと図~\ref{ethernet}のようなビット列である．
+      ここでのアドレスとはMACアドレスのことである．
+      初期のイーサネットの容量は3Mbps程度だったが
+      最近では100Gbpsを越えるものも多い．
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch4/images/figure6.1}
+         \caption{イーサーネットのパケットの構造}\label{ethernet}
+      \end{figure}
+      
+      
+      %PARC で開発された技術の一つである．
+      
+      
+   \item       
+      LANを無線で繋がるようにした無線LANを使うことも多い．
+      IEEE 802.11のような規格で呼ばれるが，最近はWi-Fiということが多い．
+      2.4〜2.5GHz, 5GHz 以上の周波数で動作する．
+      無線LANは誰でも盗聴できるので 
+      WPA2/WPA3 のような暗号化を用いることが多い．
+      
+       \begin{Q}
+         自分の使っているEther器機(例えばWi-Fi)の
+         Macアドレスを調べて下さい．
+         近くの友達と比べて確かに異なることを確かめて下さい．
+      \end{Q}
+     
+ 
+    \item       
+        BlueToothなども2.4GHzの周波数でデバイスとパソコンの通信を行っている．
+     
+   \item       
+      携帯電話は英語で Cellular Phone というが，
+      Cell というのは平面上にある基地局を中心に平面を分割したものの一つ一つのことである．
+      使用可能な周波数帯を隣りの局で混信しないように配置するが，
+      ある程度遠くの局では混信しないので同じ周波数帯を再利用していい．
+      更にその周波数帯を細かく分割して全ての携帯電話と基地局は連絡を取り合っている．
+      携帯電話には国際移動体装置識別番号という15桁の識別番号が
+      割り当てられていて，電源が入るとIDがブロードキャストされ
+      携帯電話がどこかのセルにあると最寄りの基地局で
+      その情報を把握して，電話会社が把握し
+      必要に応じて電話回線やインターネットと繋ぐように
+      運用されている．携帯がが動くに伴い基地局も変更される．
+      無線LANがある所では安い方を使うようになっている．
+      \begin{figure}[htb]
+         \centering
+         \includegraphics[trim=80 0  50 0, clip]{~/Documents/GitHub/introInfo/ch4/images/figure6.6}
+         \caption{携帯電話基地とCellと携帯電話}\label{CellularPhone}
+      \end{figure}
+      
+      \begin{table}[h]
+         \centering
+         \begin{tabular}{llll} 
+              \noalign{\hrule height 1pt}
+               世代&コメント&速度&年  \\ \hline \hline
+               1G &アナログ通信&&  1980年代 終了\\ \hline 
+               2G&デジタル通信& 最大64kbps &1990年代 終了\\ \hline
+               3G &国際的な規格&最大3.6Mbps&2000年代 最近終了  \\ \hline
+               4G &現在主流&最大1Gbps&2010年代\\ \hline
+               5G &次世代&最大10Gbps& 現在\\ \hline
+             \noalign{\hrule height 1pt}
+         \end{tabular}
+         \smallemptyline
+         \caption{携帯電話の通信方法の変遷}
+      \end{table}
+\end{itemize}
+
+\subsection{TCP/IP}
+\begin{itemize}
+   \item 
+      \term[]{プロトコル}(protocol)とは
+      もともと外交における議定書のことであるが，
+      コンピュータのネットワークでは全体で守る規約のことである．
+      特にインターネットではTCP/IPという規約で代表される
+      ものである．
+      これもパケット転送技術である．その構造を図で表すと図~\ref{levels}のようになる．
+
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch4/images/figure6.2}
+         \caption{パケットの階層}\label{levels}
+      \end{figure}
+      
+      \noindent
+      物理層とは前のセクションで紹介したようなLANなどの通信の最も下層のレーヤーのことである．
+      上の層が下の層のデータの中に埋め込まれているイメージで捉えてほしい．
+
+   \item 
+      \term[]{IP address}(Internet Protocol address)  は数字の並びで表した各コンピュータの名前である．
+      IPV4では . で区切られた8bit の10進数($0\text{〜}255$)4個で表されている．よって，$2^{32}\approx 43$億ほどのアドレスしかない．私のマックだと(図~\ref{ipAdress})
+      \[
+         172.24.24.95
+      \]
+      \noindent
+      になっている．
+      
+      \begin{figure}[htb]
+         \centering
+         \includegraphics[width=10cm]{~/Documents/GitHub/introInfo/ch4/images/ipaddress.jpg}
+         \caption{IPアドレス}\label{ipAdress}
+      \end{figure}
+      
+      
+      当初はコンピューター一台毎にGlobal なIPアドレスを配布する予定であったが，
+      私が使っているのはGlobal なIPアドレスではなく，
+      プライベートアドレスで我々のローカルエリアでのみ使える
+      (正確には同じアドレスが使い回されているが，そのローカルエリア以外からはアクセスできない)アドレスになっている．
+      しかも，\term[]{DHCP}(Dynamic Host Configuration Protocol )
+      という方法でアドレスを配っていて毎回使うアドレスは異なっている．
+      通信のためには自分のIPアドレスと送りたいコンピュータのIPアドレスの組が必要になることにも注意する．
+      
+      IPV4を拡張したIPV6では16バイトの16進数を2バイトづつ:で区切って書く．例えば
+      \[
+         \text{2001:0db8:bd05:01d2:288a:1fc0:0001:10ee}
+      \]
+      これだと$2^{128}$個(日本語での十進法での単位が不明なので書かない)で十分な数がある．
+      
+      いずれにしろ人間は大きい数字を扱うのは得意でないのでyoutube.com のような名前でアドレスを表すことが多い．
+      これを\term[]{ドメインネーム}という．
+      ドメインネームをIPアドレスに変換するサービスを行うのが
+      \term[]{DNS}(Domain Name System) である．
+      実際に仕事を行っているサーバーをDNS Server という．
+
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch4/images/figure6.5}
+         \caption{ルーティング}\label{}
+      \end{figure}
+      
+      ルーター・ゲートウェイを通じてパケットは受け渡されてゆき
+      最終的なターゲットのコンピューターに渡される．
+      その順番が\term[]{ルーティング}である．
+      ルーターやゲートウェイは頻繁に
+      他のルーターやゲートウェイを通るとどれ位時間が掛かるかのリスト
+      のようなものを常に更新している．
+      それを元に次に何処に送れば最適かを判断して
+      パケットを転送している．
+   \item 
+      IPパケットは
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch4/images/figure6.3}
+         \caption{IPのパケットの構造}\label{}
+      \end{figure}
+      
+      
+      \noindent
+      のようなものである．基本情報にはversion とかヘッダや全体の長さの情報が入っている．
+      TTL はTime to live(生存時間)の略で$1$byteの大きさを持ち，
+      初期条件が$40$程度に設定されていて
+      gatewayを通過する度に$1$ずつ減っていき
+      $0$になるとそのパケットは廃棄される．
+
+   \item 
+      \term[]{TCP}(Transition Control Protocol)は
+      図~\ref{levels}に示したようにIPの上に存在するプロトコルである．
+      各コンピュータ毎に \term[]{ポート}(Port)と呼ばれる$2$byte, 
+      つまり$=2^{16}\approx  64,000$程の数字({port number})を
+      指定できる．
+      Portは日本語だと港\footnote{語学に興味のある人へ：
+      port は港から派生して昔の戦艦の砲門のふたことを表すようになった．
+      それから工学では外部器機やケーブルを接続するための
+      穴のことを意味するようになった．}
+      のことだが，
+      会社の電話番号がIP アドレスでPortは会社の内線番号のような役割を
+      はたしている．
+      つまり一台のサーバーがこれを使って6.4万程度のコンピューターと
+      同時に接続可能である．
+      
+         %socket  
+   
+      通信には送り手のIPアドレスとポートナンバーと
+      受取り手のIPアドレスとポートナンバーの組が必要になる
+      ことに注意してほしい．
+      また，送りたいパケットが長いときは適宜分割して，
+      その分割の何番目かを示すシークエンス番号が付いている．
+      \begin{figure}[htb]
+         \centering
+         \includegraphics{~/Documents/GitHub/introInfo/ch4/images/figure6.4}
+         \caption{TCPのパケットの構造}\label{}
+      \end{figure}
+      
+      \term[]{UDP}(User Datagram Protocol)というTCPと同じレベルの
+      プロトコルもあり，双方向のストリームを必要としないデータ交換に使われている．
+      
+
+   \item 
+      図~\ref{levels}に示したようにTCP/UDPの上にのるのが
+      \term[]{アプリケーション層}(Application layer)である．
+      FTP, telnet, ssh, SMTP, POP3, HTTP, HTTPS などのようにインターネットで使うアプリケーションに対応したプロトコルである．
+      例えばメールだとSMTP, POP3のようなプロトコルを使っている．
+      FTP はデータを転送するためのプロトコルであり，
+      HTTPはウェブを実現するプロトコルである(HTTPについては次回詳しく解説する)．
+       
+      特に最初の通信を確立するためにTCP/UDPのポートの規定値として使うのが
+      \term[]{Wellknown port} である．その表を以下に挙げる：
+      \begin{table}[h]
+         \centering
+         \begin{tabular}{lll} 
+              \noalign{\hrule height 1pt}
+                  Port No.&& プロトコル\\ \hline\hline
+                  20 &TCP&FTP\\ \hline
+                  22 & TCP/UDP&ssh \\ \hline
+                  23 & TCP&telnet \\ \hline
+                  25 &TCP/UDP&SMTP\\ \hline
+                  52 &TCP/UDP& DNS\\ \hline
+                  80 &TCP/UDP&HTTP\\ \hline
+                  110 &TCP&POP3\\ \hline
+                  443 &TCP/UDP&HTTPS\\
+             \noalign{\hrule height 1pt}
+         \end{tabular}
+         \smallemptyline
+         \caption{Wellknown port の例}
+      \end{table}
+      
+      通常あるプロトコルの通信が確保されるとwell-known port以外の適当な
+      ポートを指定し直して，それを使って以後の通信が行われる．
+\end{itemize}
+
+\subsection{Utilities}
+UNIXの端末にはTCP/IP用の様々なツールが用意されている：
+\begin{itemize}
+   \item 
+      netstat 
+   \item    
+      ifconfig
+   \item 
+      ping
+   \item 
+      traceroute 
+    \item 
+      port scanner: 標準ではインストールされていないがNmap などが使える．
+\end{itemize}
+
+
+%\begin{thebibliography}{99}
+%   \bibitem{K}  
+%      カーニハン, 
+%      教養としてのコンピューターサイエンス講義 第二版, 日経BP, 2020.
+%   \bibitem{T}  
+%     井上 直也, 村山 公保, 
+%     マスタリングTCP/IP—入門編—(第6版), オーム社, 2019.
+%   \bibitem{TS}  
+%      齋藤孝道, 
+%      マスタリングTCP/IP 情報セキュリティ編 (第2版), オーム社, 2022.
+%
+%   \bibitem{TR}  
+%      山川秀人, 水谷昭博, 
+%      マスタリングTCP/IP ルーティング編, オーム社, 2007.
+%
+%   \bibitem{UNIX}
+%      カーニハン,
+%      カーニハンのUNIX回顧録, 丸善, 2025.
+%\end{thebibliography}
+%\end{document}
+
+\section{Webの仕組み}
+\subsection{Webの始まり}
+現在インターネットで最も使われているのが
+\term[]{WWW}(World Wide Web), 略してW3 とか Web と呼ばれるプロトコルである．
+1980年にCERN (Centre Europ\' een de Recherche Nucl\' eaire)のティム・バーナーズ=リー(\cite{LT})が個人的な開発を始め， 
+1989年に「Information Management: A Proposal」という提案書をまとめた．そこに書かれているのがWWWである．
+
+WebはもともとURL・HTTP・HTMLというプロトコルの三つ組みから成っていた．
+
+\begin{itemize}
+   \item
+      \term[]{URL}は Uniquely Resource Locater の略で
+      情報の位置を示すもので基本構造は以下のようである：
+      
+       \href{https://info.cern.ch/hypertext/WWW/TheProject.html}{https://info.cern.ch/hypertext/WWW/TheProject.html}  
+       
+       最初のhttps が\term[]{スキーム}という接続方式を示す所で，
+       次のinfo.cern.ch\footnote{ch はSwitzerlandのドメイン名}がサーバー名，残りがパスである．
+       因みに上のURLはCERNに公表されている
+       最初のWWWのページのアーカイブのURL(へのリンク)である．
+       
+   \item
+      \term[]{HTTP}は Hyper Text Transfer Protocol の略で
+      WWWの情報の受け渡し方法を決めている．
+      後でもう少し詳しく述べる．
+      スキームは(この時点ではhttpsは存在せず)
+      httpのほかftp, fileなども柔軟に選ぶことが出来た．
+   
+   \item
+      \term[]{HTML}は Hyper Text Markup Language の略で
+      情報の表現方法を決めている．
+      SGMLという既に存在したマークアップ言語
+      (mark up とは印刷の用語で，原稿の余白に
+      印刷に必要なフォントやその大きさ，割り付けなどを書き込むこと)
+      を拡張したページの記述のための言語である．
+      \term[]{ハイパーテキスト}(Hyper Text)の実装を含んでいた．
+      
+      Hyper Text自体の公表はテッドネルソンのザナドゥなどが
+      先であったがインターネットでの実装はHTMLのほうが早かった．      
+\end{itemize}
+
+
+    \begin{figure}[htb]
+	\centering
+	\includegraphics{~/Documents/GitHub/introInfo/ch4/images/figure7.1}
+	\caption{Client Server}\label{}
+   \end{figure}
+
+
+WWWの実装にはインターネット上に情報を持っている
+\term[]{サーバー}(Server)と
+それをローカルで表示する\term[]{クライアント}(Client)
+としての\term[]{ブラウザー}(Browser)
+が必要だったが，
+ティム・バーナーズ=リーはそのようなサーバー(CERN httpd)と
+ブラウザー(WorldWideWeb)も公表した．
+また初期でも画像もHyper Textを用いて表示することが出来た．
+最後に，彼はWebの著作権を全て放棄しているが，
+それもWWWの成功の一因であると言われている．
+
+
+\subsection{Webの発展}
+手元にある短いindex.htmlというhtml のソースファイルを見てみる：
+\begin{verbatim}
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <meta charset="utf-8">
+       <meta name="viewport" width=device-width, 
+          initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+       <style> body {padding: 0; margin: 0;} </style>
+       <script src="p5.js"></script>
+       <!-- <script src="p5.sound.min.js"></script> -->
+       <script src="sketch.js"></script>
+     </head>
+     <body>
+       <a href="https://p5js.org/">p5.js</a>
+     </body>
+   </html>
+\end{verbatim}
+
+基本\verb/<hoge>/ と\verb/<\/hoge\verb/>/で要素を囲む形で
+構造を示しているのが分かる．このようなものを\term[]{タグ}(tag)という．
+最初の行がこのファイルがhtmlであることを示し，
+\verb/</html\verb/>/と\verb/<\/html\verb/>/で囲まれた部分がhtmlである．
+それが\verb/<head>/と\verb/<\/head\verb/>/に囲まれたヘッダ部分と，
+\verb/<body>/と\verb/<\/body\verb/>/に囲まれた本文に分かれている．
+ヘッダ部分には文字コード，スタイルや\verb/<script>/と\verb/<\/script\verb/>/に囲まれた部分にJavaScriptの(そのディレクトリーに置かれた)ファイルが指定されている．
+また本文の\verb/<a>/と\verb/<\/a\verb/>/には(hrefの後に)リンクが指定されている，
+ただし，a は anchor の略である．
+ツリー構造が分かるように適当にインデントが入れてあることも分かると思う．
+また，index.htmlというのはそのディレクトリにアクセスするとき最初に読み込まれるファイルの標準的な名前である．
+\emptyline
+
+\begin{Q}
+   以前紹介したmarkdown のファイル IntroToMarkdown.md のある
+   ディレクトリーで
+\begin{verbatim}
+   % pandoc -f markdown -t html -s -o IntroMD.html 
+         IntroToMarkdown.md
+   % open IntroMD.html
+\end{verbatim}
+   とするとhtmlに変換されたページがブラウザーに表示されるので，
+   確かめてください
+   (300行ほどのファイルでそのうち200行以上が後で紹介するCSSの部分である)．
+   ただし，\verb/% /はプロンプト．
+\end{Q}
+
+\begin{Q}
+   上のCERNへのリンクをクリックして最初のWWWのページを訪れてください．
+   ChormeだとViewのメニュー中のDeveloperのサブメニューのなかのView source
+   を選ぶとソースファイルを見ることが出来るのでやってみてください．
+   他のサブメニューのアイテムも選んでみて何が出来るかためしてみてください．
+\end{Q}
+    \begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot4.png}
+	\caption{世界初のWWWのホームページのソース}\label{}
+   \end{figure}
+
+\begin{Q}
+   一般のサイト, 例えば\href{https://www.yahoo.co.jp/}{yahoo}の
+   ホームページのソースファイルを上と同じ方法で確認してください．
+   見たら分かると思いますが，最近のWebサイトのソースファイルは
+   サーバーのコンピュータが自動生成したものが多くなっています．
+\end{Q}
+
+WWWは広く受け入れられていったが，直ぐに様々な拡張が成されていった．
+\begin{itemize}
+   \item
+      初期の頃は
+      HTMLから見た目に関する部分を分離したのが
+      \term[]{CSS}(Cascaded Style Sheet) である．
+      美術的なセンスが必要なところなので難しい所もあるが，
+      簡易的に使えるものも色々出回っている．
+   
+   \item
+      \term[]{HTTPS} は暗号化などHTTPに
+      セキュリティーの強化を図ったプロトコルである．
+   \item
+    \begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot2.png}
+	\caption{クエリと返答}\label{query}
+   \end{figure}
+   
+      \term[]{クエリ}(query)：amazonで「国債」を検索すると図~\ref{query}
+      のような画面になる．
+      このときブラウザーのアドレスバーに表示されているURLを抜き出すと
+\begin{verbatim}
+   https://www.amazon.co.jp/s?k=
+   %E5%9B%BD%E5%82%B5&crid=2WZVBYMGFR6YT&
+   sprefix=%E5%9B%BD%E5%82%B5%2Caps%2C179&
+   ref=nb_sb_noss_1
+\end{verbatim}
+
+\noindent この？以下に表れる部分がクエリである．
+このようなURLを使って質問を送り，サーバーが質問に対する答えのホームページを返している．
+\verb/%/ 
+で始まる16進数二つの並びがUFT-8であり，\term[]{パーセントエンコーディング}という．
+確認してみると
+
+\begin{verbatim}
+   % echo -n "国債"|od -An -tx1
+   e5  9b  bd  e5  82  b5                                        
+\end{verbatim}
+で$=$以下の部分と一致していることがわかる．
+同様の方法で様々なデータのやりとりを行っている．
+
+    \item
+       \term[]{クッキー}(Cookie): Webのログイン情報や使用に関する情報を
+       Web Browserの中に保存したもの．
+       ChromeだとViewのメニュー中のDeveloperのサブメニューのなかの
+       Developer toolsを選び，Application のタブのペインの中の
+       Storage のCookieを選ぶと保存されたCookieを確認出来る．
+    \begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot3.png}
+	\caption{https://www.google.com/のCookie}\label{Cookie}
+   \end{figure}
+   
+      あとでセキュリティーの部分でもコメントするが，
+      Cookieには重要な情報も保存されていて，
+      それがネット上で売買されているので
+      定期的に消去することをお奨めする．
+
+   \item
+      HTMLに動きを与える目的で作られたプログラミング言語が 
+      \term[]{JavaScript} である．最初はLiveScriptと呼ばれたが，
+      当時注目されていたJavaに関連してJavaScriptと名前を替えた．
+      ただし，Javaとは直接関係のない言語である．
+
+    \item    
+     文書の構造をツリーで表したものをDOM(Document Object Model)という．
+     図~\ref{dom}に後に使うhello.html のDOMを示す．
+    これを使って JavaScriptは様々なページの内容にアクセスする
+    ことが出来る．
+
+    \begin{figure}[htb]
+	\centering
+	\includegraphics{~/Documents/GitHub/introInfo/ch4/images/figure7.2}
+	\caption{hello.html のDOM}\label{dom}
+   \end{figure}
+
+ 
+      \begin{Q}
+         クエリの実験を自分のパソコンで再現してください．
+      \end{Q}
+      \begin{Q}
+         Cookieの実験を自分のパソコンで再現してください．
+      \end{Q}
+
+\end{itemize}
+
+
+\subsection{Webのサーバー・クライアントの演習}
+ここではWEBのクライアント・サーバーのコマンドラインでの演習を行う:
+特に nc  = net cat と
+curl = client for URL を使用して，WEBのクライアント・サーバーを体験してもらいたい(\cite{Ko}参)．
+\begin{itemize}
+   \item
+      まず，サーバーを立ち上げる：作業ディレクトリーに移動しサーバー側の端末で
+\begin{verbatim}
+   % nc -l 8080 #return #Ubntuでは >nc -q 1 -l 8080
+\end{verbatim}
+      とする．8080がTCPのポートナンバーである．
+
+      クライアント側の別の端末を立ち上げ
+\begin{verbatim}
+   % curl http://localhost:8080/ #return
+\end{verbatim}
+      とすると，サーバ側の端末に次のような表示が表れる
+\begin{verbatim}
+   % nc -l 8080 
+   GET / HTTP/1.1
+   Host: localhost:8080
+   User-Agent: curl/8.1.2
+   Accept: */*
+
+\end{verbatim}
+      そこで，サーバー側で手で
+\begin{verbatim}
+   HTTP/1.1 200 OK #return
+   #return
+   Hello, Web application! #return
+\end{verbatim}
+      と入力すると，クライアント側で
+\begin{verbatim}
+   % curl http://localhost:8080/ 
+   Hello, Web application!
+\end{verbatim}
+      と表示されるはずである．もし，HTTP/1.1 200 OKも表示したいときは
+\begin{verbatim}
+   % curl  -v  http://localhost:8080/ 
+\end{verbatim}
+とすればいい．やってみると以下のような出力が得られた：
+\begin{verbatim} 
+   *   Trying 127.0.0.1:8080...
+   * Connected to localhost (127.0.0.1) port 8080 (#0)
+   > GET / HTTP/1.1
+   > Host: localhost:8080
+   > User-Agent: curl/8.1.2
+   > Accept: */*
+   > 
+   < HTTP/1.1 200 OK
+   * no chunk, no close, no size. Assume close to signal end
+   < 
+   Hello, Web application!
+   * Closing connection 0
+\end{verbatim}
+
+   \item
+      毎回手入力するのは大変なので，1回ctrol Dでncを終了して，
+      もう一度
+\begin{verbatim}
+    % {echo 'HTTP/1.1 200 OK';echo ; 
+    echo 'Hello, Web application!';}|nc -l 8080 
+    #echo の前の改行不要
+ \end{verbatim}
+       とすると，自動で先程の応答を送ることが出来る．
+ 
+    \item
+      次に返事するファイルをhtmlに変更する．まず
+      作業ディレクトリーがtmp のとき，その中に server/ と client/
+      ディレクトリーをつくる     
+\begin{verbatim}
+   % mkdir server client
+\end{verbatim}
+      server/に以下のような hello.html を作成する
+\begin{verbatim}
+   <!DOCTYPE html>
+   <html lang="ja">
+       <head>
+           <meta charset="UTF-8">
+           <title>Test Page</title>
+       </head>
+       <body>
+           <h1>Test Contents</h1>
+           <p id="greed">Hello, Web application!</p>
+       </body>
+   </html>
+\end{verbatim}
+      サーバー側で
+\begin{verbatim}
+    % {echo 'HTTP/1.1 200 OK';echo ;cat hello.html} |
+    nc -l 8080  #|nc の前の改行不要
+\end{verbatim}
+      クライアント側で
+\begin{verbatim}
+    % curl -s -o hello.html http://localhost:8080/
+    % open hello.html
+\end{verbatim}
+      とすると
+      図~\ref{Browser} のようにブラウザーに表示されたであろう．
+    \begin{figure}[htb]
+	\centering
+	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot1.png}
+	\caption{TestのBrowserでの表示}\label{Browser}
+   \end{figure}
+
+   \item
+      最後にブラウザーで直接表示するためには，
+      (nc が既に終了しているので)サーバー側で同じことをして
+\begin{verbatim}
+% !!
+\end{verbatim}
+      ブラウザーのアドレスバーにhttp://localhost:8080/と入れると
+      同じ結果が表示されるであろう．
+      このときサーバー側には以下のようなログが表示される．
+\begin{verbatim}
+   GET / HTTP/1.1
+   Host: localhost:8080
+   Connection: keep-alive
+   sec-ch-ua: "Chromium";v="148", "Google Chrome";v="148",
+    "Not/A)Brand";v="99"
+   sec-ch-ua-mobile: ?0
+   sec-ch-ua-platform: "macOS"
+   Upgrade-Insecure-Requests: 1
+   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) 
+   AppleWebKit/537.36 (KHTML, like Gecko) Chrome/
+   148.0.0.0 Safari/537.36
+   Accept: text/html,application/xhtml+xml,application/xml;
+   q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,
+   application/
+   signed-exchange;v=b3;q=0.7
+   Sec-Fetch-Site: none
+   Sec-Fetch-Mode: navigate
+   Sec-Fetch-User: ?1
+   Sec-Fetch-Dest: document
+   Accept-Encoding: gzip, deflate, br, zstd
+   Accept-Language: en-US,en;q=0.9
+
+\end{verbatim}
+ 
+       \noindent
+       これらがHTTPプロトコルの応答になる．
+    
+      \begin{Q}
+         この実験を自分のパソコンで再現してください．
+         最後の実験でブラウザーでソースファイルを開き，
+         hello.html と同じものであることを確認してください．
+      \end{Q}
+
+\end{itemize}
+
+
+%
+%JavaScript については解説する時間も無いので
+%独立して読める%\href{https://qu365-my.sharepoint.com/:b:/g/personal/otsu_yukio_526_m_kyushu-u_ac_jp/IQAzL8zjA-ZRR6pcO1oq3UeKAd2SKBpVYA7TWGz80IFkqvg?e=NhinY5}
+%{解説}をMoodleのホームページに上げておくので
+%興味のある人は読んで欲しい．
+%私のポートフォリオにもJavaScript で買いたアプリを公開している．
+%%\section{one page application(OPA)}
+
+
+
+%\begin{thebibliography}{99}
+%   \bibitem{L} 
+%      ティム・バーナーズ=リー, Webの創成 — 
+%      World Wide Webはいかにして生まれどこに向かうのか, 
+%      毎日コミュニケーションズ, 2001.
+%   \bibitem{K}
+%      小森 裕介,［ 改訂新版］プロになるためのWeb技術入門, 
+%      技術評論社, 2024.
+%\end{thebibliography}
+

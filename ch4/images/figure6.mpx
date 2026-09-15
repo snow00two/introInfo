@@ -1,0 +1,516 @@
+% Written by upmpost version 2.11-0.04-u1.35
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("送信元",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("アドレス",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("送信先",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("アドレス",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("データ",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("長",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(9.2123,-1.1055)--
+ (9.2123,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("データ",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("エラー",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("チェック",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("物理層",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n3="cmr10";
+_s("IP",_n3,1.00000,0.0000,0.0000,);
+_n1="uprml-h";
+_s("層",_n1,0.92468,12.8684,0.0000,);
+setbounds _p to (0,-1.1055)--(22.0807,-1.1055)--
+ (22.0807,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n3="cmr10";
+_s("TCP/UDP",_n3,1.00000,0.0000,0.0000,);
+_n1="uprml-h";
+_s("層",_n1,0.92468,50.5051,0.0000,);
+setbounds _p to (0,-2.4907)--(59.7174,-2.4907)--
+ (59.7174,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("アプリケーション層",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(82.9105,-1.1055)--
+ (82.9105,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("基本情報",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n3="cmr10";
+_s("TTL",_n3,1.00000,0.0000,0.0000,);
+setbounds _p to (0,0.0000)--(20.6172,0.0000)--
+ (20.6172,6.8078)--(0,6.8078)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("送信元",_n1,0.92468,0.0000,0.0000,);
+_n3="cmr10";
+_s("IP",_n3,1.00000,30.1275,0.0000,);
+setbounds _p to (0,-1.1055)--(40.5053,-1.1055)--
+ (40.5053,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("アドレス",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("送信先",_n1,0.92468,0.0000,0.0000,);
+_n3="cmr10";
+_s("IP",_n3,1.00000,30.1275,0.0000,);
+setbounds _p to (0,-1.1055)--(40.5053,-1.1055)--
+ (40.5053,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("アドレス",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("エラー",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("チェック",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("データ",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("送信元",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("ポート",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("送信先",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("ポート",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("シーケンス",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(46.0614,-1.1055)--
+ (46.0614,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("ナンバー",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("データ",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("エラー",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(27.6368,-1.1055)--
+ (27.6368,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n1="uprml-h";
+_s("チェック",_n1,0.92468,0.0000,0.0000,);
+setbounds _p to (0,-1.1055)--(36.8491,-1.1055)--
+ (36.8491,8.1068)--(0,8.1068)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n3="cmr10";
+_s("ro",_n3,1.00000,0.0000,0.0000,);
+_s("oter,",_n3,1.00000,9.1601,0.0000,);
+_s("gateway",_n3,1.00000,32.4340,0.0000,);
+setbounds _p to (0,-1.9372)--(67.5800,-1.9372)--
+ (67.5800,6.1278)--(0,6.1278)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n3="cmr10";
+_s("cable",_n3,1.00000,0.0000,0.0000,);
+setbounds _p to (0,0.0000)--(22.1392,0.0000)--
+ (22.1392,6.9185)--(0,6.9185)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n3="cmr10";
+_s("routing",_n3,1.00000,0.0000,0.0000,);
+setbounds _p to (0,-1.9372)--(31.5761,-1.9372)--
+ (31.5761,6.6536)--(0,6.6536)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+vardef _sr(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f rotated -90 scaled _m shifted (_x,_y); enddef;
+_n3="cmr10";
+_s("LAN",_n3,1.00000,0.0000,0.0000,);
+setbounds _p to (0,0.0000)--(21.1707,0.0000)--
+ (21.1707,6.8078)--(0,6.8078)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+setbounds _p to (0,0.0000)--(0.0000,0.0000)--
+ (0.0000,0.0000)--(0,0.0000)--cycle;
+_p endgroup
+mpxbreak

@@ -1,0 +1,1017 @@
+%\documentclass[a4paper,12pt]{amsart}
+%\usepackage[dvipdfmx]{graphicx,xcolor,hyperref}%graphics
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{latexsym}
+%\usepackage{amssymb}
+%\usepackage{ccicons}
+%%\usepackage{emath}
+%%\usepackage{maplestd2e}
+%%\usepackage{fancybox}%enclose by box
+%\hypersetup{% hyperrefオプションリスト
+%setpagesize=false,
+% bookmarksnumbered=true,
+% bookmarksopen=true,
+% colorlinks=true,
+%linkcolor=red,
+%citecolor=blue,
+%} 
+%
+%\renewcommand{\figurename}{図}
+%\renewcommand{\proofname}{証明}
+%\renewcommand{\tablename}{表}
+%\newtheorem*{PP}{授業の目標}
+%\newtheorem*{Thm}{定理}
+%\newtheorem*{Prop}{命題}
+%\newtheorem*{Q}{考えたい課題}
+%\newtheorem*{Quiz}{問題}
+%\newtheorem*{exQ}{レポート}
+%
+%\theoremstyle{definition}
+%\newtheorem*{Def}{定義}
+%
+%\theoremstyle{remark}
+%\newtheorem*{ex}{例}
+%
+%\def\emptyline{\vspace{12pt}}
+%\DeclareMathOperator{\const}{const}
+%\DeclareMathOperator{\Ker}{Ker}
+%\DeclareMathOperator{\Image}{Im}
+%\DeclareMathOperator{\id}{id}
+%\DeclareMathOperator{\Is}{Is}
+%\DeclareMathOperator{\stab}{stab}
+%\DeclareMathOperator{\tr}{tr}
+%\DeclareMathOperator{\vol}{vol}
+%
+%\begin{document}
+%\begin{flushright}
+%   2026/06/23
+%   
+%   九大・数理 大津幸男
+%\end{flushright}
+%
+%\begin{center}
+%   {\Large 情報科教育法II---08}
+%   \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncnd}
+%   \par{JavaScript と p5.js}
+%\end{center}
+
+\chapter{JavaScript と p5.js}
+
+\href{https://snow00two.github.io/mySite/}{私のポートフォリオ}
+に私がJavaScript と p5.jsで作ったアプリが置いてある．
+その幾つかについて説明する．
+
+%\section{JavaScript と p5.js}
+\section{ p5.js の2Dアプリ}
+\subsection{p5.js}
+p5.js は Processing というJava用の描画プログラミング言語を Javascript に移植したものである．以下のウェブ上のエディターで実行可能である．
+
+\href{https://editor.p5js.org}{https://editor.p5js.org} （以下この色はハイパーリンク）
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/appc/images/ScreenCapture3.pdf}
+   \caption{ウェブ上の p5.js エディター}\label{}
+\end{figure}
+
+\noindent
+公開した sketch.js を sketch.js の部分にコピーし，
+（ファイル octahedron.stl をアップロードし）
+左上の三角のボタンを押すと右画面に描画が始まる．
+もちろん隣りの四角のボタンで止まる．
+%プログラムのソースファイルに是非適宜手を入れながら動かして見て欲しい．
+ただし .js はJavaScriptのファイルであることを示す拡張子 ( extension ) である．
+
+
+また以下のようにすると自分のパソコン上で動かせる．
+ p5.js というライブラリーを\href{https://p5js.org/download/}{ダウンロード}するとp5というディレクトリが作られる．
+ 公開されたsketch.jsをそのディレクトリーの sketch.js と置き換え，
+フリーのエディターVSCode \href{https://code.visualstudio.com}{Visual Studio Code}でそのディレクトリp5を開き，
+ Live Server の拡張をVSCodeにインストールして
+Go Liveのボタンを押すと，chrome で再生を始める．
+
+
+\subsection{一般のJavaScriptの動かし方}
+JavaScriptの処理の仕方は幾つかある．
+JavaScriptはブラウザーに組み込まれているので，まず
+\begin{verbatim}
+
+   <!DOCTYPE html>
+   <html>
+      <head>
+          <meta charset="UTF-8" />
+          <title>Hello JavaScript</title>
+      </head>
+      <body>
+         <script type="text/javascript" src="test.js"></script>
+      </body>
+   </html>
+   
+\end{verbatim}
+のようなhtml のファイルを hoge.html として保存し，次に
+\begin{verbatim}
+   window.alert('hello world!');
+\end{verbatim}
+という行のみからなるファイルを test.js として hoge.htmlと同じディレクトリに保存する．
+ブラウザー Chrome の
+メニューバーのFileのメニューOpen Files... からhoge.htmlを開くと
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=11cm, trim=0 1000  0 0, clip]{~/Documents/GitHub/introInfo/appc/images/ScreenCapture1.pdf}
+   \caption{}\label{alart}
+\end{figure}
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=11cm, trim=0 800  0 0, clip]{~/Documents/GitHub/introInfo/appc/images/ScreenCapture2.pdf}
+   \caption{}\label{console}
+\end{figure}
+
+\noindent
+図 \ref{alart}のような結果が得られる．あるいは
+\begin{verbatim}
+   console.log('hello world!');
+\end{verbatim}
+をtest.jsとして保存し，またhoge.htmlを開くと
+Fileのメニュー View から Developer の Developer Tools を確認すると
+図 \ref{console}のような結果が得られる．
+%\newpage
+
+他にも Terminal でtest.jsのあるディレクトリに移動し
+\begin{verbatim}
+   % osascript test.js
+\end{verbatim}
+でTerminalに結果が表示される．
+ただし，これはMacのみで，逆に言うとMacのスクリプト言語としてJavaScriptを使うことが出来る．
+一般的には Node.js を\href{https://nodejs.org/en}{ダウンロード}
+しインストールすると
+\begin{verbatim}
+   % node test.js
+\end{verbatim}
+でTerminalに結果が表示される．したがってMac を直接コントロールする必要が無いときは osascriptより node.js を使うことをお奨めしたい．
+%Node.js + Electron + Chromium で macOS, Windows, スマートホンに対応したデスクトップアプリケーション(One page application)を一度に作ることが出来る (例 VScode 図 \ref{vscode})．
+%
+%\begin{figure}[htb]
+%\centering
+%\includegraphics[width=7cm, trim=0 40  0 30, clip]{~/Documents/GitHub/introInfo/appc/images/ScreenCapture4.pdf}
+%\caption{}\label{vscode}
+%\end{figure}
+%
+%CGに興味を持った人には\cite{CG}, 遠近法の歴史については\cite{D},
+%具体的な遠近法の絵の描き方については\cite{3DT}, \cite{RS}, \cite{RSII} などをお奨めする．
+
+
+\subsection{JavaScriptの言語仕様}
+
+\begin{itemize}
+\item
+JavaScript には変数の型はなく，文の終りで ; が必要
+
+\item
+let は変数の宣言，以前は var も使われていた．
+
+\item
+const は定数の宣言
+
+\item
+\verb////はコメント文でこれ以降の文は無視される．
+
+\noindent
+/* */はブロックコメント文で途中の文は無視される．
+\end{itemize}
+
+
+よく使う制御構文：
+for 文の例：
+\begin{verbatim}
+   let I = 5;
+   for (let i=0; i < I; i++) {
+      console.log(i);
+   }
+   
+\end{verbatim}
+
+if 文の例：
+\begin{verbatim}
+
+   let m = 80;
+   if ( m<60 ){
+      console.log('F');
+   } else if ( m<70  ) {
+      console.log('C');
+   } else if ( m<80  ) {
+      console.log('B');
+   } else if ( m<90  ) {
+      console.log('A');
+   } else {
+      console.log('S');
+   }
+
+\end{verbatim}
+
+
+function hoge(var1,\dots,var3) は関数hogeの宣言で，続く$\{ \}$の中に関数の定義を書く．var1,\dots,var3が関数の変数で定義の中で使える．
+関数の中で定義された変数はローカル変数で，関数外で使われる変数はユニバーサルな変数になる．
+
+\subsection{2Dアプリのソース}
+以下がSierpinski gasketを描くアプリのソースファイル sketch.js の内容である．
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=8cm]{~/Documents/GitHub/introInfo/appc/images/ScreenCapture7.pdf}
+	\caption{Sierpinski gasket}\label{Sierpinski gasket}
+\end{figure}
+
+\begin{verbatim}
+/* Sierpinski gasket etc., abbreviated version
+ * 2026/06/22, by snow00two
+ * \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncsa}
+ */
+/* canvas setting */
+const WIDTH_CANVAS = 720 * 3/2  ; //=1080
+const HEIGHT_CANVAS = 405 * 3/2 ; //=607.5
+const CENTER_X = WIDTH_CANVAS/2 ;
+const CENTER_Y = HEIGHT_CANVAS/2 ;
+
+/* color setting */
+const DARK_COLOR = [150,30,50];
+const WHITE_COLOR = 255;
+let colorChoice ;
+let choiceC ;/* variable for color scheme */
+let backColor ;
+let frontColor ;
+
+/* Sierpinski gasket setting, abbr. 3 */
+const BASE_SEGMENT_3 = 500;
+let height3;
+let radius3;
+let shift3Y;
+let fixed3X;
+let fixed3Y;
+
+function setup() {
+  /* Sierpinski gasket additional setting */
+  height3 = sqrt(3)* BASE_SEGMENT_3 / 2;/* sqrt(3) is defined here */
+  radius3 = 2 * height3 /3 ;/* the radius of circumscribed circle  */
+  fixed3X = ( WIDTH_CANVAS - BASE_SEGMENT_3 ) / 2 ;
+  fixed3Y = ( HEIGHT_CANVAS - height3  ) / 2 ;
+  shift3Y= ( HEIGHT_CANVAS - height3 ) / 3 ;
+
+  colorChoice = createSelect();/* object setting color scheme */
+  colorChoice.option('normal color','normal');
+  colorChoice.option('reverse color','reverse');
+  colorChoice.selected('normal');
+  colorChoice.position(30, 8);
+  colorChoice.changed( resetBackground ) ;
+
+  frameRate(0.6);
+ 
+  /* create canvas */
+  createCanvas(WIDTH_CANVAS, HEIGHT_CANVAS);
+  background(DARK_COLOR);
+}
+
+let n = 0; //clock parameter
+/* main function controlling this application */
+function draw() {
+  let choiceC = colorChoice.value();
+  if (choiceC =='normal' ){
+    backColor = DARK_COLOR;
+    frontColor = WHITE_COLOR;
+  } else {
+    backColor = WHITE_COLOR;
+    frontColor = DARK_COLOR;
+  }
+  background(backColor);
+
+  translate(CENTER_X, CENTER_Y - shift3Y);
+  fill(frontColor);
+  iterateTriangleS(n);
+
+  let I = 9 ; //Number of iterations 
+  if( n < I ){
+    n++ ;
+  } else {
+    background(backColor);
+    n = 0 ;
+  } 
+}
+
+/* recursive function creating Sierpinski gasket */
+function iterateTriangleS(num){
+  push();
+    if (num == 0){
+      fill(frontColor);
+      noStroke();
+      triangle(-BASE_SEGMENT_3 / 2, -radius3 /2, 
+      BASE_SEGMENT_3 /2,　-radius3 /2, 0, radius3 );
+  //Here we erase the center reverse triangle 
+    } else {
+      scale( 1 / 2 );
+      fill(frontColor);
+      noStroke();
+      for (let l=0;l < 3;l++){
+        translate(0, radius3 );
+        iterateTriangleS(num - 1);
+        translate(0, -radius3 );
+        rotate(2*PI/3);
+      }
+    }   
+  pop();
+} 
+
+function resetBackground () { 
+  background(backColor);
+  n = 0;
+}\end{verbatim}
+
+
+\subsection{p5.js の2Dモードの説明とソースファイルの解説}
+p5.js の2次元モードでは$y$軸の方向が通常とは逆で下向きになっている．
+これはテレビなどの表示では，一次元で送られてくるデータを図\ref{~/Documents/GitHub/introInfo/appc/images/figure.2}のように上から下に折り返しながら表示していたからである．
+したがって，円周上で角度が増加するプログラムでは\textcolor{red}{時計回り}に回転する．
+%以下とp5.js のプログラムでは動く円は時計回りに動くようにパラメータをとることにする．
+もちろん，反時計回りにするためにはパラメータの符号を代えれば良い．
+\begin{figure}[htb]
+   \centering
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure1.2}
+      \caption{}\label{~/Documents/GitHub/introInfo/appc/images/figure.2}
+   \end{minipage} 
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure1.1}
+      \caption{}\label{~/Documents/GitHub/introInfo/appc/images/figure.1}
+\end{minipage} 
+\end{figure}
+
+
+
+\emptyline
+関数setup()の中でウィンドウ等を初期化している．
+createCanvas( widthCanvas, heightCanvas) で描画領域を指定している．
+関数draw()が呼び出されると変数 n を1フレーム毎に1づつ増やしながら，
+その都度フレームを描画し続ける．いじってみるとだんだん理解が深まると思う．
+本質的な部分は帰納関数 iterateTriangleS() である．
+
+\emptyline
+p5.js 特有の関数を説明したい：
+\begin{itemize}
+   \item
+      translate($a, b$); $(a, b)$だけ平行移動し，その点を$(0,0)$として描画
+   
+   \item
+      rotate(theta); 角度 theta だけ直交座標系を回転し，
+      それを新たな直交座標系として描画
+   
+   \item
+      triangle($a, b, a', b', a'' b''$); $(a, b)$, $(a', b')$, $(a'', b'')$を頂点とする
+      三角形を描画
+   
+   \item
+      background($[a,b,c]$); 画面をRGB $[a,b,c]$で埋める．
+      ただし$a, b, c$は$0$から$255=2^8-1$ の間の整数．
+      
+   \item 
+      fill($[a,b,c]$); 次の図形をRGB$[a,b,c]$ で埋める．
+   
+   \item
+      push(), pop() はその間に変えられた設定を元に戻すためのスタックに
+      書き込むための関数  
+\end{itemize}
+
+関数
+iterateTriangleS(num)がこのプログラムの本体である．
+push() でそれまで呼び込まれた設定を保存し，pop()で元の設定に戻っている．
+$y$軸が逆だと分かりずらいので，$y$軸を通常のようにとり，
+回転方向も反時計回りだと思って正しくプログラムすると（図 \ref{trainagle}），
+出力は$y$軸が逆になって描画される．
+三角形の重心が原点にあるとする．
+num $=0$ のとき fill(frontColor)で次の図をfrontColor で満たすことを， noStroke() で輪郭を描かないことを指示し，
+\begin{verbatim}
+   triangle(-baseSegment3 / 2, -radius3 /2, 
+      baseSegment3 /2,　-radius3 /2, 0, radius3 );
+\end{verbatim}
+で，辺の長さが baseSegment3 でその底辺が$x$軸に平行な正三角形を書いている．
+このとき, radius3は正三角形の外接円の半径である．
+\begin{figure}[htb]
+   \centering
+   \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure1.3}
+   \caption{}\label{trainagle}
+\end{figure}
+
+num $= 1$のときは
+scale  $1/2$ にして$(0,0)$から $(0, $radius3$)$ 進むので
+実際は$(0,0)$から$ (0, $radius3$/2)$ 進んで三角形を描く．
+その後 $(0, -$radius3$)$ 進み $(0,0)$ に戻り$2\pi/3$回転する．
+これを三回繰り返し，3つの三角形を描く．
+
+num$ >1$のときはこれを繰り返すことでSierpinski gasketを書くことが出来る．
+
+
+
+\begin{exQ}
+   Sierpinski Carpet(図~\ref{Sierpinski Carpet}) を描くようにプログラムを変更せよ．
+\end{exQ}
+\begin{exQ}
+   Koch flake(図~\ref{Koch flake}) を描くようにプログラムを変更せよ．
+\end{exQ}
+
+ \begin{figure}[htb]
+   \centering
+　\begin{minipage}{0.4\columnwidth}
+　　\centering   　　
+      \includegraphics[width=4cm]{~/Documents/GitHub/introInfo/appc/images/ScreenCapture5.pdf}
+      \caption{S.~Carpet}\label{Sierpinski Carpet}
+　\end{minipage} 
+　\begin{minipage}{0.4\columnwidth}
+    　　\centering
+   　　\includegraphics[width=4cm, trim =0 0 0 0]{~/Documents/GitHub/introInfo/appc/images/ScreenCapture6.pdf}
+   　　\caption{Koch flake}\label{Koch flake}
+  　\end{minipage} 
+ \end{figure}
+
+\section{ p5.js の 3D-アプリ}
+\subsection{3Dアプリのソース}
+$3$次元の描画を行うことも出来る．createCanvasを
+
+　createCanvas(widthCanvas, heightCanvas, WEBGL);
+
+\noindent
+に替えれば良い．ただし，WEBGLとはブラウザ上でCGを描画するためのAPIである．
+以下がソースファイル sketch1.js の本質的な内容である．
+
+\begin{verbatim}
+   /* Cubes landing before the Great Pyramids abbreviated version
+    *  2026/06/17, by snow00two,
+    * \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\ccbyncsa}
+    */
+   const WIDTH_CANVAS = 1080  ; // 720x3/2 
+   const HEIGHT_CANVAS = 607.5 ; // 405x3/2
+   const BACK_COLOR = [150, 200, 250] ;//[200, 220, 200]
+   
+   let octahedron ; 
+   function preload(){
+     octahedron = loadModel('octahedron.stl'); 
+     //https://www.printables.com/model/411768-octahedron-freecad/files
+   }
+   
+   function setup(){//canvas : window of the projection coordinates
+     createCanvas(WIDTH_CANVAS, HEIGHT_CANVAS, WEBGL);
+     background(BACK_COLOR);
+   }
+   
+   let i = 0;//basic parameter for frames
+   
+   function draw(){
+     let I = 9425; //change the priod condition to 3x2Pi/0.002=9424.7... 
+   
+     if (i<I) {
+     } else {
+       i = 0;// reset basic parameter
+     }
+   
+     // define the camera coordinates from a camera on the helicopter
+     // of the following coordinates in the world coordinates : 
+     let cameraX = cos(0.5 + i * 0.002)*250 ;
+     let cameraY = sin(0.5 + i * 0.002)*250;
+     let cameraZ = 200+sin(0.5 + i * 0.002)*30;
+     camera(cameraX,cameraY, cameraZ, 100, 0, 100, 0, 0, -1);
+     // the output images are in the projection coordinates.
+   
+     //The world coordinates : 
+     background(BACK_COLOR);
+     directionalLight(250, 200, 200, 0, -1, -1); //light from the sun 
+     fill(250, 200, 200);
+     plane(10000,10000);
+   
+     stroke(0);
+     strokeWeight(2);
+     fill(150,150, 150);
+     pyramid(3);
+   
+     translate(-250,0,0);
+     pyramid(3);
+   
+     translate(-250,0,0);
+     pyramid(1.5);
+   
+     ambientMaterial(125);
+     ambientLight(100,100,100);
+     shininess(100.0);
+   
+     translate(700, 200, max(500 - i * 0.3, 67) );
+     sCube(5);
+     
+     let M = 25;
+     for(let m = 0 ; m < M ; m++){
+       translate(140,140, max(650 + 150*m - i * 0.3, 0));
+       sCube(5);
+     }  
+     i++; 
+   }
+   
+   // The modeling coordinates :
+   function pyramid(scaleN){
+     push();
+       rotateZ(QUARTER_PI);
+       scale(scaleN);
+       model(octahedron);
+     pop();
+   }
+   
+   function sCube(scaleN){
+     push();
+       rotateZ(QUARTER_PI);
+       scale(scaleN);
+       box(25);
+     pop();
+   }
+\end{verbatim}
+
+
+\subsection{p5.js の3Dモードの説明とソースファイルの解説}
+関数preload()でディレクトリにある図形 octahedron.stl を読み込み，
+関数setup()の中でウィンドウ等を初期化する．
+関数draw()が呼び出されると変数 i を1フレーム毎に1づつ増やしながら，
+その都度フレームを描画し続ける．いじってみるとだんだん理解が深まると思う．
+
+\emptyline
+
+p5.js 特有の組込関数の説明：
+\begin{itemize}
+   \item
+      translate(a, b, c); $(a, b,c)$だけ平行移動し，その点を$(0,0,0)$として描画
+   
+   \item
+      rotateZ(theta); $z$軸を中心に角度 theta だけ直交座標系を回転し，それを新たな直交座標系として描画．rotateX, rotateY も同様．
+   \item
+      scale(a) 座標系をa 倍する
+   
+   \item  
+      strokeWeight(a) 太さaで描く
+     
+   \item
+      background(a,b,c);  背後の画面をRGB [a,b,c] で埋める．
+      ただし$a, b, c$は$0$から$255=2^8-1$ の間の整数．
+   
+   \item directionalLight(a, b, c, d,e,f) RGB[a, b, c]の光で向き(d,e,f) $-1\le d,e,f\le 1$ で光を照らす
+   
+   \item
+       ambientLight(a, b, c) RGB[a, b, c]の光で背景となる光を照らす
+       
+    \item 
+       ambientMaterial(a, b, c) 次の図形の壁の色をRGB [a,b,c] で設定
+   
+   \item 
+      fill(a,b,c) 次の図形をRGB [a,b,c] で埋める．
+   
+   \item 
+      plane(a,b), box(c) などは3次元の組込立体図形
+   
+   \item
+      camera(a, b, c, a', b', c') カメラの位置$(a, b, c)$ 対象の中心$(a', b', c')$ に向けてウィンドウを描画
+   
+   \item
+      push(), pop() はその間に変えられた設定を元に戻すためのスタックに書き込むための関数
+   
+   \item
+      model(modelName) modelNameを描く
+
+\end{itemize}
+
+
+
+\begin{exQ}
+GitHub のアカウントがあればGitHub のPages という機能を使うと
+自分のホームページが作れます．
+私のポートフォリオもそのようにして作ったものです．
+やり方を調べて自分のホームページを作って，自分の作った作品を公開してください．
+\end{exQ}
+
+
+%\begin{thebibliography}{9}
+%   \bibitem{P5}
+%      松田晃一, p5.jsプログラミングガイド  改訂版, 2021, カットシステム
+%   
+%   \bibitem{YY}
+%      山田祥寛, 
+%      改訂3版JavaScript本格入門, 2023, 技術評論社
+%\end{thebibliography}
+%\newpage
+%
+%\section{補足：透視投影と3DCGと線形代数}
+%3DCG(3次元コンピューターグラフィックス)の数学的側面とプログラミング的側面が線型代数や行列の計算に関連していることを説明したい．
+%%JavaScriptについても説明する．
+%
+%\subsection{3DCGと遠近法}
+%3DCGは現実の見え方をシュミレートしたものである．
+%ここではピラミッドの写真(図\ref{pyramid})を使って3DCGの原理を図示する(図\ref{model})．
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics[width=7.5cm]{~/Documents/GitHub/introInfo/appc/images/2428333990_d3c913b2b0_c.jpg}
+%   \caption{\href{https://www.flickr.com/photos/girolame/2428333990/in/photolist-4GvJhV-4GzR6q-68Y3JE-4GzTym-5DUvzA-4Gvzcg-5UXT1K-tAvViv-dmRS35-6j7Tdf-65175S-7hkV8W-7ZP8Wc-f7stxJ-6kADQr-92FxE-9MpvoF-7DWyqL-7DWzkj-7trRb8-7kV2Kh-74NeWm-6fnJRK-gBqRa-A4k2s-5DLk1m-A4jWP-6JPcdB-erLBS-7KLGJq-fWSgy-7bxjK9-5DRPd1-dduMZ-5DUGgw-6iWpt7-oueimu-oeLdfu-6GS2bv-6JCrjr-5Phx2c-7KGHVB-29jwn5-6JQBeo-oeDc4c-5DUBKb-dvw1V-5UXWtP-ouBgy3-gBn4K}{Giza Pyramids} by Jerome BonFollow 
+%   \href{https://creativecommons.org/licenses/by/2.0/?ref=openverse}{\ccby}}\label{pyramid}
+%\end{figure}
+%カメラでは像はレンズの後の壁にあり，しかも180°回転しているためイラストを作図しづらいので（他にもレンズがあると被写界深度が問題になることや，人間の目の構造上網膜が平坦でないことによるカメラや遠近法とのずれなど微妙な違いが有る．詳しくは図~\ref{pinCamera}, \ref{camera}, \ref{eye}を参考にしてほしい )，以下では遠近法を用いた作図をつかい，画家の視点から(透明な)キャンバス面への被写体を投影したものを考える．
+%\begin{figure}[htb]
+%   \centering
+%   \begin{minipage}{0.4\columnwidth}
+%      \centering
+%      \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.14}
+%      \caption{カメラ・オブスキュラ%フェスメール？
+%      }\label{pinCamera}
+%   \end{minipage} 
+%   \begin{minipage}{0.4\columnwidth}
+%      \centering
+%      \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.15}
+%      \caption{カメラ}\label{camera}
+%   \end{minipage} 
+%\end{figure}
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.18}
+%   \caption{目---カメラとの微妙な違い}\label{eye}
+%\end{figure}
+%
+%光は直進するので，視点と被写体上の点を結ぶ直線(視線)とキャンバスの平面との交わりを求めることが遠近法になる．
+%%これは連立一次方程式を解くことにあたる．
+%%特に，空間内の直線と視点を結ぶ直線全体は空間内の平面であるので，キャンバスとの交わりはキャンバス上の直線に投影される．
+%
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.2}
+%\caption{遠近法(透視投影)}\label{model}
+%\end{figure}
+%
+%\subsection{(透視)投影}
+%\textcolor{red}{遠近法(perspective)}でどのように直線が描かれるかを説明したい：
+%原点$\mathbf 0$に視点があるとする．
+%$(x,y,z) \in \mathbf R^3$  ($x\neq 0$ )とし，
+%ここでは，$x$軸の正の方向に視線を向け，
+%$x=1$ にキャンバスがある場合を考える．
+%$U=\{(x,y,z)\in \mathbf R^3\mid x\neq 0\}$として各点$(x,y,z)$と原点$\mathbf 0$を結ぶ直線と$x=1$の面の交点を求める，つまり，連立一次方程式を解くと$(1,\frac yx,\frac zx)$がわかる(図\ref{perspective})．その結果を与える写像
+%\[
+%   P(x,y,z)=\biggl(\frac yx,\frac zx\biggr)\qquad (x,y,z)\in U
+%   \tag{*}\label{projection}
+%\]
+%$P:U\to \mathbf R^2$が\textcolor{red}{(透視)投影}(あるいは，\textcolor{red}{射影})である．
+%この$ \mathbf R^2$, あるいは，$ \mathbf R^2$を $\mathbf R^3$の$x=1$の面とみたものを\textcolor{red}{投影面}と言う(図\ref{model})．
+%
+%\begin{figure}[htb]
+%   \centering
+%   \begin{minipage}{0.4\columnwidth}
+%      \centering
+%      \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.5}
+%      \caption{透視投影}\label{perspective}
+%   \end{minipage} 
+%   \begin{minipage}{0.4\columnwidth}
+%      \centering
+%      \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.17}
+%      \caption{直線の射影}\label{perspective2}
+%   \end{minipage} 
+%\end{figure}
+%
+%定義域が$U\neq \mathbf R^3$なので線形写像にならないことは明らかだが
+%\[
+%   P(ax,ay,az)=P(x,y,z) \quad a\neq0
+%\]
+%という性質がある．
+%\eqref{projection}は$y$, $z$については線形写像で，線形写像を少しひねっただけの簡単なものである．
+%
+%$ \mathbf R^3$で点$(x,y,z)$から向き$(u,v,w)$に向かう直線は
+%\[
+%   (x,y,z)+t(u,v,w)
+%\]
+%と表せるので
+%\[
+%   P(x+ut,y+vt ,z+wt)=\biggl(\frac{y+vt}{x+ut},\frac{z+wt}{x+ut}\biggr)\tag{!}
+%\]
+%これは$t=0$で$(\frac yx,\frac zx)$を通り，$u\neq 0$のとき$t\to \infty$で$(\frac{v}{u},\frac{w}{u})$に収束する．この$(\frac{v}{u},\frac{w}{u})$を\textcolor{red}{消失点(vanishing point)}という．
+%差をみると
+%\[
+%   \biggl(\frac{y+vt}{x+ut},\frac{z+wt}{x+ut}\biggr)
+%   =
+%   \biggl(\frac{v}{u},\frac{w}{u}\biggr)
+%   +
+%   \frac{1}{x+ut}\biggl(y-x\frac{v}{u},z-x\frac{w}{u}\biggr)
+%\]
+%となり，最後の項は定数ベクトルを$\tfrac{1}{x+ut}$倍したものなので，投影面内で$(\frac yx,\frac zx)$を通る直線で消失点へ至るものであることが分かる(図\ref{perspective2}に初等幾何学的な証明をあげた)．
+%線形写像は直線を直線に写すが，投影は直線を直線の一部(半直線)に写すことがわかった．
+%また，平行な直線は同じ消失点に収束することも分かる．
+%さらに，$u=0$のとき
+%$(\frac{y+vt}{x},\frac{z+wt}{x})$となり，等速の直線運動になる．
+%
+%
+%遠近法の数学と直接関係ないが，地面や海面を表す平面が絵を描く（写真をとる）場合には大切になる．
+%地面で画家やカメラマンがたっている点を立点，その真上に視点をとり立点と視点を通る軸を$z$軸とする．地面は通常$z=\const$に取る．（これは必ずしも必要でないが）地面に平行などちらかへの視線向きを$x$軸，それに直交する（右手系になる）軸を$y$軸ととると上で考えた座標系と一致する．
+%地面$z=\const$の消失点全体が地平線をなす．
+%遠近法の基本的な手段は地平線上の
+%いくつかの消失点とそこに収束する平行直線群を見いだし，それを元に描画することである(図~\ref{1VanishingPoint}, \ref{2VanishingPoint})．もちろん，地面に垂直な線は$z$軸に平行に描かれる．
+%
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.7}
+%   \caption{1消失点の平行直線群}\label{1VanishingPoint}
+%\end{figure}
+%
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.16}
+%   \caption{平行直線群の作成}\label{parallelLines}
+%\end{figure}
+%
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics[trim=13  0 305 0 , clip]{~/Documents/GitHub/introInfo/appc/images/figure.8}%
+%   \caption{2消失点の平行直線群}\label{2VanishingPoint}
+%\end{figure}
+%
+%よく見られる一消失点と平行直線群($u\neq0$, $v=w=0$ に対応)と直交する交わらない平行直線群($v\neq0$, $u=w=0$ に対応)をどう作図するかを説明する：
+%平面を$z=-1$に固定する．この平面とカンバスの最底辺$\ell_1$を固定する．その平面上の$\mathbf R^3$の中での直交する平行直線は
+%\[
+%    (0,y_0,-1)+s(1,0,0),\quad (x_1,y_1,-1)+t(0,1,0),
+%\]
+%なので射影面では
+%\[
+%   \biggl(\frac{y_0}{s},\frac{-1}{s}\biggr),\quad 
+%   \biggl(\frac{y_1+t}{x_1},\frac{-1}{x_1}\biggr)
+%\]
+%と表せる．
+%まず，直線群は幅$a$, $b$に並んでいるとし，
+%\[
+%   y_0 = am,\quad
+%   x_1 = bn\quad  m\in \mathbf Z, n\in \mathbf N
+%\]
+%と取り
+%\[
+%   {\ell'}_m:\biggl(\frac{am}{s},\frac{-1}{s}\biggr)\quad
+%    (s\ge b),\quad
+%   \ell_n: \biggl(\frac{y_1+tv}{bn},\frac{-1}{bn}\biggr)
+%\]
+%と置く．${\ell'}_n$の作図はカンバスの最底辺を表す直線$\ell_1$の$0$を通る等分点と消失点を結べば良い．カンバスの外については後にコメントする．
+%
+%${\ell'}_m$と$\ell_n$の交点は
+%\[
+%   s=bn
+%\]
+%であり，
+%$n$, $m$はインデックスに過ぎないので，${\ell'}_n$では
+%\[
+%   s=b n\quad 
+%   \Rightarrow \quad
+%   \frac{an}{s} = \frac{a}{b}
+%\]
+%なので射影面上で$y= \frac{a}{b} $と${\ell'}_n$, $y=- \frac{a}{b} $と${\ell'}_{-n}$の交点を求め，それを通る直線として${\ell}_n$を作図できる．$\ell_1$を$\ell_2$に替え，
+%その上で得られた等分点を拡張することで，画面内でどこまでも続けられる．
+%
+%1消失点を使った構図(図~\ref{1VanishingPoint}), 
+%2消失点を使った構図(図~\ref{2VanishingPoint})，3消失点使った構図(図~\ref{3VanishingPoint})とその写真例を挙げる(図~\ref{ex1}, \ref{ex2}, \ref{ex3})
+%
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics[width=7.5cm]{~/Documents/GitHub/introInfo/appc/images/8367600279_ac56e7454d_b.jpg}
+%   \caption{写真例 \href{https://www.flickr.com/photos/31583394@N04/8367600279}{Vanishing Storm} by David Kingham\href{https://creativecommons.org/licenses/by-nd-nc/2.0/jp/?ref=openverse.}{\ccbyncnd}}\label{ex1}
+%\end{figure}
+%\begin{figure}[h]
+%   \centering
+%   \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/appc/images/9110846773_dad72ed427_k.jpg}
+%   \caption{写真例 \href{https://www.flickr.com/photos/30996501@N07/9110846773}{MEZQUITA CATEDRAL DE CORDOBA 6378} by Jose Javier Martin Espartosa \href{https://creativecommons.org/licenses/by-nd-nc/2.0/jp/?ref=openverse.}{\ccbyncsa}}\label{ex2}
+%\end{figure}
+%
+%\begin{figure}[htb]
+%   \begin{minipage}{0.5\columnwidth}
+%      \centering
+%      \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.9}
+%      \caption{3消失点を使った直方体の作図}\label{3VanishingPoint}
+%   \end{minipage} 
+%   \begin{minipage}{0.4\columnwidth}
+%      \centering
+%      \includegraphics[width=4cm]{~/Documents/GitHub/introInfo/appc/images/145347226_76283ffb36_c.jpg}
+%      \caption{写真例 \href{https://www.flickr.com/photos/46965656@N00/145347226}{Barcelona - Gaudi building} by Erick \href{https://creativecommons.org/licenses/by-nd-nc/2.0/jp/?ref=openverse.}{\ccbyncnd}}\label{ex3}
+%   \end{minipage} 
+%\end{figure}
+%
+%\begin{figure}[htb]
+%   \centering
+%   \begin{minipage}{0.4\columnwidth}
+%      \centering
+%      \includegraphics[width=5.8cm]{~/Documents/GitHub/introInfo/appc/images/figure.10}
+%      \caption{透視投影と平行投影}\label{paraPerspective1}
+%   \end{minipage} 
+%   \begin{minipage}{0.4\columnwidth}
+%      \centering
+%      \includegraphics[width=4.7cm]{~/Documents/GitHub/introInfo/appc/images/figure.11}
+%      \caption{平行投影}\label{paraPerspective2}
+%   \end{minipage} 
+%\end{figure}
+%
+%
+%投影面を$x=0$に止めて，あらためて視点を$(-a,0,0)$にとり，$a\to \infty$として無限遠まで動かしたとき得られる投影を\textcolor{red}{平行投影}という．このとき透視投影の極限として
+%\[
+%   \biggl(\frac{ a}{x+a}y,\frac{ a}{x+a}z\biggr)
+%   \to (y,z)\qquad (a\to \infty)
+%\]
+%となる(図\ref{paraPerspective1}, \ref{paraPerspective2})ので，これは線形写像である．ただし，平行投影は挿絵(この資料の図もそうである)図学等ではよく使われるが，3DCGでは現実感を出すため透視投影が主に使われる．
+%
+%\subsection{反射，拡散と影}
+%ここから3DCGに関連する話題に移る．
+%まず大事なのは光とその反射面の取り扱いである．ここでは屋外なので光源として太陽を考えている．
+%スタジオ撮影では多数のライトを用い，光の強度は距離の二乗に反比例することも考慮する必要がある．逆に太陽の場合は無限の彼方にあると考え，距離に依らない強度を持つとする．
+%光源から出た光は直進し
+%被写体の面で反射して，また直進してキャンバスと視点に到達するので，
+%光の平面での\textcolor{red}{鏡面反射}を計算する必要がある．
+%これは与えられた平面での光源の鏡映を求め，その点と視点を結ぶ直線と平面の交点を求めることで求まる(図12)．与えられた平面が$z=0$とすると，点$(x,y,z)$のこの平面での鏡映は行列を用いて
+%\[
+%   \begin{pmatrix}
+%      1&0&0\\
+%      0&1&0\\
+%      0&0&-1\\
+%   \end{pmatrix}
+%   \begin{pmatrix}
+%      x\\
+%      y\\
+%      z\\
+%   \end{pmatrix}
+%   =
+%   \begin{pmatrix}
+%      x\\
+%      y\\
+%      -z\\
+%   \end{pmatrix}
+%\]
+%
+%
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.3}
+%   \caption{鏡映と鏡面反射, 拡散}\label{ref}
+%\end{figure}
+%
+%\noindent
+%と表せる．
+%光源の位置を$(x,y,z)$とし，視点の位置を$(x_0,y_0,z_0)$
+%とすると途中の点は
+%\[
+%   \begin{split}
+%      &t(x, y, -z)+(1-t)(x_0, y_0, z_0)\\
+%      =&
+%      (tx+(1-t)x_0, ty+(1-t)y_0,-tz+(1-t)z_0)
+%   \end{split}
+%\]
+%と表される．反射する点では$-tz+(1-t)z_0=0$なので，連立一次方程式を解くと
+%\[
+%   \biggl(\frac{zx_0+z_0x}{z+z_0},\frac{zy_0+z_0y}{z+z_0},0 \biggr)
+%\]
+%のように反射点が求まる(図 \ref{ref})．
+%さらには，物理特性である面の色・材質による拡散も計算する必要がある．
+%
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.20}
+%   \caption{隠面消去・シェーディング・影付け}\label{shadow}
+%\end{figure}
+%
+%また，一つの物体の見えない部分や，二つの物体の重なりを計算し遠くの物体の隠れた部分を消す\textcolor{red}{隠面消去}や，
+%光源によって照らされた部分の明るさや色を求める
+%\textcolor{red}{シェーディング}, 
+%影をシュミレートする\textcolor{red}{影付け}も必要になる(図 \ref{shadow})．
+%
+%なお，遠近法には\textcolor{red}{空気遠近法}という，遠くのものを
+%薄く描いて遠近感を出す方法も知られている．今回は詳しい説明は与えないが，図 \ref{1VanishingPoint}, \ref{2VanishingPoint} はその原理に
+%基づいて作図されている．
+%
+%\subsection{アファイン変換}
+%$3$次元の\textcolor{red}{アファイン変換}とは
+%\[
+%   \begin{split}
+%      \begin{pmatrix}
+%    c_1\\
+%    c_2\\
+%    c_3\\
+%      \end{pmatrix}
+%      +
+%      \begin{pmatrix}
+%    a_{11}&a_{12}&a_{13}\\
+%    a_{21}&a_{22}&a_{23}\\
+%    a_{31}&a_{32}&a_{33}\\
+%      \end{pmatrix}
+%      \begin{pmatrix}
+%    x_1\\
+%    x_2\\
+%    x_3\\
+%      \end{pmatrix}
+%      &=
+%      \begin{pmatrix}
+%    c_1 + a_{11}x_1 + a_{12}x_2+ a_{13}x_3\\
+%    c_2 + a_{21}x_1 + a_{22}x_2+ a_{23}x_3\\
+%    c_3 + a_{31}x_1 + a_{32}x_2+ a_{33}x_3\\
+%      \end{pmatrix}\\
+%      &=
+%      A\mathbf x + \mathbf c
+%   \end{split}
+%\]
+%となる写像で，平行移動と行列の積の合成である．
+%通常$A=(a_{ij})
+%%\begin{pmatrix}
+%%   a_{11}&a_{12}&a_{13}\\
+%%   a_{21}&a_{22}&a_{23}\\
+%%   a_{31}&a_{32}&a_{33}\\
+%% \end{pmatrix}
+%$
+%は正則行列と仮定する．特に，合同変換はアファイン変換である．
+%以後アファイン変換はCGの作成で何度も現れる．
+%
+%これを直線
+%\begin{equation*}
+%   \mathbf x = \mathbf a + t \mathbf u
+% \end{equation*}
+%に適用すると
+%\[
+%   A(\mathbf a + t \mathbf u)+\mathbf c
+%   =
+%   \mathbf c+A\mathbf a+tA\mathbf u\quad A\mathbf u\neq \mathbf 0
+%\]
+%つまり，アファイン変換は直線全体を直線全体に写し，平行な直線を平行な直線に写す．
+%また，直線上の三点の比を同じ比の線分上の点に写すことも分かる．
+%
+%行列の積で
+%\[
+%   \begin{pmatrix}
+%      1&0&0&0\\
+%      c_1&a_{11}&a_{12}&a_{13}\\
+%      c_2&a_{21}&a_{22}&a_{23}\\
+%      c_3&a_{31}&a_{32}&a_{33}\\
+%   \end{pmatrix}
+%   \begin{pmatrix}
+%      1\\
+%      x_1\\
+%      x_2\\
+%      x_3\\
+%   \end{pmatrix}
+%   =
+%   \begin{pmatrix}
+%      1\\
+%      c_1 + a_{11}x_1 + a_{12}x_2+ a_{13}x_3\\
+%      c_2 + a_{21}x_1 + a_{22}x_2+ a_{23}x_3\\
+%      c_3 + a_{31}x_1 + a_{32}x_2+ a_{33}x_3\\
+%   \end{pmatrix}
+%\]
+%となるので，その第2第3第4成分がアファイン変換に対応している．
+%これはアファイン変換の行列の積を使った表現であり，
+%その意味でアファイン変換は線形変換に近いと言えるが，第1成分が$1$に固定されているので，これは線形写像ではない．このような座標系を\textcolor{red}{非同次座標系}という．これは行列の計算なのでコンピュータでの組織的な計算に適している．
+%
+%\subsection{モデリング，ビューイングパイプライン}
+%\begin{figure}[htb]
+%   \centering
+%   \includegraphics{~/Documents/GitHub/introInfo/appc/images/figure.4}
+%   \caption{ビューイングパイプライン}\label{viewingPipeline}
+%\end{figure}
+%
+%
+%コンピュータの中で被写体の曲面の三次元データを作ることを\textcolor{red}{モデリング}という．これは\textcolor{red}{モデリング座標系}での，ピラミッドのようなポリゴンの頂点とそれらの張る辺，三角形の作る面の幾何学的情報と色や質感等の物理情報の組からなる．
+%シュミレートしたい被写体とカメラの位置・向きの指定された三次元(データの)世界を\textcolor{red}{ワールド座標系}という．幾つかのモデリングのデータを適当なアファイン変換%(下の補足Aで示すように行列の積で表現される)
+%でうつすことで，ワールド座標系にシュミレートしたい被写体のデータを移している(図\ref{viewingPipeline})．
+%ここでは，2つのピラミッドを一つのデータから構成している．
+%ワールド座標系の中での視点の座標と視線の方向を定めることで，
+%その視点から見た座標系が定まるが，
+%それはワールド座標系をアファイン変換したものであり\textcolor{red}{カメラ座標系}という．
+%視点から投影面に（透視投影した）二次元座標系を\textcolor{red}{投影座標系}という．
+%ただし
+%実際は投影座標系の中の最終的な画面出力となる
+%\textcolor{red}{ウィンドウ}と呼ばれる長方形部分のみを計算すればよい．
+%
+%ワールド座標系とカメラ座標系のデータ及び，光源，反射，陰影等からウィンドウへの投影を計算し，ウィンドウ内のデジタルデータを作図するのを\textcolor{red}{レンダリング}という．
+%これらを少しずつ動かしながら繰り返すことでアニメーションが構成できる．
+%視点を動かし，カメラワークをシュミレートすることも可能である．
+%このような幾つもの操作の流れを\textcolor{red}{ビューイングパイプライン}という．
+%これらのことから，線型代数が3DCGの中で占める役割の大きさが分かると思う．
+%
+%\emptyline
+%CGに興味を持った人には\cite{CG}, 遠近法の歴史については\cite{D},
+%具体的な遠近法の絵の描き方については\cite{3DT}, \cite{RS}, \cite{RSII} などをお奨めする．
+%
+%\begin{thebibliography}{9}
+%   \bibitem{CG}
+%   画像情報教育振興協会, コンピューターグラフィックス[改訂新版], 2015.
+%   
+%   \bibitem{D}
+%   下村 耕史訳編, アルブレヒト・デューラー「測定法教則」注解, 中央公論美術出版, 2008.
+%   
+%   \bibitem{3DT}
+%   3DTotal.com, 
+%   デジタルアーティストが知っておくべきアートの原則 改訂版 -色、光、構図、解剖学、遠近法、奥行き 改訂版, 2021.
+%   
+%   \bibitem{RS}
+%   スコット・ロバートソン, 
+%   スコット・ロバートソンのHow to Draw -オブジェクトに構造を与え、実現可能なモデルとして描く方法, 2014.
+%   
+%   \bibitem{RSII}スコット・ロバートソン, スコット・ロバートソンのHow to Render：アイデアを明確に伝える 光と影、反射の描き方, 2015.
+%\end{thebibliography}
+%
+%\end{document}
+

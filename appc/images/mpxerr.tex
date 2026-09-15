@@ -1,0 +1,234 @@
+\documentclass[uplatex]{jsarticle}
+% from command line 
+%>upmpost -tex=uplatex figure.mp
+%\documentclass{article} % In English mode
+\usepackage{verbatim}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\begin{document}
+
+\gdef\mpxshipout{\shipout\hbox\bgroup
+  \setbox0=\hbox\bgroup}
+\gdef\stopmpxshipout{\egroup  \dimen0=\ht0 \advance\dimen0\dp0
+  \dimen1=\ht0 \dimen2=\dp0
+  \setbox0=\hbox\bgroup
+    \box0
+    \ifnum\dimen0>0 \vrule width1sp height\dimen1 depth\dimen2 
+    \else \vrule width1sp height1sp depth0sp\relax
+    \fi\egroup
+  \ht0=0pt \dp0=0pt \box0 \egroup}
+\mpxshipout% line 23 ./figure.mp
+$ $%
+\stopmpxshipout
+\mpxshipout% line 110 ./figure.mp
+視点%
+\stopmpxshipout
+\mpxshipout% line 111 ./figure.mp
+投影面%
+\stopmpxshipout
+\mpxshipout% line 112 ./figure.mp
+太陽%
+\stopmpxshipout
+\mpxshipout% line 175 ./figure.mp
+$ $%
+\stopmpxshipout
+\mpxshipout% line 176 ./figure.mp
+$ $%
+\stopmpxshipout
+\mpxshipout% line 177 ./figure.mp
+$ $%
+\stopmpxshipout
+\mpxshipout% line 234 ./figure.mp
+$\,\, =$%
+\stopmpxshipout
+\mpxshipout% line 235 ./figure.mp
+$\,\, =$%
+\stopmpxshipout
+\mpxshipout% line 236 ./figure.mp
+光源%
+\stopmpxshipout
+\mpxshipout% line 237 ./figure.mp
+鏡映%
+\stopmpxshipout
+\mpxshipout% line 238 ./figure.mp
+視点%
+\stopmpxshipout
+\mpxshipout% line 254 ./figure.mp
+%
+\stopmpxshipout
+\mpxshipout% line 340 ./figure.mp
+投影座標系%
+\stopmpxshipout
+\mpxshipout% line 358 ./figure.mp
+カメラ座標系%
+\stopmpxshipout
+\mpxshipout% line 359 ./figure.mp
+視点%
+\stopmpxshipout
+\mpxshipout% line 371 ./figure.mp
+ワールド座標系%
+\stopmpxshipout
+\mpxshipout% line 396 ./figure.mp
+モデリング座標系%
+\stopmpxshipout
+\mpxshipout% line 427 ./figure.mp
+$\mathbf 0$%
+\stopmpxshipout
+\mpxshipout% line 428 ./figure.mp
+$x$%
+\stopmpxshipout
+\mpxshipout% line 429 ./figure.mp
+$y$%
+\stopmpxshipout
+\mpxshipout% line 430 ./figure.mp
+$(x,y)$%
+\stopmpxshipout
+\mpxshipout% line 431 ./figure.mp
+$1$%
+\stopmpxshipout
+\mpxshipout% line 432 ./figure.mp
+$x$%
+\stopmpxshipout
+\mpxshipout% line 433 ./figure.mp
+$y$%
+\stopmpxshipout
+\mpxshipout% line 434 ./figure.mp
+$\frac yx$%
+\stopmpxshipout
+\mpxshipout% line 445 ./figure.mp
+$ $%
+\stopmpxshipout
+\mpxshipout% line 498 ./figure.mp
+viewpoint%
+\stopmpxshipout
+\mpxshipout% line 499 ./figure.mp
+window%
+\stopmpxshipout
+\mpxshipout% line 1211 ./figure.mp
+%
+\stopmpxshipout
+\mpxshipout% line 1212 ./figure.mp
+%
+\stopmpxshipout
+\mpxshipout% line 1213 ./figure.mp
+%
+\stopmpxshipout
+\mpxshipout% line 1269 ./figure.mp
+$\mathbf 0$%
+\stopmpxshipout
+\mpxshipout% line 1270 ./figure.mp
+$x$%
+\stopmpxshipout
+\mpxshipout% line 1271 ./figure.mp
+$y$%
+\stopmpxshipout
+\mpxshipout% line 1272 ./figure.mp
+$(x,y)$%
+\stopmpxshipout
+\mpxshipout% line 1273 ./figure.mp
+$ -a$%
+\stopmpxshipout
+\mpxshipout% line 1274 ./figure.mp
+$-\infty\leftarrow $%
+\stopmpxshipout
+\mpxshipout% line 1275 ./figure.mp
+$\frac{ a}{x+a}y$%
+\stopmpxshipout
+\mpxshipout% line 1276 ./figure.mp
+$y$%
+\stopmpxshipout
+\mpxshipout% line 1277 ./figure.mp
+$x$%
+\stopmpxshipout
+\mpxshipout% line 1295 ./figure.mp
+投影面%
+\stopmpxshipout
+\mpxshipout% line 1388 ./figure.mp
+%
+\stopmpxshipout
+\mpxshipout% line 1403 ./figure.mp
+$\mathbf P^2$%
+\stopmpxshipout
+\mpxshipout% line 1404 ./figure.mp
+$\mathbf P^1_0$%
+\stopmpxshipout
+\mpxshipout% line 1405 ./figure.mp
+$\mathbf P^1_2$%
+\stopmpxshipout
+\mpxshipout% line 1406 ./figure.mp
+$\mathbf P^1_1$%
+\stopmpxshipout
+\mpxshipout% line 1549 ./figure.mp
+$y=a/b$%
+\stopmpxshipout
+\mpxshipout% line 1550 ./figure.mp
+$y=-a/b$%
+\stopmpxshipout
+\mpxshipout% line 1565 ./figure.mp
+$\ell_4$%
+\stopmpxshipout
+\mpxshipout% line 1566 ./figure.mp
+$\ell_3$%
+\stopmpxshipout
+\mpxshipout% line 1567 ./figure.mp
+$\ell_2$%
+\stopmpxshipout
+\mpxshipout% line 1568 ./figure.mp
+$\ell_1$%
+\stopmpxshipout
+\mpxshipout% line 1569 ./figure.mp
+${\ell'}_4$%
+\stopmpxshipout
+\mpxshipout% line 1570 ./figure.mp
+${\ell'}_3$%
+\stopmpxshipout
+\mpxshipout% line 1571 ./figure.mp
+${\ell'}_2$%
+\stopmpxshipout
+\mpxshipout% line 1572 ./figure.mp
+${\ell'}_1$%
+\stopmpxshipout
+\mpxshipout% line 1573 ./figure.mp
+${\ell'}_0$%
+\stopmpxshipout
+\mpxshipout% line 1574 ./figure.mp
+${\ell'}_{-1}$%
+\stopmpxshipout
+\mpxshipout% line 1575 ./figure.mp
+${\ell'}_{-2}$%
+\stopmpxshipout
+\mpxshipout% line 1632 ./figure.mp
+$\mathbf 0$%
+\stopmpxshipout
+\mpxshipout% line 1633 ./figure.mp
+$x=1$%
+\stopmpxshipout
+\mpxshipout% line 1634 ./figure.mp
+$z=-1$%
+\stopmpxshipout
+\mpxshipout% line 1733 ./figure.mp
+投影面%
+\stopmpxshipout
+\mpxshipout% line 1752 ./figure.mp
+投影面%
+\stopmpxshipout
+\mpxshipout% line 1763 ./figure.mp
+投影面%
+\stopmpxshipout
+\mpxshipout% line 1791 ./figure.mp
+%
+\stopmpxshipout
+\mpxshipout% line 1792 ./figure.mp
+%
+\stopmpxshipout
+\mpxshipout% line 1864 ./figure.mp
+$ $%
+\stopmpxshipout
+\mpxshipout% line 1935 ./figure.mp
+$ $%
+\stopmpxshipout
+% line 1939 ./figure.mp
+\end{document}
+
+\end{document}
