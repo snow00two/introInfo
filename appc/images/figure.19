@@ -1,0 +1,126 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -7 -13 234 115 
+%%HiResBoundingBox: -6.47571 -12.2123 233.62335 114.07196 
+%%Creator: MetaPost (upMetaPost) 2.11-0.04-u1.35
+%%CreationDate: 2026.06.15:1545
+%%Pages: 1
+%%DocumentResources: procset mpost-minimal
+%%+ font
+%%+ font HaranoAjiMincho-Regular-UniJIS2004-UTF16-H
+%%DocumentSuppliedResources: procset mpost-minimal
+%%DocumentNeededResources: font HaranoAjiMincho-Regular-UniJIS2004-UTF16-H
+%%IncludeResource: font HaranoAjiMincho-Regular-UniJIS2004-UTF16-H
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset mpost-minimal
+/bd{bind def}bind def/fshow {exch findfont exch scalefont setfont show}bd
+/fcp{findfont dup length dict begin{1 index/FID ne{def}{pop pop}ifelse}forall}bd
+/fmc{FontMatrix dup length array copy dup dup}bd/fmd{/FontMatrix exch def}bd
+/Amul{4 -1 roll exch mul 1000 div}bd/ExtendFont{fmc 0 get Amul 0 exch put fmd}bd
+/ScaleFont{dup fmc 0 get Amul 0 exch put dup dup 3 get Amul 3 exch put fmd}bd
+/SlantFont{fmc 2 get dup 0 eq{pop 1}if Amul FontMatrix 0 get mul 2 exch put fmd}bd
+%%EndResource
+%%EndProlog
+%%BeginSetup
+ /uprml-h /HaranoAjiMincho-Regular-UniJIS2004-UTF16-H def
+%%EndSetup
+%%Page: 1 1
+ 0 0 0 setrgbcolor 0 0.5 dtransform truncate idtransform setlinewidth pop
+ [] 0 setdash 1 setlinecap 1 setlinejoin 10 setmiterlimit
+newpath 89.66354 89.66354 moveto
+89.66354 71.73083 lineto
+119.55139 71.73083 lineto
+119.55139 113.57382 lineto
+89.66354 113.57382 lineto
+89.66354 95.64111 lineto stroke
+ 0.5 0 dtransform exch truncate exch idtransform pop setlinewidth
+ [3 3 ] 0 setdash
+newpath 115.56635 71.73083 moveto
+115.56635 113.57382 lineto stroke
+101.74794 60.62404 moveto
+<62955f719762> uprml-h 9.21228 fshow
+ [] 0 setdash
+newpath 163.3869 71.73083 moveto
+163.3869 113.57382 lineto stroke
+149.5685 60.62404 moveto
+<62955f719762> uprml-h 9.21228 fshow
+newpath 145.4542 0 moveto
+145.4542 41.84299 lineto stroke
+newpath 119.55139 17.93271 moveto
+119.55139 0 lineto stroke
+newpath 119.55139 41.84299 moveto
+119.55139 23.91028 lineto stroke
+131.63579 -11.1068 moveto
+<62955f719762> uprml-h 9.21228 fshow
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 0 107.59625 moveto
+0 71.73083 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath -5.97757 77.7084 moveto
+0 71.73083 lineto
+5.97757 77.7084 lineto stroke
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 115.56635 88.33461 moveto
+115.56635 98.6968 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 119.55139 97.3223 moveto
+115.56635 98.6968 lineto
+111.5813 96.56645 lineto stroke
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 227.14764 77.7084 moveto
+227.14764 113.57382 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 167.37195 97.3223 moveto
+163.3869 98.6968 lineto
+159.40186 96.56645 lineto stroke
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 163.3869 88.33461 moveto
+163.3869 98.6968 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 233.12521 107.59625 moveto
+227.14764 113.57382 lineto
+221.17007 107.59625 lineto stroke
+ 1 0 0 setrgbcolor
+newpath 0 107.59625 moveto
+115.56635 88.33461 lineto stroke
+ 0 0 1 setrgbcolor
+newpath 0 71.73083 moveto
+115.56635 98.6968 lineto stroke
+newpath 137.4841 92.65233 moveto
+227.14764 113.57382 lineto stroke
+ 1 0 0 setrgbcolor
+newpath 137.4841 92.65233 moveto
+227.14764 77.7084 lineto stroke
+ 0 0 0 setrgbcolor 0.99626
+ 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 29.88785 35.86542 moveto
+29.88785 0 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 23.91028 5.97757 moveto
+29.88785 0 lineto
+35.86542 5.97757 lineto stroke
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 145.4542 16.60378 moveto
+145.4542 26.96596 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 149.43924 25.59146 moveto
+145.4542 26.96596 lineto
+141.46915 24.83562 lineto stroke
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 209.21494 5.97757 moveto
+209.21494 41.84299 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 215.1925 35.86542 moveto
+209.21494 41.84299 lineto
+203.23737 35.86542 lineto stroke
+ 1 0 0 setrgbcolor
+newpath 29.88785 35.86542 moveto
+209.21494 5.97757 lineto stroke
+ 0 0 1 setrgbcolor
+newpath 29.88785 0 moveto
+209.21494 41.84299 lineto stroke
+ 0 0 0 setrgbcolor 0 3 dtransform truncate idtransform setlinewidth pop
+newpath 137.4841 92.65233 moveto 0 0 rlineto stroke
+newpath 119.55139 20.9215 moveto 0 0 rlineto stroke
+showpage
+%%EOF

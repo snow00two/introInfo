@@ -1,0 +1,115 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -13 -2 185 145 
+%%HiResBoundingBox: -12.70409 -1.74435 184.95668 144.90717 
+%%Creator: MetaPost (upMetaPost) 2.11-0.04-u1.35
+%%CreationDate: 2026.06.15:1545
+%%Pages: 1
+%%DocumentResources: procset mpost-minimal
+%%+ font
+%%+ font HaranoAjiMincho-Regular-UniJIS2004-UTF16-H
+%%DocumentSuppliedResources: procset mpost-minimal
+%%DocumentNeededResources: font HaranoAjiMincho-Regular-UniJIS2004-UTF16-H
+%%IncludeResource: font HaranoAjiMincho-Regular-UniJIS2004-UTF16-H
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset mpost-minimal
+/bd{bind def}bind def/fshow {exch findfont exch scalefont setfont show}bd
+/fcp{findfont dup length dict begin{1 index/FID ne{def}{pop pop}ifelse}forall}bd
+/fmc{FontMatrix dup length array copy dup dup}bd/fmd{/FontMatrix exch def}bd
+/Amul{4 -1 roll exch mul 1000 div}bd/ExtendFont{fmc 0 get Amul 0 exch put fmd}bd
+/ScaleFont{dup fmc 0 get Amul 0 exch put dup dup 3 get Amul 3 exch put fmd}bd
+/SlantFont{fmc 2 get dup 0 eq{pop 1}if Amul FontMatrix 0 get mul 2 exch put fmd}bd
+%%EndResource
+%%EndProlog
+%%BeginSetup
+ /uprml-h /HaranoAjiMincho-Regular-UniJIS2004-UTF16-H def
+%%EndSetup
+%%Page: 1 1
+ 0 0 0 setrgbcolor
+-12.70409 51.49297 moveto
+<62955f719762> uprml-h 9.21228 fshow
+ 0 0.5 dtransform truncate idtransform setlinewidth pop [] 0 setdash
+ 1 setlinejoin 10 setmiterlimit
+newpath 17.93271 144.65717 moveto
+59.7757 88.16919 lineto
+59.7757 -1.49435 lineto
+17.93271 54.99362 lineto
+ closepath stroke
+ 1 setlinecap
+newpath 184.70668 57.4445 moveto
+147.64604 34.84941 lineto
+101.02107 57.4445 lineto stroke
+ [3 3 ] 0 setdash
+newpath 101.02107 57.4445 moveto
+138.08171 80.0396 lineto
+184.70668 57.4445 lineto stroke
+newpath 142.86388 96.2988 moveto
+138.08171 80.0396 lineto stroke
+ [] 0 setdash
+newpath 142.86388 96.2988 moveto
+184.70668 57.4445 lineto stroke
+newpath 142.86388 96.2988 moveto
+147.64604 34.84941 lineto stroke
+newpath 142.86388 96.2988 moveto
+101.02107 57.4445 lineto stroke
+ 1 0 0 setrgbcolor
+newpath 142.86388 96.2988 moveto
+53.75359 96.2988 lineto stroke
+ [3 3 ] 0 setdash
+newpath 53.75359 96.2988 moveto
+38.85384 96.2988 lineto stroke
+ [] 0 setdash
+newpath 42.54936 97.82957 moveto
+38.85384 96.2988 lineto
+42.54936 94.76802 lineto
+ closepath
+gsave fill grestore stroke
+ [3 3 ] 0 setdash
+newpath 138.08171 80.0396 moveto
+125.354 80.0396 lineto stroke
+ [] 0 setdash
+newpath 125.354 80.0396 moveto
+59.7757 80.0396 lineto stroke
+ [3 3 ] 0 setdash
+newpath 59.7757 80.0396 moveto
+22.41498 80.0396 lineto stroke
+ [] 0 setdash
+newpath 26.11072 81.57047 moveto
+22.41498 80.0396 lineto
+26.11072 78.50873 lineto
+ closepath
+gsave fill grestore stroke
+newpath 147.64604 34.84941 moveto
+59.7757 34.84941 lineto stroke
+ [3 3 ] 0 setdash
+newpath 59.7757 34.84941 moveto
+50.81062 34.84941 lineto stroke
+ [] 0 setdash
+newpath 54.5062 36.3802 moveto
+50.81062 34.84941 lineto
+54.5062 33.31862 lineto
+ closepath
+gsave fill grestore stroke
+newpath 101.02107 57.4445 moveto
+59.7757 57.4445 lineto stroke
+ [3 3 ] 0 setdash
+newpath 59.7757 57.4445 moveto
+33.77342 57.4445 lineto stroke
+ [] 0 setdash
+newpath 37.46907 58.97533 moveto
+33.77342 57.4445 lineto
+37.46907 55.91368 lineto
+ closepath
+gsave fill grestore stroke
+ 0 0 0 setrgbcolor 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 22.41498 80.0396 moveto
+33.77342 57.4445 lineto
+50.81062 34.84941 lineto stroke
+newpath 38.85384 96.2988 moveto
+22.41498 80.0396 lineto stroke
+newpath 38.85384 96.2988 moveto
+50.81062 34.84941 lineto stroke
+newpath 38.85384 96.2988 moveto
+33.77342 57.4445 lineto stroke
+showpage
+%%EOF

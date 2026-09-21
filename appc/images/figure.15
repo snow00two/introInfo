@@ -1,0 +1,76 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -7 -1 127 43 
+%%HiResBoundingBox: -6.47571 -0.49814 126.0271 42.09299 
+%%Creator: MetaPost (upMetaPost) 2.11-0.04-u1.35
+%%CreationDate: 2026.06.15:1545
+%%Pages: 1
+%%DocumentResources: procset mpost-minimal
+%%DocumentSuppliedResources: procset mpost-minimal
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset mpost-minimal
+/bd{bind def}bind def/fshow {exch findfont exch scalefont setfont show}bd
+/fcp{findfont dup length dict begin{1 index/FID ne{def}{pop pop}ifelse}forall}bd
+/fmc{FontMatrix dup length array copy dup dup}bd/fmd{/FontMatrix exch def}bd
+/Amul{4 -1 roll exch mul 1000 div}bd/ExtendFont{fmc 0 get Amul 0 exch put fmd}bd
+/ScaleFont{dup fmc 0 get Amul 0 exch put dup dup 3 get Amul 3 exch put fmd}bd
+/SlantFont{fmc 2 get dup 0 eq{pop 1}if Amul FontMatrix 0 get mul 2 exch put fmd}bd
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+%%Page: 1 1
+ 0 0 0 setrgbcolor 0 0.5 dtransform truncate idtransform setlinewidth pop
+ [] 0 setdash 1 setlinecap 1 setlinejoin 10 setmiterlimit
+newpath 89.66354 5.97757 moveto
+101.61868 5.97757 lineto
+101.61868 0 lineto
+125.52896 0 lineto
+125.52896 41.84299 lineto
+101.61868 41.84299 lineto
+101.61868 35.86542 lineto
+89.66354 35.86542 lineto stroke
+ 0.5 0 dtransform exch truncate exch idtransform pop setlinewidth
+ [3 3 ] 0 setdash
+newpath 121.54391 0 moveto
+121.54391 41.84299 lineto stroke
+ 0 0.7472 dtransform truncate idtransform setlinewidth pop [] 0 setdash
+newpath 89.66354 5.97757 moveto
+86.15015 15.63043 86.15015 26.21255 89.66354 35.86542 curveto stroke
+newpath 89.66354 5.97757 moveto
+93.17694 15.63043 93.17694 26.21255 89.66354 35.86542 curveto stroke
+ 1 0 0 setrgbcolor
+newpath 0 0 moveto
+121.54391 28.36075 lineto stroke
+newpath 0 0 moveto
+89.66354 5.97757 lineto
+121.54391 28.36075 lineto stroke
+newpath 0 0 moveto
+89.66354 35.86542 lineto
+121.54391 28.36075 lineto stroke
+ 0 0 1 setrgbcolor
+newpath 0 35.86542 moveto
+121.54391 15.60748 lineto stroke
+newpath 0 35.86542 moveto
+89.66354 5.97757 lineto
+121.54391 15.60748 lineto stroke
+newpath 0 35.86542 moveto
+89.66354 35.86542 lineto
+121.54391 15.60748 lineto stroke
+ 0 0 0 setrgbcolor 0.99626
+ 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 0 0 moveto
+0 35.86542 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath -5.97757 29.88785 moveto
+0 35.86542 lineto
+5.97757 29.88785 lineto stroke
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 121.54391 28.36075 moveto
+121.54391 15.60748 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 125.52896 17.55911 moveto
+121.54391 15.60748 lineto
+117.55887 17.93222 lineto stroke
+showpage
+%%EOF

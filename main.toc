@@ -1,0 +1,87 @@
+\contentsline {chapter}{イントロダクション}{iii}{Doc-Start}%
+\contentsline {chapter}{\numberline {第1章}CLI入門}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}コンピューターの歴史}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}GUIの歴史}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}CLI}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}CLI 実践演習}{5}{section.1.4}%
+\contentsline {chapter}{\numberline {第2章}デジタルデータ}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}二進法}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}テキストデータ}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}画像データ}{17}{section.2.3}%
+\contentsline {section}{\numberline {2.4}音声データ}{19}{section.2.4}%
+\contentsline {section}{\numberline {2.5}実行ファイル}{21}{section.2.5}%
+\contentsline {section}{\numberline {2.6}データの取扱い}{22}{section.2.6}%
+\contentsline {chapter}{\numberline {第3章}コンピュータの原理}{29}{chapter.3}%
+\contentsline {section}{\numberline {3.1}論理回路}{29}{section.3.1}%
+\contentsline {section}{\numberline {3.2}フリップフロップ回路とメモリ}{34}{section.3.2}%
+\contentsline {section}{\numberline {3.3}有限オートマトン}{38}{section.3.3}%
+\contentsline {section}{\numberline {3.4}チューリングマシン}{40}{section.3.4}%
+\contentsline {section}{\numberline {3.5}ユニバーサルチューリングマシン}{43}{section.3.5}%
+\contentsline {chapter}{\numberline {第4章}インターネット}{47}{chapter.4}%
+\contentsline {section}{\numberline {4.1}インターネットの仕組み}{47}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}コミュニケーションとメディアの歴史}{47}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}インターネットの歴史}{48}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}LANや携帯電話}{49}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}TCP/IP}{51}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Utilities}{54}{subsection.4.1.5}%
+\contentsline {section}{\numberline {4.2}Webの仕組み}{55}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Webの始まり}{55}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Webの発展}{56}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Webのサーバー・クライアントの演習}{60}{subsection.4.2.3}%
+\contentsline {chapter}{\numberline {第5章}セキュリティー}{65}{chapter.5}%
+\contentsline {section}{\numberline {5.1}暗号の数理}{65}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}$\mathbf Z$の剰余類}{65}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}公開鍵暗号---RSA}{70}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}デジタル署名}{72}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}認証局}{73}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}暗号を実装するプロトコル}{74}{subsection.5.1.5}%
+\contentsline {section}{\numberline {5.2}セキュリティーマネージメント}{75}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}セキュリティーの基本概念}{75}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}技術的脅威 }{76}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}技術的脅威への対応}{79}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}人間的・物理的脅威と対応}{81}{subsection.5.2.4}%
+\contentsline {chapter}{\numberline {第6章}情報・社会・AI・健康}{85}{chapter.6}%
+\contentsline {section}{\numberline {6.1}情報とは}{85}{section.6.1}%
+\contentsline {section}{\numberline {6.2}情報社会と法律}{85}{section.6.2}%
+\contentsline {section}{\numberline {6.3}AIの発達の歴史}{86}{section.6.3}%
+\contentsline {section}{\numberline {6.4}情報社会と心と体の健康}{86}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}データ}{87}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}対策の前提となる考え方}{87}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}デジタルデトックス}{89}{subsection.6.4.3}%
+\contentsline {chapter}{\numberline {付録A}Excelの関数とVBA}{91}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Excelの関数とVBA}{91}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Excel の関数でのプログラミング}{91}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}VBAでのプログラミング}{92}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}関数によるデータ分析}{96}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}歴史と参考文献}{98}{subsection.A.1.4}%
+\contentsline {chapter}{\numberline {付録B}TeXとMarkdown}{101}{appendix.B}%
+\contentsline {section}{\numberline {B.1}\TeX }{101}{section.B.1}%
+\contentsline {subsection}{\numberline {B.1.1}\TeX のインストール}{101}{subsection.B.1.1}%
+\contentsline {subsection}{\numberline {B.1.2}\TeX のタイプセット}{102}{subsection.B.1.2}%
+\contentsline {subsection}{\numberline {B.1.3}\TeX の図式作成ソフト}{105}{subsection.B.1.3}%
+\contentsline {subsection}{\numberline {B.1.4}\TeX の描画ソフト}{106}{subsection.B.1.4}%
+\contentsline {section}{\numberline {B.2}Markdown}{112}{section.B.2}%
+\contentsline {chapter}{\numberline {付録C}JavaScript と p5.js}{117}{appendix.C}%
+\contentsline {section}{\numberline {C.1} p5.js の2Dアプリ}{117}{section.C.1}%
+\contentsline {subsection}{\numberline {C.1.1}p5.js}{117}{subsection.C.1.1}%
+\contentsline {subsection}{\numberline {C.1.2}一般のJavaScriptの動かし方}{118}{subsection.C.1.2}%
+\contentsline {subsection}{\numberline {C.1.3}JavaScriptの言語仕様}{119}{subsection.C.1.3}%
+\contentsline {subsection}{\numberline {C.1.4}2Dアプリのソース}{120}{subsection.C.1.4}%
+\contentsline {subsection}{\numberline {C.1.5}p5.js の2Dモードの説明とソースファイルの解説}{124}{subsection.C.1.5}%
+\contentsline {section}{\numberline {C.2} p5.js の 3D-アプリ}{126}{section.C.2}%
+\contentsline {subsection}{\numberline {C.2.1}3Dアプリのソース}{126}{subsection.C.2.1}%
+\contentsline {subsection}{\numberline {C.2.2}p5.js の3Dモードの説明とソースファイルの解説}{128}{subsection.C.2.2}%
+\contentsline {chapter}{\numberline {付録D}ShellとShell Script 入門}{131}{appendix.D}%
+\contentsline {section}{\numberline {D.1}標準入出力とパイプ}{131}{section.D.1}%
+\contentsline {section}{\numberline {D.2}制御構文}{132}{section.D.2}%
+\contentsline {section}{\numberline {D.3}Shell Script}{132}{section.D.3}%
+\contentsline {chapter}{\numberline {付録E}Git と GitHub}{137}{appendix.E}%
+\contentsline {section}{\numberline {E.1}バージョン管理の必要性}{137}{section.E.1}%
+\contentsline {section}{\numberline {E.2}バージョン管理ツールの歴史}{138}{section.E.2}%
+\contentsline {section}{\numberline {E.3}Gitのインストール}{138}{section.E.3}%
+\contentsline {section}{\numberline {E.4}Git の最低限の基本操作}{139}{section.E.4}%
+\contentsline {section}{\numberline {E.5}Git のやや詳しい操作}{141}{section.E.5}%
+\contentsline {section}{\numberline {E.6}GitHub}{143}{section.E.6}%
+\contentsline {section}{\numberline {E.7}VSCode と Git/GitHub}{146}{section.E.7}%
+\contentsline {section}{\numberline {E.8}GitHub Pages}{146}{section.E.8}%
+\contentsline {section}{\numberline {E.9}この先に}{148}{section.E.9}%

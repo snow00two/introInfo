@@ -1,0 +1,4 @@
+\mptput(7.2,-0.16646){\simplerot{0}{\zerosizebox{1.0pt}{$x$}}}
+\mptput(-0.26874,4.42064){\simplerot{0}{\zerosizebox{1.0pt}{$y$}}}
+\mptput(-0.72945,0.1895){\simplerot{0}{\zerosizebox{1.0pt}{O}}}
+\endinput

@@ -1,0 +1,57 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -7 -1 121 43 
+%%HiResBoundingBox: -6.47571 -0.49814 120.04953 42.09299 
+%%Creator: MetaPost (upMetaPost) 2.11-0.04-u1.35
+%%CreationDate: 2026.06.15:1545
+%%Pages: 1
+%%DocumentResources: procset mpost-minimal
+%%DocumentSuppliedResources: procset mpost-minimal
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset mpost-minimal
+/bd{bind def}bind def/fshow {exch findfont exch scalefont setfont show}bd
+/fcp{findfont dup length dict begin{1 index/FID ne{def}{pop pop}ifelse}forall}bd
+/fmc{FontMatrix dup length array copy dup dup}bd/fmd{/FontMatrix exch def}bd
+/Amul{4 -1 roll exch mul 1000 div}bd/ExtendFont{fmc 0 get Amul 0 exch put fmd}bd
+/ScaleFont{dup fmc 0 get Amul 0 exch put dup dup 3 get Amul 3 exch put fmd}bd
+/SlantFont{fmc 2 get dup 0 eq{pop 1}if Amul FontMatrix 0 get mul 2 exch put fmd}bd
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+%%Page: 1 1
+ 0 0 0 setrgbcolor 0 0.5 dtransform truncate idtransform setlinewidth pop
+ [] 0 setdash 1 setlinecap 1 setlinejoin 10 setmiterlimit
+newpath 89.66354 17.93271 moveto
+89.66354 0 lineto
+119.55139 0 lineto
+119.55139 41.84299 lineto
+89.66354 41.84299 lineto
+89.66354 23.91028 lineto stroke
+ 0.5 0 dtransform exch truncate exch idtransform pop setlinewidth
+ [3 3 ] 0 setdash
+newpath 115.56635 0 moveto
+115.56635 41.84299 lineto stroke
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+ [] 0 setdash
+newpath 0 0 moveto
+0 35.86542 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath -5.97757 29.88785 moveto
+0 35.86542 lineto
+5.97757 29.88785 lineto stroke
+ 0.99626 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 115.56635 26.96596 moveto
+115.56635 16.60378 lineto stroke
+ 0 0.99626 dtransform truncate idtransform setlinewidth pop
+newpath 119.55139 18.1195 moveto
+115.56635 16.60378 lineto
+111.5813 18.5727 lineto stroke
+ 1 0 0 setrgbcolor
+newpath 0 0 moveto
+115.56635 26.96596 lineto stroke
+ 0 0 1 setrgbcolor
+newpath 0 35.86542 moveto
+115.56635 16.60378 lineto stroke
+showpage
+%%EOF
