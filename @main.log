@@ -1,6 +1,16 @@
-This is MetaPost, version 2.11 (TeX Live 2025) (kpathsea version 6.4.1)  21 SEP 2026 10:52
+This is MetaPost, version 2.11 (TeX Live 2025) (kpathsea version 6.4.1)  23 SEP 2026 11:48
 **@main.mp
-(/usr/local/texlive/2025/texmf-dist/metapost/base/mpost.mp (/usr/local/texlive/2025/texmf-dist/metapost/base/plain.mp
-Preloading the plain mem file, version 1.005) ) (./@main.mp (/usr/local/texlive/texmf-local/metapost/MePoTeX/mptUser.mp (/usr/local/texlive/texmf-local/metapost/MePoTeX/MePoTeX.mp) (/usr/local/texlive/texmf-local/metapost/MePoTeX/mptMath.mp) (/usr/local/texlive/texmf-local/metapost/MePoTeX/mptPhys.mp) (/usr/local/texlive/texmf-local/metapost/MePoTeX/mptChem.mp) (/usr/local/texlive/texmf-local/metapost/MePoTeX/mpt3D.mp) (/usr/local/texlive/texmf-local/metapost/MePoTeX/mpt3Dex.mp) (/usr/local/texlive/texmf-local/metapost/MePoTeX/mptParts.mp) (/usr/local/texlive/texmf-local/metapost/MePoTeX/elementary.mp)) [1] )
+(/usr/local/texlive/2025/texmf-dist/metapost/base/mpost.mp
+(/usr/local/texlive/2025/texmf-dist/metapost/base/plain.mp
+Preloading the plain mem file, version 1.005) ) (./@main.mp
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/mptUser.mp
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/MePoTeX.mp)
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/mptMath.mp)
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/mptPhys.mp)
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/mptChem.mp)
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/mpt3D.mp)
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/mpt3Dex.mp)
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/mptParts.mp)
+(/usr/local/texlive/texmf-local/metapost/MePoTeX/elementary.mp)) [1] )
 1 output file written: @main001.mps
 
