@@ -28,7 +28,7 @@
 
   \indexspace
 
-  \item RGB, \hyperpage{17}
+  \item RGB, \hyperpage{18}
   \item RSA, \hyperpage{71}
 
   \indexspace
@@ -57,9 +57,9 @@
   \item クッキー, \hyperpage{59}
   \item クライアント, \hyperpage{55}
   \item サイバーキルチェーン, \hyperpage{76}
-  \item サンプリング, \hyperpage{20}
-  \item サンプリング周波数, \hyperpage{20}
-  \item サンプリング定理, \hyperpage{20}
+  \item サンプリング, \hyperpage{21}
+  \item サンプリング周波数, \hyperpage{21}
+  \item サンプリング定理, \hyperpage{21}
   \item サーバー, \hyperpage{55}
   \item スキーム, \hyperpage{55}
   \item ソーシャルエンジニアリング, \hyperpage{83}
@@ -80,18 +80,18 @@
   \item ブラウザー, \hyperpage{55}
   \item プロトコル, \hyperpage{51}
   \item ヘッド, \hyperpage{40}
-  \item ホフマン法, \hyperpage{27}
+  \item ホフマン法, \hyperpage{28}
   \item ポート, \hyperpage{53}
   \item ユニバーサルチューリングマシン, \hyperpage{43}
-  \item ランレングス法, \hyperpage{27}
+  \item ランレングス法, \hyperpage{28}
   \item リスク, \hyperpage{75}
   \item ルーティング, \hyperpage{53}
-  \item レインボーテーブル, \hyperpage{25}
+  \item レインボーテーブル, \hyperpage{26}
 
   \indexspace
 
-  \item 一方向ハッシュ関数, \hyperpage{25}
-  \item 不可逆圧縮, \hyperpage{27}
+  \item 一方向ハッシュ関数, \hyperpage{26}
+  \item 不可逆圧縮, \hyperpage{28}
   \item 中間者攻撃, \hyperpage{73}
   \item 二要素認証, \hyperpage{79}
 
@@ -99,9 +99,9 @@
 
   \item 公開鍵暗号, \hyperpage{71}
   \item 単位元, \hyperpage{65}
-  \item 危殆化, \hyperpage{26}
+  \item 危殆化, \hyperpage{27}
   \item 可換群, \hyperpage{65}
-  \item 可逆的圧縮, \hyperpage{27}
+  \item 可逆的圧縮, \hyperpage{28}
   \item 圧縮率, \hyperpage{27}
   \item 多要素認証, \hyperpage{80}
   \item 巡回群, \hyperpage{66}
@@ -112,18 +112,18 @@
   \item 情報セキュリティマネージメント, \hyperpage{75}
   \item 情報資産, \hyperpage{75}
   \item 拡張子, \hyperpage{5}
-  \item 文字列, \hyperpage{16}
+  \item 文字列, \hyperpage{17}
   \item 既約剰余類, \hyperpage{67}
   \item 最小アクセス権の原理, \hyperpage{79}
   \item 有用性, \hyperpage{75}
-  \item 構造化データ, \hyperpage{22}
+  \item 構造化データ, \hyperpage{23}
   \item 標数, \hyperpage{69}
   \item 機密性, \hyperpage{75}
 
   \indexspace
 
   \item 環, \hyperpage{65}
-  \item 相対 path, \hyperpage{4}
+  \item 相対 path, \hyperpage{5}
   \item 秘密鍵暗号, \hyperpage{70}
   \item 符号化, \hyperpage{12}
   \item 素体, \hyperpage{70}
@@ -138,11 +138,11 @@
   \item 認可, \hyperpage{79}
   \item 認証, \hyperpage{79}
   \item 認証局, \hyperpage{73}
-  \item 辞書攻撃, \hyperpage{25}
+  \item 辞書攻撃, \hyperpage{26}
 
   \indexspace
 
   \item 逆元, \hyperpage{65}
-  \item 量子化ビット数, \hyperpage{20}
+  \item 量子化ビット数, \hyperpage{21}
 
 \end{theindex}

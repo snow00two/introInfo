@@ -191,8 +191,9 @@ ASCII (American national Standard-Code for Information Interchange)
    
    \TeX でお馴染みかも知れないが\verb/ \/ とASCII に含まれない ￥
    が文字化けする問題がある．
-   Mac でもこれが困った問題を引き起こすことがあるので注意が必要．
-
+   Mac でもこれが困った問題を引き起こすことがあるので注意が必要
+   (Windowsのパスの区切りがバックスラッシュ\verb/\/であることも問題を複雑にしている)．
+   
    ここに載せたキーボードは
    左上のアルファベットの並びがQWERTY であることから
    QWERTY 配列と呼ばれている．
@@ -207,11 +208,24 @@ ASCII (American national Standard-Code for Information Interchange)
    
    \emptyline 
      キーボードが出てきたのでついでに：     
-     一生ものの外付けキーボード（特殊文字の位置固定）を手に入れて（図~\ref{HHKB}のキーボードだとテンキーは別途購入する必要がある）：
+     一生ものの外付けキーボード(定義より特殊文字の位置は固定されている)
+     を手に入れて(図~\ref{HHKB}
+     は私のHHKBキーボード，確か二万五千円ほどした．
+     ただし，テンキーは別途購入する必要がある)
+     使い込むこと：
+     
+     \begin{figure}[htb]
+      \centering
+      \includegraphics[width=11cm]{~/Documents/GitHub/introInfo/ch2/images/keyboard.pdf}
+      \caption{keyboard(HHKB)}\label{HHKB}
+   \end{figure}
+
    \begin{enumerate}
       \item
          touch-type\footnote{以前はブラインドタッチと呼ばれていたが差別的な響きがあったことからこう呼ばれることが増えた．}をマスターし，
          コマンドラインインターフェースに慣れる．
+         当たり前だが練習しないとマスターできない．
+         YouTubeなどには沢山の練習動画がアップされている．
          \begin{enumerate}
             \item
                F と J のキーの上には突起があり，
@@ -222,24 +236,43 @@ ASCII (American national Standard-Code for Information Interchange)
                外付けキーボードが必要である(私はやったことが無いが，
                見えないように手の上に布を置くという方法もある)．
             \item
-               ラップトップのキーが外付けキーボードと異なるときは，
-               調整する機能拡張(私はKarabineを使っている)が必要になる．
-         \end{enumerate}
+               ラップトップのキーが外付けキーボードと
+               異なっているときは，私は
+               Karabiner-Elements という機能拡張で，
+               HHKBとなるべく同じになるように設定している(図~\ref{karabiner})．
+               タッチタイピングで一番重要なことは，
+               日常使う全てのキーボード環境で
+               ショートカットなどの修飾キーと特殊文字のコンビネーションを
+               目で見ずに正確にタイプできるようになることである．
 
-      \item
-         よく使うアプリのよく使うメニューアイテムのショートカットを覚え，
-         スピードを落とすマウスの使用量を減らす．
+         \begin{figure}[htb]
+            \centering
+            \includegraphics[width = 12cm, trim=0 10 0 5, clip]{~/Documents/GitHub/introInfo/ch2/images/karabiner.png}
+            \caption{karabiner-Element の設定}\label{karabiner}
+         \end{figure}
+
+
+         \end{enumerate}
       
       \item
-         キーキャップリムーバーを手に入れ，キーボードの洗浄を定期的に行う．     
-   \begin{figure}[htb]
+         一生ものの外付けキーボードは一生付き合うものなので，
+         キーキャップリムーバーを手に入れ
+         キーボードの洗浄\footnote{全部のキーキャップをはずし，
+         キーボードの下の部分の汚れを綿棒などでとり，
+         容器に水と次亜塩素酸ナトリウムを入れたものにキーキャップを
+         暫く浸けて水洗いし乾燥させて再装填．}を定期的
+         (例えば一年に一回の大掃除のとき)に行なって衛生的にしてほしい．
+         
+   
+      \begin{figure}[htb]
       \centering
-      \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/ch2/images/keyremover.pdf}
+      \includegraphics[width=7cm]{~/Documents/GitHub/introInfo/ch2/images/keyremover.pdf}
       \caption{Keycap Remover}\label{}
    \end{figure}
 
    \end{enumerate}
    ことをお奨めする．
+
 
 \begin{Q}
    \, 
