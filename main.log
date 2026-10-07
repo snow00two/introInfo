@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  7 OCT 2026 16:58
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  7 OCT 2026 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1541,16 +1541,6 @@ nput line 598.
 \openout2 = `ch2/ch2.aux'.
 
  (./ch2/ch2.tex
-
-[11
-
-
-
-]
-
-[12
-
-]
 LaTeX Font Info:    Calculating math sizes for size <8.80003> on input line 70.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1581,7 +1571,12 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 5.5pt on input line 94.
 
 
-[13]
+[11
+
+
+
+
+]
 LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 1
 39.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmr.fd
@@ -1614,13 +1609,13 @@ df)
 <~/Documents/GitHub/introInfo/ch2/images/keyboard.pdf>
 
 
-[14]
+[12]
 File: ~/Documents/GitHub/introInfo/ch2/images/keyboard.pdf Graphic file (type p
 df)
 <~/Documents/GitHub/introInfo/ch2/images/keyboard.pdf>
 
 
-[15]
+[13]
 File: ~/Documents/GitHub/introInfo/ch2/images/karabiner.png Graphic file (type 
 bmp)
 <~/Documents/GitHub/introInfo/ch2/images/karabiner.png>
@@ -1632,7 +1627,7 @@ Overfull \vbox (0.49792pt too high) has occurred while \output is active []
 
 
 
-[16]
+[14]
 File: ~/Documents/GitHub/introInfo/ch2/images/memo.pdf Graphic file (type pdf)
 <~/Documents/GitHub/introInfo/ch2/images/memo.pdf>
 
@@ -1649,15 +1644,15 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 11.0pt on input line 305.
 
 
-[17]
+[15]
 
 LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 351.
 
 
 
-[18]
+[16]
 
-[19]
+[17]
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.1 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.1>
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.2 Graphic file (type eps)
@@ -1672,29 +1667,29 @@ File: ~/Documents/GitHub/introInfo/ch2/images/figure.8 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.8>
 
 
-[20]
+[18]
 File: ~/Documents/GitHub/introInfo/ch2/images/color.jpg Graphic file (type bmp)
 
 <~/Documents/GitHub/introInfo/ch2/images/color.jpg>
 
 
-[21]
+[19]
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.3 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.3>
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.4 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.4>
 
 
-[22]
+[20]
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.5 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.5>
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.6 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.6>
 
 
-[23]
+[21]
 
-[24]
+[22]
 File: ~/Documents/GitHub/introInfo/ch2/images/ScreenCapture1.pdf Graphic file (
 type pdf)
 <~/Documents/GitHub/introInfo/ch2/images/ScreenCapture1.pdf>
@@ -1706,22 +1701,22 @@ type pdf)
 <~/Documents/GitHub/introInfo/ch2/images/ScreenCapture3.pdf>
 
 
+[23]
+
+[24]
+
 [25]
 
 [26]
 
-[27]
+[27])
 
 [28]
-
-[29])
-
-[30]
 \openout2 = `ch3/ch3.aux'.
 
  (./ch3/ch3.tex
 
-[31
+[29
 
 
 
@@ -1738,7 +1733,7 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure4.3 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch3/images/figure4.3>
 
 
-[32]
+[30]
 Package CIRC Info: `\put \P \_ \L \S ' redefined on input line 274.
  (I search kanjifont definition file: . . )
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
@@ -1771,13 +1766,13 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure4.4 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch3/images/figure4.4>
 
 
-[33]
+[31]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.5 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.5>
 
 
-[34]
+[32]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.6 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.6>
@@ -1789,7 +1784,7 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure4.8 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch3/images/figure4.8>
 
 
-[35]
+[33]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.9 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.9>
@@ -1806,9 +1801,9 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure4.12 Graphic file (type eps
 <~/Documents/GitHub/introInfo/ch3/images/figure4.12>
 
 
-[36]
+[34]
 
-[37]
+[35]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.13 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure4.13>
@@ -1817,7 +1812,7 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure4.14 Graphic file (type eps
 <~/Documents/GitHub/introInfo/ch3/images/figure4.14>
 
 
-[38]
+[36]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.15 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure4.15>
@@ -1832,7 +1827,7 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure4.18 Graphic file (type eps
 <~/Documents/GitHub/introInfo/ch3/images/figure4.18>
 
 
-[39]
+[37]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.1>
@@ -1841,7 +1836,7 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure5.3 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch3/images/figure5.3>
 
 
-[40]
+[38]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.4 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.4>
@@ -1850,7 +1845,7 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure5.5 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch3/images/figure5.5>
 
 
-[41]
+[39]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.6 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.6>
@@ -1859,7 +1854,7 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure5.7 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch3/images/figure5.7>
 
 
-[42]
+[40]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.8 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.8>
@@ -1871,7 +1866,7 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure5.10 Graphic file (type eps
 <~/Documents/GitHub/introInfo/ch3/images/figure5.10>
 
 
-[43]
+[41]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.11 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure5.11>
@@ -1880,26 +1875,26 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure5.12 Graphic file (type eps
 <~/Documents/GitHub/introInfo/ch3/images/figure5.12>
 
 
-[44]
+[42]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.13 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure5.13>
 
 
-[45]
+[43]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.14 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure5.14>
 )
 
-[46]
+[44]
 
-[47]
+[45]
 \openout2 = `ch4/ch4.aux'.
 
  (./ch4/ch4.tex
 
-[48
+[46
 
 
 
@@ -1919,9 +1914,9 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 13.2pt on input line 57.
 
 
-[49]
+[47]
 
-[50]
+[48]
 File: ~/Documents/GitHub/introInfo/ch4/images/macaddress.pdf Graphic file (type
  pdf)
 <~/Documents/GitHub/introInfo/ch4/images/macaddress.pdf>
@@ -1929,7 +1924,7 @@ File: ~/Documents/GitHub/introInfo/ch4/images/hub.pdf Graphic file (type pdf)
 <~/Documents/GitHub/introInfo/ch4/images/hub.pdf>
 
 
-[51]
+[49]
 File: ~/Documents/GitHub/introInfo/ch4/images/figure6.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure6.1>
@@ -1942,13 +1937,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[52]
+[50]
 File: ~/Documents/GitHub/introInfo/ch4/images/figure6.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure6.2>
 
 
-[53]
+[51]
 File: ~/Documents/GitHub/introInfo/ch4/images/ipaddress.jpg Graphic file (type 
 bmp)
 <~/Documents/GitHub/introInfo/ch4/images/ipaddress.jpg>
@@ -1957,7 +1952,7 @@ File: ~/Documents/GitHub/introInfo/ch4/images/figure6.5 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch4/images/figure6.5>
 
 
-[54]
+[52]
 File: ~/Documents/GitHub/introInfo/ch4/images/figure6.3 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure6.3>
@@ -1966,53 +1961,53 @@ File: ~/Documents/GitHub/introInfo/ch4/images/figure6.4 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch4/images/figure6.4>
 
 
-[55]
+[53]
 
-[56]
+[54]
 File: ~/Documents/GitHub/introInfo/ch4/images/figure7.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure7.1>
 
 
-[57]
+[55]
 
-[58]
+[56]
 File: ~/Documents/GitHub/introInfo/ch4/images/Screenshot4.png Graphic file (typ
 e bmp)
 <~/Documents/GitHub/introInfo/ch4/images/Screenshot4.png>
 
 
-[59]
+[57]
 File: ~/Documents/GitHub/introInfo/ch4/images/Screenshot2.png Graphic file (typ
 e bmp)
 <~/Documents/GitHub/introInfo/ch4/images/Screenshot2.png>
 
 
-[60]
+[58]
 File: ~/Documents/GitHub/introInfo/ch4/images/Screenshot3.png Graphic file (typ
 e bmp)
 <~/Documents/GitHub/introInfo/ch4/images/Screenshot3.png>
 
 
-[61]
+[59]
 File: ~/Documents/GitHub/introInfo/ch4/images/figure7.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure7.2>
 
 
-[62]
+[60]
 
-[63]
+[61]
 File: ~/Documents/GitHub/introInfo/ch4/images/Screenshot1.png Graphic file (typ
 e bmp)
 <~/Documents/GitHub/introInfo/ch4/images/Screenshot1.png>
 
 
+[62]
+
+[63])
+
 [64]
-
-[65])
-
-[66]
 \openout2 = `ch5/ch5.aux'.
 
  (./ch5/ch5.tex
@@ -2058,12 +2053,16 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[67
+[65
 
 
 
 
 ]
+
+[66]
+
+[67]
 
 [68]
 
@@ -2072,16 +2071,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [70]
 
 [71]
-
-[72]
-
-[73]
 File: ~/Documents/GitHub/introInfo/ch5/images/figure8.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch5/images/figure8.1>
 
 
-[74]
+[72]
 File: ~/Documents/GitHub/introInfo/ch5/images/figure8.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch5/images/figure8.2>
@@ -2090,11 +2085,15 @@ File: ~/Documents/GitHub/introInfo/ch5/images/figure8.3 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch5/images/figure8.3>
 
 
-[75]
+[73]
 File: ~/Documents/GitHub/introInfo/ch5/images/certificate.png Graphic file (typ
 e bmp)
 <~/Documents/GitHub/introInfo/ch5/images/certificate.png>
 
+
+[74]
+
+[75]
 
 [76]
 
@@ -2103,10 +2102,6 @@ e bmp)
 [78]
 
 [79]
-
-[80]
-
-[81]
 File: ~/Documents/GitHub/introInfo/ch5/images/figure9.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch5/images/figure9.1>
@@ -2115,15 +2110,15 @@ File: ~/Documents/GitHub/introInfo/ch5/images/figure9.2 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch5/images/figure9.2>
 
 
+[80]
+
+[81]
+
 [82]
 
-[83]
+[83])
 
 [84]
-
-[85])
-
-[86]
 \openout2 = `ch6/ch6.aux'.
 
  (./ch6/ch6.tex
@@ -2131,22 +2126,22 @@ File: ~/Documents/GitHub/introInfo/ch6/images/figure.1 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch6/images/figure.1>
 
 
-[87
+[85
 
 
 
 
 ]
 
+[86]
+
+[87]
+
 [88]
 
-[89]
+[89])
 
 [90]
-
-[91])
-
-[92]
 \openout2 = `appa/appa.aux'.
 
  (./appa/appa.tex
@@ -2158,7 +2153,7 @@ File: ~/Documents/GitHub/introInfo/appa/images/factTrace.pdf Graphic file (type
 <~/Documents/GitHub/introInfo/appa/images/factTrace.pdf>
 
 
-[93
+[91
 
 
 
@@ -2181,17 +2176,17 @@ File: ~/Documents/GitHub/introInfo/appa/images/ScreenCapture6.pdf Graphic file
 <~/Documents/GitHub/introInfo/appa/images/ScreenCapture6.pdf>
 
 
-[94]
+[92]
 File: ~/Documents/GitHub/introInfo/appa/images/ScreenCapture7.pdf Graphic file 
 (type pdf)
 <~/Documents/GitHub/introInfo/appa/images/ScreenCapture7.pdf>
 
 
+[93]
+
+[94]
+
 [95]
-
-[96]
-
-[97]
 File: ~/Documents/GitHub/introInfo/appa/images/Fibonacci.pdf Graphic file (type
  pdf)
 <~/Documents/GitHub/introInfo/appa/images/Fibonacci.pdf>
@@ -2200,9 +2195,9 @@ df)
 <~/Documents/GitHub/introInfo/appa/images/Pascal2.pdf>
 
 
-[98]
+[96]
 
-LaTeX Warning: Citation `DE' on page 99 undefined on input line 300.
+LaTeX Warning: Citation `DE' on page 97 undefined on input line 300.
 
 File: ~/Documents/GitHub/introInfo/appa/images/excelAnalysis.pdf Graphic file (
 type pdf)
@@ -2212,13 +2207,13 @@ f)
 <~/Documents/GitHub/introInfo/appa/images/graphD.pdf>
 
 
+[97]
+
+[98]
+
 [99]
 
-[100]
-
-[101]
-
-[102])
+[100])
 \openout2 = `appb/appb.aux'.
 
  (./appb/appb.tex (I search kanjifont definition file: . . )
@@ -2234,7 +2229,7 @@ pe pdf)
 <~/Documents/GitHub/introInfo/appb/images/preferences.pdf>
 
 
-[103
+[101
 
 
 
@@ -2242,9 +2237,9 @@ pe pdf)
 
 ]
 
-[104]
+[102]
 
-[105]
+[103]
 File: ~/Documents/GitHub/introInfo/appb/images/ScreenCapture1.pdf Graphic file 
 (type pdf)
 <~/Documents/GitHub/introInfo/appb/images/ScreenCapture1.pdf>
@@ -2253,9 +2248,9 @@ Overfull \vbox (1.64423pt too high) has occurred while \output is active []
 
 
 
-[106] <xymatrix 2x2 175>
+[104] <xymatrix 2x2 175>
 
-[107
+[105
 
 ]
 File: ~/Documents/GitHub/introInfo/appb/images/texhopMetapost.pdf Graphic file 
@@ -2265,7 +2260,7 @@ LaTeX Font Info:    Font shape `U/logo/bx/n' in size <9.89993> not available
 (Font)              Font shape `U/logo/b/n' tried instead on input line 337.
 
 
-[108]
+[106]
 File: ~/Documents/GitHub/introInfo/appb/images/figure.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/appb/images/figure.1>
@@ -2274,15 +2269,15 @@ File: ~/Documents/GitHub/introInfo/appb/images/figure.2 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/appb/images/figure.2>
 
 
+[107]
+
+[108]
+
 [109]
 
 [110]
 
 [111]
-
-[112]
-
-[113]
 \openout4 = `@main.mp'.
 
 runsystem(r-mpost @main.mp)...executed safely (allowed).
@@ -2291,9 +2286,9 @@ runsystem(r-mpost @main.mp)...executed safely (allowed).
 <@main001.mps>
  (./@main.sav)
 
-[114]
+[112]
 
-[115]
+[113]
 File: ~/Documents/GitHub/introInfo/appb/images/IntroToMarkdown.pdf Graphic file
  (type pdf)
 <~/Documents/GitHub/introInfo/appb/images/IntroToMarkdown.pdf>
@@ -2302,11 +2297,11 @@ e (type pdf)
 <~/Documents/GitHub/introInfo/appb/images/IntroToMarkdown1.pdf>
 )
 
+[114]
+
+[115]
+
 [116]
-
-[117]
-
-[118]
 \openout2 = `appc/appc.aux'.
 
  (./appc/appc.tex
@@ -2315,7 +2310,7 @@ File: ~/Documents/GitHub/introInfo/appc/images/ScreenCapture3.pdf Graphic file
 <~/Documents/GitHub/introInfo/appc/images/ScreenCapture3.pdf>
 
 
-[119
+[117
 
 
 
@@ -2329,19 +2324,19 @@ File: ~/Documents/GitHub/introInfo/appc/images/ScreenCapture2.pdf Graphic file
 <~/Documents/GitHub/introInfo/appc/images/ScreenCapture2.pdf>
 
 
-[120]
+[118]
 
-[121]
+[119]
 File: ~/Documents/GitHub/introInfo/appc/images/ScreenCapture7.pdf Graphic file 
 (type pdf)
 <~/Documents/GitHub/introInfo/appc/images/ScreenCapture7.pdf>
 
 
+[120]
+
+[121]
+
 [122]
-
-[123]
-
-[124]
 File: ~/Documents/GitHub/introInfo/appc/images/figure1.2 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/appc/images/figure1.2>
@@ -2350,9 +2345,9 @@ File: ~/Documents/GitHub/introInfo/appc/images/figure1.1 Graphic file (type eps
 <~/Documents/GitHub/introInfo/appc/images/figure1.1>
 
 
-[125]
+[123]
 
-[126]
+[124]
 File: ~/Documents/GitHub/introInfo/appc/images/figure1.3 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/appc/images/figure1.3>
@@ -2364,44 +2359,44 @@ File: ~/Documents/GitHub/introInfo/appc/images/ScreenCapture6.pdf Graphic file
 <~/Documents/GitHub/introInfo/appc/images/ScreenCapture6.pdf>
 
 
+[125]
+
+[126]
+
 [127]
 
-[128]
+[128])
 
 [129]
-
-[130])
-
-[131]
 \openout2 = `appd/appd.aux'.
 
  (./appd/appd.tex
 
-[132
+[130
 
 
 
 
 ]
 
-[133]
+[131]
 
-[134]
+[132]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
 
+[133]
+
+[134]
+
 [135]
-
-[136]
-
-[137]
 \openout2 = `appe/appe.aux'.
 
  (./appe/appe.tex
 
-[138
+[136
 
 
 
@@ -2412,11 +2407,11 @@ File: ~/Documents/GitHub/introInfo/appe/images/figure.1 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/appe/images/figure.1>
 
 
+[137]
+
+[138]
+
 [139]
-
-[140]
-
-[141]
 File: ~/Documents/GitHub/introInfo/appe/images/figure.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/appe/images/figure.2>
@@ -2425,57 +2420,57 @@ File: ~/Documents/GitHub/introInfo/appe/images/figure.3 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/appe/images/figure.3>
 
 
+[140]
+
+[141]
+
 [142]
+File: ~/Documents/GitHub/introInfo/appe/images/GitHub.png Graphic file (type bm
+p)
+<~/Documents/GitHub/introInfo/appe/images/GitHub.png>
+
 
 [143]
 
 [144]
-File: ~/Documents/GitHub/introInfo/appe/images/GitHub.pdf Graphic file (type pd
-f)
-<~/Documents/GitHub/introInfo/appe/images/GitHub.pdf>
-
-
-[145]
-
-[146]
 File: ~/Documents/GitHub/introInfo/appe/images/figure.4 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/appe/images/figure.4>
 
 
-[147]
+[145]
 
-[148]
+[146]
 File: ~/Documents/GitHub/introInfo/appe/images/pagesTest.pdf Graphic file (type
  pdf)
 <~/Documents/GitHub/introInfo/appe/images/pagesTest.pdf>
 
 
-[149])
+[147])
+
+[148]
+
+[149
+
+
+
+]
 
 [150]
 
-[151
-
-
-
-]
+[151] (./main.ind
 
 [152]
 
-[153] (./main.ind
-
-[154]
 
 
-
-[155
+[153
 
 ]
 
 
 
-[156]) (./main.aux (./intro/intro.aux) (./ch1/ch1.aux) (./ch2/ch2.aux)
+[154]) (./main.aux (./intro/intro.aux) (./ch1/ch1.aux) (./ch2/ch2.aux)
 (./ch3/ch3.aux) (./ch4/ch4.aux) (./ch5/ch5.aux) (./ch6/ch6.aux)
 (./appa/appa.aux) (./appb/appb.aux) (./appc/appc.aux) (./appd/appd.aux)
 (./appe/appe.aux))
@@ -2501,10 +2496,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  35527 strings out of 473836
  815373 string characters out of 5731189
- 1085842 words of memory out of 5000000
+ 1085839 words of memory out of 5000000
  57976 multiletter control sequences out of 15000+600000
  742437 words of font info for 256 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  100i,17n,105p,906b,1257s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (164 pages, 602548 bytes).
+Output written on main.dvi (162 pages, 601912 bytes).
