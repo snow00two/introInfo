@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  8 OCT 2026 10:59
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  8 OCT 2026 11:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2453,19 +2453,11 @@ File: ~/Documents/GitHub/introInfo/appe/images/pagesTest.pdf Graphic file (type
 
 [150]
 
-[151] (./main.ind
-
-[152]
-
+[151]
+No file main.ind.
 
 
-[153
-
-]
-
-
-
-[154]) (./main.aux (./intro/intro.aux) (./ch1/ch1.aux) (./ch2/ch2.aux)
+[152] (./main.aux (./intro/intro.aux) (./ch1/ch1.aux) (./ch2/ch2.aux)
 (./ch3/ch3.aux) (./ch4/ch4.aux) (./ch5/ch5.aux) (./ch6/ch6.aux)
 (./appa/appa.aux) (./appb/appb.aux) (./appc/appc.aux) (./appd/appd.aux)
 (./appe/appe.aux))
@@ -2489,12 +2481,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: ACCCB60B535A9C3F0C4AEC08BE9E628D;12693.
  ) 
 Here is how much of TeX's memory you used:
- 35534 strings out of 473836
- 815686 string characters out of 5731189
- 1085887 words of memory out of 5000000
- 57982 multiletter control sequences out of 15000+600000
+ 35528 strings out of 473836
+ 815583 string characters out of 5731189
+ 1085829 words of memory out of 5000000
+ 57979 multiletter control sequences out of 15000+600000
  742437 words of font info for 256 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  100i,17n,105p,906b,1257s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (162 pages, 602352 bytes).
+Output written on main.dvi (160 pages, 585808 bytes).
