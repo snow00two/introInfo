@@ -556,7 +556,7 @@ WWWの実装にはインターネット上に情報を持っている
 \end{Q}
     \begin{figure}[htb]
 	\centering
-	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot4.png}
+	\includegraphics[width=13cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot4.png}
 	\caption{世界初のWWWのホームページのソース}\label{}
    \end{figure}
 
@@ -597,7 +597,7 @@ WWWは広く受け入れられていったが，直ぐに様々な拡張が成�
    \item
     \begin{figure}[htb]
 	\centering
-	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot2.png}
+	\includegraphics[width=13cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot2.png}
 	\caption{クエリと返答}\label{query}
    \end{figure}
    
@@ -605,10 +605,9 @@ WWWは広く受け入れられていったが，直ぐに様々な拡張が成�
       のような画面になる．
       このときブラウザーのアドレスバーに表示されているURLを抜き出すと
 \begin{verbatim}
-   https://www.amazon.co.jp/s?k=
-   %E5%9B%BD%E5%82%B5&crid=2WZVBYMGFR6YT&
-   sprefix=%E5%9B%BD%E5%82%B5%2Caps%2C179&
-   ref=nb_sb_noss_1
+   https://www.amazon.co.jp/s?k=%E5%9B%BD%E5%82%B5&__mk_ja_JP=
+     %E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2TUMVIK0HEXS5&
+     sprefix=%E5%9B%BD%E5%82%B5%2Caps%2C215&ref=nb_sb_noss_1
 \end{verbatim}
 
 \noindent この？以下に表れる部分がクエリである．
@@ -622,6 +621,8 @@ WWWは広く受け入れられていったが，直ぐに様々な拡張が成�
    e5  9b  bd  e5  82  b5                                        
 \end{verbatim}
 で$=$以下の部分と一致していることがわかる．
+ただし，ブラウザーでの表示は図~\ref{query}のように
+人間が読みやすくなるように文字に変換されている．
 同様の方法で様々なデータのやりとりを行っている．
 
     \item
@@ -632,8 +633,8 @@ WWWは広く受け入れられていったが，直ぐに様々な拡張が成�
        Storage のCookieを選ぶと保存されたCookieを確認出来る．
     \begin{figure}[htb]
 	\centering
-	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot3.png}
-	\caption{https://www.google.com/のCookie}\label{Cookie}
+	\includegraphics[width=13cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot3.png}
+	\caption{https://www.youtube.com/のCookie}\label{Cookie}
    \end{figure}
    
       あとでセキュリティーの部分でもコメントするが，
@@ -727,7 +728,7 @@ curl = client for URL を使用して，WEBのクライアント・サーバー�
 \begin{verbatim}
     % {echo 'HTTP/1.1 200 OK';echo ; 
     echo 'Hello, Web application!';}|nc -l 8080 
-    #echo の前の改行不要
+    # echo の前の改行不要
  \end{verbatim}
        とすると，自動で先程の応答を送ることが出来る．
  
@@ -762,11 +763,10 @@ curl = client for URL を使用して，WEBのクライアント・サーバー�
     % curl -s -o hello.html http://localhost:8080/
     % open hello.html
 \end{verbatim}
-      とすると
-      図~\ref{Browser} のようにブラウザーに表示されたであろう．
+      とするとブラウザーに表示される．
     \begin{figure}[htb]
 	\centering
-	\includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot1.png}
+	\includegraphics[width=13cm]{~/Documents/GitHub/introInfo/ch4/images/Screenshot1.png}
 	\caption{TestのBrowserでの表示}\label{Browser}
    \end{figure}
 
@@ -777,7 +777,7 @@ curl = client for URL を使用して，WEBのクライアント・サーバー�
 % !!
 \end{verbatim}
       ブラウザーのアドレスバーにhttp://localhost:8080/と入れると
-      同じ結果が表示されるであろう．
+      図~\ref{Browser} のように表示されるであろう．
       このときサーバー側には以下のようなログが表示される．
 \begin{verbatim}
    GET / HTTP/1.1
