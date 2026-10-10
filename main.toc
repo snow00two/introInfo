@@ -39,7 +39,7 @@
 \contentsline {subsection}{\numberline {5.2.1}セキュリティーの基本概念}{74}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}技術的脅威 }{77}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}技術的脅威への対応}{79}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}人間的・物理的脅威と対応}{81}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.4}人間的・物理的脅威と対応}{82}{subsection.5.2.4}%
 \contentsline {chapter}{\numberline {第6章}情報・社会・AI・健康}{87}{chapter.6}%
 \contentsline {section}{\numberline {6.1}情報とは}{87}{section.6.1}%
 \contentsline {section}{\numberline {6.2}情報社会と法律}{87}{section.6.2}%
