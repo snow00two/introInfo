@@ -196,7 +196,7 @@
       
        \begin{figure}[htb]
          \centering
-         \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/ch1/images/Screen_Shot_2020-09-19_at_7.16.21_AM_big.png}
+         \includegraphics[width=10cm]{~/Documents/GitHub/introInfo/ch1/images/Screen_Shot_2020-09-19_at_7.16.21_AM_big.png}
          \caption{Ken Thompson (sitting) and Dennis Ritchie working together at a PDP-11, タイプライターのようなものが\href{https://www.youtube.com/watch?v=I_O-KlHhkII}{テレタイプ}(Wikipedia より)}\label{PDP11}
       \end{figure}
  
@@ -299,9 +299,31 @@ shell の使い方については次のセクションで説明する．
    C:\Windows\
 \end{verbatim}
       のようにバックスラッシュ\verb/\/を使って表示する．
+      また，Cというのは MSDOS では
+       A, B がフロッピーディスクドライブ
+       (3.5インチフロッピーディスク(図~\ref{flopy})と
+       フロッピーディスクドライブ
+       (図~\ref{fopyDrive}))として使われていたので 
+       C を起動用ハードディスクとして使った名残である．
       事情があってこのようにパスの表示が Uuix 系と異なることになったが，
       コンピュータにおける負の遺産の一つと言える．
-      
+\begin{figure}[htb]
+　\centering
+　\begin{minipage}{0.4\columnwidth}
+　　\centering
+　　\includegraphics[width=3.5cm]{~/Documents/GitHub/introInfo/ch1/images/flopy.png}
+　　\caption{私の引出の奥から見つかった3.5インチフロッピーディスク．いくつかのアプリではファイル保存のアイコンとしても生き延びている．}\label{flopy}
+　\end{minipage} 
+　\begin{minipage}{0.4\columnwidth}
+　　\centering
+　　\includegraphics[width=5cm]{~/Documents/GitHub/introInfo/ch1/images/Macintosh,_Google_NY_office_computer_museum_cropped.png}
+　　\caption{Macintosh 
+のモニターの右下にあるのがフロッピーディスクドライブ\href{https://commons.wikimedia.org/w/index.php?curid=84346215}{Marcin Wichary} from San Francisco, 
+\href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{\ccby}}
+\label{fopyDrive}
+　\end{minipage} 
+\end{figure}
+
       後で出てくる .. は一つ上のディレクトリーをあらわす\term[]{相対 path}の例
 
       \item
@@ -365,7 +387,7 @@ shell の使い方については次のセクションで説明する．
 
   \begin{figure}[htb]
          \centering
-         \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch1/images/vscode.pdf}
+         \includegraphics[width=13cm]{~/Documents/GitHub/introInfo/ch1/images/vscode.pdf}
          \caption{VSCode, 下が terminal}\label{vscodeTerm}
    \end{figure}
 
@@ -386,13 +408,7 @@ shell の使い方については次のセクションで説明する．
             JavaScriptで作られたアプリの一つで
             Chromium+JavaScript+Node.js+Electron 
             により作られている(図 \ref{vscode})．
-     
-      \begin{figure}[htb]
-               \centering
-               \includegraphics[width=6cm]{~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf}
-               \caption{VSCodeのクレジット}\label{vscode}
-   \end{figure}
-   
+        
    \item
          terminal /shell:
        
@@ -484,13 +500,22 @@ shell の使い方については次のセクションで説明する．
 \end{Q}
 
 
+\begin{figure}[htb]
+   \centering
+   \begin{minipage}{0.4\columnwidth}
+      \centering
+      \includegraphics[width=4cm]{~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf}
+      \caption{VSCodeのクレジット}\label{vscode}
+   \end{minipage} 
+   \begin{minipage}{0.45\columnwidth}
+      \centering
+      \includegraphics[width=6cm]{~/Documents/GitHub/introInfo/ch1/images/ScreenCapture1.pdf}
+      \caption{Macでのエクステンションの表示}\label{extension}
+   \end{minipage} 
+\end{figure}
+
 \begin{Q}
    拡張子を表示するようにパソコンを設定して下さい．
-   \begin{figure}[h]
-         \centering
-         \includegraphics[width=8cm]{~/Documents/GitHub/introInfo/ch1/images/ScreenCapture1.pdf}
-         \caption{Macでのエクステンションの表示}\label{extension}
-      \end{figure}
 \end{Q}
 
 \begin{Q}
@@ -548,7 +573,7 @@ shell の使い方については次のセクションで説明する．
         そのコマンドが実行され，次の行に結果が表示される．
         \begin{figure}[htb]
          \centering
-         \includegraphics[width=12cm]{~/Documents/GitHub/introInfo/ch1/images/terminal.pdf}
+         \includegraphics[width=13cm]{~/Documents/GitHub/introInfo/ch1/images/terminal.pdf}
          \caption{Terminal}\label{terminal}
       \end{figure}
        これがコマンドラインインタープリター shellである．

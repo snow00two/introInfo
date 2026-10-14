@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  12 OCT 2026 10:43
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  14 OCT 2026 12:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1140,7 +1140,7 @@ Writing index file main.idx
 \c@Def=\count414
 \c@ex=\count415
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
-6.
+7.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1239,72 +1239,74 @@ LaTeX Warning: Label `M' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-Package hyperref Info: Link coloring ON on input line 86.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+Package hyperref Info: Link coloring ON on input line 87.
  (./main.out) (./main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
 
 \c@lstlisting=\count419
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 18.7pt on input line 88.
+(Font)              scaled to size 18.7pt on input line 89.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 18.7pt on input line 88.
+(Font)              scaled to size 18.7pt on input line 89.
+LaTeX Font Info:    Font shape `U/ccicons/m/n' will be
+(Font)              scaled to size 11.0pt on input line 89.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 15.4pt on input line 88.
+(Font)              scaled to size 15.4pt on input line 89.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 15.4pt on input line 88.
-LaTeX Font Info:    Calculating math sizes for size <15.4> on input line 88.
+(Font)              scaled to size 15.4pt on input line 89.
+LaTeX Font Info:    Calculating math sizes for size <15.4> on input line 89.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
-8.
+9.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-88.
+89.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-88.
+89.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <15.4> on input line 88.
+(Font)              <15.4> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.77994> on input line 88.
+(Font)              <10.77994> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.7> on input line 88.
+(Font)              <7.7> on input line 89.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 10.77994pt on input line 88.
+(Font)              scaled to size 10.77994pt on input line 89.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 7.7pt on input line 88.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 88
+(Font)              scaled to size 7.7pt on input line 89.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 89
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
@@ -1312,23 +1314,23 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <15.4> not available
-(Font)              size <14.4> substituted on input line 88.
+(Font)              size <14.4> substituted on input line 89.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.2pt on input line 88.
+(Font)              scaled to size 13.2pt on input line 89.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.2pt on input line 88.
+(Font)              scaled to size 13.2pt on input line 89.
 
 
 [1
@@ -1476,41 +1478,46 @@ File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 [4]
+File: ~/Documents/GitHub/introInfo/ch1/images/flopy.png Graphic file (type bmp)
+
+<~/Documents/GitHub/introInfo/ch1/images/flopy.png>
+File: ~/Documents/GitHub/introInfo/ch1/images/Macintosh,_Google_NY_office_compu
+ter_museum_cropped.png Graphic file (type bmp)
+<~/Documents/GitHub/introInfo/ch1/images/Macintosh,_Google_NY_office_computer_m
+useum_cropped.png>
+LaTeX Font Info:    Font shape `U/ccicons/m/n' will be
+(Font)              scaled to size 9.89993pt on input line 322.
+
+
+[5]
 File: ~/Documents/GitHub/introInfo/ch1/images/vscode.pdf Graphic file (type pdf
 )
 <~/Documents/GitHub/introInfo/ch1/images/vscode.pdf>
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <11> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 373.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 395.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.0pt on input line 373.
+(Font)              scaled to size 11.0pt on input line 395.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <11> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 373.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 395.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.0pt on input line 373.
+(Font)              scaled to size 11.0pt on input line 395.
 LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <11> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 373.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 395.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.0pt on input line 373.
+(Font)              scaled to size 11.0pt on input line 395.
 LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <11> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 373.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 395.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.0pt on input line 373.
-
-
-[5]
-File: ~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf Graphic file (
-type pdf)
-<~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf>
+(Font)              scaled to size 11.0pt on input line 395.
 
 
 [6]
+File: ~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf Graphic file (
+type pdf)
+<~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf>
 File: ~/Documents/GitHub/introInfo/ch1/images/ScreenCapture1.pdf Graphic file (
 type pdf)
 <~/Documents/GitHub/introInfo/ch1/images/ScreenCapture1.pdf>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 
 
 [7]
@@ -1520,18 +1527,17 @@ df)
 
 
 [8]
-LaTeX Font Info:    Trying to load font information for OML+lmr on input line 5
-84.
+
+[9]
+LaTeX Font Info:    Trying to load font information for OML+lmr on input line 6
+09.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmr.fd
 File: omllmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OML/lmr/m/n' in size <11> not available
-(Font)              Font shape `OML/lmm/m/it' tried instead on input line 584.
-
-
-[9]
+(Font)              Font shape `OML/lmm/m/it' tried instead on input line 609.
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 598.
+nput line 623.
 )
 
 [10]
@@ -2475,12 +2481,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: ACCCB60B535A9C3F0C4AEC08BE9E628D;12693.
  ) 
 Here is how much of TeX's memory you used:
- 35526 strings out of 473836
- 815467 string characters out of 5731189
- 1085907 words of memory out of 5000000
- 57977 multiletter control sequences out of 15000+600000
- 742437 words of font info for 256 fonts, out of 8000000 for 9000
+ 35543 strings out of 473836
+ 816429 string characters out of 5731189
+ 1086265 words of memory out of 5000000
+ 57992 multiletter control sequences out of 15000+600000
+ 742499 words of font info for 258 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  100i,17n,105p,906b,1257s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (162 pages, 589952 bytes).
+Output written on main.dvi (162 pages, 592556 bytes).
