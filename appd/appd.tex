@@ -491,7 +491,13 @@ Shell の操作をまとめてScriptを作ることが出来る．
    pr file1 &   file1 の内容をフォーマットして表示\\ \hline 
    tail -n  file1&  file1の最後の$n$行を表示\\ \hline 
    head -n file1 & file1の最初の$n$行を表示 \\ \hline 
-   more file1&   file1 の内容を確認しながら表示\\       \noalign{\hrule height 1pt}
+   more file1&   file1 の内容を確認しながら表示\\ \hline 
+   ed file1&  ed でfile1を編集\\ \hline 
+   vim file1&  vim でfile1を編集\\ \hline 
+   code file1&  VSCode でfile1を編集\\ \hline 
+   open -a apli file1& アプリ apli で file1を編集\\ \hline 
+   sh&  subshell を開く\\ \hline 
+   \noalign{\hrule height 1pt}
    \end{tabular}
    \smallemptyline
    \caption{コマンドの基本}
@@ -500,18 +506,12 @@ Shell の操作をまとめてScriptを作ることが出来る．
 \begin{table}[htb]
    \centering
    \begin{tabular}{ll}\noalign{\hrule height 1pt} 
-   ed file1&  ed でfile1を編集\\ \hline 
-   vim file1&  vim でfile1を編集\\ \hline 
-   code file1&  VSCode でfile1を編集\\ \hline 
-   open -a apli file1& アプリ apli で file1を編集\\ \hline 
-   sh&  subshell を開く\\ \hline 
-   wc file1&  file1 の行数，語数，文字数を表示\\ \hline 
-   cmp file1 file2&  file1 と file2 が違えば最初の違う行を表示\\ \hline 
-   diff file1 file2&  file1 と file2 がどのように違うかを表示\\ \hline 
-   grep hoge file1&  file1のhogeを含む行を表示\\ \hline 
-   sort file1&   file1の行毎にソートする\\ \hline
-   man cmd1& cmd1 のマニュアル表示\\ \hline
-      brew install hoge & brew で tool hoge をインストール\\ \hline
+      wc file1&  file1 の行数，語数，文字数を表示\\ \hline 
+      cmp file1 file2&  file1 と file2 が違えば最初の違う行を表示\\ \hline 
+      diff file1 file2&  file1 と file2 がどのように違うかを表示\\ \hline 
+      grep hoge file1&  file1のhogeを含む行を表示\\ \hline 
+      sort file1&   file1の行毎にソートする\\ \hline
+      man cmd1& cmd1 のマニュアル表示\\ \hline
       history & これまで使ったコマンドのリスト\\ \hline
       printenv  &全ての環境変数の表示\\ \hline
       echo \verb/$/ENV  &環境変数ENV(が定義されていれば)表示\\ \hline
@@ -523,7 +523,6 @@ Shell の操作をまとめてScriptを作ることが出来る．
    \smallemptyline
    \caption{コマンドの基本2}
 \end{table}
-
 
 \begin{table}[htb]
    \centering
@@ -549,6 +548,7 @@ Shell の操作をまとめてScriptを作ることが出来る．
    \caption{terminalとshellのメタキャラクター}
 \end{table}
 
+
 \begin{table}[htb]
    \centering
    \begin{tabular}{ll}\noalign{\hrule height 1pt} 
@@ -567,6 +567,51 @@ Shell の操作をまとめてScriptを作ることが出来る．
    \smallemptyline
    \caption{Emacs由来}
 \end{table}
+
+
+
+%\begin{table}[htb]
+%   \centering
+%   \begin{tabular}{ll}\noalign{\hrule height 1pt} 
+%      control  D & end of file \\ \hline
+%      control  S & log out\\  \hline
+%      tab & filename 補間 \\ \hline
+%      \verb/*/ & 任意filename \\ \hline
+%      \verb/*/hoge & 最後がhoge の任意filename \\ \hline
+%      \verb/!!/ &直前のコマンドをもう一度 \\ \hline
+%       \verb/!/cmd1 & cmd1で始まる一番新しいコマンドをもう一度 \\ \hline
+%     cmd1\verb/;/ cmd2& コマンド cmd1と cmd2の並列 \\ \hline
+%      cmd1\verb/|/ cmd2& pipe:コマンドcmd1の標準出力を
+%      cmd2の標準入力へ \\ \hline
+%      \verb/>/ file1& file1へredirect \\ \hline 
+%      \verb/>>/ file1 & file1へ追加 \\ \hline 
+%     \verb/</ file1& file1からredirect \\ \hline
+%    \verb/./ & current directory \\ \hline
+%     \verb/../ & parent directory \\
+%     \noalign{\hrule height 1pt} 
+%   \end{tabular}
+%   \smallemptyline
+%   \caption{terminalとshellのメタキャラクター}
+%\end{table}
+%
+%\begin{table}[htb]
+%   \centering
+%   \begin{tabular}{ll}\noalign{\hrule height 1pt} 
+%      control A& 行の先頭へ\\ \hline
+%      control B & 一文字前へ\\ \hline
+%      control E & 行の最後へ\\ \hline
+%      control F& 一文字後ろへ\\ \hline
+%      control N& 次の行へ\\ \hline
+%      control P & 前の行へ\\ \hline
+%      control D & 右を消去\\ \hline
+%      control K & カーソルの後を消去\\ \hline
+%      control H & 左を消去\\ \hline
+%      control V & 一画面移動\\ \hline
+%      control Y & 再入力\\ \noalign{\hrule height 1pt}
+%   \end{tabular}
+%   \smallemptyline
+%   \caption{Emacs由来}
+%\end{table}
 
 
 
