@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  22 OCT 2026 11:59
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  24 OCT 2026 09:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1153,7 +1153,90 @@ File: l3backend-dvips.def 2024-05-08 L3 backend support: dvips
 \g__pdf_backend_link_int=\count417
 \g__pdf_backend_link_sf_int=\count418
 )
-(./main.aux)
+(./main.aux (./intro/intro.aux) (./ch1/ch1.aux) (./ch2/ch2.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+) (./ch3/ch3.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+) (./ch4/ch4.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+) (./ch5/ch5.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+) (./ch6/ch6.aux) (./appa/appa.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+) (./appb/appb.aux) (./appc/appc.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+) (./appd/appd.aux) (./appe/appe.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
+
+LaTeX Warning: Label `Ko' multiply defined.
+
+
+LaTeX Warning: Label `K' multiply defined.
+
+
+LaTeX Warning: Label `N' multiply defined.
+
+
+LaTeX Warning: Label `M' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
@@ -1183,10 +1266,6 @@ Package hyperref Info: Link coloring ON on input line 87.
 \@outlinefile=\write7
 \openout7 = `main.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 \c@lstlisting=\count419
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 18.7pt on input line 89.
@@ -1201,6 +1280,7 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 LaTeX Font Info:    Calculating math sizes for size <15.4> on input line 89.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
 9.
+
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1316,19 +1396,30 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 
 ])
 
-[4] (./main.toc)
-\tf@toc=\write8
-\openout8 = `main.toc'.
-
-
+[4] (./main.toc
 
 [5
 
 
 
 ]
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.0pt on input line 33.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 7.69997pt on input line 33.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 5.5pt on input line 33.
 
-[6
+
+[6])
+\tf@toc=\write8
+\openout8 = `main.toc'.
+
+
+
+[7]
+
+[8
 
 ]
 \openout2 = `ch1/ch1.aux'.
@@ -1346,41 +1437,12 @@ LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <15.4> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 105.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 15.4pt on input line 105.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <11> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 123.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.0pt on input line 123.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <11> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 123.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.0pt on input line 123.
-
-
-LaTeX Warning: Citation `Turing' on page 1 undefined on input line 123.
-
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8.80003> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 148.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 8.80003pt on input line 148.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8.80003> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 148.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 8.80003pt on input line 148.
-
-LaTeX Warning: Citation `W' on page 1 undefined on input line 148.
-
 
 
 [1
 
 
 ]
-
-LaTeX Warning: Citation `K' on page 2 undefined on input line 171.
-
-
-LaTeX Warning: Reference `PDP11' on page 2 undefined on input line 179.
-
 File: ~/Documents/GitHub/introInfo/ch1/images/Screen_Shot_2020-09-19_at_7.16.21
 _AM_big.png Graphic file (type bmp)
 <~/Documents/GitHub/introInfo/ch1/images/Screen_Shot_2020-09-19_at_7.16.21_AM_b
@@ -1398,36 +1460,8 @@ LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <9.89993> not available
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 9.89993pt on input line 200.
 
-LaTeX Warning: Reference `GUI' on page 2 undefined on input line 204.
-
-
 
 [2]
-
-LaTeX Warning: Citation `Orwell' on page 3 undefined on input line 240.
-
-
-LaTeX Warning: Citation `Jobs' on page 3 undefined on input line 240.
-
-
-LaTeX Warning: Citation `Jobs' on page 3 undefined on input line 253.
-
-
-LaTeX Warning: Citation `interface' on page 3 undefined on input line 253.
-
-
-LaTeX Warning: Citation `history' on page 3 undefined on input line 253.
-
-
-LaTeX Warning: Citation `UNIX' on page 3 undefined on input line 253.
-
-
-LaTeX Warning: Citation `Kay' on page 3 undefined on input line 253.
-
-
-LaTeX Warning: Citation `tools' on page 3 undefined on input line 253.
-
-
 
 [3]
 File: ~/Documents/GitHub/introInfo/ch1/images/figure.1 Graphic file (type eps)
@@ -1435,27 +1469,15 @@ File: ~/Documents/GitHub/introInfo/ch1/images/figure.1 Graphic file (type eps)
 File: ~/Documents/GitHub/introInfo/ch1/images/column.pdf Graphic file (type pdf
 )
 <~/Documents/GitHub/introInfo/ch1/images/column.pdf>
-
-
-LaTeX Warning: Reference `tree' on page 4 undefined on input line 283.
-
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.0pt on input line 284.
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
 284.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-LaTeX Warning: Reference `tree' on page 4 undefined on input line 290.
-
-
-
 [4]
-
-LaTeX Warning: Reference `flopy' on page 5 undefined on input line 304.
-
-
-LaTeX Warning: Reference `fopyDrive' on page 5 undefined on input line 306.
-
 File: ~/Documents/GitHub/introInfo/ch1/images/flopy.png Graphic file (type bmp)
 
 <~/Documents/GitHub/introInfo/ch1/images/flopy.png>
@@ -1471,6 +1493,14 @@ LaTeX Font Info:    Font shape `U/ccicons/m/n' will be
 File: ~/Documents/GitHub/introInfo/ch1/images/vscode.pdf Graphic file (type pdf
 )
 <~/Documents/GitHub/introInfo/ch1/images/vscode.pdf>
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <11> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 395.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.0pt on input line 395.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <11> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 395.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.0pt on input line 395.
 LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <11> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 395.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
@@ -1481,17 +1511,7 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 11.0pt on input line 395.
 
 
-LaTeX Warning: Reference `vscodeTerm' on page 6 undefined on input line 402.
-
-
-LaTeX Warning: Reference `vscode' on page 6 undefined on input line 410.
-
-
-
 [6]
-
-LaTeX Warning: Reference `vscodeTerm' on page 7 undefined on input line 432.
-
 File: ~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf Graphic file (
 type pdf)
 <~/Documents/GitHub/introInfo/ch1/images/ScreenCapture2.pdf>
@@ -1501,20 +1521,14 @@ type pdf)
 
 
 [7]
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 7.69997pt on input line 535.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 5.5pt on input line 535.
-
-
-LaTeX Warning: Reference `terminal' on page 8 undefined on input line 570.
-
 File: ~/Documents/GitHub/introInfo/ch1/images/terminal.pdf Graphic file (type p
 df)
 <~/Documents/GitHub/introInfo/ch1/images/terminal.pdf>
 
 
 [8]
+
+[9]
 LaTeX Font Info:    Trying to load font information for OML+lmr on input line 6
 09.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmr.fd
@@ -1522,9 +1536,6 @@ File: omllmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OML/lmr/m/n' in size <11> not available
 (Font)              Font shape `OML/lmm/m/it' tried instead on input line 609.
-
-
-[9]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 623.
 )
@@ -1533,12 +1544,6 @@ nput line 623.
 \openout2 = `ch2/ch2.aux'.
 
  (./ch2/ch2.tex
-
-LaTeX Warning: Citation `Bo' on page 11 undefined on input line 66.
-
-
-LaTeX Warning: Reference `power' on page 11 undefined on input line 69.
-
 LaTeX Font Info:    Calculating math sizes for size <8.80003> on input line 70.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1552,9 +1557,12 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 4.40001pt on input line 70.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.80003pt on input line 70.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 6.15999pt on input line 70.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 4.40001pt on input line 70.
+
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <4.40001> not available
 (Font)              size <5> substituted on input line 70.
@@ -1606,14 +1614,7 @@ df)
 
 [12]
 
-LaTeX Warning: Reference `HHKB' on page 13 undefined on input line 212.
-
-
-
 [13]
-
-LaTeX Warning: Reference `karabiner' on page 14 undefined on input line 242.
-
 File: ~/Documents/GitHub/introInfo/ch2/images/karabiner.png Graphic file (type 
 bmp)
 <~/Documents/GitHub/introInfo/ch2/images/karabiner.png>
@@ -1629,9 +1630,6 @@ File: ~/Documents/GitHub/introInfo/ch2/images/memo.pdf Graphic file (type pdf)
 
 [15]
 
-LaTeX Warning: Citation `Y' on page 16 undefined on input line 333.
-
-
 LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 349.
 
 
@@ -1641,16 +1639,8 @@ File: ~/Documents/GitHub/introInfo/ch2/images/figure.1 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.1>
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.2 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.2>
-
-
-LaTeX Warning: Reference `Liquid Crystal' on page 17 undefined on input line 41
-9.
-
 LaTeX Font Info:    Font shape `U/ccicons/m/n' will be
 (Font)              scaled to size 8.80003pt on input line 423.
-
-LaTeX Warning: Reference `addColor' on page 17 undefined on input line 427.
-
 
 
 [17]
@@ -1663,33 +1653,9 @@ File: ~/Documents/GitHub/introInfo/ch2/images/figure.8 Graphic file (type eps)
 
 
 [18]
-
-LaTeX Warning: Reference `colorCode' on page 19 undefined on input line 476.
-
 File: ~/Documents/GitHub/introInfo/ch2/images/color.jpg Graphic file (type bmp)
 
 <~/Documents/GitHub/introInfo/ch2/images/color.jpg>
-
-LaTeX Warning: Reference `subColor' on page 19 undefined on input line 485.
-
-
-LaTeX Warning: Reference `cycColor' on page 19 undefined on input line 491.
-
-
-LaTeX Warning: Reference `cycColor' on page 19 undefined on input line 500.
-
-
-LaTeX Warning: Citation `R' on page 19 undefined on input line 513.
-
-
-LaTeX Warning: Citation `TK' on page 19 undefined on input line 513.
-
-
-LaTeX Warning: Citation `Uti' on page 19 undefined on input line 513.
-
-
-LaTeX Warning: Citation `W' on page 19 undefined on input line 513.
-
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.3 Graphic file (type eps)
 <~/Documents/GitHub/introInfo/ch2/images/figure.3>
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.4 Graphic file (type eps)
@@ -1697,10 +1663,6 @@ File: ~/Documents/GitHub/introInfo/ch2/images/figure.4 Graphic file (type eps)
 
 
 [19]
-
-LaTeX Warning: Reference `sampling' on page 20 undefined on input line 609.
-
-
 
 [20]
 File: ~/Documents/GitHub/introInfo/ch2/images/figure.5 Graphic file (type eps)
@@ -1711,20 +1673,7 @@ File: ~/Documents/GitHub/introInfo/ch2/images/figure.6 Graphic file (type eps)
 
 [21]
 
-LaTeX Warning: Citation `KR' on page 22 undefined on input line 686.
-
-
-LaTeX Warning: Citation `KP' on page 22 undefined on input line 697.
-
-
-LaTeX Warning: Citation `Ya' on page 22 undefined on input line 697.
-
-
-
 [22]
-
-LaTeX Warning: Reference `csv' on page 23 undefined on input line 728.
-
 File: ~/Documents/GitHub/introInfo/ch2/images/ScreenCapture1.pdf Graphic file (
 type pdf)
 <~/Documents/GitHub/introInfo/ch2/images/ScreenCapture1.pdf>
@@ -1735,12 +1684,6 @@ File: ~/Documents/GitHub/introInfo/ch2/images/ScreenCapture3.pdf Graphic file (
 type pdf)
 <~/Documents/GitHub/introInfo/ch2/images/ScreenCapture3.pdf>
 
-LaTeX Warning: Reference `JSON' on page 23 undefined on input line 761.
-
-
-LaTeX Warning: Reference `YAML' on page 23 undefined on input line 767.
-
-
 
 [23]
 
@@ -1748,38 +1691,18 @@ LaTeX Warning: Reference `YAML' on page 23 undefined on input line 767.
 
 [25]
 
-LaTeX Warning: Citation `Y' on page 26 undefined on input line 908.
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
 [26]
 
-[27]
-
-LaTeX Warning: Citation `Kabuki' on page 28 undefined on input line 973.
-
-)
+[27])
 
 [28]
 \openout2 = `ch3/ch3.aux'.
 
  (./ch3/ch3.tex
-
-LaTeX Warning: Citation `T' on page 29 undefined on input line 76.
-
-
-LaTeX Warning: Citation `Mu' on page 29 undefined on input line 77.
-
-
-LaTeX Warning: Citation `F' on page 29 undefined on input line 85.
-
-
-LaTeX Warning: Citation `Mn' on page 29 undefined on input line 85.
-
-
 
 [29
 
@@ -1790,13 +1713,6 @@ LaTeX Warning: Citation `Mn' on page 29 undefined on input line 85.
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.1>
-
-
-LaTeX Warning: Reference `sum' on page 30 undefined on input line 237.
-
-
-LaTeX Warning: Reference `sumPic' on page 30 undefined on input line 239.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.2>
@@ -1833,40 +1749,24 @@ Package CIRC Info: `\put \P \_ \L \S ' redefined on input line 299.
 Package CIRC Info: `\put \P \_ \L \S ' restored on input line 325.
 Package CIRC Info: `\put \P \_ \L \S ' redefined on input line 329.
 Package CIRC Info: `\put \P \_ \L \S ' restored on input line 363.
-
-
-LaTeX Warning: Reference `decode' on page 31 undefined on input line 375.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.4 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.4>
 
 
 [31]
-
-LaTeX Warning: Reference `encode' on page 32 undefined on input line 389.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.5 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.5>
 
 
 [32]
-
-LaTeX Warning: Reference `mathbf F' on page 33 undefined on input line 416.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.6 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.6>
-
-LaTeX Warning: Reference `anyLogic' on page 33 undefined on input line 425.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.7 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.7>
-
-LaTeX Warning: Reference `flipflop' on page 33 undefined on input line 442.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.8 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure4.8>
@@ -1879,28 +1779,11 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure4.9 Graphic file (type eps)
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.10 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure4.10>
-
-
-LaTeX Warning: Reference `stab' on page 34 undefined on input line 477.
-
-
-LaTeX Warning: Reference `setReset' on page 34 undefined on input line 478.
-
-
-LaTeX Warning: Reference `pulseWave' on page 34 undefined on input line 485.
-
-
-LaTeX Warning: Reference `pulseCircuit' on page 34 undefined on input line 487.
-
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.11 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure4.11>
 Package CIRC Info: `\put \P \_ \L \S ' redefined on input line 498.
 Package CIRC Info: `\put \P \_ \L \S ' restored on input line 561.
-
-LaTeX Warning: Reference `clockedFF' on page 34 undefined on input line 569.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.12 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure4.12>
@@ -1909,9 +1792,6 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure4.12 Graphic file (type eps
 [34]
 
 [35]
-
-LaTeX Warning: Reference `clockedFF2' on page 36 undefined on input line 578.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure4.13 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure4.13>
@@ -1948,10 +1828,6 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure5.3 Graphic file (type eps)
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.4 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.4>
-
-
-LaTeX Warning: Reference `TuringM' on page 39 undefined on input line 776.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.5 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.5>
@@ -1961,25 +1837,15 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure5.5 Graphic file (type eps)
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.6 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.6>
-
-
-LaTeX Warning: Reference `consist' on page 40 undefined on input line 817.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.7 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.7>
 
 
 [40]
-
-LaTeX Warning: Reference `initial' on page 41 undefined on input line 854.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.8 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.8>
-
-LaTeX Warning: Reference `file' on page 41 undefined on input line 865.
-
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.9 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch3/images/figure5.9>
@@ -2003,21 +1869,10 @@ File: ~/Documents/GitHub/introInfo/ch3/images/figure5.13 Graphic file (type eps
 <~/Documents/GitHub/introInfo/ch3/images/figure5.13>
 
 
-LaTeX Warning: Reference `UT' on page 43 undefined on input line 950.
-
-
-LaTeX Warning: Citation `Mn' on page 43 undefined on input line 951.
-
-
-
 [43]
 File: ~/Documents/GitHub/introInfo/ch3/images/figure5.14 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/ch3/images/figure5.14>
-
-
-LaTeX Warning: Citation `TuringM' on page 44 undefined on input line 994.
-
 )
 
 [44]
@@ -2047,10 +1902,6 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 13.2pt on input line 57.
 
 
-LaTeX Warning: Citation `Yamakawa' on page 47 undefined on input line 61.
-
-
-
 [47]
 
 [48]
@@ -2061,28 +1912,16 @@ File: ~/Documents/GitHub/introInfo/ch4/images/hub.pdf Graphic file (type pdf)
 <~/Documents/GitHub/introInfo/ch4/images/hub.pdf>
 
 
-LaTeX Warning: Reference `macAdress' on page 49 undefined on input line 176.
-
-
-
 [49]
-
-LaTeX Warning: Reference `ethernet' on page 50 undefined on input line 186.
-
 File: ~/Documents/GitHub/introInfo/ch4/images/figure6.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure6.1>
-
-LaTeX Warning: Reference `cell' on page 50 undefined on input line 220.
-
 File: ~/Documents/GitHub/introInfo/ch4/images/figure6.6 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure6.6>
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `levels' on page 50 undefined on input line 262.
 
 
 
@@ -2090,10 +1929,6 @@ LaTeX Warning: Reference `levels' on page 50 undefined on input line 262.
 File: ~/Documents/GitHub/introInfo/ch4/images/figure6.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure6.2>
-
-
-LaTeX Warning: Reference `ipAdress' on page 51 undefined on input line 276.
-
 
 
 [51]
@@ -2109,10 +1944,6 @@ File: ~/Documents/GitHub/introInfo/ch4/images/figure6.5 Graphic file (type eps)
 File: ~/Documents/GitHub/introInfo/ch4/images/figure6.3 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure6.3>
-
-
-LaTeX Warning: Reference `levels' on page 53 undefined on input line 342.
-
 File: ~/Documents/GitHub/introInfo/ch4/images/figure6.4 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure6.4>
@@ -2120,14 +1951,7 @@ File: ~/Documents/GitHub/introInfo/ch4/images/figure6.4 Graphic file (type eps)
 
 [53]
 
-LaTeX Warning: Reference `levels' on page 54 undefined on input line 374.
-
-
-
 [54]
-
-LaTeX Warning: Citation `LT' on page 55 undefined on input line 447.
-
 File: ~/Documents/GitHub/introInfo/ch4/images/figure7.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure7.1>
@@ -2147,29 +1971,16 @@ e bmp)
 <~/Documents/GitHub/introInfo/ch4/images/Screenshot2.png>
 
 
-LaTeX Warning: Reference `query' on page 58 undefined on input line 604.
-
-
-
 [58]
-
-LaTeX Warning: Reference `query' on page 59 undefined on input line 624.
-
 File: ~/Documents/GitHub/introInfo/ch4/images/Screenshot3.png Graphic file (typ
 e bmp)
 <~/Documents/GitHub/introInfo/ch4/images/Screenshot3.png>
 
 
 [59]
-
-LaTeX Warning: Reference `dom' on page 60 undefined on input line 648.
-
 File: ~/Documents/GitHub/introInfo/ch4/images/figure7.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch4/images/figure7.2>
-
-LaTeX Warning: Citation `Ko' on page 60 undefined on input line 672.
-
 
 
 [60]
@@ -2178,10 +1989,6 @@ LaTeX Warning: Citation `Ko' on page 60 undefined on input line 672.
 File: ~/Documents/GitHub/introInfo/ch4/images/Screenshot1.png Graphic file (typ
 e bmp)
 <~/Documents/GitHub/introInfo/ch4/images/Screenshot1.png>
-
-
-LaTeX Warning: Reference `Browser' on page 62 undefined on input line 780.
-
 
 
 [62]
@@ -2233,15 +2040,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 68.
 
 
-LaTeX Warning: Citation `Ho' on page 65 undefined on input line 70.
-
-
-LaTeX Warning: Citation `Ta' on page 65 undefined on input line 70.
-
-
-LaTeX Warning: Citation `Ko' on page 65 undefined on input line 70.
-
-
 
 [65
 
@@ -2259,10 +2057,6 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 11.0pt on input line 144.
 
 
-LaTeX Warning: Reference `mod4plus' on page 66 undefined on input line 180.
-
-
-
 [66]
 
 [67]
@@ -2271,21 +2065,7 @@ LaTeX Warning: Reference `mod4plus' on page 66 undefined on input line 180.
 
 [69]
 
-LaTeX Warning: Reference `funPoly' on page 70 undefined on input line 394.
-
-
-LaTeX Warning: Citation `Y' on page 70 undefined on input line 414.
-
-
-
 [70]
-
-LaTeX Warning: Reference `eq3' on page 71 undefined on input line 431.
-
-
-LaTeX Warning: Reference `eq4' on page 71 undefined on input line 451.
-
-
 
 [71]
 File: ~/Documents/GitHub/introInfo/ch5/images/figure8.1 Graphic file (type eps)
@@ -2297,19 +2077,12 @@ File: ~/Documents/GitHub/introInfo/ch5/images/figure8.1 Graphic file (type eps)
 File: ~/Documents/GitHub/introInfo/ch5/images/figure8.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch5/images/figure8.2>
-
-
-LaTeX Warning: Reference `CA' on page 73 undefined on input line 564.
-
 File: ~/Documents/GitHub/introInfo/ch5/images/figure8.3 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch5/images/figure8.3>
 
 
 [73]
-
-LaTeX Warning: Reference `digitalSign' on page 74 undefined on input line 594.
-
 File: ~/Documents/GitHub/introInfo/ch5/images/certificate.png Graphic file (typ
 e bmp)
 <~/Documents/GitHub/introInfo/ch5/images/certificate.png>
@@ -2318,13 +2091,6 @@ e bmp)
 [74]
 
 [75]
-
-LaTeX Warning: Citation `Ba' on page 76 undefined on input line 719.
-
-
-LaTeX Warning: Citation `NKO' on page 76 undefined on input line 719.
-
-
 
 [76]
 
@@ -2336,20 +2102,12 @@ LaTeX Warning: Citation `NKO' on page 76 undefined on input line 719.
 File: ~/Documents/GitHub/introInfo/ch5/images/figure9.1 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch5/images/figure9.1>
-
-
-LaTeX Warning: Reference `FireWall' on page 80 undefined on input line 989.
-
-
-
-[80]
 File: ~/Documents/GitHub/introInfo/ch5/images/figure9.2 Graphic file (type eps)
 
 <~/Documents/GitHub/introInfo/ch5/images/figure9.2>
 
 
-LaTeX Warning: Reference `Sharing' on page 81 undefined on input line 1008.
-
+[80]
 File: ~/Documents/GitHub/introInfo/ch5/images/sharing.png Graphic file (type bm
 p)
 <~/Documents/GitHub/introInfo/ch5/images/sharing.png>
@@ -2361,15 +2119,7 @@ p)
 
 [83]
 
-LaTeX Warning: Citation `Ba' on page 84 undefined on input line 1219.
-
-
-
-[84]
-
-LaTeX Warning: Citation `GM' on page 85 undefined on input line 1264.
-
-)
+[84])
 
 [85]
 \openout2 = `ch6/ch6.aux'.
@@ -2390,64 +2140,13 @@ File: ~/Documents/GitHub/introInfo/ch6/images/figure.1 Graphic file (type eps)
 
 [88]
 
-LaTeX Warning: Citation `PK' on page 89 undefined on input line 256.
-
-
-LaTeX Warning: Citation `KL' on page 89 undefined on input line 273.
-
-
-LaTeX Warning: Citation `L' on page 89 undefined on input line 273.
-
-
-
 [89]
-
-LaTeX Warning: Citation `Han' on page 90 undefined on input line 288.
-
-
-LaTeX Warning: Citation `I' on page 90 undefined on input line 288.
-
-
-LaTeX Warning: Citation `Ko' on page 90 undefined on input line 288.
-
-
-LaTeX Warning: Citation `KS' on page 90 undefined on input line 288.
-
-
-LaTeX Warning: Citation `M2' on page 90 undefined on input line 288.
-
-
-LaTeX Warning: Citation `M' on page 90 undefined on input line 302.
-
-
-LaTeX Warning: Citation `LL' on page 90 undefined on input line 313.
-
-
-LaTeX Warning: Citation `P' on page 90 undefined on input line 321.
-
-
-LaTeX Warning: Citation `M1' on page 90 undefined on input line 335.
-
-
-LaTeX Warning: Citation `NKO' on page 90 undefined on input line 335.
-
-
 
 [90]
 
 [91]
 
-LaTeX Warning: Citation `Ha' on page 92 undefined on input line 432.
-
-
-LaTeX Warning: Citation `Uts' on page 92 undefined on input line 433.
-
-
-LaTeX Warning: Citation `Br' on page 92 undefined on input line 434.
-
-)
-
-[92]
+[92])
 \openout2 = `appa/appa.aux'.
 
  (./appa/appa.tex
@@ -2459,19 +2158,12 @@ File: ~/Documents/GitHub/introInfo/appa/images/factTrace.pdf Graphic file (type
 <~/Documents/GitHub/introInfo/appa/images/factTrace.pdf>
 
 
-LaTeX Warning: Reference `fun' on page 93 undefined on input line 99.
-
-
-
 [93
 
 
 
 
 ]
-
-LaTeX Warning: Reference `fun2' on page 94 undefined on input line 108.
-
 File: ~/Documents/GitHub/introInfo/appa/images/ScreenCapture1.pdf Graphic file 
 (type pdf)
 <~/Documents/GitHub/introInfo/appa/images/ScreenCapture1.pdf>
@@ -2492,18 +2184,6 @@ File: ~/Documents/GitHub/introInfo/appa/images/ScreenCapture6.pdf Graphic file
 <~/Documents/GitHub/introInfo/appa/images/ScreenCapture6.pdf>
 
 
-LaTeX Warning: Reference `withoutCodeWindow' on page 95 undefined on input line
- 161.
-
-
-LaTeX Warning: Reference `withCodeWindow' on page 95 undefined on input line 16
-7.
-
-
-LaTeX Warning: Reference `factorial' on page 95 undefined on input line 174.
-
-
-
 [95]
 File: ~/Documents/GitHub/introInfo/appa/images/ScreenCapture7.pdf Graphic file 
 (type pdf)
@@ -2513,15 +2193,9 @@ File: ~/Documents/GitHub/introInfo/appa/images/ScreenCapture7.pdf Graphic file
 [96]
 
 [97]
-
-LaTeX Warning: Reference `Fibonacci' on page 98 undefined on input line 243.
-
 File: ~/Documents/GitHub/introInfo/appa/images/Fibonacci.pdf Graphic file (type
  pdf)
 <~/Documents/GitHub/introInfo/appa/images/Fibonacci.pdf>
-
-LaTeX Warning: Reference `Pascal' on page 98 undefined on input line 256.
-
 File: ~/Documents/GitHub/introInfo/appa/images/Pascal2.pdf Graphic file (type p
 df)
 <~/Documents/GitHub/introInfo/appa/images/Pascal2.pdf>
@@ -2529,20 +2203,7 @@ df)
 
 [98]
 
-LaTeX Warning: Reference `histogram' on page 99 undefined on input line 283.
-
-
-LaTeX Warning: Reference `data' on page 99 undefined on input line 300.
-
-
-LaTeX Warning: Citation `EL' on page 99 undefined on input line 300.
-
-
-
 [99]
-
-LaTeX Warning: Reference `histogram' on page 100 undefined on input line 321.
-
 File: ~/Documents/GitHub/introInfo/appa/images/excelAnalysis.pdf Graphic file (
 type pdf)
 <~/Documents/GitHub/introInfo/appa/images/excelAnalysis.pdf>
@@ -2550,45 +2211,8 @@ File: ~/Documents/GitHub/introInfo/appa/images/graphD.pdf Graphic file (type pd
 f)
 <~/Documents/GitHub/introInfo/appa/images/graphD.pdf>
 
-LaTeX Warning: Citation `Jobs' on page 100 undefined on input line 347.
-
-
-LaTeX Warning: Citation `W' on page 100 undefined on input line 351.
-
-
 
 [100]
-
-LaTeX Warning: Citation `Y' on page 101 undefined on input line 354.
-
-
-LaTeX Warning: Citation `Kum' on page 101 undefined on input line 355.
-
-
-LaTeX Warning: Reference `fun' on page 101 undefined on input line 355.
-
-
-LaTeX Warning: Reference `Fibonacci' on page 101 undefined on input line 355.
-
-
-LaTeX Warning: Reference `Pascal' on page 101 undefined on input line 355.
-
-
-LaTeX Warning: Citation `Kud' on page 101 undefined on input line 356.
-
-
-LaTeX Warning: Citation `T' on page 101 undefined on input line 357.
-
-
-LaTeX Warning: Citation `EV' on page 101 undefined on input line 359.
-
-
-LaTeX Warning: Citation `EL' on page 101 undefined on input line 359.
-
-
-LaTeX Warning: Citation `EF' on page 101 undefined on input line 359.
-
-
 
 [101]
 
@@ -2603,9 +2227,6 @@ LaTeX Font Info:    Trying to load font information for U+logo on input line 98
 (/usr/local/texlive/2025/texmf-dist/tex/latex/mflogo/ulogo.fd
 File: ulogo.fd 1999/03/10 v2.0 LaTeX font defs for Metafont and MetaPost logos
 )
-
-LaTeX Warning: Citation `K' on page 103 undefined on input line 98.
-
 File: ~/Documents/GitHub/introInfo/appb/images/preferences.png Graphic file (ty
 pe bmp)
 <~/Documents/GitHub/introInfo/appb/images/preferences.png>
@@ -2619,10 +2240,6 @@ pe bmp)
 
 ]
 
-LaTeX Warning: Citation `OK' on page 104 undefined on input line 134.
-
-
-
 [104]
 
 [105]
@@ -2631,21 +2248,9 @@ File: ~/Documents/GitHub/introInfo/appb/images/ScreenCapture1.pdf Graphic file
 <~/Documents/GitHub/introInfo/appb/images/ScreenCapture1.pdf>
 
 
-LaTeX Warning: Reference `compile' on page 106 undefined on input line 203.
-
-
-
-[106]
-
-LaTeX Warning: Citation `TeXShop' on page 107 undefined on input line 214.
-
-<xymatrix 2x2 175>
+[106] <xymatrix 2x2 175>
 
 [107]
-
-LaTeX Warning: Reference `texhopMetapost' on page 108 undefined on input line 3
-30.
-
 File: ~/Documents/GitHub/introInfo/appb/images/texhopMetapost.pdf Graphic file 
 (type pdf)
 <~/Documents/GitHub/introInfo/appb/images/texhopMetapost.pdf>
@@ -2668,10 +2273,6 @@ File: ~/Documents/GitHub/introInfo/appb/images/figure.2 Graphic file (type eps)
 
 [111]
 
-LaTeX Warning: Citation `texlive' on page 112 undefined on input line 479.
-
-
-
 [112]
 
 [113]
@@ -2683,22 +2284,9 @@ runsystem(r-mpost @main.mp)...executed safely (allowed).
 <@main001.mps>
  (./@main.sav)
 
-LaTeX Warning: Reference `preview' on page 114 undefined on input line 634.
-
-
-LaTeX Warning: Reference `preview1' on page 114 undefined on input line 634.
-
-
-
 [114]
 
 [115]
-
-LaTeX Warning: Citation `LLM' on page 116 undefined on input line 690.
-
-
-LaTeX Warning: Citation `Hi' on page 116 undefined on input line 690.
-
 File: ~/Documents/GitHub/introInfo/appb/images/IntroToMarkdown.pdf Graphic file
  (type pdf)
 <~/Documents/GitHub/introInfo/appb/images/IntroToMarkdown.pdf>
@@ -2734,13 +2322,6 @@ File: ~/Documents/GitHub/introInfo/appc/images/ScreenCapture2.pdf Graphic file
 <~/Documents/GitHub/introInfo/appc/images/ScreenCapture2.pdf>
 
 
-LaTeX Warning: Reference `alart' on page 120 undefined on input line 134.
-
-
-LaTeX Warning: Reference `console' on page 120 undefined on input line 140.
-
-
-
 [120]
 
 [121]
@@ -2754,10 +2335,6 @@ File: ~/Documents/GitHub/introInfo/appc/images/ScreenCapture7.pdf Graphic file
 [123]
 
 [124]
-
-LaTeX Warning: Reference `~/Documents/GitHub/introInfo/appc/images/figure.2' on
- page 125 undefined on input line 334.
-
 File: ~/Documents/GitHub/introInfo/appc/images/figure1.2 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/appc/images/figure1.2>
@@ -2768,22 +2345,10 @@ File: ~/Documents/GitHub/introInfo/appc/images/figure1.1 Graphic file (type eps
 
 [125]
 
-LaTeX Warning: Reference `trainagle' on page 126 undefined on input line 391.
-
-
-
 [126]
 File: ~/Documents/GitHub/introInfo/appc/images/figure1.3 Graphic file (type eps
 )
 <~/Documents/GitHub/introInfo/appc/images/figure1.3>
-
-
-LaTeX Warning: Reference `Sierpinski Carpet' on page 127 undefined on input lin
-e 418.
-
-
-LaTeX Warning: Reference `Koch flake' on page 127 undefined on input line 421.
-
 File: ~/Documents/GitHub/introInfo/appc/images/ScreenCapture5.pdf Graphic file 
 (type pdf)
 <~/Documents/GitHub/introInfo/appc/images/ScreenCapture5.pdf>
@@ -2858,9 +2423,6 @@ File: ~/Documents/GitHub/introInfo/appe/images/figure.3 Graphic file (type eps)
 [143]
 
 [144]
-
-LaTeX Warning: Reference `GitHubHome' on page 145 undefined on input line 433.
-
 File: ~/Documents/GitHub/introInfo/appe/images/GitHub.png Graphic file (type bm
 p)
 <~/Documents/GitHub/introInfo/appe/images/GitHub.png>
@@ -2876,20 +2438,10 @@ File: ~/Documents/GitHub/introInfo/appe/images/figure.4 Graphic file (type eps)
 
 [147]
 
-LaTeX Warning: Reference `GitHub' on page 148 undefined on input line 575.
-
-
-
 [148]
-
-LaTeX Warning: Reference `pagesTest' on page 149 undefined on input line 606.
-
 File: ~/Documents/GitHub/introInfo/appe/images/pagesTest.pdf Graphic file (type
  pdf)
 <~/Documents/GitHub/introInfo/appe/images/pagesTest.pdf>
-
-LaTeX Warning: Citation `M' on page 149 undefined on input line 615.
-
 
 
 [149])
@@ -2904,11 +2456,19 @@ LaTeX Warning: Citation `M' on page 149 undefined on input line 615.
 
 [152]
 
-[153]
-No file main.ind.
+[153] (./main.ind
+
+[154]
 
 
-[154] (./main.aux (./intro/intro.aux) (./ch1/ch1.aux) (./ch2/ch2.aux)
+
+[155
+
+]
+
+
+
+[156]) (./main.aux (./intro/intro.aux) (./ch1/ch1.aux) (./ch2/ch2.aux)
 (./ch3/ch3.aux) (./ch4/ch4.aux) (./ch5/ch5.aux) (./ch6/ch6.aux)
 (./appa/appa.aux) (./appb/appb.aux) (./appc/appc.aux) (./appd/appd.aux)
 (./appe/appe.aux))
@@ -2923,27 +2483,18 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.2pt have occurred.
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  ACCCB60B535A9C3F0C4AEC08BE9E628D;12693.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: F899F97EB62AEECEB944F5FE1BA9060F;12672.
  ) 
 Here is how much of TeX's memory you used:
- 35489 strings out of 473836
- 815790 string characters out of 5731189
- 1061186 words of memory out of 5000000
- 57962 multiletter control sequences out of 15000+600000
- 742950 words of font info for 259 fonts, out of 8000000 for 9000
+ 35549 strings out of 473836
+ 816532 string characters out of 5731189
+ 1086250 words of memory out of 5000000
+ 57995 multiletter control sequences out of 15000+600000
+ 742499 words of font info for 258 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  100i,17n,105p,906b,1257s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (160 pages, 509136 bytes).
+Output written on main.dvi (164 pages, 609564 bytes).
