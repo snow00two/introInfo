@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  24 OCT 2026 09:31
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.euc) (TeX Live 2025) (preloaded format=platex 2025.5.23)  25 OCT 2026 07:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2491,10 +2491,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  35549 strings out of 473836
  816532 string characters out of 5731189
- 1086250 words of memory out of 5000000
+ 1086249 words of memory out of 5000000
  57995 multiletter control sequences out of 15000+600000
  742499 words of font info for 258 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  100i,17n,105p,906b,1257s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (164 pages, 609564 bytes).
+Output written on main.dvi (164 pages, 609500 bytes).
