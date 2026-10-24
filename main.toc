@@ -73,8 +73,7 @@
 \contentsline {subsection}{\numberline {C.2.2}p5.js の3Dモードの説明とソースファイルの解説}{130}{subsection.C.2.2}%
 \contentsline {chapter}{\numberline {付録D}ShellとShell Script 入門}{133}{appendix.D}%
 \contentsline {section}{\numberline {D.1}標準入出力とパイプ}{133}{section.D.1}%
-\contentsline {section}{\numberline {D.2}制御構文}{134}{section.D.2}%
-\contentsline {section}{\numberline {D.3}Shell Script}{134}{section.D.3}%
+\contentsline {section}{\numberline {D.2}Shell Script}{134}{section.D.2}%
 \contentsline {chapter}{\numberline {付録E}Git と GitHub}{139}{appendix.E}%
 \contentsline {section}{\numberline {E.1}バージョン管理の必要性}{139}{section.E.1}%
 \contentsline {section}{\numberline {E.2}バージョン管理ツールの歴史}{140}{section.E.2}%
