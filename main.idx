@@ -35,7 +35,8 @@
 \indexentry{プロトコル|hyperpage}{51}
 \indexentry{IP address|hyperpage}{52}
 \indexentry{DHCP|hyperpage}{52}
-\indexentry{ドメインネーム|hyperpage}{52}
+\indexentry{ドメインネーム|hyperpage}{53}
+\indexentry{トップドメイン|hyperpage}{53}
 \indexentry{DNS|hyperpage}{53}
 \indexentry{ルーティング|hyperpage}{53}
 \indexentry{TCP|hyperpage}{53}
@@ -47,12 +48,12 @@
 \indexentry{URL|hyperpage}{55}
 \indexentry{スキーム|hyperpage}{55}
 \indexentry{HTTP|hyperpage}{55}
-\indexentry{HTML|hyperpage}{55}
-\indexentry{ハイパーテキスト|hyperpage}{55}
-\indexentry{サーバー|hyperpage}{55}
-\indexentry{クライアント|hyperpage}{55}
-\indexentry{ブラウザー|hyperpage}{55}
-\indexentry{タグ|hyperpage}{56}
+\indexentry{HTML|hyperpage}{56}
+\indexentry{ハイパーテキスト|hyperpage}{56}
+\indexentry{サーバー|hyperpage}{56}
+\indexentry{クライアント|hyperpage}{56}
+\indexentry{ブラウザー|hyperpage}{56}
+\indexentry{タグ|hyperpage}{57}
 \indexentry{CSS|hyperpage}{58}
 \indexentry{JavaScript|hyperpage}{58}
 \indexentry{HTTPS|hyperpage}{58}
@@ -95,4 +96,5 @@
 \indexentry{チャレンジ|hyperpage}{80}
 \indexentry{ファイヤーウォール|hyperpage}{80}
 \indexentry{VPN|hyperpage}{81}
+\indexentry{ゼロトラスト|hyperpage}{81}
 \indexentry{ソーシャルエンジニアリング|hyperpage}{84}

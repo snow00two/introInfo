@@ -301,11 +301,20 @@ WAN=Wide Area Network の緩やかな塊がインターネットである．
       \]
       これだと$2^{128}$個(日本語での十進法での単位が不明なので書かない)で十分な数がある．
       
-      いずれにしろ人間は大きい数字を扱うのは得意でないのでyoutube.com のような名前でアドレスを表すことが多い．
-      これを\term[]{ドメインネーム}という．
+      いずれにしろ人間は大きい数字を扱うのは得意でないので
+      \[
+         \text{www.youtube.com},\quad  \text{www.yahoo.co.jp}, \quad
+          \text{snow00two.github.io}
+      \]
+       のような名前でアドレスを表すことが多い．
+      これを\term[]{ドメインネーム}という．各ドメイン名の最後の部分(com, jp, io)を
+      \term[]{トップドメイン}という\footnote{comは米国の商業トップドメイン，jpは日本の国別トップドメイン名, ioはBritish Indian Ocean Territory (イギリス領インド洋地域)の国別トップドメインだがIO=Input/Output に掛けて新興IT企業などが使っている．}．
       ドメインネームをIPアドレスに変換するサービスを行うのが
       \term[]{DNS}(Domain Name System) である．
       実際に仕事を行っているサーバーをDNS Server という．
+      ただし，例えばYouTubeではwww.youtube.comという一台のサーバーしかない
+      わけでは無く，世界中に多くのサーバーが置かれており，
+      一番近いもののIPアドレスを送り返すようになっている．
 
       \begin{figure}[htb]
          \centering

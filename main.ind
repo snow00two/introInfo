@@ -14,7 +14,7 @@
 
   \indexspace
 
-  \item HTML, \hyperpage{55}
+  \item HTML, \hyperpage{56}
   \item HTTP, \hyperpage{55}
   \item HTTPS, \hyperpage{58}
 
@@ -59,21 +59,23 @@
   \item カラーコード, \hyperpage{18}
   \item クエリ, \hyperpage{58}
   \item クッキー, \hyperpage{59}
-  \item クライアント, \hyperpage{55}
+  \item クライアント, \hyperpage{56}
   \item サイバーキルチェーン, \hyperpage{77}
   \item サンプリング, \hyperpage{20}
   \item サンプリング周波数, \hyperpage{20}
   \item サンプリング定理, \hyperpage{21}
-  \item サーバー, \hyperpage{55}
+  \item サーバー, \hyperpage{56}
   \item スキーム, \hyperpage{55}
+  \item ゼロトラスト, \hyperpage{81}
   \item ソーシャルエンジニアリング, \hyperpage{84}
-  \item タグ, \hyperpage{56}
+  \item タグ, \hyperpage{57}
   \item チャレンジ, \hyperpage{80}
   \item チューリングマシン, \hyperpage{40}
   \item テキスト, \hyperpage{12}
   \item デジタル署名, \hyperpage{72}
-  \item ドメインネーム, \hyperpage{52}
-  \item ハイパーテキスト, \hyperpage{55}
+  \item トップドメイン, \hyperpage{53}
+  \item ドメインネーム, \hyperpage{53}
+  \item ハイパーテキスト, \hyperpage{56}
   \item バイト, \hyperpage{12}
   \item バイナリー, \hyperpage{12}
   \item パスキー, \hyperpage{80}
@@ -82,7 +84,7 @@
   \item ファイヤーウォール, \hyperpage{80}
   \item フェルマーの小定理, \hyperpage{68}
   \item フリップフロップ回路, \hyperpage{34}
-  \item ブラウザー, \hyperpage{55}
+  \item ブラウザー, \hyperpage{56}
   \item プロトコル, \hyperpage{51}
   \item ヘッド, \hyperpage{40}
   \item ホフマン法, \hyperpage{28}
